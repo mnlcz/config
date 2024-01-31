@@ -5,8 +5,22 @@ local M = {}
 local highlights = require "custom.highlights"
 
 M.ui = {
-  theme = "ayu_dark",
+  theme = "dark_horizon",
   theme_toggle = { "onedark", "one_light" },
+
+  changed_themes = {
+    dark_horizon = {
+      base_30 = {
+        black = "#000000",
+        darker_black = "#000000",
+        statusline_bg = "#010101",
+        one_bg3 = "#000000",
+      },
+      base_16 = {
+        base00 = "#000000",
+      },
+    },
+  },
 
   hl_override = highlights.override,
   hl_add = highlights.add,
@@ -17,7 +31,7 @@ M.ui = {
 
   statusline = {
     theme = "default",
-    separator_style = "default"
+    separator_style = "default",
   },
 }
 
