@@ -42,10 +42,17 @@ M.mason = {
     "clangd",
     "clang-format",
 
+    -- csharp
+    "csharp-language-server",
+    "csharpier",
+
     -- python
     "python-lsp-server",
     "pylint",
     "black",
+
+    -- shell
+    "powershell-editor-services",
 
     -- markdown
     "marksman",
