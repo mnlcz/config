@@ -73,7 +73,6 @@ M.mason = {
 
     -- markdown
     "marksman",
-    "markdownlint",
 
     -- latex
     "texlab",
