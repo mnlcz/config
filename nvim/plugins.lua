@@ -2,7 +2,6 @@ local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
-
   -- Override plugin definition options
   {
     "NvChad/nvterm",
@@ -57,6 +56,14 @@ local plugins = {
     "ellisonleao/glow.nvim",
     config = true,
     cmd = "Glow",
+  },
+
+  {
+    "kdheepak/lazygit.nvim",
+    lazy = false,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
   },
 
   -- To make a plugin not be loaded

@@ -11,14 +11,18 @@ M.general = {
         require("conform").format()
       end,
       "formatting",
-    }
-
+    },
   },
   v = {
-    [">"] = { ">gv", "indent"},
+    [">"] = { ">gv", "indent" },
   },
 }
 
 -- more keybinds!
+M.lazygit = {
+  n = {
+    ["<leader>gg"] = { ":LazyGit<CR>", "Launch LazyGit" },
+  },
+}
 
 return M
