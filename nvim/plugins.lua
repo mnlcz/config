@@ -4,6 +4,12 @@ local overrides = require "custom.configs.overrides"
 local plugins = {
 
   -- Override plugin definition options
+  {
+    "NvChad/nvterm",
+    config = function()
+      require "custom.configs.nvterm"
+    end,
+  },
 
   {
     "neovim/nvim-lspconfig",
@@ -21,36 +27,7 @@ local plugins = {
 
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "vim",
-        "lua",
-
-        -- web
-        "html",
-        "css",
-        "javascript",
-        "typescript",
-        "tsx",
-        "json",
-        "php",
-        "vue",
-        "http",
-
-        -- general langs
-        "ruby",
-        "python",
-        "c_sharp",
-
-        -- misc
-        "markdown",
-        "markdown_inline",
-        "latex",
-        "gitignore",
-        "yaml",
-        "xml",
-      },
-    },
+    opts = overrides.treesitter,
   },
 
   {
@@ -73,13 +50,6 @@ local plugins = {
     -- event = "BufWritePre"
     config = function()
       require "custom.configs.conform"
-    end,
-  },
-
-  {
-    "NvChad/nvterm",
-    config = function()
-      require "custom.configs.nvterm"
     end,
   },
 
