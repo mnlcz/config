@@ -82,7 +82,7 @@ ls.add_snippets("tex", {
     fmt(
       [[
     \begin{{lstlisting}}[caption={}]
-    {}
+        {}
     \end{{lstlisting}}
     ]],
       { i(1), i(2) }
@@ -97,7 +97,7 @@ ls.add_snippets("tex", {
     fmt(
       [[
     \begin{{lstlisting}}[language={}]
-    {}
+        {}
     \end{{lstlisting}}
     ]],
       { i(1), i(2) }
@@ -112,7 +112,7 @@ ls.add_snippets("tex", {
     fmt(
       [[
     \begin{{lstlisting}}[language={}, caption={}]
-    {}
+        {}
     \end{{lstlisting}}
     ]],
       { i(1), i(2), i(3) }
@@ -127,21 +127,6 @@ ls.add_snippets("tex", {
     i(1),
     t "}",
   }),
-  s(
-    {
-      trig = "itm",
-      name = "Items block",
-      dscr = "Insert an itemize block",
-    },
-    fmt(
-      [[
-    \begin{{itemize}}
-    \item {}
-    \end{{itemize}}
-    ]],
-      { i(1) }
-    )
-  ),
 
   -- Media
   s(
@@ -153,9 +138,9 @@ ls.add_snippets("tex", {
     fmt(
       [[
     \begin{{figure}}[h]
-    \centering
-    \includegraphics[width={}\textwidth]{{{}}}
-    \caption{{{}}}
+        \centering
+        \includegraphics[width={}\textwidth]{{{}}}
+        \caption{{{}}}
     \end{{figure}}
     ]],
       { i(1), i(2), i(3) }
