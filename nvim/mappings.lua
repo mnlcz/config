@@ -25,4 +25,10 @@ M.lazygit = {
   },
 }
 
+M.glow = {
+  n = {
+    ["<leader>mp"] = { ":Glow<CR>", "Markdown file preview" },
+  },
+}
+
 return M
