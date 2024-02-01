@@ -66,6 +66,17 @@ local plugins = {
     },
   },
 
+  {
+    "lervag/vimtex",
+    lazy = false,
+    ft = "plaintex",
+    config = function()
+      -- vim.g.vimtex_view_method = "zathura"
+      vim.g.vimtex_view_general_viewer = "sioyek"
+      -- vim.g.vimtex_compiler_engine = "lualatex"
+    end,
+  },
+
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
