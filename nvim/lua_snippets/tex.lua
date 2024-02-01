@@ -5,7 +5,7 @@ local i = ls.insert_node
 local f = ls.function_node
 
 local function template(_, _, filename)
-  local path = "./templates/" .. filename .. ".template"
+  local path = vim.fn.stdpath("config") .. "/lua/custom/lua_snippets/templates/" .. filename .. ".template"
   local file = io.open(path, "r")
 
   if not file then
@@ -24,7 +24,7 @@ local function template(_, _, filename)
   return nodes
 end
 
-ls.add_snippets("plaintex", {
+ls.add_snippets("tex", {
   s("personaltemplate", {
     f(template, {}, {
       user_args = { "tex" },
