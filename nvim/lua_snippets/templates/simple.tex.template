@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, wasysym} % Simbolos
+\usepackage{graphicx} % Insertar imagenes
+\usepackage[top=2cm]{geometry} % Bordes del documento
+\usepackage{xcolor} % Cambiar color letras
+\usepackage{hyperref} % Links
+\usepackage{cancel} % Tachar en math mode
+
+\title{\vspace{-1.5cm} }
+\author{Manuel Lopez Cosmitz}
+\date{}
+
+\renewcommand{\contentsname}{Índice}
+\renewcommand{\figurename}{Imagen}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\clearpage
+
+\end{document}
