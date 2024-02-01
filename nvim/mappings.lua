@@ -31,4 +31,10 @@ M.glow = {
   },
 }
 
+M.telescope = {
+  n = {
+    ["<leader>km"] = { ":Telescope keymaps<CR>", "Telescope keymaps" },
+  },
+}
+
 return M
