@@ -3,7 +3,7 @@ Set-PSReadLineOption -PredictionViewStyle ListView
 
 if ($IsWindows) {
     # Appearance
-    oh-my-posh --init --shell pwsh --config C:\Users\manuc\Documents\PowerShell\Modules\oh-my-posh\themes\star.omp.json | Invoke-Expression
+    oh-my-posh --init --shell pwsh --config F:\Dev\Repos\Config\ps1\custom-themes\star.omp.json | Invoke-Expression
     Import-Module -Name Terminal-Icons
 
     # Alias related
