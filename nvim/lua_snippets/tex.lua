@@ -180,8 +180,8 @@ ls.add_snippets("tex", {
 
   -- Text
   s({
-    trig = "mtxt",
-    name = "Math text",
+    trig = "mrm",
+    name = "Mathrm block",
     dscr = "Text block in math mode",
   }, {
     t "\\mathrm{",
@@ -191,25 +191,25 @@ ls.add_snippets("tex", {
   s({
     trig = "u",
     name = "Unit of measurement",
-    dscr = "Insert text block for unit of measurement",
+    dscr = "Insert mathrm block for unit of measurement",
   }, {
-    t "\\text{ ",
+    t "\\mathrm{",
     i(1),
     t "}",
   }),
   s({
     trig = "arg",
     name = "Complex number argument",
-    dscr = "Insert text block for complex number argument",
+    dscr = "Insert mathrm block for complex number argument",
   }, {
-    t "\\text{arg}(",
+    t "\\mathrm{arg}(",
     i(1),
     t ")",
   }),
   s({
     trig = "real",
     name = "Complex number real part",
-    dscr = "Insert text block for complex number real part",
+    dscr = "Insert mathrm block for complex number real part",
   }, {
     t "\\mathrm{Re}(",
     i(1),
@@ -218,7 +218,7 @@ ls.add_snippets("tex", {
   s({
     trig = "imag",
     name = "Complex number imaginary part",
-    dscr = "Insert text block for complex number imaginary part",
+    dscr = "Insert mathrm block for complex number imaginary part",
   }, {
     t "\\mathrm{Im}(",
     i(1),
