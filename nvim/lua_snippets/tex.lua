@@ -193,7 +193,7 @@ ls.add_snippets("tex", {
     name = "Unit of measurement",
     dscr = "Insert mathrm block for unit of measurement",
   }, {
-    t "\\mathrm{",
+    t "\\, \\mathrm{",
     i(1),
     t "}",
   }),
