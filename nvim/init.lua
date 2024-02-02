@@ -10,7 +10,7 @@ end
 
 ---------- options ---------
 -- appearance
-vim.opt.guicursor = "n-v-c-r:hor20-Cursor,i:ver20-Cursor"
+vim.opt.guicursor = "n-v-c-r:hor20,i:ver20"
 
 -- indenting
 opt.tabstop = 4
