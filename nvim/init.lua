@@ -9,6 +9,9 @@ local function set_indentation(filetypes, shiftwidth, tabstop)
 end
 
 ---------- options ---------
+-- appearance
+vim.opt.guicursor = "n-v-c-r:hor20-Cursor,i:ver20-Cursor"
+
 -- indenting
 opt.tabstop = 4
 opt.shiftwidth = 4
