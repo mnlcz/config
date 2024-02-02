@@ -5,14 +5,15 @@ The `Sync.ps1` script updates the repo with the latest changes made on Windows (
 ## Dependencies
 
 ### General
-- git
-- lazygit
-- Powershell
+
+- Git
+- Lazygit
+- Powershell (set as default shell for Nvterm)
 
 ### NvChad base
 
 - Neovim 0.9.4
-- Nerd Font (TODO: add it to the repo)
+- Nerd Font
 - Ripgrep
 - GCC
 - Make
