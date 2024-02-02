@@ -149,6 +149,15 @@ ls.add_snippets("tex", {
 
   -- Math
   s({
+    trig = "abs",
+    name = "Absolute value of",
+    dscr = "Inserts lvert and rvert for representing the absolute value of a number",
+  }, {
+    t "\\lvert ",
+    i(1),
+    t " \\rvert",
+  }),
+  s({
     trig = "E",
     name = "Times 10 to the power of",
     dscr = "Some number times 10 to the power of another number",
