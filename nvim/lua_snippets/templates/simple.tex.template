@@ -14,7 +14,10 @@
 \renewcommand{\contentsname}{Índice}
 \renewcommand{\figurename}{Imagen}
 \graphicspath{{./img/}}
-\sisetup{exponent-product = \cdot}
+\sisetup{
+    exponent-product = \cdot,
+    output-decimal-marker = {,}
+}
 
 \begin{document}
 \maketitle

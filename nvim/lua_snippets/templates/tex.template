@@ -12,8 +12,11 @@
 \renewcommand{\contentsname}{Índice}
 \renewcommand{\lstlistingname}{Código}
 \renewcommand{\figurename}{Imagen}
-\sisetup{exponent-product = \cdot}
 \graphicspath{{./img/}}
+\sisetup{
+    exponent-product = \cdot,
+    output-decimal-marker = {,}
+}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
