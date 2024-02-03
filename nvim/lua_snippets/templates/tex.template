@@ -6,6 +6,7 @@
 \usepackage{hyperref} % Links
 \usepackage{cancel} % Tachar en math mode
 \usepackage{listings} % Extractos de código
+\usepackage{siunitx} % SI unidades y utilidades
 
 \renewcommand{\chaptername}{Capítulo}
 \renewcommand{\contentsname}{Índice}

@@ -5,6 +5,7 @@
 \usepackage{xcolor} % Cambiar color letras
 \usepackage{hyperref} % Links
 \usepackage{cancel} % Tachar en math mode
+\usepackage{siunitx} % SI unidades y utilidades
 
 \title{\vspace{-1.5cm} }
 \author{Manuel Lopez Cosmitz}
@@ -12,6 +13,7 @@
 
 \renewcommand{\contentsname}{Índice}
 \renewcommand{\figurename}{Imagen}
+\graphicspath{{./img/}}
 
 \begin{document}
 \maketitle
