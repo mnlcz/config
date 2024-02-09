@@ -61,7 +61,6 @@ M.mason = {
 
     -- csharp
     "csharp-language-server",
-    "csharpier",
 
     -- python
     "python-lsp-server",
