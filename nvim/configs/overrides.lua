@@ -21,6 +21,7 @@ M.treesitter = {
     "python",
     "c_sharp",
     "c",
+    "rust",
 
     -- misc
     "markdown",
@@ -55,9 +56,10 @@ M.mason = {
     "intelephense",
     "pint",
 
-    -- c/cpp stuff
+    -- low lvl
     "clangd",
     "clang-format",
+    "rust-analyzer",
 
     -- csharp
     "csharp-language-server",

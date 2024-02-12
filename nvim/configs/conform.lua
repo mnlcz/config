@@ -13,6 +13,7 @@ local options = {
     markdown = { "prettier" },
     php = { "pint" },
     python = { "black" },
+    rust = { "rustfmt" },
     sh = { "shfmt" },
   },
 
