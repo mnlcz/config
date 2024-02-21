@@ -71,9 +71,15 @@ local plugins = {
     lazy = false,
     ft = "plaintex",
     config = function()
+      -- Set the vimtex_viewer
       -- vim.g.vimtex_view_method = "zathura"
-      vim.g.vimtex_view_general_viewer = "sioyek"
       -- vim.g.vimtex_compiler_engine = "lualatex"
+      vim.g.vimtex_view_general_viewer = "sioyek"
+
+      -- Set the vimtex_compiler_latexmk configuration
+      vim.g.vimtex_compiler_latexmk = {
+        out_dir = "build",
+      }
     end,
   },
 
