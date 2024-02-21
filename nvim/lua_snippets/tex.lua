@@ -82,7 +82,7 @@ ls.add_snippets("tex", {
     fmt(
       [[
     \begin{{lstlisting}}[caption={}]
-        {}
+    {}
     \end{{lstlisting}}
     ]],
       { i(1), i(2) }
@@ -97,7 +97,7 @@ ls.add_snippets("tex", {
     fmt(
       [[
     \begin{{lstlisting}}[language={}]
-        {}
+    {}
     \end{{lstlisting}}
     ]],
       { i(1), i(2) }
@@ -112,7 +112,7 @@ ls.add_snippets("tex", {
     fmt(
       [[
     \begin{{lstlisting}}[language={}, caption={}]
-        {}
+    {}
     \end{{lstlisting}}
     ]],
       { i(1), i(2), i(3) }
