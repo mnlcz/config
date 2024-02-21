@@ -166,7 +166,7 @@ ls.add_snippets("tex", {
     i(1),
   }),
   s({
-    trig = ".",
+    trig = "cdt",
     name = "Multiplication",
     dscr = "Insert cdot command",
   }, {
