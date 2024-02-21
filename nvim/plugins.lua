@@ -73,7 +73,6 @@ local plugins = {
     config = function()
       -- Set the vimtex_viewer
       -- vim.g.vimtex_view_method = "zathura"
-      -- vim.g.vimtex_compiler_engine = "lualatex"
       vim.g.vimtex_view_general_viewer = "sioyek"
 
       -- Set the vimtex_compiler_latexmk configuration
