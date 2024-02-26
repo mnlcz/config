@@ -1,7 +1,7 @@
 \documentclass{report}
 \usepackage{amsmath, amssymb, wasysym} % Simbolos
 \usepackage{graphicx} % Insertar imagenes
-\usepackage[top=2cm]{geometry} % Bordes del documento
+\usepackage[a4paper, top=2cm]{geometry} % Bordes del documento
 \usepackage{xcolor} % Cambiar color letras
 \usepackage{hyperref} % Links
 \usepackage{cancel} % Tachar en math mode
@@ -13,9 +13,12 @@
 \renewcommand{\lstlistingname}{Código}
 \renewcommand{\figurename}{Imagen}
 \graphicspath{{./img/}}
+\newtheorem*{definicion}{Definición}
 \sisetup{
     exponent-product = \cdot,
-    output-decimal-marker = {,}
+    output-decimal-marker = {,},
+    % per-mode = symbol
+    per-mode = fraction
 }
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
