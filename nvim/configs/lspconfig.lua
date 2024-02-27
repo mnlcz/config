@@ -14,6 +14,7 @@ local servers = {
   "texlab",
   "pylsp",
   "csharp_ls",
+  "rust_analyzer",
 }
 
 for _, lsp in ipairs(servers) do
