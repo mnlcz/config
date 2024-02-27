@@ -11,11 +11,15 @@ if ($IsWindows)
     Set-Alias -Name nvconf -Value NvimConfPath
     Set-Alias -Name psconf -Value PSUserPath
     Set-Alias -Name dotfiles -Value ConfigPath
+    Set-Alias -Name univault -Value UniVaultPath
+    Set-Alias -Name persvault -Value PersVaultPath
 
     # Util funcs
     function NvimConfPath { Set-Location -Path ~/AppData/Local/nvim/lua/custom/ }
     function PSUserPath { Set-Location -Path ~/Documents/PowerShell/ }
     function ConfigPath { Set-Location -Path F:/Dev/Repos/Config/ }
+    function UniVaultPath { Set-Location -Path ~/OneDrive/MnLCz/Universidad/ }
+    function PersVaultPath { Set-Location -Path ~/OneDrive/MnLCz/Personal/ }
 }
 elseif ($IsLinux)
 {
