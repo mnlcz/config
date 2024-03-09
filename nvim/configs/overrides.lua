@@ -22,6 +22,7 @@ M.treesitter = {
     "c_sharp",
     "c",
     "rust",
+    "kotlin",
 
     -- misc
     "markdown",
@@ -63,6 +64,10 @@ M.mason = {
 
     -- csharp
     "csharp-language-server",
+
+    -- jvm
+    "kotlin-language-server",
+    "ktlint",
 
     -- python
     "python-lsp-server",

@@ -10,6 +10,7 @@ local servers = {
   "tsserver",
   "clangd",
   "intelephense",
+  "kotlin_language_server",
   "marksman",
   "texlab",
   "pylsp",

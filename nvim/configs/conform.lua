@@ -8,6 +8,7 @@ local options = {
     css = { "prettier" },
     html = { "prettier" },
     latex = { "latexindent" },
+    kotlin = { "kotlin" },
     tex = { "latexindent" },
     plaintex = { "latexindent" },
     markdown = { "prettier" },
