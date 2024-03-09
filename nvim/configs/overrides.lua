@@ -22,6 +22,7 @@ M.treesitter = {
     "c_sharp",
     "c",
     "rust",
+    "kotlin",
 
     -- misc
     "markdown",
@@ -55,6 +56,10 @@ M.mason = {
     -- php
     "intelephense",
     "pint",
+
+    -- jvm
+    "kotlin-language-server",
+    "ktlint",
 
     -- low lvl
     "clangd",

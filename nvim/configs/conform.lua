@@ -9,6 +9,7 @@ local options = {
     html = { "prettier" },
     latex = { "latexindent" },
     tex = { "latexindent" },
+    kotlin = { "ktlint" },
     plaintex = { "latexindent" },
     markdown = { "prettier" },
     php = { "pint" },
