@@ -23,6 +23,7 @@ The `Sync.ps1` script updates the repo with the latest changes made on Windows (
 This configs assume (in Mason/LSP configs) that the following development tools are installed:
 
 - Dotnet SDK
+- JDK, Kotlinc, Kotlin LSP
 - Nodejs
 - PHP
 - Python
