@@ -63,7 +63,7 @@ M.mason = {
     "rust-analyzer",
 
     -- csharp
-    "csharp-language-server",
+    "omnisharp",
 
     -- jvm
     "kotlin-language-server",
