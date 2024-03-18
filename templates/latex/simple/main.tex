@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb, wasysym} % Simbolos
+\usepackage{graphicx} % Insertar imagenes
+\usepackage[a4paper, top=2cm]{geometry} % Bordes del documento
+\usepackage{xcolor} % Cambiar color letras
+\usepackage{hyperref} % Links
+\usepackage{cancel} % Tachar en math mode
+\usepackage{siunitx} % SI unidades y utilidades
+
+\title{\vspace{-1.5cm} TITLE}
+\author{Manuel Lopez Cosmitz}
+\date{\today}
+
+\renewcommand{\contentsname}{Índice}
+\renewcommand{\figurename}{Imagen}
+
+\graphicspath{{./img/}}
+\sisetup{
+    exponent-product = \cdot,
+    output-decimal-marker = {,},
+    % per-mode = symbol
+    per-mode = fraction
+}
+
+\begin{document}
+\maketitle
+\section{Section}
+\end{document}
