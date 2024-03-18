@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage{amsmath, amssymb, wasysym} % Simbolos
 \usepackage{graphicx} % Insertar imagenes
-\usepackage[a4paper, top=1cm]{geometry} % Bordes del documento
+\usepackage[a4paper, top=2cm]{geometry} % Bordes del documento
 \usepackage{xcolor} % Cambiar color letras
 \usepackage{hyperref} % Links
 \usepackage{cancel} % Tachar en math mode
