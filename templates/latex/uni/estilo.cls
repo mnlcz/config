@@ -26,32 +26,6 @@
 
 \RequirePackage{xfp}
 
-% Función para poner los asteriscos
-\newcommand{\andreas}[5][1.0]{
-    \begin{scope}[shift={(#2,#3)},rotate=45,scale=#4,transparency group,opacity=#1]
-        \fill[fill=#5] (0,0) -- (0,1) -- (3,1) -- (3,0);
-        \fill[fill=#5] (1,-1) -- (2,-1) -- (2,2) -- (1,2);
-    \end{scope}
-}
-
-\newcommand{\andreasline}{
-    \centering\begin{tikzpicture}
-        \newcommand\numcross{29}
-        \foreach \n in {1,...,\the\numexpr\numcross\relax} {
-            \andreas[\fpeval{0.9*sin((\n + 1)*pi/(\numcross+2))}]{0.5*\n}{0}{0.10}{black}
-        }
-    \end{tikzpicture}
-}
-
-\newcommand{\andreaslineslim}{
-    \centering\begin{tikzpicture}[baseline]
-        \newcommand\numcross{74}
-        \foreach \n in {1,...,\the\numexpr\numcross\relax} {
-            \andreas[0.75]{0.2*\n}{0}{0.04}{black}
-        }
-    \end{tikzpicture}
-}
-
 %------------------------------------------------------------------------------
 %	Función para contar palabras
 %------------------------------------------------------------------------------
@@ -77,7 +51,7 @@
 
 \renewcommand{\headrulewidth}{1pt}
 \renewcommand{\footrulewidth}{1pt}
-\rhead{\footnotesize \textsc {Titulo trabajo\\ Titulo materia}} % Trabajo práctico
+\rhead{\footnotesize \textsc {TITULO \\ MATERIA}} % Trabajo práctico
 \lhead{\includegraphics[width=1.5cm]{img/undav.png}}
 \cfoot{\small \textsc {Página \thepage\ de \pageref*{LastPage}}}
 
@@ -90,32 +64,25 @@
    %\rfoot{\small \textsc {Página \thepage\ de \pageref*{LastPage}}}
  }
 
-
-
-
 %------------------------------------------------------------------------------
 %	CARÁTULA
 %------------------------------------------------------------------------------
 
 \renewcommand*{\maketitle}{
 \thispagestyle{firststyle}
-\begin{center}
-\includegraphics[width=7cm]{img/undav.png}
-\\[1cm]
-	\textsc{\Large TITULO MATERIA}\\           % Materia
-	\textsc{\small Subtitulo materia}\\[0.4cm]    % Subtítulo materia
-	{ \huge \bfseries Trabajo Práctico 0 \\ Titulo trabajo}\\[0.3cm]      % Título
-	\andreasline \\[0.2cm]
-	{\large \today  \\[0.4cm]}                          % Fecha
-	\begin{minipage}{0.4\textwidth}
-		\begin{flushleft}
-            \large{Alan Turing \\ 101010}                   % Integrante 1
-		\end{flushleft}
-	\end{minipage}
-	\begin{minipage}{0.4\textwidth}
-		\begin{flushright}
-            \large{Barbara Liskov \\ 111111}                % Integrante 2
-		\end{flushright}
-	\end{minipage}
- \end{center}
+\begin{titlepage}
+    \centering
+    {\includegraphics[width=0.5\textwidth]{./img/undav.png}\par}
+    \vspace{1cm}
+    {\bfseries\LARGE Ingeniería Informática \par}
+    \vspace{3cm}
+    {\scshape\Huge MATERIA \par}
+    \vspace{3cm}
+    {\itshape\Large TITULO \par}
+    \vfill
+    {\Large Autor: \par}
+    {\Large Manuel Lopez Cosmitz \par}
+    \vfill
+    {\Large \today \par}
+\end{titlepage}
 }
