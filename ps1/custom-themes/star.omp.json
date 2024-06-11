@@ -82,7 +82,7 @@
             "{{ if gt .Code 0 }}#D51111{{ end }}"
           ],
           "style": "plain",
-          "template": " \uf0a4  ",
+          "template": "\uf0a4  ",
           "type": "text"
         }
       ],
