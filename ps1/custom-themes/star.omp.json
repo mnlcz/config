@@ -1,5 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 2,
   "blocks": [
     {
       "type": "prompt",
@@ -9,91 +10,83 @@
           "type": "root",
           "style": "plain",
           "foreground": "#E06C75",
+          "template": "\uf0e7 <#ffffff>in</> ",
           "properties": {
-            "root_icon": "root",
-            "prefix": "",
-            "postfix": " <#ffffff>in</> "
+            "root_icon": "root"
           }
         },
         {
           "type": "path",
           "style": "plain",
           "foreground": "#55B9C4",
+          "template": "{{ .Path }} ",
           "properties": {
-            "style": "folder",
-            "prefix": ""
+            "style": "folder"
           }
         },
         {
           "type": "git",
           "style": "plain",
           "foreground": "#C678DD",
+          "template": "<#ffffff>on</> {{ .HEAD }}{{ .BranchStatus }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }} ",
           "properties": {
-            "prefix": "<#ffffff>on</> ",
-            "fetch_status": true,
-            "template": "{{ .HEAD }}{{ .BranchStatus }}{{ if .Working.Changed }} \uF044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uF046 {{ .Staging.String }}{{ end }}"
+            "fetch_status": true
           }
         },
         {
           "type": "node",
           "style": "plain",
           "foreground": "#98C379",
+          "template": "<#ffffff>via</> \ue781 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} ",
           "properties": {
-            "display_version": true,
-            "prefix": "<#ffffff>via</> \uE781 "
+            "fetch_version": true
           }
         },
         {
           "type": "dotnet",
           "style": "powerline",
-          "powerline_symbol": "",
-          "invert_powerline": false,
+          "powerline_symbol": "\ue0b0",
           "foreground": "#ffffff",
           "background": "transparent",
-          "leading_diamond": "",
-          "trailing_diamond": "",
+          "template": "\ue70c {{ if .Unsupported }}\uf071{{ else }}{{ .Full }}{{ end }} ",
           "properties": {
-              "display_version": true,
-              "prefix": " "
+            "fetch_version": true
           }
         },
         {
           "type": "php",
           "style": "powerline",
-          "powerline_symbol": "",
+          "powerline_symbol": "\ue0b0",
           "foreground": "#ffffff",
           "background": "transparent",
+          "template": "\ue73d {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} ",
           "properties": {
-              "display_version": true,
-              "prefix": " "
+            "fetch_version": true
           }
         },
         {
           "type": "exit",
           "style": "plain",
           "foreground": "#C94A16",
-          "properties": {
-            "prefix": "",
-            "template": "x"
-          }
+          "template": "x "
         }
       ]
     },
     {
-      "type": "prompt",
       "alignment": "left",
       "newline": true,
       "segments": [
         {
-          "type": "text",
+          "foreground": "#FFF",
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}#D51111{{ end }}"
+          ],
           "style": "plain",
-          "foreground": "#63F08C",
-          "properties": {
-            "prefix": "",
-            "text": "🧉"
-          }
+          "template": " \uf0a4  ",
+          "type": "text"
         }
-      ]
+      ],
+      "type": "prompt"
     }
   ]
 }
