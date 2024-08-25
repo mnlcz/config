@@ -8,11 +8,11 @@ The `Sync.ps1` script updates the repo with the latest changes made on Windows (
 
 - Git
 - Lazygit
-- Powershell (set as default shell for Nvterm)
+- Powershell (personal favorite, set as default shell for Nvterm)
 
 ### NvChad base
 
-- Neovim 0.9.4
+- Neovim 0.9.4+
 - Nerd Font
 - Ripgrep
 - GCC
@@ -20,10 +20,9 @@ The `Sync.ps1` script updates the repo with the latest changes made on Windows (
 
 ### Mason
 
-This configs assume (in Mason/LSP configs) that the following development tools are installed:
+This configs assumes (in Mason/LSP configs) that the following development tools are installed:
 
 - Dotnet SDK
-- JDK, Kotlinc, Kotlin LSP
 - Nodejs
 - PHP
 - Python
