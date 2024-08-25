@@ -66,8 +66,8 @@ M.mason = {
     "omnisharp",
 
     -- jvm
-    "kotlin-language-server",
-    "ktlint",
+    -- "kotlin-language-server",
+    -- "ktlint",
 
     -- python
     "python-lsp-server",
