@@ -1,0 +1,3 @@
+Change individual scripts into a PowerShell Module.
+Add current dir to $env:PSModulePath
+https://www.udemy.com/course/tool-building-with-windows-powershell-advanced/learn/lecture/24467730#overview
