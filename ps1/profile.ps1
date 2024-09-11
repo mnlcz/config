@@ -13,6 +13,7 @@ if ($IsWindows)
     Set-Alias -Name dotfiles -Value ConfigPath
     Set-Alias -Name univault -Value UniVaultPath
     Set-Alias -Name persvault -Value PersVaultPath
+    Set-Alias -Name cstools -Value CyberSecurityScripts
 
     # Util funcs
     function NvimConfPath { Set-Location -Path ~/AppData/Local/nvim/lua/custom/ }
@@ -20,6 +21,7 @@ if ($IsWindows)
     function ConfigPath { Set-Location -Path F:/Dev/Repos/Config/ }
     function UniVaultPath { Set-Location -Path ~/OneDrive/MnLCz/Universidad/ }
     function PersVaultPath { Set-Location -Path ~/OneDrive/MnLCz/Personal/ }
+    function CyberSecurityScripts { $env:PATH += ";F:/Dev/Repos/Cybersecurity/Tools" }
 }
 elseif ($IsLinux)
 {
