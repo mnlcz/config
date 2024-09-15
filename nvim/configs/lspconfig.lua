@@ -13,6 +13,7 @@ local servers = {
   -- "kotlin_language_server",
   "marksman",
   "texlab",
+  "perlnavigator",
   "pylsp",
   "rust_analyzer",
 }

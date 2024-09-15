@@ -83,6 +83,9 @@ M.mason = {
     -- latex
     "texlab",
     "latexindent",
+
+    -- extra
+    "perlnavigator",
   },
 }
 
