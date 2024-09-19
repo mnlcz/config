@@ -16,6 +16,7 @@ local servers = {
   "perlnavigator",
   "pylsp",
   "rust_analyzer",
+  "solargraph",
 }
 
 for _, lsp in ipairs(servers) do

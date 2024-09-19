@@ -86,6 +86,7 @@ M.mason = {
 
     -- extra
     "perlnavigator",
+    "solargraph",
   },
 }
 
