@@ -1,4 +1,6 @@
-local opt = vim.opt
+require "nvchad.options"
+
+local o = vim.o
 
 ---------- utilities ---------
 local function set_indentation(filetypes, shiftwidth, tabstop)
@@ -9,12 +11,13 @@ local function set_indentation(filetypes, shiftwidth, tabstop)
 end
 
 ---------- options ---------
--- appearance
-vim.opt.guicursor = "n-v-c-r:hor20-blinkwait300-blinkon200-blinkoff150,i:ver25"
+o.guicursor = "n-v-c-r:hor20-blinkwait300-blinkon200-blinkoff150,i:ver25"
+o.relativenumber = true
 
--- indenting
-opt.tabstop = 4
-opt.shiftwidth = 4
+---------- indenting ---------
+o.tabstop = 4
+o.shiftwidth = 4
+
 local custom_indent_rules = {
   { "lua", 2, 2 },
   { "html", 2, 2 },
@@ -26,9 +29,5 @@ for _, settings in ipairs(custom_indent_rules) do
   set_indentation({ settings[1] }, settings[2], settings[3])
 end
 
--- numbers
-opt.relativenumber = true
-
 ---------- snippets ---------
--- lua format
-vim.g.lua_snippets_path = vim.fn.stdpath "config" .. "/lua/custom/lua_snippets"
+vim.g.lua_snippets_path = vim.fn.stdpath "config" .. "/lua/lua_snippets"

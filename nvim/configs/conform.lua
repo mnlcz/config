@@ -1,7 +1,4 @@
---type conform.options
 local options = {
-  lsp_fallback = true,
-
   formatters_by_ft = {
     lua = { "stylua" },
     javascript = { "prettier" },
@@ -25,4 +22,4 @@ local options = {
   -- },
 }
 
-require("conform").setup(options)
+return options

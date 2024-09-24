@@ -1,40 +1,13 @@
----@type MappingsTable
-local M = {}
+require "nvchad.mappings"
 
-M.general = {
-  n = {
-    [";"] = { ":", "enter command mode", opts = { nowait = true } },
+local map = vim.keymap.set
 
-    --  format with conform
-    ["<leader>fm"] = {
-      function()
-        require("conform").format()
-      end,
-      "formatting",
-    },
-  },
-  v = {
-    [">"] = { ">gv", "indent" },
-  },
-}
+-- general
+map("n", ";", ":", { desc = "CMD enter command mode" })
+map("i", "jj", "<ESC>")
+map("v", ">", ">gv", { desc = "Indent" })
 
--- more keybinds!
-M.lazygit = {
-  n = {
-    ["<leader>gg"] = { ":LazyGit<CR>", "Launch LazyGit" },
-  },
-}
-
-M.glow = {
-  n = {
-    ["<leader>mp"] = { ":Glow<CR>", "Markdown file preview" },
-  },
-}
-
-M.telescope = {
-  n = {
-    ["<leader>km"] = { ":Telescope keymaps<CR>", "Telescope keymaps" },
-  },
-}
-
-return M
+-- extras
+map("n", "<leader>gg", "<cmd>LazyGit<CR>", { desc = "Launch LazyGit" })
+map("n", "<leader>mp", "<cmd>Glow<CR>", { desc = "Markdown file preview" })
+map("n", "<leader>km", "<cmd>Telescope keymaps<CR>", { desc = "Show keymaps" })

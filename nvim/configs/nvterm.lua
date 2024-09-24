@@ -1,7 +1,7 @@
 local options = {
   terminals = {
-    -- shell = vim.o.shell, -- default
-    shell = "pwsh",
+    shell = vim.o.shell, -- default
+    -- shell = "pwsh",
     list = {},
     type_opts = {
       float = {
@@ -26,4 +26,4 @@ local options = {
   },
 }
 
-require("nvterm").setup(options)
+return options
