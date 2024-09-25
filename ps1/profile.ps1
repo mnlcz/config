@@ -1,11 +1,13 @@
 # Shell behaviour
 Set-PSReadLineOption -PredictionViewStyle ListView
 
+# Install-Module -Name Terminal-Icons -Repository PSGallery
+Import-Module -Name Terminal-Icons
+
 if ($IsWindows) 
 {
     # Appearance
     oh-my-posh --init --shell pwsh --config F:\Dev\Repos\Config\ps1\custom-themes\star.omp.json | Invoke-Expression
-    Import-Module -Name Terminal-Icons
 
     # Alias related
     Set-Alias -Name nvconf -Value NvimConfPath
@@ -26,6 +28,15 @@ if ($IsWindows)
 elseif ($IsLinux)
 {
     # Add composer global packages bin to PATH
-    $env:PATH += ":/home/mnlcz/.composer/vendor/bin"
+    # $env:PATH += ":/home/mnlcz/.composer/vendor/bin"
+
+    # Neovim
+    $env:PATH += ":/opt/nvim-linux64/bin"
+    $env:PATH += ":/opt/nvim-linux64/bin"
+    $env:PATH += ":/opt/nvim-linux64/bin"
+
+    # Posh
+    $env:PATH += ":$env:HOME/.local/bin"
+    oh-my-posh init pwsh --config "$env:HOME/repos/Config/ps1/custom-themes/patriksvensson.omp.json" | Invoke-Expression
 }
 
