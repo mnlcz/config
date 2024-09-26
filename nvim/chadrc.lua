@@ -8,7 +8,7 @@ local M = {}
 local highlights = require "configs.highlights"
 
 M.base46 = {
-  theme = "github_light",
+  theme = "dark_horizon",
   theme_toggle = { "onedark", "one_light" },
 
   changed_themes = {
