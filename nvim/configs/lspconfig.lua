@@ -10,6 +10,7 @@ local servers = {
   "clangd",
   "intelephense",
   -- "kotlin_language_server",
+  "jdtls",
   "marksman",
   "texlab",
   "perlnavigator",
