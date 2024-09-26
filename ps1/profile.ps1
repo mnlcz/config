@@ -39,6 +39,9 @@ elseif ($IsLinux)
     $env:PATH += ":$env:HOME/.local/bin"
     oh-my-posh init pwsh --config "$env:HOME/repos/Config/ps1/custom-themes/patriksvensson.omp.json" | Invoke-Expression
 
+    # Manually installed software
+    $env:PATH += ":/opt/zig/" # zig compiler
+
     # SDKMAN (works in bash only, but PS1 can use the installed sdks)
     $env:SDKMAN_DIR = "$env:HOME/.sdkman"
     $env:PATH += ":$env:SDKMAN_DIR/candidates/gradle/current/bin" # gradle
