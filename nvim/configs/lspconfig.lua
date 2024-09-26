@@ -18,6 +18,7 @@ local servers = {
   "pylsp",
   "rust_analyzer",
   "solargraph",
+  "zls",
 }
 local nvlsp = require "nvchad.configs.lspconfig"
 
