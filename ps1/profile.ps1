@@ -37,7 +37,7 @@ elseif ($IsLinux)
 
     # Posh
     $env:PATH += ":$env:HOME/.local/bin"
-    oh-my-posh init pwsh --config "$env:HOME/repos/Config/ps1/custom-themes/patriksvensson.omp.json" | Invoke-Expression
+    oh-my-posh init pwsh --config "$env:HOME/repos/Config/ps1/custom-themes/star.omp.json" | Invoke-Expression
 
     # Manually installed software
     $env:PATH += ":/opt/zig/" # zig compiler
