@@ -11,7 +11,7 @@ local servers = {
   "intelephense",
   "groovyls",
   "jdtls",
-  -- "kotlin_language_server",
+  "kotlin_language_server",
   "marksman",
   "texlab",
   "perlnavigator",

@@ -42,5 +42,6 @@ elseif ($IsLinux)
     # SDKMAN (works in bash only, but PS1 can use the installed sdks)
     $env:SDKMAN_DIR = "$env:HOME/.sdkman"
     $env:PATH += ":$env:SDKMAN_DIR/candidates/gradle/current/bin" # gradle
+    $env:PATH += ":$env:SDKMAN_DIR/candidates/kotlin/current/bin" # kotlin compiler
 }
 
