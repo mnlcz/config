@@ -32,8 +32,6 @@ elseif ($IsLinux)
 
     # Neovim
     $env:PATH += ":/opt/nvim-linux64/bin"
-    $env:PATH += ":/opt/nvim-linux64/bin"
-    $env:PATH += ":/opt/nvim-linux64/bin"
 
     # Posh
     $env:PATH += ":$env:HOME/.local/bin"
@@ -41,6 +39,7 @@ elseif ($IsLinux)
 
     # Manually installed software
     $env:PATH += ":/opt/zig/" # zig compiler
+    $env:PATH += ":/usr/local/go/bin" # go
 
     # SDKMAN (works in bash only, but PS1 can use the installed sdks)
     $env:SDKMAN_DIR = "$env:HOME/.sdkman"
