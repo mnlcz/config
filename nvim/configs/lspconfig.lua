@@ -9,6 +9,7 @@ local servers = {
   "ts_ls",
   "clangd",
   "intelephense",
+  "gopls",
   "groovyls",
   "jdtls",
   "kotlin_language_server",
