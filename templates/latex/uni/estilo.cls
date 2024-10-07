@@ -1,7 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{estilo}
 \LoadClass[10pt]{article}
-
 \RequirePackage{hyperref}
 \RequirePackage{verbatim}
 \RequirePackage{attachfile2}
@@ -20,41 +19,30 @@
 \RequirePackage[a4paper, left=30mm, right=30mm, top=30mm, bottom=30mm, marginpar=25mm]{geometry}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{csquotes}
-
-
 \RequirePackage{tikz}
-
 \RequirePackage{xfp}
-
+%------------------------------------------------------------------------------
+%   Definiciones
+%------------------------------------------------------------------------------
+\newcommand{\Titulo}{TITULO}
+\newcommand{\Materia}{MATERIA}
 %------------------------------------------------------------------------------
 %	Función para contar palabras
 %------------------------------------------------------------------------------
-%\newcommand{\quickwordcount}[1]{%
-%  \immediate\write18{texcount -1 -sum=1,1,1,0,0,1,1. -merge -q -nobib #1.tex > #1-words.sum }%
-%  \input{#1-words.sum} {palabras}%
-%}
-%\newcommand{\quickwordcount}[1]{%
-%  \immediate\write18{texcount -1 -sum -merge #1.tex > #1-words}%
-%  \input{#1-words}words%
-%}
 \newcommand{\quickwordcount}[1]{%
   \immediate\write18{texcount -total -sum -1 -merge #1.tex > #1-words}%
   \input{#1-words} palabras%
 }
-
-
 %------------------------------------------------------------------------------
 %	HEADERS, FOOTERS EN SECCIONES
 %------------------------------------------------------------------------------
 \pagestyle{fancy}
 \setlength{\headheight}{37pt}
-
 \renewcommand{\headrulewidth}{1pt}
 \renewcommand{\footrulewidth}{1pt}
-\rhead{\footnotesize \textsc {TITULO \\ MATERIA}} % Trabajo práctico
+\rhead{\footnotesize \textsc {\Titulo \\ \Materia}} % Trabajo práctico
 \lhead{\includegraphics[width=1.5cm]{img/undav.png}}
 \cfoot{\small \textsc {Página \thepage\ de \pageref*{LastPage}}}
-
 \fancypagestyle{firststyle}
  {
   \fancyhf{}
@@ -63,11 +51,9 @@
    %\lfoot{\textit {\quickwordcount{main}}} 
    %\rfoot{\small \textsc {Página \thepage\ de \pageref*{LastPage}}}
  }
-
 %------------------------------------------------------------------------------
 %	CARÁTULA
 %------------------------------------------------------------------------------
-
 \renewcommand*{\maketitle}{
 \thispagestyle{firststyle}
 \begin{titlepage}
@@ -76,9 +62,9 @@
     \vspace{1cm}
     {\bfseries\LARGE Ingeniería Informática \par}
     \vspace{3cm}
-    {\scshape\Huge MATERIA \par}
+    {\scshape\Huge \Materia \par}
     \vspace{3cm}
-    {\itshape\Large TITULO \par}
+    {\itshape\Large \Titulo \par}
     \vfill
     {\Large Autor: \par}
     {\Large Manuel Lopez Cosmitz \par}
