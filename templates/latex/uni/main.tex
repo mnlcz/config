@@ -7,8 +7,13 @@
 \usepackage{amssymb}        % para simbolos matematicos
 \usepackage{hyperref}       % para utilizar referencias
 \usepackage{multirow}       % para las tablas
+\usepackage{siunitx}        % para unidades y formato numérico
 \usepackage{dsfont}
-\usepackage{listings}
+
+% Paquetes configurables
+\usepackage{amsthm}         % para teoremas, pruebas y definiciones
+\newtheorem*{definicion}{Definición}
+\usepackage{listings}       % para snippets con estilo personalizable
 \usepackage{xcolor}
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -33,9 +38,8 @@
     tabsize=2
 }
 \lstset{style=mystyle}
-
-\usepackage{enumitem,multicol,setspace}
-\newcounter{subenum}[enumi] % para las multicolumnas
+\usepackage{enumitem,multicol,setspace} % para las multicolumnas
+\newcounter{subenum}[enumi]
 \renewcommand{\thesubenum}{\arabic{subenum}}
 \usepackage[nomessages]{fp}
 \FPeval\thecolwidth{round(1/4:4)}% Specify number of columns -> column width
@@ -45,7 +49,6 @@
     \makebox[\labelwidth][r]{(\thesubenum)\hspace*{\labelsep}}%
     #1}\hfill%
 }
-
 \usepackage{scalerel,stackengine} % para el sombrero
 \stackMath
 \newcommand\rhat[1]{%
@@ -58,13 +61,10 @@
 \stackon[1pt]{#1}{\tmpbox}%
 }
 \parskip 1ex
-
 \usepackage{mathtools}      % floor y ceil
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor} 
-
 \usepackage[style=authoryear-comp]{biblatex}
-
 
 \begin{document}
 \maketitle
@@ -81,7 +81,6 @@
 % \hypertarget{res}{\section*{Ejemplo de Resolución}}
 % \input{tex/algoritmos}
 % }
-
 
 \newpage
 \end{document}
