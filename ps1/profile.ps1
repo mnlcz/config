@@ -30,6 +30,9 @@ elseif ($IsLinux)
     # Add composer global packages bin to PATH
     # $env:PATH += ":/home/mnlcz/.composer/vendor/bin"
 
+    # Scripts
+    $env:PATH += ":$env:HOME/repos/Config/scripts"
+
     # Neovim
     $env:PATH += ":/opt/nvim-linux64/bin"
 
