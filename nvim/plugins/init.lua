@@ -22,7 +22,11 @@ return {
 		"nvim-neorg/neorg",
 		lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
 		version = "*", -- Pin Neorg to the latest stable release
-		config = true, -- check https://dotfyle.com/plugins/nvim-neorg/neorg for possible configs
+		-- config = true, -- Default config
+    -- check https://dotfyle.com/plugins/nvim-neorg/neorg for possible configs
+    config = function()
+      require("configs.neorg")
+    end,
 	},
 
 	------------------ Inline configs ------------------
