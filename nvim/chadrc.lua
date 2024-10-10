@@ -29,4 +29,20 @@ M.base46 = {
   hl_add = highlights.add,
 }
 
+ M.ui = {
+   statusline = {
+     theme = "default",
+     separator_style = "arrow",
+     order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd" },
+     modules = {
+       abc = function()
+         return "hi"
+       end,
+
+       xyz =  "hi",
+       f = "%F"
+     }
+   },
+ }
+
 return M
