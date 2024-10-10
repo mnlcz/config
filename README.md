@@ -20,4 +20,4 @@ The `Sync.ps1` script updates the repo with the latest changes of the configs th
 
 ### Mason
 
-Check [LSP configs](nvim/config/lspconfig.lua) for Mason dependencies.
+Check [LSP configs](nvim/configs/lspconfig.lua) for Mason dependencies.
