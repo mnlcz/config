@@ -10,14 +10,8 @@ The `Sync.ps1` script updates the repo with the latest changes of the configs th
 - Lazygit
 - Powershell (personal favorite, set as default shell for Nvterm)
 
-### NvChad base
+### Neovim
 
-- Neovim 0.9.4+
-- Nerd Font
-- Ripgrep
-- GCC
-- Make
+- `luarocks`: for a couple of plugins.
+- `luafilesystem`: needed for dynamically handling the plugins.
 
-### Mason
-
-Check [LSP configs](nvim/configs/lspconfig.lua) for Mason dependencies.
