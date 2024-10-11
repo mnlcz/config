@@ -7,11 +7,10 @@ The `Sync.ps1` script updates the repo with the latest changes of the configs th
 ### General
 
 - Git
-- Lazygit
 - Powershell (personal favorite, set as default shell for Nvterm)
 
 ### Neovim
 
 - `luarocks`: for a couple of plugins.
-- `luafilesystem`: needed for dynamically handling the plugins.
+- `luafilesystem`: needed for dynamically handling the plugins. See how I [load the plugins](nvim/lua/plugins/init.lua).
 
