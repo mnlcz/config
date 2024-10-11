@@ -7,7 +7,7 @@ The `Sync.ps1` script updates the repo with the latest changes of the configs th
 ### General
 
 - Git
-- Powershell (personal favorite, set as default shell for Nvterm)
+- Powershell (personal favorite)
 
 ### Neovim
 
