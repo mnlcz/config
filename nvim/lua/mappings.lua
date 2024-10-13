@@ -19,3 +19,5 @@ map("n", "<leader>fm", vim.lsp.buf.format, { desc = "Format code" })
 -- Plugins
 map("n", "<leader>gg", "<cmd>LazyGit<CR>", { desc = "Launch LazyGit" })
 map("n", "<leader>mp", "<cmd>Glow<CR>", { desc = "Markdown file preview with Glow" })
+map("n", "-", "<cmd>Oil<CR>", { desc = "Open Oil file manager" })
+map("n", "<leader>-", require("oil").toggle_float, { desc = "Open Oil file manager as a floating window" })
