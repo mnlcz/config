@@ -17,5 +17,5 @@ map("n", "<leader>km", telescope.keymaps, { desc = "Show keymaps" })
 map("n", "<leader>fm", vim.lsp.buf.format, { desc = "Format code" })
 
 -- Plugins
-map("n", "<leader>lg", "<cmd>LazyGit<CR>", { desc = "Launch LazyGit" })
+map("n", "<leader>gg", "<cmd>LazyGit<CR>", { desc = "Launch LazyGit" })
 map("n", "<leader>mp", "<cmd>Glow<CR>", { desc = "Markdown file preview with Glow" })
