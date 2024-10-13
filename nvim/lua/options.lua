@@ -43,6 +43,7 @@ vim.opt.inccommand = "split"      -- Show command output preview in different bu
 ---------------------------- QOL ------------------------------
 vim.opt.ignorecase = true    -- Ignore case for command autocomplete ease of use
 vim.opt.termguicolors = true -- Enables more colors for modern terminals
+vim.opt.laststatus = 3 -- Global status line (instead of one per window)
 
 -------------------------- Snippet ----------------------------
 vim.g.lua_snippets_path = vim.fn.stdpath "config" .. "/lua/lua_snippets"
