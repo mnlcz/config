@@ -14,6 +14,8 @@ map("i", "<C-h>", "<C-o>h", { desc = "Move left one time" })
 -- Edition
 map("i", "<C-a>", "<C-o>$", { desc = "Jump to end of line in insert mode" })
 map("i", "<C-i>", "<C-o>_", { desc = "Jump to beginning of line in insert mode" })
+map("n", "+", "<C-a>", { desc = "Increment" })
+map("n", "-", "<C-x>", { desc = "Decrement" })
 
 -- Buffers
 map("n", "<leader>x", "<cmd>bd<CR>", { desc = "Close current buffer" })
@@ -35,8 +37,8 @@ map("n", "<leader>lR", lsp.rename, { desc = "[LSP] Rename all references to curr
 ---------------------------- Plugins ------------------------------
 map("n", "<leader>gg", "<cmd>LazyGit<CR>", { desc = "Launch LazyGit" })
 map("n", "<leader>mp", "<cmd>Glow<CR>", { desc = "Markdown file preview with Glow" })
-map("n", "-", "<cmd>Oil<CR>", { desc = "Open Oil file manager" })
-map("n", "<leader>-", require("oil").toggle_float, { desc = "Open Oil file manager as a floating window" })
+map("n", "<C-n>", "<cmd>Oil<CR>", { desc = "Open Oil file manager" })
+map("n", "<leader>n", require("oil").toggle_float, { desc = "Open Oil file manager as a floating window" })
 
 -- Neorg
 map("n", "<leader>njt", "<cmd>Neorg journal today<CR>", { desc = "[Neorg] Open today's note" })
