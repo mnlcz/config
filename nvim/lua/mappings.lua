@@ -5,16 +5,16 @@ local telescope = require('telescope.builtin')
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
----------------------------- Buffers ------------------------------
-map("n", "<leader>x", "<cmd>bd<CR>", { desc = "Close current buffer" })
+---------------------------- Core ------------------------------
+-- Movement
+map("i", "<C-l>", "<C-o>l", { desc = "Move right one time" })
+map("i", "<C-h>", "<C-o>h", { desc = "Move left one time" })
 
----------------------------- Telescope ------------------------------
-map("n", "<leader>ff", telescope.find_files, { desc = "Telescope find files" })
-map("n", "<leader>fo", telescope.oldfiles, { desc = "Telescope old files" })
-map("n", "<leader>fg", telescope.live_grep, { desc = "Telescope live grep" })
-map("n", "<leader>fb", telescope.buffers, { desc = "Telescope buffers" })
-map("n", "<leader>fh", telescope.help_tags, { desc = "Telescope help tags" })
-map("n", "<leader>km", telescope.keymaps, { desc = "Show keymaps" })
+-- Buffers
+map("n", "<leader>x", "<cmd>bd<CR>", { desc = "Close current buffer" })
+map("n", "<leader><Tab>", "<cmd>bn<CR>", { desc = "Next buffer" })
+map("n", "<leader><S-Tab>", "<cmd>bp<CR>", { desc = "Previous buffer" })
+
 
 ---------------------------- LSP ------------------------------
 map("n", "<leader>fm", vim.lsp.buf.format, { desc = "Format code" })
@@ -29,3 +29,20 @@ map("n", "<leader>-", require("oil").toggle_float, { desc = "Open Oil file manag
 map("n", "<leader>njt", "<cmd>Neorg journal today<CR>", { desc = "[Neorg] Open today's note" })
 map("n", "<leader>njy", "<cmd>Neorg journal yesterday<CR>", { desc = "[Neorg] Open yesterday's note" })
 map("n", "<leader>nw", "<cmd>Neorg workspace notes<CR>", { desc = "[Neorg] Open main workspace index" })
+
+-- Telescope
+map("n", "<leader>ff", telescope.find_files, { desc = "Telescope find files" })
+map("n", "<leader>fo", telescope.oldfiles, { desc = "Telescope old files" })
+map("n", "<leader>fg", telescope.live_grep, { desc = "Telescope live grep" })
+map("n", "<leader>fb", telescope.buffers, { desc = "Telescope buffers" })
+map("n", "<leader>fh", telescope.help_tags, { desc = "Telescope help tags" })
+map("n", "<leader>km", telescope.keymaps, { desc = "Show keymaps" })
+
+-- nvim-cmp (configured in ./plugins/nvim-cmp.lua)
+-- mapping = cmp.mapping.preset.insert({
+--   ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+--   ['<C-f>'] = cmp.mapping.scroll_docs(4),
+--   ['<C-Space>'] = cmp.mapping.complete(),
+--   ['<C-e>'] = cmp.mapping.abort(),
+--   ['<CR>'] = cmp.mapping.confirm({ select = true }), 
+-- }),
