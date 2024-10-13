@@ -1,5 +1,6 @@
 local map = vim.keymap.set
 local telescope = require('telescope.builtin')
+local lsp = vim.lsp.buf
 
 ---------------------------- Main ------------------------------
 vim.g.mapleader = " "
@@ -17,7 +18,16 @@ map("n", "<leader><S-Tab>", "<cmd>bp<CR>", { desc = "Previous buffer" })
 
 
 ---------------------------- LSP ------------------------------
-map("n", "<leader>fm", vim.lsp.buf.format, { desc = "Format code" })
+map("n", "<leader>fm", lsp.format, { desc = "[LSP] Format code" })
+map("n", "<leader>la", lsp.code_action, { desc = "[LSP] Code action" })
+map("n", "<leader>lh", lsp.hover, { desc = "[LSP] Hover" })
+map("n", "<leader>lt", lsp.type_definition, { desc = "[LSP] Jump to type definition" })
+map("n", "<leader>ld", lsp.definition, { desc = "[LSP] Jump to symbol definition" })
+map("n", "<leader>li", lsp.implementation, { desc = "[LSP] Jump to implementation" })
+map("n", "<leader>ls", lsp.signature_help, { desc = "[LSP] Display signature information" })
+map("n", "<leader>lr", lsp.references, { desc = "[LSP] Display references" })
+map("n", "<leader>lS", lsp.document_symbol, { desc = "[LSP] Display current document symbols" })
+map("n", "<leader>lR", lsp.rename, { desc = "[LSP] Rename all references to current symbol" })
 
 ---------------------------- Plugins ------------------------------
 map("n", "<leader>gg", "<cmd>LazyGit<CR>", { desc = "Launch LazyGit" })
