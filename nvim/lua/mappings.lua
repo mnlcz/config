@@ -11,11 +11,14 @@ vim.g.maplocalleader = "\\"
 map("i", "<C-l>", "<C-o>l", { desc = "Move right one time" })
 map("i", "<C-h>", "<C-o>h", { desc = "Move left one time" })
 
+-- Edition
+map("i", "<C-a>", "<C-o>$", { desc = "Jump to end of line in insert mode" })
+map("i", "<C-i>", "<C-o>_", { desc = "Jump to beginning of line in insert mode" })
+
 -- Buffers
 map("n", "<leader>x", "<cmd>bd<CR>", { desc = "Close current buffer" })
 map("n", "<leader><Tab>", "<cmd>bn<CR>", { desc = "Next buffer" })
 map("n", "<leader><S-Tab>", "<cmd>bp<CR>", { desc = "Previous buffer" })
-
 
 ---------------------------- LSP ------------------------------
 map("n", "<leader>fm", lsp.format, { desc = "[LSP] Format code" })
@@ -54,5 +57,5 @@ map("n", "<leader>km", telescope.keymaps, { desc = "Show keymaps" })
 --   ['<C-f>'] = cmp.mapping.scroll_docs(4),
 --   ['<C-Space>'] = cmp.mapping.complete(),
 --   ['<C-e>'] = cmp.mapping.abort(),
---   ['<CR>'] = cmp.mapping.confirm({ select = true }), 
+--   ['<CR>'] = cmp.mapping.confirm({ select = true }),
 -- }),
