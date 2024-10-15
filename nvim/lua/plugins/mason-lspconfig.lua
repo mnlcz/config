@@ -1,6 +1,6 @@
 local servers = {
   -- Important
-  "lua_ls", "texlab", "marksman", "zls", "clangd",
+  "lua_ls", "omnisharp", "texlab", "marksman", "zls", "clangd",
   -- Extra servers
   "jdtls", "html", "cssls", "perlnavigator", "solargraph", "pylsp", "ts_ls",
 }
@@ -42,6 +42,30 @@ local lua_ls = function()
   }
 end
 
+local omnisharp = function()
+  require 'lspconfig'.omnisharp.setup {
+    cmd = { "dotnet", vim.fn.stdpath "data" .. "/mason/packages/omnisharp/libexec/OmniSharp.dll" },
+
+    settings = {
+      FormattingOptions = {
+        EnableEditorConfigSupport = true,
+        OrganizeImports = true,
+      },
+      MsBuild = {
+        LoadProjectsOnDemand = nil,
+      },
+      RoslynExtensionsOptions = {
+        EnableAnalyzersSupport = true,
+        EnableImportCompletion = true,
+        AnalyzeOpenDocumentsOnly = nil,
+      },
+      Sdk = {
+        IncludePrereleases = true,
+      },
+    },
+  }
+end
+
 return {
   "williamboman/mason-lspconfig.nvim",
   dependencies = { "mason.nvim" },
@@ -59,7 +83,8 @@ return {
 
       -- Overrides
       -- Recommended setup for using Lua for Neovim
-      ["lua_ls"] = lua_ls
+      ["lua_ls"] = lua_ls,
+      ["omnisharp"] = omnisharp,
     }
   end
 }
