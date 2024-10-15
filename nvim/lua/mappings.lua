@@ -50,6 +50,7 @@ map("n", "<leader>njt", "<cmd>Neorg journal today<CR>", { desc = "[neorg] Open t
 map("n", "<leader>njy", "<cmd>Neorg journal yesterday<CR>", { desc = "[neorg] Open yesterday's note" })
 map("n", "<leader>nw", "<cmd>Neorg workspace notes<CR>", { desc = "[neorg] Open main workspace index" })
 map("n", "<leader>ngs", "<cmd>Neorg generate-workspace-summary<CR>", { desc = "[neorg] Generate workspace summary" })
+map("n", "<leader>ntc", "<cmd>Neorg toc<CR>", { desc = "[neorg] Open table of contents" })
 
 -- Telescope
 map("n", "<leader>ff", telescope.find_files, { desc = "Telescope find files" })
