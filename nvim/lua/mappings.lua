@@ -46,9 +46,10 @@ map("n", "<C-n>", "<cmd>Oil<CR>", { desc = "Open Oil file manager" })
 map("n", "<leader>n", require("oil").toggle_float, { desc = "Open Oil file manager as a floating window" })
 
 -- Neorg
-map("n", "<leader>njt", "<cmd>Neorg journal today<CR>", { desc = "[Neorg] Open today's note" })
-map("n", "<leader>njy", "<cmd>Neorg journal yesterday<CR>", { desc = "[Neorg] Open yesterday's note" })
-map("n", "<leader>nw", "<cmd>Neorg workspace notes<CR>", { desc = "[Neorg] Open main workspace index" })
+map("n", "<leader>njt", "<cmd>Neorg journal today<CR>", { desc = "[neorg] Open today's note" })
+map("n", "<leader>njy", "<cmd>Neorg journal yesterday<CR>", { desc = "[neorg] Open yesterday's note" })
+map("n", "<leader>nw", "<cmd>Neorg workspace notes<CR>", { desc = "[neorg] Open main workspace index" })
+map("n", "<leader>ngs", "<cmd>Neorg generate-workspace-summary<CR>", { desc = "[neorg] Generate workspace summary" })
 
 -- Telescope
 map("n", "<leader>ff", telescope.find_files, { desc = "Telescope find files" })
