@@ -19,13 +19,13 @@ map("n", "-", "<C-x>", { desc = "Decrement" })
 
 -- Buffers
 map("n", "<leader>x", "<cmd>bd<CR>", { desc = "Close current buffer" })
-map("n", "<leader><Tab>", "<cmd>bn<CR>", { desc = "Next buffer" })
-map("n", "<leader><S-Tab>", "<cmd>bp<CR>", { desc = "Previous buffer" })
+map("n", "]b", "<cmd>bn<CR>", { desc = "Next buffer" })
+map("n", "[b", "<cmd>bp<CR>", { desc = "Previous buffer" })
 
 -- Tabs
 map("n", "tt", "<cmd>tabnew<CR>", { desc = "New empty tab" })
-map("n", "<Tab>", "<cmd>tabnext<CR>", { desc = "Jumps to next tab" })
-map("n", "<S-Tab>", "<cmd>tabprevious<CR>", { desc = "Jumps to previous tab" })
+map("n", "]t", "<cmd>tabnext<CR>", { desc = "Jumps to next tab" })
+map("n", "[t", "<cmd>tabprevious<CR>", { desc = "Jumps to previous tab" })
 
 ---------------------------- LSP ------------------------------
 map("n", "<leader>fm", lsp.format, { desc = "[LSP] Format code" })
