@@ -49,7 +49,7 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec warp-terminal
+bindsym $mod+Return exec st
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -181,7 +181,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 # program to specific workspace
-assign [class="dev.warp.Warp"] workspace $ws2
+assign [class="st-256color"] workspace $ws2
 assign [class="steam"] workspace $ws4
 assign [class="discord"] workspace $ws7
 assign [class="Spotify"] workspace $ws8
@@ -266,3 +266,7 @@ bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow)
 bindsym Ctrl+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 bindsym Ctrl+Shift+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
 bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+
+# remove window's title bar
+for_window [class="^.*"] border pixel 0
+
