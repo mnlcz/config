@@ -34,7 +34,6 @@ end
 
 --------------------------- Moves -----------------------------
 vim.opt.virtualedit = "block" -- Makes empty character cells available in block mode
-vim.opt.scrolloff = 999
 
 -------------------------- Edition ----------------------------
 vim.opt.clipboard = "unnamedplus" -- System clipboard
