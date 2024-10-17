@@ -10,7 +10,6 @@ return {
     -- Compilation
     vim.g.vimtex_compiler_latexmk = {
       out_dir = "build",
-      aux_dir = "./aux",
     }
 
     -- Disable `K` as it conflicts with LSP hover
