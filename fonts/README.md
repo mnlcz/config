@@ -1,11 +1,13 @@
 # Fonts
 
-## Jetbrains Mono Nerd Font
+## Nerd Fonts
 
-I use this font for the terminal and Neovim. Available here:
+The Nerd Fonts I use can be downloaded from here:
 
 - [Nerfonts](https://www.nerdfonts.com/font-downloads)
 - [Github](https://github.com/ryanoasis/nerd-fonts/releases).
+
+I usually swap between JetBrainsMono, Hack, MesloLGM and GeistMono.
 
 ## Consolas ligaturized
 
