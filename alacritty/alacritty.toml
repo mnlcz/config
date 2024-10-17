@@ -1,0 +1,17 @@
+shell = "/usr/bin/pwsh"
+
+[font]
+normal = { family = "GeistMono Nerd Font", style = "Regular" }
+bold = { family = "GeistMono Nerd Font", style = "Bold" }
+italic = { family = "GeistMono Nerd Font", style = "Regular Italic" }
+bold_italic = { family = "GeistMono Nerd Font", style = "Bold Italic" }
+size = 13.0
+offset = { x = 0, y = 0 }
+glyph_offset = { x = 0, y = 0 }
+
+[window]
+opacity = 0.8
+
+[colors.primary]
+background = "#000000"
+
