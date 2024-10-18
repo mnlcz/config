@@ -181,7 +181,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 # program to specific workspace
-assign [class="st-256color"] workspace $ws2
+assign [class="Alacritty"] workspace $ws2
 assign [class="steam"] workspace $ws4
 assign [class="discord"] workspace $ws7
 assign [class="Spotify"] workspace $ws8
