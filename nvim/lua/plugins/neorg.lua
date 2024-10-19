@@ -4,7 +4,7 @@ local load = {
   ["core.dirman"] = {      -- Manage Neorg workspaces
     config = {
       workspaces = {
-        notes = "~/repos/Neorg/",
+        notes = "~/Repos/Neorg/",
       },
       default_workspace = "notes",
     },
