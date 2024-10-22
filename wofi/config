@@ -1,0 +1,8 @@
+allow_images=true
+hide_scroll=true
+no_actions=false
+term=alacritty
+mode=drun
+key_up=Ctrl-p
+key_down=Ctrl-n
+--show
