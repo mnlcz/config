@@ -43,5 +43,5 @@ Both `Sync.ps1` and `sync.sh` are scripts relevant for my personal setup and sho
 
 #### Explanation for the curious
 
-I use a couple of old Windows drives (ntfs) to store my repos and multimedia, considering this drives do not mount automatically on Linux (I don't know how to do it yet), I cannot use symlinks for critical configs like the desktop environment. For that reason I use this scripts that pretty much copy those critical configs from the regular `~/.config/` path into here.
+I use a couple of old Windows drives (ntfs) to store my repos and multimedia, considering these drives do not mount on their own on Linux (I don't know how to do it yet), I cannot use symlinks for critical configs like the desktop environment. For that reason I use the scripts, they pretty much copy those critical configs from the regular `~/.config/` path into here. The PowerShell one is kind of outdated.
 
