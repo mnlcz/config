@@ -1,9 +1,11 @@
 if ($IsWindows) {
     # PowerShell
-    Copy-Item -Force -Path C:\Users\manuc\Documents\PowerShell\profile.ps1 -Destination ./ps1/
+    if ($args.Count -eq 0 -or $args[0] -ne 'NotPS1') {
+        Copy-Item -Force -Path C:\Users\manuc\Documents\PowerShell\profile.ps1 -Destination ./ps1/
+    }
     # nvim
     Remove-Item -Recurse -Force -Path ./nvim/*
-    Copy-Item -Path "C:\Users\manuc\AppData\Local\nvim\lua\custom\*" -Destination "./nvim/" -Recurse -Force
+    Copy-Item -Path "C:\Users\MnLCz\AppData\Local\nvim\*" -Destination "./nvim/" -Recurse -Force
 } elseif ($IsLinux) {
     # i3
     Copy-Item -Force -Path ~/.config/i3/config -Destination ./i3/
