@@ -4,8 +4,8 @@ return {
   ft = "plaintex",
   config = function()
     -- Viewer
-    vim.g.vimtex_view_method = "zathura"
-    -- vim.g.vimtex_view_general_viewer = "sioyek"
+    -- vim.g.vimtex_view_method = "zathura"
+    vim.g.vimtex_view_general_viewer = "sioyek"
 
     -- Compilation
     vim.g.vimtex_compiler_latexmk = {

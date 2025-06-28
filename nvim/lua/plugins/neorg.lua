@@ -4,7 +4,8 @@ local load = {
   ["core.dirman"] = {      -- Manage Neorg workspaces
     config = {
       workspaces = {
-        notes = "~/Repos/Neorg/",
+        -- notes = "~/Repos/Neorg/",
+        notes = "F:/Dev/Repos/Neorg/",
       },
       default_workspace = "notes",
     },
@@ -13,7 +14,8 @@ local load = {
     config = {
       strategy = "default",
     },
-  }
+  },
+  ["core.integrations.telescope"] = {},
 }
 
 return {
@@ -23,5 +25,6 @@ return {
   ft = "norg",
   opts = {
     load = load,
-  }
+  },
+  dependencies = { { "nvim-lua/plenary.nvim" }, { "nvim-neorg/neorg-telescope" } },
 }

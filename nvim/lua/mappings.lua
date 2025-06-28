@@ -52,6 +52,9 @@ map("n", "<leader>nw", "<cmd>Neorg workspace notes<CR>", { desc = "[neorg] Open 
 map("n", "<localleader>is", "<cmd>Neorg generate-workspace-summary<CR>", { desc = "[neorg] Generate workspace summary" })
 map("n", "<localleader>im", "<cmd>Neorg inject-metadata<CR>", { desc = "[neorg] Inject metadata" })
 map("n", "<localleader>c", "<cmd>Neorg toc<CR>", { desc = "[neorg] Open table of contents" })
+map("n", "<leader>fnh", "<Plug>(neorg.telescope.search_headings)", { desc = "[neorg] Telescope find neorg headings" })
+map("n", "<leader>fna", "<Plug>(neorg.telescope.find_linkable)", { desc = "[neorg] Telescope find any linkable" })
+map("n", "<leader>fnf", "<Plug>(neorg.telescope.find_norg_files)", { desc = "[neorg] Telescope find files" })
 
 -- Telescope
 map("n", "<leader>ff", telescope.find_files, { desc = "Telescope find files" })
