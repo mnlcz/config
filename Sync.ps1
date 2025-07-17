@@ -6,6 +6,9 @@ if ($IsWindows) {
     # nvim
     Remove-Item -Recurse -Force -Path ./nvim/*
     Copy-Item -Path "C:\Users\MnLCz\AppData\Local\nvim\*" -Destination "./nvim/" -Recurse -Force
+    # mpv
+    Remove-Item -Recurse -Force -Path ./mpv/*
+    Copy-Item -Path "C:\Users\MnLCz\AppData\Roaming\mpv\*" -Destination "./mpv/" -Recurse -Force
 } elseif ($IsLinux) {
     # i3
     Copy-Item -Force -Path ~/.config/i3/config -Destination ./i3/
