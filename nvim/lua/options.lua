@@ -1,3 +1,7 @@
+------------------------ Appearance ---------------------------
+vim.cmd.colorscheme("yugen")
+vim.opt.winborder = "rounded" -- Default border for floating windows
+
 --------------------------- Lines -----------------------------
 vim.opt.number = true
 vim.opt.relativenumber = true

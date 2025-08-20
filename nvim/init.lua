@@ -1,3 +1,5 @@
-require("options")
 require("plugins")
+require("options")
 require("mappings")
+require("lsp")
+require("autocmds")
