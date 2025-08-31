@@ -22,3 +22,8 @@ alias nv='nvim'
 alias snv='sudo nvim'
 alias nvdwm='sudo nvim /etc/portage/savedconfig/x11-wm/dwm-6.5.h'
 alias ll='ls -la'
+
+# Gentoo
+# Prevent npm from installing stuff to /usr for safe coliving with Portage
+export NPM_CONFIG_PREFIX=$HOME/.local/
+export PATH="/home/$USER/go/bin:/home/$USER/.local/bin:$NPM_CONFIG_PREFIX/bin:$PATH"
