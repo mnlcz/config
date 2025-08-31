@@ -1,11 +1,14 @@
+local os_utils = require("custom_tools.get_os")
+local current_os = os_utils.get_current_os()
+local neorg_dir = current_os == "windows" and "F:/Dev/Repos/Neorg/" or "~/Repos/Neorg/"
+
 local load = {
   ["core.defaults"] = {},  -- Loads default behaviour
   ["core.concealer"] = {}, -- Adds pretty icons to your documents
   ["core.dirman"] = {      -- Manage Neorg workspaces
     config = {
       workspaces = {
-        -- notes = "~/Repos/Neorg/",
-        notes = "F:/Dev/Repos/Neorg/",
+        notes = neorg_dir,
       },
       default_workspace = "notes",
     },
