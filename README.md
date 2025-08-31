@@ -23,11 +23,7 @@ The needed packages are:
 
 #### Dev tools
 
-Compilers and stuff like that. For the most part tied to the Mason plugin, to see what is needed run:
-
-```bash
-:checkhealth mason
-```
+Compilers and tools required by nvim. Since I'm not using Mason anymore, check [lsp configured]{nvim/lsp/}.
 
 #### Misc
 
@@ -40,8 +36,4 @@ Compilers and stuff like that. For the most part tied to the Mason plugin, to se
 ### Sync scripts
 
 Both `Sync.ps1` and `sync.sh` are scripts relevant for my personal setup and should be ignored. 
-
-#### Explanation for the curious
-
-I use a couple of old Windows drives (ntfs) to store my repos and multimedia, considering these drives do not mount on their own on Linux (I don't know how to do it yet), I cannot use symlinks for critical configs like, for example, the window manager. For that reason I use the scripts, they pretty much copy those critical configs from the regular `~/.config/` path into here. The PowerShell one is kind of outdated.
 
