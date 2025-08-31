@@ -23,7 +23,7 @@ The needed packages are:
 
 #### Dev tools
 
-Compilers and tools required by nvim. Since I'm not using Mason anymore, check [lsp configured]{nvim/lsp/}.
+Compilers and tools required by nvim. Since I'm not using Mason anymore, check [lsp configured](nvim/lsp/)
 
 #### Misc
 
