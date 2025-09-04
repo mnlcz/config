@@ -3,7 +3,7 @@ if ($IsWindows) {
 
     # PowerShell
     if ($args.Count -eq 0 -or $args[0] -ne 'NotPS1') {
-        Copy-Item -Force -Path C:\Users\$uname\Documents\PowerShell\profile.ps1 -Destination ./ps1/
+        Copy-Item -Force -Path C:\Users\$uname\Documents\PowerShell\profile.ps1 -Destination ./shells/ps1
     }
     # nvim
     Remove-Item -Recurse -Force -Path ./nvim/*
