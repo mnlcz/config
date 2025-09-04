@@ -27,3 +27,6 @@ alias ll='ls -la'
 # Prevent npm from installing stuff to /usr for safe coliving with Portage
 export NPM_CONFIG_PREFIX=$HOME/.local/
 export PATH="/home/$USER/go/bin:/home/$USER/.local/bin:$NPM_CONFIG_PREFIX/bin:$PATH"
+
+# Rust cargo
+export PATH="$PATH:~/.cargo/bin"
