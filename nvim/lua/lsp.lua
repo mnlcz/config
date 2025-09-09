@@ -1,5 +1,4 @@
 vim.lsp.enable({
-  "jdtls",
   "lua_ls",
   "marksman",
   "texlive",
