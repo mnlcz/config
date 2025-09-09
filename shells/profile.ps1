@@ -18,9 +18,9 @@ if ($IsWindows)
 
     # Util funcs
     function ReposPath { Set-Location -Path F:/Dev/Repos/ }
-    function ConfigPath { Set-Location -Path F:/Dev/Repos/Config/ }
-    function PS1Config { nvim ~/Documents/PowerShell/profile.ps1 }
-    function NvimConfig { nvim ~/AppData/Local/nvim/ }
+    function ConfigPath { Set-Location -Path F:/Dev/Repos/config/ }
+    function PS1Config { nvim F:/Dev/Repos/config/shells/profile.ps1 }
+    function NvimConfig { nvim F:/Dev/Repos/config/nvim/ }
 }
 elseif ($IsLinux)
 {
