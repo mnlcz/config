@@ -2,8 +2,9 @@ vim.lsp.enable({
   "jdtls",
   "lua_ls",
   "marksman",
-  "texlive",
   "pylsp",
+  "texlive",
+  "ts_ls",
 })
 
 vim.diagnostic.config({
