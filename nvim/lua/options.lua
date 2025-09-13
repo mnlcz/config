@@ -29,6 +29,7 @@ local custom_indent_rules = {
   { "html",       2, 2 },
   { "javascript", 2, 2 },
   { "css",        2, 2 },
+  { "json",       2, 2 },
 }
 
 -- Apply indentation settings for specific file types
