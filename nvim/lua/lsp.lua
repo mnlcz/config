@@ -1,5 +1,8 @@
 vim.lsp.enable({
+  "cssls",
+  "html",
   "jdtls",
+  "jsonls",
   "lua_ls",
   "marksman",
   "pylsp",
