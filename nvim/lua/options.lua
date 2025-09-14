@@ -1,3 +1,9 @@
+local os_utils = require("custom_tools.get_os")
+local current_os = os_utils.get_current_os()
+
+---------------------------- Shell ----------------------------
+if current_os == "windows" then vim.opt.shell = "pwsh" end
+
 ------------------------ Appearance ---------------------------
 vim.cmd.colorscheme("yugen")
 vim.opt.winborder = "rounded" -- Default border for floating windows
