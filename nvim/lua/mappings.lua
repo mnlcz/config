@@ -16,6 +16,7 @@ map("i", "<C-a>", "<C-o>$", { desc = "Jump to end of line in insert mode" })
 map("i", "<C-i>", "<C-o>_", { desc = "Jump to beginning of line in insert mode" })
 map("n", "+", "<C-a>", { desc = "Increment" })
 map("n", "-", "<C-x>", { desc = "Decrement" })
+map("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit insert mode in terminal mode" })
 
 -- Buffers
 map("n", "<leader>x", "<cmd>bd<CR>", { desc = "Close current buffer" })
