@@ -1,9 +1,15 @@
+local os_utils = require("custom_tools.get_os")
+local current_os = os_utils.get_current_os()
 local handlers = require 'vim.lsp.handlers'
+local win_dbg =
+'~/.m2/repository/com/microsoft/java/com.microsoft.java.debug.plugin/0.53.1/com.microsoft.java.debug.plugin-*.jar'
+local linux_dbg = ''
 
 local env = {
   HOME = vim.uv.os_homedir(),
   XDG_CACHE_HOME = os.getenv 'XDG_CACHE_HOME',
   JDTLS_JVM_ARGS = os.getenv 'JDTLS_JVM_ARGS',
+  JAVA_DEBUG_PLUGIN = current_os == 'windows' and win_dbg or linux_dbg,
 }
 
 local function get_cache_dir()
@@ -46,9 +52,19 @@ local function fix_zero_version(workspace_edit)
   return workspace_edit
 end
 
+-- Update bundles to include both debug and test bundles
+local bundles = {
+  vim.fn.glob(env.JAVA_DEBUG_PLUGIN)
+}
+
+-- Add test bundle if available (common location for mason installations)
+local mason_java_test_bundle = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/share/java-test/server/*.jar")
+if mason_java_test_bundle ~= "" then
+  table.insert(bundles, mason_java_test_bundle)
+end
+
 local function on_textdocument_codeaction(err, actions, ctx)
   for _, action in ipairs(actions) do
-    -- TODO: (steelsojka) Handle more than one edit?
     if action.command == 'java.apply.workspaceEdit' then                                                 -- 'action' is Command in java format
       action.edit = fix_zero_version(action.edit or action.arguments[1])
     elseif type(action.command) == 'table' and action.command.command == 'java.apply.workspaceEdit' then -- 'action' is CodeAction in java format
@@ -75,8 +91,20 @@ local function on_language_status(_, result)
   command 'echohl None'
 end
 
+-- DAP setup function
+local function setup_dap()
+  local jdtls_ok, jdtls = pcall(require, "jdtls")
+  if not jdtls_ok then
+    vim.notify("jdtls not available for DAP setup", vim.log.levels.WARN)
+    return
+  end
+
+  jdtls.setup_dap({ hotcodereplace = "auto" })
+  require("jdtls.dap").setup_dap_main_class_configs()
+end
+
 ---@type vim.lsp.Config
-return {
+local config = {
   cmd = {
     'jdtls',
     '-configuration',
@@ -101,6 +129,7 @@ return {
     workspace = get_jdtls_workspace_dir(),
     jvm_args = {},
     os_config = nil,
+    bundles = bundles,
   },
   handlers = {
     ['textDocument/codeAction'] = on_textdocument_codeaction,
@@ -109,3 +138,9 @@ return {
     ['language/status'] = vim.schedule_wrap(on_language_status),
   },
 }
+
+config.on_attach = function(client, bufnr)
+  setup_dap()
+end
+
+return config
