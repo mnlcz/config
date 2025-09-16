@@ -6,7 +6,7 @@ local f = ls.function_node
 local fmt = require("luasnip.extras.fmt").fmt
 
 local function template(_, _, filename)
-  local path = vim.fn.stdpath "config" .. "/lua/custom/lua_snippets/templates/" .. filename .. ".template"
+  local path = "~/.config/nvim/templates/" .. filename .. ".template"
   local file = io.open(path, "r")
 
   if not file then
