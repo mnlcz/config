@@ -1,13 +1,34 @@
+local os_utils = require("custom_tools.get_os")
+local current_os = os_utils.get_current_os()
+
 vim.pack.add({
   { src = "https://github.com/windwp/nvim-autopairs" },
   { src = "https://github.com/stevearc/conform.nvim" },
   { src = "https://github.com/lewis6991/gitsigns.nvim" },
+  { src = "https://github.com/kdheepak/lazygit.nvim" },
   { src = "https://github.com/nvim-mini/mini.icons" },
   { src = "https://github.com/stevearc/oil.nvim" },
   { src = "https://github.com/nvim-lua/plenary.nvim" },
+  { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
+  { src = "https://github.com/SCJangra/table-nvim" },
   { src = "https://github.com/nvim-telescope/telescope.nvim" },
+  { src = "https://github.com/folke/todo-comments.nvim" },
+  { src = "https://github.com/xiyaowong/transparent.nvim" },
   { src = "https://github.com/nvim-treesitter/nvim-treesitter",            version = "master" },
   { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
+  {
+    src = "https://github.com/lervag/vimtex",
+    -- Configuring it here works? Idk...
+    ft = "plaintex",
+    config = function()
+      vim.g.vimtex_view_general_viewer = current_os == "windows" and "sioyek" or "zathura"
+      vim.g.vimtex_compiler_latexmk = {
+        out_dir = "build",
+      }
+      vim.g.vimtex_mappings_disable = { ["n"] = { "K" } } -- conflicts with LSP mapping
+    end
+  },
+  -- { src = "https://github.com/folke/which-key.nvim" }, -- Not working on nvim unstable
   { src = "https://github.com/bettervim/yugen.nvim" },
 })
 
@@ -15,7 +36,7 @@ vim.pack.add({
 require("mini.icons").setup()
 require("oil").setup()
 require("telescope").setup()
-require("yugen").setup()
+require("todo-comments").setup()
 
 -- Config
 require("nvim-autopairs").setup({
@@ -78,5 +99,48 @@ require("nvim-treesitter.configs").setup({
 
       include_surrounding_whitespace = true,
     },
+  },
+})
+
+-- require("which-key").setup({
+--   keys = {
+--     {
+--       "<leader>?",
+--       function()
+--         require("which-key").show({ global = false })
+--       end,
+--       desc = "Buffer Local Keymaps (which-key)",
+--     },
+--   }
+-- })
+
+require("transparent").setup({
+  require("transparent").setup({
+    groups = {
+      'Normal', 'NormalNC', 'Comment', 'Constant', 'Special', 'Identifier',
+      'Statement', 'PreProc', 'Type', 'Underlined', 'Todo', 'String', 'Function',
+      'Conditional', 'Repeat', 'Operator', 'Structure', 'LineNr', 'NonText',
+      'SignColumn', 'CursorLine', 'CursorLineNr', 'StatusLine', 'StatusLineNC',
+      'EndOfBuffer',
+    },
+    extra_groups = {},
+    exclude_groups = {},
+    on_clear = function() end,
+  })
+})
+
+require("table-nvim").setup({
+  ft = "markdown, norg"
+})
+
+require("render-markdown").setup({
+  enabled = false,
+  completions = {
+    lsp = {
+      enabled = true,
+    },
+  },
+  code = {
+    style = 'language',
   },
 })
