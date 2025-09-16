@@ -18,15 +18,27 @@ fi
 # Put your fun stuff here.
 set -o vi
 
-alias nv='nvim'
-alias snv='sudo nvim'
-alias nvdwm='sudo nvim /etc/portage/savedconfig/x11-wm/dwm-6.5.h'
+alias v='nvim'
+alias sv='sudo nvim'
 alias ll='ls -la'
 
-# Gentoo
-# Prevent npm from installing stuff to /usr for safe coliving with Portage
-export NPM_CONFIG_PREFIX=$HOME/.local/
-export PATH="/home/$USER/go/bin:/home/$USER/.local/bin:$NPM_CONFIG_PREFIX/bin:$PATH"
+if [ -f /etc/os-release ]; then
+    . /etc/os-release
+    DISTRO_ID="$ID"
+else
+    DISTRO_ID="unknown"
+fi
+
+if [ "$DISTRO_ID" = "gentoo" ]; then
+    alias vdwm='sudo nvim /etc/portage/savedconfig/x11-wm/dwm-6.5.h'
+    # Prevent npm from installing stuff to /usr for safe coliving with Portage
+    export NPM_CONFIG_PREFIX=$HOME/.local/
+    export PATH="/home/$USER/go/bin:/home/$USER/.local/bin:$NPM_CONFIG_PREFIX/bin:$PATH"
+elif [ "$DISTRO_ID" = "debian" ]; then
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
 
 # Rust cargo
 export PATH="$PATH:~/.cargo/bin"
