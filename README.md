@@ -35,6 +35,7 @@ I'm no using Mason, I prefer to install my tools via package managers.
 - [glow](https://github.com/charmbracelet/glow): for the plugin (if used).
 - [ripgrep](https://github.com/BurntSushi/ripgrep): recommended for Telescope.
 - [fd](https://github.com/sharkdp/fd): optional for Telescope.
+- [vscode-codicons](https://github.com/microsoft/vscode-codicons): optional for lspkind (if not installed requires changing the `preset` value to `default`).
 
 ## Notes
 
