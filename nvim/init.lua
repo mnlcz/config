@@ -1,5 +1,6 @@
 require("plugins")
 require("options")
-require("mappings")
 require("lsp")
+require("mappings")
+require("statusline")
 require("autocmds")
