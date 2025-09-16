@@ -318,3 +318,6 @@ require("dapui").setup({
     max_value_lines = 100
   }
 })
+
+require("luasnip").setup()
+require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/snippets/" })

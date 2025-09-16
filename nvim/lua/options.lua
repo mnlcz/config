@@ -61,5 +61,3 @@ vim.opt.list = true -- Show whitespace characters
 vim.opt.hlsearch = false -- Disable highlighting of results
 vim.cmd.filetype("plugin indent on") -- Enable filetype detection, plugins, and indentation
 
--------------------------- Snippet ----------------------------
-vim.g.lua_snippets_path = vim.fn.stdpath "config" .. "/lua/lua_snippets"
