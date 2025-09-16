@@ -5,6 +5,7 @@
 ### General
 
 - Git
+- Curl
 - [Rustup](https://rustup.rs/) for Alacritty (configured as default terminal).
 
 ### Neovim
@@ -23,13 +24,17 @@ The needed packages are:
 
 #### Dev tools
 
-Compilers and tools required by nvim. Since I'm not using Mason anymore, check [lsp configured](nvim/lsp/)
+I'm no using Mason, I prefer to install my tools via package managers.
+- For lsp: [lsp configured](nvim/lsp/)
+- For formatters: [conform config](nvim/lua/plugins.lua)
 
 #### Misc
 
 - [treesitter-cli](https://github.com/tree-sitter/tree-sitter/blob/master/cli/README.md): for latex treesitter.
 - [lazygit](https://github.com/jesseduffield/lazygit): for the plugin.
-- [glow](https://github.com/charmbracelet/glow): for the plugin.
+- [glow](https://github.com/charmbracelet/glow): for the plugin (if used).
+- [ripgrep](https://github.com/BurntSushi/ripgrep): recommended for Telescope.
+- [fd](https://github.com/sharkdp/fd): optional for Telescope.
 
 ## Notes
 
