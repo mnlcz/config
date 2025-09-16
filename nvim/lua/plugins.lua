@@ -6,6 +6,7 @@ vim.pack.add({
   { src = "https://github.com/stevearc/conform.nvim" },
   { src = "https://github.com/lewis6991/gitsigns.nvim" },
   { src = "https://github.com/kdheepak/lazygit.nvim" },
+  { src = "https://github.com/onsails/lspkind.nvim" },
   { src = "https://github.com/nvim-mini/mini.icons" },
   { src = "https://github.com/stevearc/oil.nvim" },
   { src = "https://github.com/nvim-lua/plenary.nvim" },
@@ -143,4 +144,10 @@ require("render-markdown").setup({
   code = {
     style = 'language',
   },
+})
+
+require("lspkind").setup({
+  mode = "symbol_text",
+  preset = "codicons"
+
 })
