@@ -118,6 +118,7 @@ set -o vi
 alias v='nvim'
 alias sv='sudo nvim'
 alias ll='ls -la'
+alias bat='batcat'
 
 if [ -f /etc/os-release ]; then
     . /etc/os-release
@@ -134,3 +135,7 @@ fi
 
 # Rust cargo
 export PATH="$PATH:~/.cargo/bin"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
