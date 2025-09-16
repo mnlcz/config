@@ -48,20 +48,8 @@ map("n", "<leader>lR", lsp.rename, { desc = "[LSP] Rename all references to curr
 
 ---------------------------- Plugins ------------------------------
 map("n", "<leader>gg", "<cmd>LazyGit<CR>", { desc = "Launch LazyGit" })
-map("n", "<leader>mp", "<cmd>Glow<CR>", { desc = "Markdown file preview with Glow" })
 map("n", "<C-n>", "<cmd>Oil<CR>", { desc = "Open Oil file manager" })
 map("n", "<leader>n", require("oil").toggle_float, { desc = "Open Oil file manager as a floating window" })
-
--- Neorg
-map("n", "<leader>njt", "<cmd>Neorg journal today<CR>", { desc = "[neorg] Open today's note" })
-map("n", "<leader>njy", "<cmd>Neorg journal yesterday<CR>", { desc = "[neorg] Open yesterday's note" })
-map("n", "<leader>nw", "<cmd>Neorg workspace notes<CR>", { desc = "[neorg] Open main workspace index" })
-map("n", "<localleader>is", "<cmd>Neorg generate-workspace-summary<CR>", { desc = "[neorg] Generate workspace summary" })
-map("n", "<localleader>im", "<cmd>Neorg inject-metadata<CR>", { desc = "[neorg] Inject metadata" })
-map("n", "<localleader>c", "<cmd>Neorg toc<CR>", { desc = "[neorg] Open table of contents" })
-map("n", "<leader>fnh", "<Plug>(neorg.telescope.search_headings)", { desc = "[neorg] Telescope find neorg headings" })
-map("n", "<leader>fna", "<Plug>(neorg.telescope.find_linkable)", { desc = "[neorg] Telescope find any linkable" })
-map("n", "<leader>fnf", "<Plug>(neorg.telescope.find_norg_files)", { desc = "[neorg] Telescope find files" })
 
 -- Telescope
 map("n", "<leader>ff", telescope.find_files, { desc = "Telescope find files" })
@@ -70,6 +58,22 @@ map("n", "<leader>fg", telescope.live_grep, { desc = "Telescope live grep" })
 map("n", "<leader>fb", telescope.buffers, { desc = "Telescope buffers" })
 map("n", "<leader>fh", telescope.help_tags, { desc = "Telescope help tags" })
 map("n", "<leader>km", telescope.keymaps, { desc = "Show keymaps" })
+
+-- Markdown
+-- map("n", "<leader>mp", "<cmd>Glow<CR>", { desc = "Markdown file preview with Glow" })
+map("n", "<leader>rm", "<cmd>:RenderMarkdown toggle<CR>", { desc = "Toggle markdown rendering" })
+
+---------------------------- INACTIVE ------------------------------
+-- Neorg
+-- map("n", "<leader>njt", "<cmd>Neorg journal today<CR>", { desc = "[neorg] Open today's note" })
+-- map("n", "<leader>njy", "<cmd>Neorg journal yesterday<CR>", { desc = "[neorg] Open yesterday's note" })
+-- map("n", "<leader>nw", "<cmd>Neorg workspace notes<CR>", { desc = "[neorg] Open main workspace index" })
+-- map("n", "<localleader>is", "<cmd>Neorg generate-workspace-summary<CR>", { desc = "[neorg] Generate workspace summary" })
+-- map("n", "<localleader>im", "<cmd>Neorg inject-metadata<CR>", { desc = "[neorg] Inject metadata" })
+-- map("n", "<localleader>c", "<cmd>Neorg toc<CR>", { desc = "[neorg] Open table of contents" })
+-- map("n", "<leader>fnh", "<Plug>(neorg.telescope.search_headings)", { desc = "[neorg] Telescope find neorg headings" })
+-- map("n", "<leader>fna", "<Plug>(neorg.telescope.find_linkable)", { desc = "[neorg] Telescope find any linkable" })
+-- map("n", "<leader>fnf", "<Plug>(neorg.telescope.find_norg_files)", { desc = "[neorg] Telescope find files" })
 
 -- nvim-cmp (configured in ./plugins/nvim-cmp.lua)
 -- mapping = cmp.mapping.preset.insert({
