@@ -30,11 +30,12 @@ I'm no using Mason, I prefer to install my tools via package managers.
 
 #### Misc
 
-- [treesitter-cli](https://github.com/tree-sitter/tree-sitter/blob/master/cli/README.md): for latex treesitter.
-- [lazygit](https://github.com/jesseduffield/lazygit): for the plugin.
-- [glow](https://github.com/charmbracelet/glow): for the plugin (if used).
-- [ripgrep](https://github.com/BurntSushi/ripgrep): recommended for Telescope.
 - [fd](https://github.com/sharkdp/fd): optional for Telescope.
+- [glow](https://github.com/charmbracelet/glow): for the plugin (if used).
+- [jsregexp](https://github.com/kmarius/jsregexp): optional for luasnip (can be installed with luarocks).
+- [lazygit](https://github.com/jesseduffield/lazygit): for the plugin.
+- [ripgrep](https://github.com/BurntSushi/ripgrep): recommended for Telescope.
+- [treesitter-cli](https://github.com/tree-sitter/tree-sitter/blob/master/cli/README.md): for latex treesitter.
 - [vscode-codicons](https://github.com/microsoft/vscode-codicons): optional for lspkind (if not installed requires changing the `preset` value to `default`).
 
 ## Notes
