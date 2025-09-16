@@ -3,7 +3,7 @@ local current_os = os_utils.get_current_os()
 local handlers = require 'vim.lsp.handlers'
 local win_dbg =
 '~/.m2/repository/com/microsoft/java/com.microsoft.java.debug.plugin/0.53.1/com.microsoft.java.debug.plugin-*.jar'
-local linux_dbg = ''
+local linux_dbg = '~/.local/share/java-debug-0.53.1/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar'
 
 local env = {
   HOME = vim.uv.os_homedir(),
@@ -114,6 +114,19 @@ local config = {
     get_jdtls_jvm_args(),
   },
   filetypes = { 'java' },
+  settings = {
+    java = {
+      home = "~/.sdkman/candidates/java/21.0.8-tem",
+      configuration = {
+        runtimes = {
+          {
+            name = "JavaSE-21",
+            path = "~/.sdkman/candidates/java/21.0.8-tem",
+          },
+        },
+      },
+    },
+  },
   root_markers = {
     -- Multi-module projects
     '.git',
