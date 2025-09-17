@@ -148,7 +148,7 @@ export PATH="$HOME/.local/bin:$PATH" # wsl tries to run the eval BEFORE .local/b
 eval "$(zoxide init bash)"
 
 # posh
-eval "$(oh-my-posh init bash --config 'star')"
+eval "$(oh-my-posh init bash --config 'space')"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
