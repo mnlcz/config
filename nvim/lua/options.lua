@@ -2,25 +2,29 @@ local os_utils = require("custom_tools.get_os")
 local current_os = os_utils.get_current_os()
 
 ---------------------------- Shell ----------------------------
-if current_os == "windows" then vim.opt.shell = "pwsh" end
+if current_os == "windows" then vim.o.shell = "pwsh" end
 
 ------------------------ Appearance ---------------------------
 vim.cmd.colorscheme("yugen")
-vim.opt.winborder = "rounded" -- Default border for floating windows
+vim.o.winborder = "rounded" -- Default border for floating windows
+-- vim.o.guicursor ="n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50"
+vim.o.guicursor =
+"n-v-c-i-ci-ve-r-cr:hor30,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
+
 
 --------------------------- Lines -----------------------------
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.wrap = false
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.wrap = false
 
 --------------------------- Split -----------------------------
-vim.opt.splitbelow = true -- Split vertical default to below
-vim.opt.splitright = true -- Split horizontal default to right
+vim.o.splitbelow = true -- Split vertical default to below
+vim.o.splitright = true -- Split horizontal default to right
 
 ------------------------- Indenting ---------------------------
-vim.opt.expandtab = true -- Tabs into spaces
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4   -- Size for << and >> indentation
+vim.o.expandtab = true -- Tabs into spaces
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4   -- Size for << and >> indentation
 
 -- Dynamic indentation rules
 local function set_indentation(filetypes, shiftwidth, tabstop)
@@ -45,19 +49,18 @@ for _, settings in ipairs(custom_indent_rules) do
 end
 
 --------------------------- Moves -----------------------------
-vim.opt.virtualedit = "block" -- Makes empty character cells available in block mode
+vim.o.virtualedit = "block" -- Makes empty character cells available in block mode
 
 -------------------------- Edition ----------------------------
-vim.opt.clipboard = "unnamedplus" -- System clipboard
-vim.opt.inccommand = "split"      -- Show command output preview in different buffer
+vim.o.clipboard = "unnamedplus" -- System clipboard
+vim.o.inccommand = "split"      -- Show command output preview in different buffer
 
 ---------------------------- QOL ------------------------------
-vim.opt.ignorecase = true    -- Ignore case for command autocomplete ease of use
-vim.opt.termguicolors = true -- Enables more colors for modern terminals
-vim.opt.laststatus = 3       -- Global status line (instead of one per window)
-vim.opt.swapfile = false     -- Disable swap file
-vim.opt.listchars = "tab: ,multispace:|   ,eol:󰌑" -- Characters to show for tabs, spaces, and end of line
-vim.opt.list = true -- Show whitespace characters
-vim.opt.hlsearch = false -- Disable highlighting of results
+vim.o.ignorecase = true -- Ignore case for command autocomplete ease of use
+vim.o.termguicolors = true -- Enables more colors for modern terminals
+vim.o.laststatus = 3 -- Global status line (instead of one per window)
+vim.o.swapfile = false -- Disable swap file
+vim.o.listchars = "tab: ,multispace:|   ,eol:󰌑" -- Characters to show for tabs, spaces, and end of line
+vim.o.list = true -- Show whitespace characters
+vim.o.hlsearch = false -- Disable highlighting of results
 vim.cmd.filetype("plugin indent on") -- Enable filetype detection, plugins, and indentation
-
