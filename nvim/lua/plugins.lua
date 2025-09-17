@@ -1,5 +1,5 @@
-local os_utils = require("custom_tools.get_os")
-local current_os = os_utils.get_current_os()
+-- local os_utils = require("custom_tools.get_os")
+-- local current_os = os_utils.get_current_os()
 
 vim.pack.add({
   { src = "https://github.com/windwp/nvim-autopairs" },
@@ -100,7 +100,8 @@ vim.pack.add({
     -- Configuring it here works? Idk...
     ft = "plaintex",
     config = function()
-      vim.g.vimtex_view_general_viewer = current_os == "windows" and "sioyek" or "zathura"
+      -- vim.g.vimtex_view_general_viewer = current_os == "windows" and "sioyek" or "zathura"
+      vim.g.vimtex_view_general_viewer = "sioyek"
       vim.g.vimtex_compiler_latexmk = {
         out_dir = "build",
       }
@@ -141,6 +142,7 @@ require("nvim-treesitter.configs").setup({
   ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "html", "css", "javascript",
     "json", "php", "http", "python", "c_sharp", "rust", "gitignore", "yaml", "xml", "java" },
   auto_install = true,
+  ignore_install = { "latex" }, -- Does not support ABI 15 (at least for now in unstable)
   sync_install = false,
   highlight = {
     enable = true,
