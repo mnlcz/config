@@ -87,11 +87,6 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# some more ls aliases
-#alias ll='ls -l'
-#alias la='ls -A'
-#alias l='ls -CF'
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -117,7 +112,7 @@ set -o vi
 
 alias v='nvim'
 alias sv='sudo nvim'
-alias ll='ls -la'
+alias eza='eza --git --icons=always'
 alias bat='batcat'
 
 if [ -f /etc/os-release ]; then
@@ -135,6 +130,14 @@ fi
 
 # Rust cargo
 export PATH="$PATH:~/.cargo/bin"
+
+# # Set up fzf key bindings and fuzzy completion
+eval "$(fzf --bash)"
+# Preview file content using bat (https://github.com/sharkdp/bat)
+export FZF_CTRL_T_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview 'batcat -n --color=always {}'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
