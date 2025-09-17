@@ -112,8 +112,12 @@ set -o vi
 
 alias v='nvim'
 alias sv='sudo nvim'
-alias eza='eza --git --icons=always'
+alias eza='eza --git --icons=always --total-size'
 alias bat='batcat'
+alias z='zoxide'
+alias sau='sudo apt upgrade'
+alias sauu='sudo apt update && sudo apt upgrade'
+alias sai='sudo apt install'
 
 if [ -f /etc/os-release ]; then
     . /etc/os-release
@@ -138,6 +142,10 @@ export FZF_CTRL_T_OPTS="
   --walker-skip .git,node_modules,target
   --preview 'batcat -n --color=always {}'
   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+
+# zoxide
+export PATH="$HOME/.local/bin:$PATH" # wsl tries to run the eval BEFORE .local/bin is in path
+eval "$(zoxide init bash)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
