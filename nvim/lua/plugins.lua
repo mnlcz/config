@@ -97,7 +97,7 @@ vim.pack.add({
   { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
   { src = "https://github.com/lervag/vimtex" },
   -- { src = "https://github.com/folke/which-key.nvim" }, -- Not working for me on nvim unstable
-  { src = "https://github.com/bettervim/yugen.nvim" },
+  { src = "https://github.com/metalelf0/black-metal-theme-neovim" },
 })
 
 -- No config
