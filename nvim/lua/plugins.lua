@@ -95,19 +95,7 @@ vim.pack.add({
   { src = "https://github.com/xiyaowong/transparent.nvim" },
   { src = "https://github.com/nvim-treesitter/nvim-treesitter",            version = "master" },
   { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
-  {
-    src = "https://github.com/lervag/vimtex",
-    -- Configuring it here works? Idk...
-    ft = "plaintex",
-    config = function()
-      -- vim.g.vimtex_view_general_viewer = current_os == "windows" and "sioyek" or "zathura"
-      vim.g.vimtex_view_general_viewer = "sioyek"
-      vim.g.vimtex_compiler_latexmk = {
-        out_dir = "build",
-      }
-      vim.g.vimtex_mappings_disable = { ["n"] = { "K" } } -- conflicts with LSP mapping
-    end
-  },
+  { src = "https://github.com/lervag/vimtex" },
   -- { src = "https://github.com/folke/which-key.nvim" }, -- Not working for me on nvim unstable
   { src = "https://github.com/bettervim/yugen.nvim" },
 })
@@ -321,6 +309,14 @@ require("dapui").setup({
     max_value_lines = 100
   }
 })
+
+-- VIMTEX
+-- vim.g.vimtex_view_general_viewer = current_os == "windows" and "sioyek" or "zathura"
+vim.g.vimtex_view_general_viewer = "sioyek"
+vim.g.vimtex_compiler_latexmk = {
+  out_dir = "build",
+}
+vim.g.vimtex_mappings_disable = { ["n"] = { "K" } } -- conflicts with LSP mapping
 
 require("luasnip").setup()
 require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/snippets/" })
