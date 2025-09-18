@@ -35,7 +35,7 @@ map("n", "]t", "<cmd>tabnext<CR>", { desc = "Jumps to next tab" })
 map("n", "[t", "<cmd>tabprevious<CR>", { desc = "Jumps to previous tab" })
 
 ---------------------------- LSP ------------------------------
-map("n", "<leader>fm", lsp.format, { desc = "[LSP] Format code" })
+map("n", "<leader>lf", lsp.format, { desc = "[LSP] Format code" })
 map("n", "<leader>la", lsp.code_action, { desc = "[LSP] Code action" })
 map("n", "<leader>lh", lsp.hover, { desc = "[LSP] Hover" })
 map("n", "<leader>lt", lsp.type_definition, { desc = "[LSP] Jump to type definition" })
@@ -57,7 +57,9 @@ map("n", "<leader>fo", telescope.oldfiles, { desc = "Telescope old files" })
 map("n", "<leader>fg", telescope.live_grep, { desc = "Telescope live grep" })
 map("n", "<leader>fb", telescope.buffers, { desc = "Telescope buffers" })
 map("n", "<leader>fh", telescope.help_tags, { desc = "Telescope help tags" })
-map("n", "<leader>km", telescope.keymaps, { desc = "Show keymaps" })
+map("n", "<leader>km", telescope.keymaps, { desc = "Telescope keymaps" })
+map("n", "<leader>fm", telescope.man_pages, { desc = "Telescope man pages" })
+map("n", "<leader>fs", telescope.lsp_document_symbols, { desc = "Telescope document symbols" })
 
 -- Markdown
 -- map("n", "<leader>mp", "<cmd>Glow<CR>", { desc = "Markdown file preview with Glow" })
