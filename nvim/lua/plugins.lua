@@ -4,80 +4,6 @@
 vim.pack.add({
   { src = "https://github.com/windwp/nvim-autopairs" },
   { src = "https://github.com/stevearc/conform.nvim" },
-  {
-    src = "https://github.com/mfussenegger/nvim-dap",
-    config = function()
-      local dap = require("dap")
-      local dapui = require("dapui")
-
-      vim.api.nvim_set_hl(0, "DapStoppedHl", { fg = "#98BB6C", bg = "#2A2A2A", bold = true })
-      vim.api.nvim_set_hl(0, "DapStoppedLineHl", { bg = "#204028", bold = true })
-      vim.fn.sign_define('DapStopped', { text = '', texthl = 'DapStoppedHl', linehl = 'DapStoppedLineHl', numhl = '' })
-      vim.fn.sign_define('DapBreakpoint', { text = '', texthl = 'DiagnosticSignError', linehl = '', numhl = '' })
-      vim.fn.sign_define('DapBreakpointCondition', { text = '', texthl = 'DiagnosticSignWarn', linehl = '', numhl = '' })
-      vim.fn.sign_define('DapBreakpointRejected', { text = '', texthl = 'DiagnosticSignError', linehl = '', numhl = '' })
-      vim.fn.sign_define('DapLogPoint', { text = '', texthl = 'DiagnosticSignInfo', linehl = '', numhl = '' })
-
-      dap.listeners.after.event_initialized["dapui_config"] = function()
-        dapui.open()
-      end
-
-      dap.listeners.before.event_terminated["dapui_config"] = function()
-        -- Commented to prevent DAP UI from closing when unit tests finish
-        -- require('dapui').close()
-      end
-
-      dap.listeners.before.event_exited["dapui_config"] = function()
-        -- Commented to prevent DAP UI from closing when unit tests finish
-        -- require('dapui').close()
-      end
-      dap.configurations.java = {
-        {
-          name = "Debug Launch (2GB)",
-          type = 'java',
-          request = 'launch',
-          vmArgs = "" ..
-              "-Xmx2g "
-        },
-        {
-          name = "Debug Attach (8000)",
-          type = 'java',
-          request = 'attach',
-          hostName = "127.0.0.1",
-          port = 8000,
-        },
-        {
-          name = "Debug Attach (5005)",
-          type = 'java',
-          request = 'attach',
-          hostName = "127.0.0.1",
-          port = 5005,
-        },
-        {
-          name = "My Custom Java Run Configuration",
-          type = "java",
-          request = "launch",
-          -- You need to extend the classPath to list your dependencies.
-          -- `nvim-jdtls` would automatically add the `classPaths` property if it is missing
-          -- classPaths = {},
-
-          -- If using multi-module projects, remove otherwise.
-          -- projectName = "yourProjectName",
-
-          -- javaExec = "java",
-          mainClass = "replace.with.your.fully.qualified.MainClass",
-
-          -- If using the JDK9+ module system, this needs to be extended
-          -- `nvim-jdtls` would automatically populate this property
-          -- modulePaths = {},
-          vmArgs = "" ..
-              "-Xmx2g "
-        },
-      }
-    end
-  },
-  { src = "https://github.com/theHamsta/nvim-dap-virtual-text" },
-  { src = "https://github.com/rcarriga/nvim-dap-ui" },
   { src = "https://github.com/lewis6991/gitsigns.nvim" },
   { src = "https://github.com/mfussenegger/nvim-jdtls" },
   { src = "https://github.com/kdheepak/lazygit.nvim" },
@@ -219,21 +145,96 @@ require("render-markdown").setup({
 require("lspkind").setup({
   mode = "symbol_text",
   preset = "codicons"
-
 })
 
-require("nvim-dap-virtual-text").setup({
-  commented = true,
-  ---@diagnostic disable-next-line: unused-local
-  display_callback = function(variable, buf, stackframe, node, options)
-    if options.virt_text_pos == 'inline' then
-      return ' = ' .. variable.value
-    else
-      return variable.name .. ' = ' .. variable.value
+require("luasnip").setup()
+require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/snippets/" })
+
+-- VIMTEX
+-- vim.g.vimtex_view_general_viewer = current_os == "windows" and "sioyek" or "zathura"
+vim.g.vimtex_view_general_viewer = "sioyek"
+vim.g.vimtex_compiler_latexmk = {
+  out_dir = "build",
+}
+vim.g.vimtex_mappings_disable = { ["n"] = { "K" } } -- conflicts with LSP mapping
+
+-- DAP
+vim.pack.add({
+  {
+    src = "https://github.com/mfussenegger/nvim-dap",
+    config = function()
+      local dap = require("dap")
+      local dapui = require("dapui")
+
+      vim.api.nvim_set_hl(0, "DapStoppedHl", { fg = "#98BB6C", bg = "#2A2A2A", bold = true })
+      vim.api.nvim_set_hl(0, "DapStoppedLineHl", { bg = "#204028", bold = true })
+      vim.fn.sign_define('DapStopped', { text = '', texthl = 'DapStoppedHl', linehl = 'DapStoppedLineHl', numhl = '' })
+      vim.fn.sign_define('DapBreakpoint', { text = '', texthl = 'DiagnosticSignError', linehl = '', numhl = '' })
+      vim.fn.sign_define('DapBreakpointCondition', { text = '', texthl = 'DiagnosticSignWarn', linehl = '', numhl = '' })
+      vim.fn.sign_define('DapBreakpointRejected', { text = '', texthl = 'DiagnosticSignError', linehl = '', numhl = '' })
+      vim.fn.sign_define('DapLogPoint', { text = '', texthl = 'DiagnosticSignInfo', linehl = '', numhl = '' })
+
+      dap.listeners.after.event_initialized["dapui_config"] = function()
+        dapui.open()
+      end
+
+      dap.listeners.before.event_terminated["dapui_config"] = function()
+        -- Commented to prevent DAP UI from closing when unit tests finish
+        -- require('dapui').close()
+      end
+
+      dap.listeners.before.event_exited["dapui_config"] = function()
+        -- Commented to prevent DAP UI from closing when unit tests finish
+        -- require('dapui').close()
+      end
+      dap.configurations.java = {
+        {
+          name = "Debug Launch (2GB)",
+          type = 'java',
+          request = 'launch',
+          vmArgs = "" ..
+              "-Xmx2g "
+        },
+        {
+          name = "Debug Attach (8000)",
+          type = 'java',
+          request = 'attach',
+          hostName = "127.0.0.1",
+          port = 8000,
+        },
+        {
+          name = "Debug Attach (5005)",
+          type = 'java',
+          request = 'attach',
+          hostName = "127.0.0.1",
+          port = 5005,
+        },
+        {
+          name = "My Custom Java Run Configuration",
+          type = "java",
+          request = "launch",
+          -- You need to extend the classPath to list your dependencies.
+          -- `nvim-jdtls` would automatically add the `classPaths` property if it is missing
+          -- classPaths = {},
+
+          -- If using multi-module projects, remove otherwise.
+          -- projectName = "yourProjectName",
+
+          -- javaExec = "java",
+          mainClass = "replace.with.your.fully.qualified.MainClass",
+
+          -- If using the JDK9+ module system, this needs to be extended
+          -- `nvim-jdtls` would automatically populate this property
+          -- modulePaths = {},
+          vmArgs = "" ..
+              "-Xmx2g "
+        },
+      }
     end
-  end,
+  },
+  { src = "https://github.com/theHamsta/nvim-dap-virtual-text" },
+  { src = "https://github.com/rcarriga/nvim-dap-ui" },
 })
-
 require("dapui").setup({
   controls = {
     element = "repl",
@@ -309,14 +310,14 @@ require("dapui").setup({
     max_value_lines = 100
   }
 })
-
--- VIMTEX
--- vim.g.vimtex_view_general_viewer = current_os == "windows" and "sioyek" or "zathura"
-vim.g.vimtex_view_general_viewer = "sioyek"
-vim.g.vimtex_compiler_latexmk = {
-  out_dir = "build",
-}
-vim.g.vimtex_mappings_disable = { ["n"] = { "K" } } -- conflicts with LSP mapping
-
-require("luasnip").setup()
-require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/snippets/" })
+require("nvim-dap-virtual-text").setup({
+  commented = true,
+  ---@diagnostic disable-next-line: unused-local
+  display_callback = function(variable, buf, stackframe, node, options)
+    if options.virt_text_pos == 'inline' then
+      return ' = ' .. variable.value
+    else
+      return variable.name .. ' = ' .. variable.value
+    end
+  end,
+})
