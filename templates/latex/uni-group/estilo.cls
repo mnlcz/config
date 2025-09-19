@@ -21,22 +21,14 @@
 \RequirePackage{csquotes}
 \RequirePackage{tikz}
 \RequirePackage{xfp}
+\RequirePackage{xcolor}
+\RequirePackage{listings}
 %------------------------------------------------------------------------------
 %   Definiciones
 %------------------------------------------------------------------------------
-\newcommand{\Titulo}{TITULO}
-\newcommand{\Materia}{MATERIA}
-\newcommand{\Docente}{DOCENTE}
-
-% New commands for authors and emails
-\newcommand{\AutorUno}{AUTOR1}
-\newcommand{\EmailUno}{email1@dominio.com}
-\newcommand{\AutorDos}{AUTOR2}
-\newcommand{\EmailDos}{email2@dominio.com}
-% Add more if you have more authors
-% \newcommand{\AutorTres}{AUTOR3}
-% \newcommand{\EmailTres}{email3@dominio.com}
-
+\parskip 1ex
+\newcommand{\Titulo}{Apuntes}
+\newcommand{\Materia}{Arquitectura de Sistemas de Elaboración de Datos 1}
 %------------------------------------------------------------------------------
 %	Función para contar palabras
 %------------------------------------------------------------------------------
@@ -77,14 +69,35 @@
     \vspace{3cm}
     {\itshape\Large \Titulo \par}
     \vfill
-    {\Large Autores: \par}
-    {\Large \AutorUno ~(\href{mailto:\EmailUno}{\EmailUno}) \par}
-    {\Large \AutorDos ~(\href{mailto:\EmailDos}{\EmailDos}) \par}
-    % Add more authors if needed:
-    % {\Large \AutorTres ~(\href{mailto:\EmailTres}{\EmailTres}) \par}
+    {\Large Autor: \par}
+    {\Large Manuel Lopez Cosmitz \par}
     \vfill
-    {\Large Docente: \par}
-    {\Large \Docente \par}
+    {\Large \today \par}
 \end{titlepage}
 }
-
+%------------------------------------------------------------------------------
+%	LISTINGS
+%------------------------------------------------------------------------------
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
