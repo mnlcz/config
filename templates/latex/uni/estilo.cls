@@ -21,11 +21,14 @@
 \RequirePackage{csquotes}
 \RequirePackage{tikz}
 \RequirePackage{xfp}
+\RequirePackage{xcolor}
+\RequirePackage{listings}
 %------------------------------------------------------------------------------
 %   Definiciones
 %------------------------------------------------------------------------------
-\newcommand{\Titulo}{TITULO}
-\newcommand{\Materia}{MATERIA}
+\parskip 1ex
+\newcommand{\Titulo}{Apuntes}
+\newcommand{\Materia}{Arquitectura de Sistemas de Elaboración de Datos 1}
 %------------------------------------------------------------------------------
 %	Función para contar palabras
 %------------------------------------------------------------------------------
@@ -72,3 +75,29 @@
     {\Large \today \par}
 \end{titlepage}
 }
+%------------------------------------------------------------------------------
+%	LISTINGS
+%------------------------------------------------------------------------------
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
