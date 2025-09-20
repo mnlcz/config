@@ -132,6 +132,9 @@ if [ "$DISTRO_ID" = "debian" ]; then
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
+# Setup nvim as man pages reader
+export MANPAGER='nvim +Man!'
+
 # Rust cargo
 export PATH="$PATH:~/.cargo/bin"
 
