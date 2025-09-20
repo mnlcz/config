@@ -143,6 +143,14 @@ export FZF_CTRL_T_OPTS="
   --preview 'batcat -n --color=always {}'
   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 
+# yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
 # zoxide
 export PATH="$HOME/.local/bin:$PATH" # wsl tries to run the eval BEFORE .local/bin is in path
 eval "$(zoxide init bash)"
