@@ -34,6 +34,9 @@ map("n", "tt", "<cmd>tabnew<CR>", { desc = "New empty tab" })
 map("n", "]t", "<cmd>tabnext<CR>", { desc = "Jumps to next tab" })
 map("n", "[t", "<cmd>tabprevious<CR>", { desc = "Jumps to previous tab" })
 
+-- Spell checker
+map("n", "<leader>sc", function() vim.o.spell = not vim.o.spell end, { desc = "Toggle spellcheck"})
+
 ---------------------------- LSP ------------------------------
 map("n", "<leader>lf", lsp.format, { desc = "[LSP] Format code" })
 map("n", "<leader>la", lsp.code_action, { desc = "[LSP] Code action" })
