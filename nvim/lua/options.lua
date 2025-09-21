@@ -53,9 +53,10 @@ vim.o.virtualedit = "block" -- Makes empty character cells available in block mo
 -------------------------- Edition ----------------------------
 vim.o.clipboard = "unnamedplus" -- System clipboard
 vim.o.inccommand = "split"      -- Show command output preview in different buffer
+
 -- Spell check
-vim.o.spelllang = 'en_us'
 vim.o.spell = true
+vim.o.spelllang = "en_us,es,ru"
 
 ---------------------------- QOL ------------------------------
 vim.o.ignorecase = true -- Ignore case for command autocomplete ease of use
