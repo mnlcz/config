@@ -60,6 +60,7 @@ map("n", "<leader>fh", telescope.help_tags, { desc = "Telescope help tags" })
 map("n", "<leader>km", telescope.keymaps, { desc = "Telescope keymaps" })
 map("n", "<leader>fm", telescope.man_pages, { desc = "Telescope man pages" })
 map("n", "<leader>fs", telescope.lsp_document_symbols, { desc = "Telescope document symbols" })
+map("n", "<leader>fc", telescope.spell_suggest, { desc = "Telescope spell suggestions" })
 
 -- Markdown
 -- map("n", "<leader>mp", "<cmd>Glow<CR>", { desc = "Markdown file preview with Glow" })
