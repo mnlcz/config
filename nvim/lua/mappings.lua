@@ -67,7 +67,9 @@ map("n", "<leader>fc", telescope.spell_suggest, { desc = "Telescope spell sugges
 
 -- Markdown
 -- map("n", "<leader>mp", "<cmd>Glow<CR>", { desc = "Markdown file preview with Glow" })
-map("n", "<leader>rm", "<cmd>:RenderMarkdown toggle<CR>", { desc = "Toggle markdown rendering" })
+map("n", "<leader>mr", "<cmd>:RenderMarkdown toggle<CR>", { desc = "Toggle markdown rendering" })
+map("n", "<leader>mb", "<Esc>bi**<Esc>ea**<Esc>", { desc = "Markdown make word bold" })
+map("n", "<leader>mi", "<Esc>bi*<Esc>ea*<Esc>", { desc = "Markdown make word italic" })
 
 ---------------------------- INACTIVE ------------------------------
 -- Neorg
