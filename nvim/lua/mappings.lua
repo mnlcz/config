@@ -35,7 +35,7 @@ map("n", "]t", "<cmd>tabnext<CR>", { desc = "Jumps to next tab" })
 map("n", "[t", "<cmd>tabprevious<CR>", { desc = "Jumps to previous tab" })
 
 -- Spell checker
-map("n", "<leader>sc", function() vim.o.spell = not vim.o.spell end, { desc = "Toggle spellcheck"})
+map("n", "<leader>sc", function() vim.o.spell = not vim.o.spell end, { desc = "Toggle spellcheck" })
 
 ---------------------------- LSP ------------------------------
 map("n", "<leader>lf", lsp.format, { desc = "[LSP] Format code" })
@@ -68,8 +68,6 @@ map("n", "<leader>fc", telescope.spell_suggest, { desc = "Telescope spell sugges
 -- Markdown
 -- map("n", "<leader>mp", "<cmd>Glow<CR>", { desc = "Markdown file preview with Glow" })
 map("n", "<leader>mr", "<cmd>:RenderMarkdown toggle<CR>", { desc = "Toggle markdown rendering" })
-map("n", "<leader>mb", "<Esc>bi**<Esc>ea**<Esc>", { desc = "Markdown make word bold" })
-map("n", "<leader>mi", "<Esc>bi*<Esc>ea*<Esc>", { desc = "Markdown make word italic" })
 
 ---------------------------- INACTIVE ------------------------------
 -- Neorg
