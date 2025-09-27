@@ -6,6 +6,7 @@ vim.lsp.enable({
   "lua_ls",
   "marksman",
   "pylsp",
+  "serve_d",
   "texlive",
   "ts_ls",
 })
