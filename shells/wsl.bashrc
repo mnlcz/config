@@ -161,6 +161,9 @@ eval "$(zoxide init bash)"
 # posh
 eval "$(oh-my-posh init bash --config 'space')"
 
+# tmux
+~/repos/config/scripts/init-tmux.sh
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
