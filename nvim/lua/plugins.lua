@@ -1,5 +1,5 @@
--- local os_utils = require("custom_tools.get_os")
--- local current_os = os_utils.get_current_os()
+local os_utils = require("custom_tools.get_os")
+local current_os = os_utils.get_current_os()
 
 vim.pack.add({
   { src = "https://github.com/windwp/nvim-autopairs" },
@@ -151,8 +151,7 @@ require("luasnip").setup()
 require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/snippets/" })
 
 -- VIMTEX
--- vim.g.vimtex_view_general_viewer = current_os == "windows" and "sioyek" or "zathura"
-vim.g.vimtex_view_general_viewer = "sioyek"
+vim.g.vimtex_view_general_viewer = current_os == "windows" and "sioyek" or "sioyek" -- change if needed
 vim.g.vimtex_compiler_latexmk = {
   out_dir = "build",
 }
