@@ -17,7 +17,7 @@ alias gco='git checkout'
 alias gpull='git pull'
 
 # Go
-export GOPATH="$REPOS_DIR/go"
+export GOPATH="$REPOS_DIR/source/go"
 export PATH="$PATH:$GOPATH/bin"
 
 # Node
