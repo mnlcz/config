@@ -16,6 +16,10 @@ alias gb='git branch'
 alias gco='git checkout'
 alias gpull='git pull'
 
+# D
+export PATH="$PATH:/usr/local/src/dmd2/linux/bin64"
+export PATH="$PATH:/usr/local/src/DCD/bin"
+
 # Go
 export GOPATH="$REPOS_DIR/source/go"
 export PATH="$PATH:$GOPATH/bin"
@@ -34,13 +38,16 @@ alias py='python3'
 # Development environment info
 devinfo() {
     echo "=== Development Environment ==="
+    echo "D: $(dmd --version | head -n 1 2>/dev/null || echo 'not installed')"
+    echo "Git: $(git --version)"
+    echo "Go: $(go version 2>/dev/null || echo 'not installed')"
+    echo "JDK: $(java --version | head -n 1 2>/dev/null || echo 'not installed')"
+    echo "JRE: $(java --version | head -n 2 | tail -n 1 2>/dev/null || echo 'not installed')"
     echo "Node: $(node --version 2>/dev/null || echo 'not installed')"
     echo "npm: $(npm --version 2>/dev/null || echo 'not installed')"
-    echo "Python: $(python3 --version 2>/dev/null || echo 'not installed')"
-    echo "Go: $(go version 2>/dev/null || echo 'not installed')"
-    echo "Rust: $(rustc --version 2>/dev/null || echo 'not installed')"
     echo "Podman: $(podman --version 2>/dev/null || echo 'not installed')"
-    echo "Git: $(git --version)"
+    echo "Python: $(python3 --version 2>/dev/null || echo 'not installed')"
+    echo "Rust: $(rustc --version 2>/dev/null || echo 'not installed')"
 }
 
 # Quick project setup
