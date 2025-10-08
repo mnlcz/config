@@ -8,7 +8,7 @@ fi
 if tmux has-session -t 'main' 2>/dev/null; then
     tmux attach-session -t main
 else
-    tmux new-session -d -s 'main' -n 'bash'
+    tmux new-session -d -s 'main' #-n 'bash'
     tmux send-keys -t main:bash 'cd ~' Enter
 fi
 
