@@ -1,0 +1,45 @@
+{
+  "plugins": {
+    "LuaSnip": [],
+    "black-metal-theme-neovim": [],
+    "conform.nvim": {
+      "rev": "fbcb4fa"
+    },
+    "gitsigns.nvim": {
+      "rev": "1ee5c1f"
+    },
+    "lspkind.nvim": [],
+    "mini.icons": {
+      "rev": "2847986"
+    },
+    "nvim-autopairs": [],
+    "nvim-dap": {
+      "rev": "881f7dc"
+    },
+    "nvim-dap-ui": [],
+    "nvim-dap-virtual-text": [],
+    "nvim-jdtls": {
+      "rev": "380ac14"
+    },
+    "nvim-nio": [],
+    "nvim-treesitter": {
+      "version": "'master'"
+    },
+    "nvim-treesitter-textobjects": [],
+    "oil.nvim": [],
+    "plenary.nvim": [],
+    "render-markdown.nvim": {
+      "rev": "d538564"
+    },
+    "table-nvim": [],
+    "telescope-dap.nvim": [],
+    "telescope.nvim": [],
+    "todo-comments.nvim": {
+      "rev": "19d461d"
+    },
+    "transparent.nvim": [],
+    "vimtex": {
+      "rev": "5c457a8a"
+    }
+  }
+}
