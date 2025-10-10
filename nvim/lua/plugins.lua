@@ -6,7 +6,6 @@ vim.pack.add({
   { src = "https://github.com/stevearc/conform.nvim" },
   { src = "https://github.com/lewis6991/gitsigns.nvim" },
   { src = "https://github.com/mfussenegger/nvim-jdtls" },
-  { src = "https://github.com/kdheepak/lazygit.nvim" },
   { src = "https://github.com/onsails/lspkind.nvim" },
   { src = "https://github.com/L3MON4D3/LuaSnip" },
   { src = "https://github.com/nvim-mini/mini.icons" },
