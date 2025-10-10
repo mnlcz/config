@@ -38,6 +38,9 @@ map("n", "[t", "<cmd>tabprevious<CR>", { desc = "Jumps to previous tab" })
 -- Spell checker
 map("n", "<leader>sc", function() vim.o.spell = not vim.o.spell end, { desc = "Toggle spellcheck" })
 
+-- Dev
+map("n", "<leader>r", "<Cmd>:.lua<CR>", { desc="Run Lua code inline" })
+
 ---------------------------- LSP ------------------------------
 map("n", "<leader>lf", lsp.format, { desc = "[LSP] Format code" })
 map("n", "<leader>la", lsp.code_action, { desc = "[LSP] Code action" })
@@ -51,7 +54,6 @@ map("n", "<leader>lS", lsp.document_symbol, { desc = "[LSP] Display current docu
 map("n", "<leader>lR", lsp.rename, { desc = "[LSP] Rename all references to current symbol" })
 
 ---------------------------- Plugins ------------------------------
-map("n", "<leader>gg", "<cmd>LazyGit<CR>", { desc = "Launch LazyGit" })
 map("n", "<C-n>", "<cmd>Oil<CR>", { desc = "Open Oil file manager" })
 map("n", "<leader>n", require("oil").toggle_float, { desc = "Open Oil file manager as a floating window" })
 
