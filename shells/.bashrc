@@ -24,6 +24,11 @@ if [ -d ~/.bashrc.d ]; then
 fi
 unset rc
 
+# Setup manual installation of texlive
+export MANPATH="/usr/local/texlive/2025/texmf-dist/doc/man"
+export INFOPATH="/usr/local/texlive/2025/texmf-dist/doc/info"
+export PATH="$PATH:/usr/local/texlive/2025/bin/x86_64-linux"
+
 # Setup nvim as man pages reader
 export MANPAGER='nvim +Man!'
 
