@@ -1,45 +1,55 @@
 {
   "plugins": {
-    "LuaSnip": [],
+    "LuaSnip": {
+      "rev": "3732756"
+    },
     "black-metal-theme-neovim": [],
     "conform.nvim": {
-      "rev": "fbcb4fa"
+      "rev": "26c02e1"
     },
     "gitsigns.nvim": {
-      "rev": "1ee5c1f"
+      "rev": "20ad441"
     },
     "lspkind.nvim": [],
     "mini.icons": {
-      "rev": "2847986"
+      "rev": "ff2e4f1"
     },
-    "nvim-autopairs": [],
+    "nvim-autopairs": {
+      "rev": "7a2c97c"
+    },
     "nvim-dap": {
-      "rev": "881f7dc"
+      "rev": "e97dc47"
     },
     "nvim-dap-ui": [],
     "nvim-dap-virtual-text": [],
     "nvim-jdtls": {
-      "rev": "380ac14"
+      "rev": "38d265e"
     },
     "nvim-nio": [],
     "nvim-treesitter": {
       "version": "'master'"
     },
-    "nvim-treesitter-textobjects": [],
-    "oil.nvim": [],
+    "nvim-treesitter-textobjects": {
+      "rev": "5ca4aaa"
+    },
+    "oil.nvim": {
+      "rev": "7e1cd77"
+    },
     "plenary.nvim": [],
     "render-markdown.nvim": {
-      "rev": "d538564"
+      "rev": "a1b2bf0"
     },
     "table-nvim": [],
     "telescope-dap.nvim": [],
-    "telescope.nvim": [],
+    "telescope.nvim": {
+      "rev": "47a8530"
+    },
     "todo-comments.nvim": {
-      "rev": "19d461d"
+      "rev": "411503d"
     },
     "transparent.nvim": [],
     "vimtex": {
-      "rev": "5c457a8a"
+      "rev": "be9deac3"
     }
   }
 }
