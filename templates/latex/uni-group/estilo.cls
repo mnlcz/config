@@ -27,8 +27,15 @@
 %   Definiciones
 %------------------------------------------------------------------------------
 \parskip 1ex
-\newcommand{\Titulo}{Apuntes}
-\newcommand{\Materia}{Arquitectura de Sistemas de Elaboración de Datos 1}
+\newcommand{\Titulo}{TITULO}
+\newcommand{\Materia}{MATERIA}
+\newcommand{\Docente}{DOCENTE}
+\newcommand{\AutorUno}{AUTOR1}
+\newcommand{\EmailUno}{email1@dominio.com}
+\newcommand{\AutorDos}{AUTOR2}
+\newcommand{\EmailDos}{email2@dominio.com}
+\newcommand{\AutorTres}{AUTOR3}
+\newcommand{\EmailTres}{email3@dominio.com}
 %------------------------------------------------------------------------------
 %	Función para contar palabras
 %------------------------------------------------------------------------------
@@ -69,10 +76,13 @@
     \vspace{3cm}
     {\itshape\Large \Titulo \par}
     \vfill
-    {\Large Autor: \par}
-    {\Large Manuel Lopez Cosmitz \par}
+    {\Large Autores: \par}
+    {\Large \AutorUno ~(\href{mailto:\EmailUno}{\EmailUno}) \par}
+    {\Large \AutorDos ~(\href{mailto:\EmailDos}{\EmailDos}) \par}
+    {\Large \AutorTres ~(\href{mailto:\EmailTres}{\EmailTres}) \par}
     \vfill
-    {\Large \today \par}
+    {\Large Docente: \par}
+    {\Large \Docente \par}
 \end{titlepage}
 }
 %------------------------------------------------------------------------------
