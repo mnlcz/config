@@ -27,8 +27,9 @@
 %   Definiciones
 %------------------------------------------------------------------------------
 \parskip 1ex
-\newcommand{\Titulo}{Apuntes}
-\newcommand{\Materia}{Arquitectura de Sistemas de Elaboración de Datos 1}
+\newcommand{\Titulo}{TITULO}
+\newcommand{\Materia}{MATERIA}
+\newcommand{\Docente}{DOCENTE}
 %------------------------------------------------------------------------------
 %	Función para contar palabras
 %------------------------------------------------------------------------------
@@ -72,7 +73,8 @@
     {\Large Autor: \par}
     {\Large Manuel Lopez Cosmitz \par}
     \vfill
-    {\Large \today \par}
+    {\Large Docente: \par}
+    {\Large \Docente \par}
 \end{titlepage}
 }
 %------------------------------------------------------------------------------
