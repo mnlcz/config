@@ -15,10 +15,10 @@ fi
 # config session
 if ! tmux has-session -t 'config' 2>/dev/null; then
     tmux new-session -d -s 'config' -n 'nvim'
-    tmux send-keys -t config:nvim 'cd ~/repos/config && nvim .' Enter
+    tmux send-keys -t config:nvim 'cd $CONFIG_DIR && nvim .' Enter
     # 2nd window
     tmux new-window -t config -n 'bash'
-    tmux send-keys -t config:bash 'cd ~/repos/config && git status' Enter
+    tmux send-keys -t config:bash 'cd $CONFIG_DIR && git status' Enter
 fi
 
 tmux attach-session -t main
