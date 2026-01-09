@@ -1,5 +1,5 @@
-export REPOS_DIR="$HOME/repos"
-export CONFIG_DIR="$HOME/repos/config"
+export SOURCE_DIR="$HOME/Source"
+export CONFIG_DIR="$SOURCE_DIR/repos/config"
 
 # tmux
 "$CONFIG_DIR/scripts/init-tmux.sh"
@@ -21,7 +21,7 @@ export PATH="$PATH:/usr/local/src/dmd2/linux/bin64"
 export PATH="$PATH:/usr/local/src/DCD/bin"
 
 # Go
-export GOPATH="$REPOS_DIR/source/go"
+export GOPATH="$SOURCE_DIR/go"
 export PATH="$PATH:$GOPATH/bin"
 
 # Node
@@ -58,8 +58,8 @@ mkproject() {
         return 1
     fi
     
-    mkdir -p "$REPOS_DIR/$name"
-    cd "$REPOS_DIR/$name"
+    mkdir -p "$SOURCE_DIR/$name"
+    cd "$SOURCE_DIR/$name"
     git init
     echo "# $name" > README.md
     echo "Created project: $name"

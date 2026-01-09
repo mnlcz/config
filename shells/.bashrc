@@ -32,15 +32,20 @@ export PATH="$PATH:/usr/local/texlive/2025/bin/x86_64-linux"
 # Setup nvim as man pages reader
 export MANPAGER='nvim +Man!'
 
+# bat theme
+export BAT_THEME="GitHub"
+
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --bash)"
 # Preview file content using bat (https://github.com/sharkdp/bat)
 export FZF_CTRL_T_OPTS="
   --walker-skip .git,node_modules,target
   --preview 'bat -n --color=always {}'
+  --color light
   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 
-eval "$(zoxide init bash)"
+# X-CMD
+[ ! -f "$HOME/.x-cmd.root/X" ] || . "$HOME/.x-cmd.root/X" # boot up x-cmd.
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
