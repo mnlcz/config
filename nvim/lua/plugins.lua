@@ -23,7 +23,6 @@ vim.pack.add({
   -- { src = "https://github.com/metalelf0/black-metal-theme-neovim" },
   { src = "https://github.com/oskarnurm/koda.nvim" },
 })
-vim.
 
 -- No config
 require("mini.icons").setup()
