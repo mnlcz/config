@@ -2,13 +2,12 @@ vim.lsp.enable({
   "bashls",
   "cssls",
   "html",
-  "jdtls",
   "jsonls",
   "lua_ls",
   "marksman",
   "pylsp",
   "serve_d",
-  "texlive",
+  -- "texlab", -- Using vimtex plugin
   "ts_ls",
 })
 

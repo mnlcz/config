@@ -1,55 +1,101 @@
 {
   "plugins": {
     "LuaSnip": {
-      "rev": "3732756"
+      "rev": "3732756842a2f7e0e76a7b0487e9692072857277",
+      "src": "https://github.com/L3MON4D3/LuaSnip"
     },
-    "black-metal-theme-neovim": [],
     "conform.nvim": {
-      "rev": "26c02e1"
+      "rev": "8314f4c9e205e7f30b62147069729f9a1227d8bf",
+      "src": "https://github.com/stevearc/conform.nvim"
     },
     "gitsigns.nvim": {
-      "rev": "20ad441"
+      "rev": "dfac404ac94b0eb1461bd7da32279e16950dfd67",
+      "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
-    "lspkind.nvim": [],
+    "koda.nvim": {
+      "rev": "a6e51936a18fb37ff84ad239e4aa7cdd1c2576db",
+      "src": "https://github.com/oskarnurm/koda.nvim"
+    },
+    "lspkind.nvim": {
+      "rev": "3ddd1b4edefa425fda5a9f95a4f25578727c0bb3",
+      "src": "https://github.com/onsails/lspkind.nvim"
+    },
     "mini.icons": {
-      "rev": "ff2e4f1"
+      "rev": "efc85e42262cd0c9e1fdbf806c25cb0be6de115c",
+      "src": "https://github.com/nvim-mini/mini.icons"
     },
     "nvim-autopairs": {
-      "rev": "7a2c97c"
+      "rev": "c2a0dd0d931d0fb07665e1fedb1ea688da3b80b4",
+      "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-dap": {
-      "rev": "e97dc47"
+      "rev": "cdfd55a133f63228c55f91378f12908cb2a78ded",
+      "src": "https://github.com/mfussenegger/nvim-dap"
     },
-    "nvim-dap-ui": [],
-    "nvim-dap-virtual-text": [],
-    "nvim-jdtls": {
-      "rev": "38d265e"
+    "nvim-dap-ui": {
+      "rev": "cf91d5e2d07c72903d052f5207511bf7ecdb7122",
+      "src": "https://github.com/rcarriga/nvim-dap-ui"
     },
-    "nvim-nio": [],
+    "nvim-dap-virtual-text": {
+      "rev": "fbdb48c2ed45f4a8293d0d483f7730d24467ccb6",
+      "src": "https://github.com/theHamsta/nvim-dap-virtual-text"
+    },
+    "nvim-nio": {
+      "rev": "21f5324bfac14e22ba26553caf69ec76ae8a7662",
+      "src": "https://github.com/nvim-neotest/nvim-nio"
+    },
     "nvim-treesitter": {
+      "rev": "42fc28ba918343ebfd5565147a42a26580579482",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'master'"
     },
     "nvim-treesitter-textobjects": {
-      "rev": "5ca4aaa"
+      "rev": "5ca4aaa6efdcc59be46b95a3e876300cfead05ef",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
     },
     "oil.nvim": {
-      "rev": "7e1cd77"
+      "rev": "81b8a91735ad5cd24a6b3137f14a89f19176364f",
+      "src": "https://github.com/stevearc/oil.nvim"
     },
-    "plenary.nvim": [],
+    "plenary.nvim": {
+      "rev": "b9fd5226c2f76c951fc8ed5923d85e4de065e509",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
     "render-markdown.nvim": {
-      "rev": "a1b2bf0"
+      "rev": "da6a7b25471ab23824f3429225973186eb0b62d2",
+      "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
-    "table-nvim": [],
-    "telescope-dap.nvim": [],
+    "table-nvim": {
+      "rev": "287056dab467bce5c34d288c47467856db4f7457",
+      "src": "https://github.com/SCJangra/table-nvim"
+    },
+    "telescope-dap.nvim": {
+      "rev": "783366bd6c1e7fa0a5c59c07db37f49c805a28df",
+      "src": "https://github.com/nvim-telescope/telescope-dap.nvim"
+    },
+    "telescope-fzf-native.nvim": {
+      "rev": "6fea601bd2b694c6f2ae08a6c6fab14930c60e2c",
+      "src": "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
+    },
     "telescope.nvim": {
-      "rev": "47a8530"
+      "rev": "3333a52ff548ba0a68af6d8da1e54f9cd96e9179",
+      "src": "https://github.com/nvim-telescope/telescope.nvim"
     },
     "todo-comments.nvim": {
-      "rev": "411503d"
+      "rev": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668",
+      "src": "https://github.com/folke/todo-comments.nvim"
     },
-    "transparent.nvim": [],
+    "transparent.nvim": {
+      "rev": "8ac59883de84e9cd1850ea25cf087031c5ba7d54",
+      "src": "https://github.com/xiyaowong/transparent.nvim"
+    },
     "vimtex": {
-      "rev": "be9deac3"
+      "rev": "a50f40783c1cade2e8e2994a9f4a8e038a0a57bc",
+      "src": "https://github.com/lervag/vimtex"
+    },
+    "which-key.nvim": {
+      "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
+      "src": "https://github.com/folke/which-key.nvim"
     }
   }
 }

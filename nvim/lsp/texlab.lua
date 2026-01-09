@@ -1,3 +1,4 @@
+-- IGNORED IN lsp.lua, USING vimtex PLUGIN INSTEAD
 return {
   cmd = {
     "texlab",
