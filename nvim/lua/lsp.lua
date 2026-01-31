@@ -2,6 +2,7 @@ vim.lsp.enable({
   "bashls",
   "cssls",
   "html",
+  "intelephense",
   "jsonls",
   "lua_ls",
   "marksman",
