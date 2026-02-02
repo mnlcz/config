@@ -24,6 +24,10 @@ if [ -d ~/.bashrc.d ]; then
 fi
 unset rc
 
+# Open source graphics setup for Zed
+export ZED_ALLOW_EMULATED_GPU=1
+# export ZED_DEVICE_ID=0x2484 zed
+
 # Setup manual installation of texlive
 export MANPATH="/usr/local/texlive/2025/texmf-dist/doc/man"
 export INFOPATH="/usr/local/texlive/2025/texmf-dist/doc/info"

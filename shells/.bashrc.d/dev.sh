@@ -35,6 +35,9 @@ alias py='python3'
 # Rust
 . "$HOME/.cargo/env"
 
+# PHP
+export PATH="$PATH:$HOME/.composer/vendor/bin"
+
 # Development environment info
 devinfo() {
     echo "=== Development Environment ==="
