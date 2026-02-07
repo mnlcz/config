@@ -1,0 +1,38 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "gutter": {
+    "line_numbers": true
+  },
+  "vertical_scroll_margin": 0.0,
+  "scrollbar": {
+    "show": "never"
+  },
+  "scroll_beyond_last_line": "off",
+  "vim": {
+    "toggle_relative_line_numbers": true
+  },
+  "ui_font_family": ".SystemUIFont",
+  "buffer_font_family": "Red Hat Mono",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "session": {
+    "trust_all_worktrees": true
+  },
+  "vim_mode": true,
+  "ui_font_size": 16,
+  "buffer_font_size": 17.0,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "One Dark",
+  },
+}
