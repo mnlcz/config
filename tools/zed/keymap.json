@@ -18,4 +18,40 @@
       // "j k": "vim::NormalBefore"
     },
   },
+  {
+    "context": "Pane",
+    "bindings": {
+      "alt-1": null
+    }
+  },
+  {
+    "context": "Workspace || vim_mode == normal",
+    "bindings": {
+      "alt-1": "project_panel::Toggle"
+    }
+  },
+  {
+    "context": "Workspace || vim_mode == normal",
+    "bindings": {
+      "alt-2": "terminal_panel::Toggle"
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "alt-3": null
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "alt-2": null
+    }
+  },
+  {
+    "context": "Workspace || vim_mode == normal",
+    "bindings": {
+      "alt-3": "git_panel::Toggle"
+    }
+  }
 ]
