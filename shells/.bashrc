@@ -29,6 +29,9 @@ export MANPATH="/usr/local/texlive/2025/texmf-dist/doc/man"
 export INFOPATH="/usr/local/texlive/2025/texmf-dist/doc/info"
 export PATH="$PATH:/usr/local/texlive/2025/bin/x86_64-linux"
 
+# Wayland env not set fix
+export WAYLAND_DISPLAY=wayland-0
+
 # Setup nvim as man pages reader
 export MANPAGER='nvim +Man!'
 
