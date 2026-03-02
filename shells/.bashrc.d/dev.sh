@@ -61,7 +61,7 @@ mkproject() {
         echo "Usage: mkproject <project-name>"
         return 1
     fi
-    
+
     mkdir -p "$SOURCE_DIR/$name"
     cd "$SOURCE_DIR/$name"
     git init
