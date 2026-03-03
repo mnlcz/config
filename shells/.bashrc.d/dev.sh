@@ -1,22 +1,7 @@
-export SOURCE_DIR="$HOME/Source"
-export CONFIG_DIR="$SOURCE_DIR/repos/config"
-export SCRIPTS="$SOURCE_DIR/scripts"
-
 # tmux
 "$CONFIG_DIR/scripts/init-tmux.sh"
 
 # Git shortcuts
-alias g='git'
-alias gs='git status'
-alias ga='git add'
-alias gc='git commit'
-alias gp='git push'
-alias gl='git log --oneline --graph --decorate'
-alias gd='git diff'
-alias gb='git branch'
-alias gco='git checkout'
-alias gpull='git pull'
-
 # D
 export PATH="$PATH:/usr/local/src/dmd2/linux/bin64"
 export PATH="$PATH:/usr/local/src/DCD/bin"
@@ -31,7 +16,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Python
-alias py='python3'
 
 # Rust
 . "$HOME/.cargo/env"
