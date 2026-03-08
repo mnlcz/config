@@ -54,4 +54,22 @@
       "alt-3": "git_panel::Toggle",
     },
   },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "alt-4": null
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "alt-4": null
+    }
+  },
+  {
+    "context": "Workspace || vim_mode == normal",
+    "bindings": {
+      "alt-4": "outline_panel::Toggle"
+    }
+  }
 ]
