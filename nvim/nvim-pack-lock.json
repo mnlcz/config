@@ -4,6 +4,10 @@
       "rev": "3732756842a2f7e0e76a7b0487e9692072857277",
       "src": "https://github.com/L3MON4D3/LuaSnip"
     },
+    "black-metal-theme-neovim": {
+      "rev": "6d0207871387077f40d5396ab1ae90520e688d36",
+      "src": "https://github.com/metalelf0/black-metal-theme-neovim"
+    },
     "conform.nvim": {
       "rev": "8314f4c9e205e7f30b62147069729f9a1227d8bf",
       "src": "https://github.com/stevearc/conform.nvim"
