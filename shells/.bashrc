@@ -24,11 +24,6 @@ if [ -d ~/.bashrc.d ]; then
 fi
 unset rc
 
-# Setup manual installation of texlive
-export MANPATH="/usr/local/texlive/2025/texmf-dist/doc/man"
-export INFOPATH="/usr/local/texlive/2025/texmf-dist/doc/info"
-export PATH="$PATH:/usr/local/texlive/2025/bin/x86_64-linux"
-
 # Wayland env not set fix
 export WAYLAND_DISPLAY=wayland-0
 
@@ -48,7 +43,13 @@ export FZF_CTRL_T_OPTS="
   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 
 # X-CMD
-[ ! -f "$HOME/.x-cmd.root/X" ] || . "$HOME/.x-cmd.root/X" # boot up x-cmd.
+[ ! -f "$HOME/.x-cmd.root/X" ] || . "$HOME/.x-cmd.root/X" # boot up x-cmd. Check the generated .bash_profile
+
+# Setup manual installation of texlive
+export MANPATH="/usr/local/texlive/2025/texmf-dist/doc/man:${MANPATH:-}"
+export INFOPATH="/usr/local/texlive/2025/texmf-dist/doc/info"
+export PATH="$PATH:/usr/local/texlive/2025/bin/x86_64-linux"
+
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
