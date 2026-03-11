@@ -7,6 +7,11 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "languages": {
+    "Lua": {
+      "tab_size": 2
+    }
+  },
   "ui_font_size": 17.0,
   "restore_on_startup": "launchpad",
   "gutter": {
