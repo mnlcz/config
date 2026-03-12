@@ -44,6 +44,8 @@ export FZF_CTRL_T_OPTS="
 
 # X-CMD
 [ ! -f "$HOME/.x-cmd.root/X" ] || . "$HOME/.x-cmd.root/X" # boot up x-cmd. Check the generated .bash_profile
+# Fix conflicts with system tools
+unset -f c  # Restore RHEL command-line-assistant
 
 # Setup manual installation of texlive
 export MANPATH="/usr/local/texlive/2025/texmf-dist/doc/man:${MANPATH:-}"

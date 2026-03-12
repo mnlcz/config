@@ -1,6 +1,5 @@
 alias bye='tmux kill-server && exit'
 alias v='nvim'
-alias c='x cd'
 alias bwu='eval "$($CONFIG_DIR/scripts/bw-unlock.php)"'
 alias g='git'
 alias gs='git status'
