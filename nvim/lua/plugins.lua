@@ -10,7 +10,6 @@ vim.pack.add({
   { src = "https://github.com/onsails/lspkind.nvim" },                                           -- pictograms
   { src = "https://github.com/L3MON4D3/LuaSnip" },                                               -- snippets
   { src = "https://github.com/nvim-mini/mini.icons" },                                           -- icons
-  { src = "https://github.com/nvim-neotest/nvim-nio" },                                          -- dependency?
   { src = "https://github.com/stevearc/oil.nvim" },                                              -- file explorer
   { src = "https://github.com/nvim-lua/plenary.nvim" },                                          -- dependency
   { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },                      -- inline md render
