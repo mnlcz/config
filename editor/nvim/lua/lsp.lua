@@ -9,6 +9,7 @@ vim.lsp.enable({
   "pylsp",
   "serve_d",
   -- "texlab", -- Using vimtex plugin
+  "tinymist",
   "ts_ls",
 })
 
