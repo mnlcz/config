@@ -7,32 +7,54 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "show_whitespaces": "all",
+  "diagnostics": {
+    "inline": {
+      "enabled": true,
+    },
+  },
   "languages": {
     "Lua": {
-      "tab_size": 2
-    }
+      "tab_size": 2,
+    },
+  },
+  "lsp": {
+    "serve-d": {
+      "settings": {
+        "d": {
+          "dubCompiler": "ldc2",
+          "enableLinting": true,
+          "enableAutoComplete": true,
+          "enableDubLinting": true,
+          "stdlibPath": "auto",
+        },
+      },
+      "binary": {
+        "path": "/usr/local/bin/serve-d",
+      },
+    },
   },
   "ui_font_size": 17.0,
   "restore_on_startup": "launchpad",
   "gutter": {
-    "line_numbers": true
+    "line_numbers": true,
   },
   "vertical_scroll_margin": 0.0,
   "scrollbar": {
-    "show": "never"
+    "show": "never",
   },
   "scroll_beyond_last_line": "off",
   "vim": {
-    "toggle_relative_line_numbers": true
+    "toggle_relative_line_numbers": true,
   },
   "ui_font_family": ".SystemUIFont",
   "buffer_font_family": "Red Hat Mono",
   "telemetry": {
     "diagnostics": false,
-    "metrics": false
+    "metrics": false,
   },
   "session": {
-    "trust_all_worktrees": true
+    "trust_all_worktrees": true,
   },
   "vim_mode": true,
   "buffer_font_size": 18.0,
