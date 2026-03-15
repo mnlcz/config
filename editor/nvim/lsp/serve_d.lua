@@ -8,12 +8,16 @@ return {
   },
   settings = {
     d = {
-      dubPath = vim.fn.exepath("dub") or "dub",  -- explicit path to dub
+      dubPath = vim.fn.exepath("dub") or "dub",
       dubCompiler = "ldc2",
       enableLinting = true,
       enableAutoComplete = true,
       enableDubLinting = true,
-      stdlibPath = "auto",  -- let serve-d auto-detect stdlib
+      stdlibPath = {
+        "/usr/lib/ldc/x86_64-redhat-linux-gnu/include/d",
+        "/home/mnlcz/dlang/dmd-2.112.0/src/druntime/import",
+        "/home/mnlcz/dlang/dmd-2.112.0/src/phobos",
+      },
     }
   }
 }
