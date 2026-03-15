@@ -7,7 +7,6 @@ vim.lsp.enable({
   "lua_ls",
   "marksman",
   "pylsp",
-  "serve_d",
   -- "texlab", -- Using vimtex plugin
   "tinymist",
   "ts_ls",
