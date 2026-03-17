@@ -40,13 +40,26 @@ require("nvim-autopairs").setup({
 })
 
 require("conform").setup({
+  format_on_save = {
+    -- These options will be passed to conform.format()
+    timeout_ms = 500,
+    lsp_format = "fallback",
+  },
   formatters_by_ft = {
     css = { "prettier" },
+    c3 = { "c3fmt" },
     html = { "prettier" },
     javascript = { "prettier" },
     markdown = { "prettier" },
     lua = { "stylua" },
     -- tex = { "latexindent" }, -- Using vimtex
+  },
+  formatters = {
+    c3fmt = {
+      command = "c3fmt",
+      args = { "--stdin", "--stdout" },
+      stdin = true,
+    },
   },
 })
 
