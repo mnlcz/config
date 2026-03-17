@@ -1,6 +1,7 @@
 vim.lsp.enable({
   "bashls",
   "cssls",
+  "c3_lsp",
   "html",
   "intelephense",
   "jsonls",
