@@ -8,23 +8,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 vim.cmd("set completeopt+=noselect")
 
--- Highlight groups
-local set_hl_for_floating_window = function()
-  vim.api.nvim_set_hl(0, 'NormalFloat', {
-    link = 'Normal',
-  })
-  vim.api.nvim_set_hl(0, 'FloatBorder', {
-    bg = 'none',
-  })
-  vim.api.nvim_set_hl(0, 'ColorColumn', {
-    bg = 'none',
-  })
-end
-
-set_hl_for_floating_window()
-
-vim.api.nvim_create_autocmd('ColorScheme', {
-  pattern = '*',
-  desc = 'Avoid overwritten by loading color schemes later',
-  callback = set_hl_for_floating_window,
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = function()
+    vim.api.nvim_set_hl(0, 'Visual', {
+      bg = '#bcbcbc', -- Light blue/purple
+      fg = '#000000'  -- Black text
+    })
+  end,
 })
