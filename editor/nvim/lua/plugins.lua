@@ -168,7 +168,6 @@ vim.g.compile_mode = {
 		typescript = "node %",
 	},
 
-	-- Expand commands, like `:!` (e.g. `:Compile echo %`)
-	-- :h compile_mode.bang_expansion
 	bang_expansion = true,
+	focus_compilation_buffer = true,
 }
