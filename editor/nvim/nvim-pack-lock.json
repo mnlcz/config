@@ -8,6 +8,10 @@
       "rev": "87e21420c449e414a00ab78e395debf48f372169",
       "src": "https://github.com/metalelf0/black-metal-theme-neovim"
     },
+    "compile-mode.nvim": {
+      "rev": "6b41499bd782be2c213011072ce0f0eb9f7b78a2",
+      "src": "https://github.com/ej-shafran/compile-mode.nvim"
+    },
     "conform.nvim": {
       "rev": "086a40dc7ed8242c03be9f47fbcee68699cc2395",
       "src": "https://github.com/stevearc/conform.nvim"

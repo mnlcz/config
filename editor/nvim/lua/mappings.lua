@@ -1,5 +1,5 @@
 local map = vim.keymap.set
-local telescope = require('telescope.builtin')
+local telescope = require("telescope.builtin")
 local lsp = vim.lsp.buf
 
 ---------------------------- Main ------------------------------
@@ -13,9 +13,9 @@ map("i", "<C-h>", "<C-o>h", { desc = "Move left one time" })
 
 -- Edition
 map("i", "<A-,>", function()
-  local current_pos = vim.api.nvim_win_get_cursor(0)
-  vim.cmd('normal! A;')
-  vim.api.nvim_win_set_cursor(0, current_pos)
+	local current_pos = vim.api.nvim_win_get_cursor(0)
+	vim.cmd("normal! A;")
+	vim.api.nvim_win_set_cursor(0, current_pos)
 end, { desc = "Add semicolon at the end and return to position" })
 map("i", "<A-CR>", "<Esc>A;<Esc>o", { desc = "Add semicolon at the end and new line" })
 map("n", "<A-,>", "A;<Esc>", { desc = "Add semicolon at the end" })
@@ -36,7 +36,9 @@ map("n", "]t", "<cmd>tabnext<CR>", { desc = "Jumps to next tab" })
 map("n", "[t", "<cmd>tabprevious<CR>", { desc = "Jumps to previous tab" })
 
 -- Spell checker
-map("n", "<leader>sc", function() vim.o.spell = not vim.o.spell end, { desc = "Toggle spellcheck" })
+map("n", "<leader>sc", function()
+	vim.o.spell = not vim.o.spell
+end, { desc = "Toggle spellcheck" })
 
 -- Dev
 map("n", "<leader>r", "<Cmd>:.lua<CR>", { desc = "Run Lua code inline" })
@@ -71,3 +73,7 @@ map("n", "<leader>fc", telescope.spell_suggest, { desc = "Telescope spell sugges
 -- Markdown
 -- map("n", "<leader>mp", "<cmd>Glow<CR>", { desc = "Markdown file preview with Glow" })
 map("n", "<leader>mr", "<cmd>:RenderMarkdown toggle<CR>", { desc = "Toggle markdown rendering" })
+
+-- Compile-mode
+map("n", "<leader>c", "<cmd>Compile<CR>", { desc = "[Compile-mode] Compile default for current filetype" })
+map("n", "<leader>C", "<cmd>Recompile<CR>", { desc = "[Compile-mode] Recompile default for current filetype" })

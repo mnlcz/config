@@ -20,6 +20,7 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" }, -- important
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" }, -- important
 	{ src = "https://github.com/lervag/vimtex" }, -- latex
+	{ src = "https://github.com/ej-shafran/compile-mode.nvim" }, -- compile-mode
 	-- { src = "https://github.com/folke/which-key.nvim" }, -- Not working for me on nvim unstable
 })
 
@@ -152,3 +153,22 @@ vim.g.vimtex_compiler_latexmk = {
 	out_dir = "build",
 }
 vim.g.vimtex_mappings_disable = { ["n"] = { "K" } } -- conflicts with LSP mapping
+
+-- Compile-mode
+vim.g.compile_mode = {
+	default_command = {
+		c = "cc -o %:r % && ./%:r",
+		c3 = "c3c build",
+		cpp = "cc -std=c++23 -o %:r % && ./%:r",
+		go = "go run %",
+		java = "javac % && java %:r",
+		javascript = "node %",
+		lua = "luajit %",
+		python = "python3 %",
+		typescript = "node %",
+	},
+
+	-- Expand commands, like `:!` (e.g. `:Compile echo %`)
+	-- :h compile_mode.bang_expansion
+	bang_expansion = true,
+}
