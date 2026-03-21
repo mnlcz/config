@@ -1,3 +1,5 @@
+syntax on
+
 " ======================== Appearance ========================
 colorscheme default
 set guicursor=n-v-c-i-ci-ve-r-cr:hor30,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175
