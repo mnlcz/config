@@ -8,7 +8,7 @@
 - Curl
 - [Rustup](https://rustup.rs/) for Alacritty (configured as default terminal).
 
-### Neovim
+### Neovim >=0.12
 
 #### LuaRocks
 
@@ -20,13 +20,12 @@ sudo luarocks install SOMETHING --lua-version=5.1
 
 The needed packages are:
 
-- `luafilesystem`: needed for dynamically handling the plugins. See how I [load the plugins](nvim/lua/plugins/init.lua).
+- ~~`luafilesystem`: needed for dynamically handling the plugins. See how I [load the plugins](nvim/lua/plugins/init.lua).~~
 
 #### Dev tools
 
-I'm no using Mason, I prefer to install my tools via package managers.
-- For lsp: [lsp configured](nvim/lsp/)
-- For formatters: [conform config](nvim/lua/plugins.lua)
+- For lsp: [lsp configured](editor/nvim/lsp/)
+- For formatters: [conform config](editor/nvim/lua/plugins.lua)
 
 #### Misc
 

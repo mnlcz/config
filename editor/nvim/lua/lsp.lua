@@ -1,14 +1,15 @@
 vim.lsp.enable({
   "bashls",
   "cssls",
+  "c3_lsp",
   "html",
   "intelephense",
   "jsonls",
   "lua_ls",
   "marksman",
   "pylsp",
-  "serve_d",
   -- "texlab", -- Using vimtex plugin
+  "tinymist",
   "ts_ls",
 })
 

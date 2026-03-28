@@ -1,0 +1,70 @@
+syntax on
+
+" ======================== Appearance ========================
+colorscheme default
+set guicursor=n-v-c-i-ci-ve-r-cr:hor30,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175
+
+" ========================== Lines ===========================
+set number
+set relativenumber
+set nowrap
+
+" ========================== Split ===========================
+set splitbelow
+set splitright
+
+" ========================= Indenting ========================
+set expandtab
+set tabstop=4
+set shiftwidth=4
+
+augroup custom_indent
+    autocmd!
+    autocmd FileType lua,html,javascript,css,json setlocal shiftwidth=2 tabstop=2
+augroup END
+
+" ========================== Moves ===========================
+set virtualedit=block
+
+" ========================= Edition ==========================
+set clipboard=unnamedplus
+set spell
+set spelllang=en_us,es,ru " comment and install manually during first run
+
+" =========================== QOL ============================
+set ignorecase
+set termguicolors
+set laststatus=3
+set noswapfile
+set listchars=tab:\ \ ,multispace:\|\ \ \ ,eol:↵
+set list
+set nohlsearch
+filetype plugin indent on
+
+" ============================ Main =============================
+let mapleader = " "
+let maplocalleader = "\\"
+
+" ============================ Core =============================
+" Movement
+inoremap <C-l> <C-o>l
+inoremap <C-h> <C-o>h
+
+" Edition
+inoremap <A-CR> <Esc>A;<Esc>o
+nnoremap <A-,> A;<Esc>
+inoremap <A-a> <C-o>$
+inoremap <A-i> <C-o>_
+nnoremap + <C-a>
+nnoremap - <C-x>
+tnoremap <Esc> <C-\><C-n>
+
+" Buffers
+nnoremap <leader>x <cmd>bd<CR>
+nnoremap ]b <cmd>bn<CR>
+nnoremap [b <cmd>bp<CR>
+
+" Tabs
+nnoremap tt <cmd>tabnew<CR>
+nnoremap ]t <cmd>tabnext<CR>
+nnoremap [t <cmd>tabprevious<CR>

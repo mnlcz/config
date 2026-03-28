@@ -11,7 +11,7 @@ if tmux has-session -t 'main' 2>/dev/null; then
     tmux attach-session -t main
 else
     tmux new-session -d -s 'main' #-n 'bash'
-    tmux send-keys -t main:bash 'cd ~' Enter
+    tmux send-keys -t main:bash 'cd ~ ; clear ; fastfetch' Enter
 fi
 
 if [[ "$OS" == *"Vanilla OS"* ]]; then
@@ -35,5 +35,3 @@ else
 		tmux send-keys -t code:podman 'cd $SOURCE_DIR ; podman ps -a' Enter
 	fi
 fi
-
-tmux attach-session -t main
