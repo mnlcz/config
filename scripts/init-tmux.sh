@@ -1,5 +1,4 @@
 #!/bin/bash
-#!/bin/bash
 
 OS=$(cat /etc/os-release | grep "^NAME=")
 
