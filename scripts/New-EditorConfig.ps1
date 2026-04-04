@@ -1,1 +1,1 @@
-Copy-Item -Path $PSScriptRoot\..\templates\misc\.editorconfig -Destination .
+Copy-Item -Path $PSScriptRoot\..\templates\misc\dotnet_editorconfig -Destination ./.editorconfig
