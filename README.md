@@ -37,3 +37,4 @@ The needed packages are:
 - [ripgrep](https://github.com/BurntSushi/ripgrep): recommended for Telescope.
 - [treesitter-cli](https://github.com/tree-sitter/tree-sitter/blob/master/cli/README.md): for latex treesitter.
 - [vscode-codicons](https://github.com/microsoft/vscode-codicons): optional for lspkind (if not installed requires changing the `preset` value to `default`).
+- [x-cmd](https://www.x-cmd.com/): for my personal tmux config.
