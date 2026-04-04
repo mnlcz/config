@@ -29,6 +29,7 @@ The needed packages are:
 
 #### Misc
 
+- [cargo-update](https://crates.io/crates/cargo-update): for the [updates.php](scripts/updates.php) script.
 - [fd](https://github.com/sharkdp/fd): optional for Telescope.
 - [glow](https://github.com/charmbracelet/glow): for the plugin (if used).
 - [jsregexp](https://github.com/kmarius/jsregexp): optional for luasnip (can be installed with luarocks).
