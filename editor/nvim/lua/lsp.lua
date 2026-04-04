@@ -1,38 +1,38 @@
 vim.lsp.enable({
-  "bashls",
-  "cssls",
-  "c3_lsp",
-  "html",
-  "intelephense",
-  "jsonls",
-  "lua_ls",
-  "marksman",
-  "pylsp",
-  -- "texlab", -- Using vimtex plugin
-  "tinymist",
-  "ts_ls",
+	"bashls",
+	"cssls",
+	"c3_lsp",
+	"html",
+	"jsonls",
+	"lua_ls",
+	"marksman",
+	"phpactor",
+	"pylsp",
+	-- "texlab", -- Using vimtex plugin
+	"tinymist",
+	"ts_ls",
 })
 
 vim.diagnostic.config({
-  virtual_lines = true,
-  -- virtual_text = true,
-  underline = true,
-  update_in_insert = false,
-  severity_sort = true,
-  float = {
-    border = "rounded",
-    source = true,
-  },
-  signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = "󰅚 ",
-      [vim.diagnostic.severity.WARN] = "󰀪 ",
-      [vim.diagnostic.severity.INFO] = "󰋽 ",
-      [vim.diagnostic.severity.HINT] = "󰌶 ",
-    },
-    numhl = {
-      [vim.diagnostic.severity.ERROR] = "ErrorMsg",
-      [vim.diagnostic.severity.WARN] = "WarningMsg",
-    },
-  },
+	virtual_lines = true,
+	-- virtual_text = true,
+	underline = true,
+	update_in_insert = false,
+	severity_sort = true,
+	float = {
+		border = "rounded",
+		source = true,
+	},
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = "󰅚 ",
+			[vim.diagnostic.severity.WARN] = "󰀪 ",
+			[vim.diagnostic.severity.INFO] = "󰋽 ",
+			[vim.diagnostic.severity.HINT] = "󰌶 ",
+		},
+		numhl = {
+			[vim.diagnostic.severity.ERROR] = "ErrorMsg",
+			[vim.diagnostic.severity.WARN] = "WarningMsg",
+		},
+	},
 })
