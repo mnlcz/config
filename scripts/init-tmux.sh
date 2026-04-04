@@ -10,7 +10,7 @@ fi
 # Create main session if it doesn't exist
 if ! tmux has-session -t 'main' 2>/dev/null; then
     tmux new-session -d -s 'main'
-    tmux send-keys -t main 'cd ~ ; clear ; fastfetch' Enter
+    tmux send-keys -t main 'cd ~ ; clear ; fastfetch -c $CONFIG_DIR/tools/fastfetch/medium.jsonc' Enter
 fi
 
 # Create code session based on OS
