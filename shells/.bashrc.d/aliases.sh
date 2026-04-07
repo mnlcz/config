@@ -4,7 +4,7 @@ if [[ "$OS" == *"Vanilla OS"* ]]; then
 	alias bat='batcat'
 fi
 
-alias bwu='eval "$($CONFIG_DIR/scripts/bw-unlock.php)"'
+alias bwu='eval "$($CONFIG_DIR/scripts/src/bw-unlock.php)"'
 alias bye='tmux kill-server && exit'
 alias g='git'
 alias ga='git add'
