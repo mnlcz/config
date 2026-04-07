@@ -1,4 +1,8 @@
-# Personal dotfiles and configurations
+# Personal dotfiles scripts and configurations
+
+## Scripts
+
+Check [this](./scripts/README.md) for a rundown on the scripts.
 
 ## Dependencies
 
