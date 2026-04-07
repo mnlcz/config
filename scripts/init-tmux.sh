@@ -23,7 +23,7 @@ if ! tmux has-session -t 'code' 2>/dev/null; then
         tmux new-session -d -s 'code' -n "shell"
         tmux send-keys -t code:shell 'cd $SOURCE_DIR ; clear ; x ls' Enter
         tmux new-window -t code -n 'editor'
-        tmux send-keys -t code:editor 'cd $SOURCE_DIR ; clear ; nvim -V1 -v' Enter
+        tmux send-keys -t code:editor 'cd $SOURCE_DIR ; clear ; echo "=== Editor ===" ; nvim -v | head -n 3 ; echo ; devinfo' Enter
         tmux new-window -t code -n 'runner'
         tmux send-keys -t code:runner 'cd $SOURCE_DIR ; clear ; x ls' Enter
         tmux new-window -t code -n 'podman'
