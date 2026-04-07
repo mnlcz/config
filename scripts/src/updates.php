@@ -1,5 +1,6 @@
 #!/usr/bin/env php
 <?php
+
 declare(strict_types=1);
 
 $has_updates = "Not up to date. ❌";
@@ -62,9 +63,9 @@ $tools = [
     ) {
         $parsed = array_filter(
             array_slice(explode("\n", $res), 1),
-            fn($line) => !empty($line) and
-                (str_contains($line, "Needs update") or
-                    str_contains($line, "Yes")),
+            fn($line) => !empty($line)
+                and (str_contains($line, "Needs update")
+                    or str_contains($line, "Yes")),
         );
         return count($parsed) == 1
             ? $no_updates
@@ -104,4 +105,3 @@ $tools = [
 foreach ($tools as $tool) {
     $tool->check();
 }
-

@@ -1,5 +1,6 @@
 #!/usr/bin/env php
 <?php
+
 declare(strict_types=1);
 
 $descriptors = [
@@ -34,4 +35,3 @@ if (empty($matches[1])) {
 }
 
 echo "export BW_SESSION=\"{$matches[1]}\"\n";
-

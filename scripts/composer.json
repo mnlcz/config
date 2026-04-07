@@ -1,0 +1,20 @@
+{
+  "name": "mnlcz/scripts",
+  "description": "Useful scripts",
+  "type": "project",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Scripts\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "mnlcz",
+      "email": "mnlcz@tuta.io"
+    }
+  ],
+  "require": {
+    "php": "^8.3"
+  }
+}
