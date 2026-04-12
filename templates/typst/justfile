@@ -1,0 +1,12 @@
+main := "main.typ"
+out := "output.pdf"
+
+[default]
+build:
+    typst compile {{main}} {{out}}
+
+watch:
+    typst watch {{main}} {{out}}
+
+clean:
+    rm -f {{out}}
