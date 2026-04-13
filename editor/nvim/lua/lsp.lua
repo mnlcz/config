@@ -1,16 +1,17 @@
 vim.lsp.enable({
 	"bashls",
-	"cssls",
 	"c3_lsp",
+	"cssls",
 	"html",
 	"jsonls",
 	"lua_ls",
 	"marksman",
 	"phpactor",
 	"pylsp",
-	-- "texlab", -- Using vimtex plugin
 	"tinymist",
 	"ts_ls",
+	-- "texlab", -- Using vimtex plugin
+	"clangd",
 })
 
 vim.diagnostic.config({
