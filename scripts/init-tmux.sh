@@ -1,20 +1,25 @@
 #!/bin/bash
 
-OS=$(cat /etc/os-release | grep "^NAME=")
+OS=$(grep "^NAME=" /etc/os-release)
 
 if [ -n "$TMUX" ]; then
-    exit 0
+    return 0
+fi
+
+if [[ -n "$SSH_CONNECTION" ]]; then
+    return 0
 fi
 
 # Create main session if it doesn't exist
 if ! tmux has-session -t 'main' 2>/dev/null; then
     tmux new-session -d -s 'main'
     tmux send-keys -t main 'cd ~ ; clear ; fastfetch -c $CONFIG_DIR/tools/fastfetch/medium.jsonc ; $CONFIG_DIR/scripts/src/updates.php' Enter
+    tmux new-window -t main -n "ssh"
 fi
 
 # Create code session based on OS
 if ! tmux has-session -t 'code' 2>/dev/null; then
-    if [[ "$OS" == *"Vanilla OS"* ]]; then
+    if [[ "$OS" == *"Fedora"* ]]; then
         tmux new-session -d -s 'code' -n "shell"
         tmux send-keys -t code:shell 'cd $SOURCE_DIR ; clear ; ls -lah' Enter
         tmux new-window -t code -n 'runner'
@@ -31,4 +36,5 @@ if ! tmux has-session -t 'code' 2>/dev/null; then
     fi
 fi
 
+tmux select-window -t main:1
 tmux attach-session -t main
