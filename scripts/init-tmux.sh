@@ -3,11 +3,11 @@
 OS=$(grep "^NAME=" /etc/os-release)
 
 if [ -n "$TMUX" ]; then
-    return 0
+    exit 0
 fi
 
 if [[ -n "$SSH_CONNECTION" ]]; then
-    return 0
+    exit 0
 fi
 
 # Create main session if it doesn't exist
