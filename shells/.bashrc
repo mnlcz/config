@@ -24,8 +24,11 @@ if [ -d ~/.bashrc.d ]; then
 fi
 unset rc
 
-# Wayland env not set fix
+# Wayland and DISPLAY env not set fix
 export WAYLAND_DISPLAY=wayland-0
+if [ -z "$DISPLAY" ] && [ "$WAYLAND_DISPLAY" = "wayland-0" ]; then
+    export DISPLAY=:0
+fi
 
 # Setup nvim as man pages reader
 export MANPAGER='nvim +Man!'
@@ -52,14 +55,20 @@ export MANPATH="/usr/local/texlive/2025/texmf-dist/doc/man:${MANPATH:-}"
 export INFOPATH="/usr/local/texlive/2025/texmf-dist/doc/info"
 export PATH="$PATH:/usr/local/texlive/2025/bin/x86_64-linux"
 
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
+# perl
 PATH="/home/mnlcz/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/mnlcz/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/mnlcz/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/mnlcz/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/mnlcz/perl5"; export PERL_MM_OPT;
+
+# deno
 . "/home/mnlcz/.deno/env"
+
+# plan9port
+PLAN9=/home/mnlcz/Source/repos/plan9port
+PATH=$PATH:$PLAN9/bin
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
