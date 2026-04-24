@@ -28,6 +28,10 @@ $info = pathinfo($file);
         ['prettier'],
         ['--write'],
     ],
+	'typ' => [
+		['typstyle'],
+		['--inplace'].
+	],
     default => throw new \Exception('Unsupported file type')
 };
 
