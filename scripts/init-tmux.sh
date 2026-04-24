@@ -15,6 +15,8 @@ if ! tmux has-session -t 'main' 2>/dev/null; then
     tmux new-session -d -s 'main'
     tmux send-keys -t main 'cd ~ ; clear ; fastfetch -c $CONFIG_DIR/tools/fastfetch/medium.jsonc ; $CONFIG_DIR/scripts/src/updates.php' Enter
     tmux new-window -t main -n "ssh"
+    tmux new-window -t main -n 'podman'
+    tmux send-keys -t main:podman 'cd $SOURCE_DIR ; clear ; podman ps -a' Enter
 fi
 
 # Create code session based on OS
@@ -31,8 +33,6 @@ if ! tmux has-session -t 'code' 2>/dev/null; then
         tmux send-keys -t code:editor 'cd $SOURCE_DIR ; clear ; echo "=== Editor ===" ; nvim -v | head -n 3 ; echo ; devinfo' Enter
         tmux new-window -t code -n 'runner'
         tmux send-keys -t code:runner 'cd $SOURCE_DIR ; clear ; x ls' Enter
-        tmux new-window -t code -n 'podman'
-        tmux send-keys -t code:podman 'cd $SOURCE_DIR ; clear ; podman ps -a' Enter
     fi
 fi
 
