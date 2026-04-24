@@ -1,5 +1,7 @@
-# tmux
-"$CONFIG_DIR/scripts/init-tmux.sh"
+# tmux, run if not in acme
+if [ -z "$winid" ]; then
+    "$CONFIG_DIR/scripts/init-tmux.sh"
+fi
 
 # Git shortcuts
 # D
