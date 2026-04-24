@@ -30,7 +30,7 @@ $info = pathinfo($file);
     ],
 	'typ' => [
 		['typstyle'],
-		['--inplace'].
+		['--inplace'],
 	],
     default => throw new \Exception('Unsupported file type')
 };
