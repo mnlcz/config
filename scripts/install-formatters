@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Reqs check
+for cmd in curl pnpm composer; do
+  command -v "$cmd" >/dev/null || { echo "$cmd required"; exit 1; }
+done
+
+TMP_C3=$(mktemp)
+TMP_TYPSTYLE=$(mktemp)
+
+trap 'rm -f "$TMP_C3" "$TMP_TYPSTYLE"' EXIT
+
+# --------------------
+# C3
+# --------------------
+curl -fL \
+  https://github.com/lmichaudel/c3fmt/releases/latest/download/c3fmt-linux \
+  -o "$TMP_C3"
+
+sudo install -m 755 "$TMP_C3" /usr/local/bin/c3fmt
+echo "c3fmt installed to /usr/local/bin/c3fmt"
+
+# --------------------
+# Typst
+# --------------------
+curl -fL \
+  https://github.com/typstyle-rs/typstyle/releases/latest/download/typstyle-x86_64-unknown-linux-gnu \
+  -o "$TMP_TYPSTYLE"
+
+sudo install -m 755 "$TMP_TYPSTYLE" /usr/local/bin/typstyle
+echo "typstyle installed to /usr/local/bin/typstyle"
+
+# --------------------
+# Prettier (pnpm)
+# --------------------
+
+# Ensure pnpm global bin is in PATH
+PNPM_BIN=$(pnpm bin -g)
+
+if [[ ":$PATH:" != *":$PNPM_BIN:"* ]]; then
+  echo "Warning: pnpm global bin ($PNPM_BIN) is not in PATH"
+  echo "You may want to add it (e.g. in ~/.bashrc):"
+  echo "  export PATH=\"$PNPM_BIN:\$PATH\""
+fi
+
+pnpm add -g prettier
+echo "prettier installed to $PNPM_BIN"
+
+# --------------------
+# PHP
+# --------------------
+composer global require friendsofphp/php-cs-fixer
+
+PHP_BIN=$(composer global config bin-dir --absolute --quiet)
+echo "php-cs-fixer installed to $PHP_BIN"
+echo "Make sure it's in your PATH"
+

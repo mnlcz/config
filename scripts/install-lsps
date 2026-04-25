@@ -1,0 +1,106 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+TMP_C3LSP=$(mktemp -d)
+TMP_PHPACTOR=$(mktemp)
+TMP_TINYMIST=$(mktemp)
+TMP_LUALS=$(mktemp -d)
+
+trap 'rm -f "$TMP_PHPACTOR" "$TMP_TINYMIST"; rm -rf "$TMP_C3LSP" "$TMP_LUALS"' EXIT
+
+# Reqs check
+for cmd in curl composer pnpm python3 tar; do
+  command -v "$cmd" >/dev/null || { echo "$cmd required"; exit 1; }
+done
+
+# Ensure pnpm global bin is in PATH
+PNPM_BIN=$(pnpm bin -g)
+
+if [[ ":$PATH:" != *":$PNPM_BIN:"* ]]; then
+  echo "Warning: pnpm global bin ($PNPM_BIN) is not in PATH"
+  echo "You may want to add it (e.g. in ~/.bashrc):"
+  echo "  export PATH=\"$PNPM_BIN:\$PATH\""
+fi
+
+# --------------------
+# PNPM
+# --------------------
+pnpms=('bash-language-server' 'vscode-langservers-extracted' 'typescript' 'typescript-language-server')
+for lsp in "${pnpms[@]}"; do
+  pnpm list -g --depth 0 | grep -qE "(^| )$lsp@" || pnpm add -g "$lsp"
+
+  if [[ "$lsp" == "vscode-langservers-extracted" ]]; then
+    echo "vscode-"{css,eslint,html,json,markdown}-"language-server installed to $PNPM_BIN"
+  elif [[ "$lsp" == typescript* ]]; then
+    echo "typescript-language-server installed to $(command -v typescript-language-server)"
+  else
+    echo "$lsp installed to $PNPM_BIN"
+  fi
+done
+
+# --------------------
+# Parallel downloads
+# --------------------
+pids=()
+
+curl -fL -o "$TMP_PHPACTOR" \
+  https://github.com/phpactor/phpactor/releases/latest/download/phpactor.phar & pids+=($!)
+
+curl -fL -o "$TMP_TINYMIST" \
+  https://github.com/Myriad-Dreamin/tinymist/releases/latest/download/tinymist-linux-x64 & pids+=($!)
+
+curl -fL -o "$TMP_C3LSP/c3lsp.tar.gz" \
+  https://github.com/pherrymason/c3-lsp/releases/latest/download/c3lsp-linux-amd64.tar.gz & pids+=($!)
+
+curl -fL -o "$TMP_LUALS/luals.tar.gz" \
+  https://github.com/LuaLS/lua-language-server/releases/latest/download/lua-language-server-3.18.2-linux-x64.tar.gz & pids+=($!)
+
+# Wait and check failure
+for pid in "${pids[@]}"; do
+  if ! wait "$pid"; then
+    echo "A download failed (PID $pid)" >&2
+    exit 1
+  fi
+done
+
+# --------------------
+# Install GH binaries
+# --------------------
+sudo install -m 755 "$TMP_PHPACTOR" /usr/local/bin/phpactor
+echo "phpactor installed to $(command -v phpactor)"
+
+sudo install -m 755 "$TMP_TINYMIST" /usr/local/bin/tinymist
+echo "tinymist installed to $(command -v tinymist)"
+
+# --------------------
+# C3 LSP
+# --------------------
+pushd "$TMP_C3LSP" >/dev/null
+tar xzf c3lsp.tar.gz --warning=no-unknown-keyword
+sudo install -m 755 "./server/bin/release/c3lsp" /usr/local/bin/c3lsp
+popd >/dev/null
+echo "c3lsp installed to $(command -v c3lsp)"
+
+# --------------------
+# LuaLS
+# --------------------
+pushd "$TMP_LUALS" >/dev/null
+sudo rm -rf /usr/local/src/lua-language-server
+sudo mkdir -p /usr/local/src/lua-language-server
+sudo tar xzf luals.tar.gz -C /usr/local/src/lua-language-server/
+sudo ln -sf /usr/local/src/lua-language-server/bin/lua-language-server /usr/local/bin/lua-language-server
+popd >/dev/null
+echo "lua-language-server installed to $(command -v lua-language-server)"
+
+# --------------------
+# System
+# --------------------
+command -v clangd >/dev/null || sudo dnf install -y clang-tools-extra
+echo "clangd installed to $(command -v clangd)"
+
+# --------------------
+# Python
+# --------------------
+python3 -m pip install --user --upgrade python-lsp-server
+echo "python-lsp-server installed to $(command -v pylsp)"
+
