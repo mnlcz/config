@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Reqs check
-for cmd in curl pnpm composer; do
+for cmd in curl pnpm composer cargo; do
   command -v "$cmd" >/dev/null || { echo "$cmd required"; exit 1; }
 done
 
@@ -56,3 +56,8 @@ PHP_BIN=$(composer global config bin-dir --absolute --quiet)
 echo "php-cs-fixer installed to $PHP_BIN"
 echo "Make sure it's in your PATH"
 
+# --------------------
+# Lua
+# --------------------
+cargo install stylua --features luajit
+echo "stylua installed to $(command -v stylua)"
