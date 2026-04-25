@@ -36,7 +36,6 @@ PERL_MM_OPT="INSTALL_BASE=/home/mnlcz/perl5"; export PERL_MM_OPT;
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
 # Rust
-. "$HOME/.cargo/env"
 export PATH="$PATH:$HOME/.cargo/bin"
 
 # TEX. Setup manual installation of texlive
