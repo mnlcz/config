@@ -24,12 +24,6 @@ if [ -d ~/.bashrc.d ]; then
 fi
 unset rc
 
-# Wayland and DISPLAY env not set fix
-export WAYLAND_DISPLAY=wayland-0
-if [ -z "$DISPLAY" ] && [ "$WAYLAND_DISPLAY" = "wayland-0" ]; then
-    export DISPLAY=:0
-fi
-
 # Setup nvim as man pages reader
 export MANPAGER='nvim +Man!'
 
