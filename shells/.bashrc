@@ -11,9 +11,6 @@ if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
 fi
 export PATH
 
-# Uncomment the following line if you don't like systemctl's auto-paging feature:
-# export SYSTEMD_PAGER=
-
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
     for rc in ~/.bashrc.d/*; do
@@ -43,21 +40,6 @@ export FZF_CTRL_T_OPTS="
 [ ! -f "$HOME/.x-cmd.root/X" ] || . "$HOME/.x-cmd.root/X" # boot up x-cmd. Check the generated .bash_profile
 # Fix conflicts with system tools
 unset -f c  # Restore RHEL command-line-assistant
-
-# Setup manual installation of texlive
-export MANPATH="/usr/local/texlive/2025/texmf-dist/doc/man:${MANPATH:-}"
-export INFOPATH="/usr/local/texlive/2025/texmf-dist/doc/info"
-export PATH="$PATH:/usr/local/texlive/2025/bin/x86_64-linux"
-
-# perl
-PATH="/home/mnlcz/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/mnlcz/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/mnlcz/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/mnlcz/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/mnlcz/perl5"; export PERL_MM_OPT;
-
-# deno
-. "/home/mnlcz/.deno/env"
 
 # plan9port
 PLAN9=/home/mnlcz/Source/repos/plan9port
