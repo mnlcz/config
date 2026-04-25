@@ -37,6 +37,7 @@ export PATH="$PATH:$HOME/.composer/vendor/bin"
 
 # Rust
 . "$HOME/.cargo/env"
+export PATH="$PATH:$HOME/.cargo/bin"
 
 # TEX. Setup manual installation of texlive
 export MANPATH="/usr/local/texlive/2025/texmf-dist/doc/man:${MANPATH:-}"
