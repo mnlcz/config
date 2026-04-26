@@ -8,11 +8,11 @@ namespace Scripts;
 $winid = getenv('winid');
 
 if (!$winid) {
-	fwrite(STDERR, "winid not set".PHP_EOL);
-	exit(1);
+    fwrite(STDERR, "winid not set" . PHP_EOL);
+    exit(1);
 }
 
-$winpath ="/mnt/acme/$winid";
+$winpath = "/mnt/acme/$winid";
 
 if (!is_dir($winpath)) {
     fwrite(STDERR, "'$winpath' is not a valid file." . PHP_EOL);
@@ -22,8 +22,8 @@ if (!is_dir($winpath)) {
 $wintag = file_get_contents("$winpath/tag");
 
 if (!$wintag) {
-	fwrite(STDERR, "'$wintag' couldn't be read".PHP_EOL);
-	exit(1);
+    fwrite(STDERR, "'$wintag' couldn't be read" . PHP_EOL);
+    exit(1);
 }
 
 $file = explode(" ", $wintag)[0];
@@ -32,7 +32,7 @@ $info = pathinfo($file);
 $input = file_get_contents("$winpath/body");
 
 if (!$input) {
-    fwrite(STDERR, "Failed to read input.".PHP_EOL);
+    fwrite(STDERR, "Failed to read input." . PHP_EOL);
     exit(1);
 }
 
@@ -45,10 +45,10 @@ if (!$input) {
         ['prettier'],
         [],
     ],
-	'typ' => [
-		['typstyle'],
-		[],
-	],
+    'typ' => [
+        ['typstyle'],
+        [],
+    ],
     default => throw new \Exception('Unsupported file type')
 };
 
