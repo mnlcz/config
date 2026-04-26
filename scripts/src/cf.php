@@ -69,7 +69,7 @@ if (!is_resource($process)) {
 fwrite($pipes[0], $input);
 fclose($pipes[0]);
 
-// get formatter output from stdout and stderr
+// get formatted output from stdout and stderr
 $output = stream_get_contents($pipes[1]);
 $error  = stream_get_contents($pipes[2]);
 
@@ -83,5 +83,22 @@ if ($exit !== 0) {
     exit($exit);
 }
 
-// Add formatted content
-echo $output;
+// clear the body
+$fh = proc_open(
+    "9p write acme/$winid/addr",
+    [0 => ['pipe', 'r']],
+    $pipes
+);
+fwrite($pipes[0], ",");
+fclose($pipes[0]);
+proc_close($fh);
+
+// write formatted output
+$fh = proc_open(
+    "9p write acme/$winid/data",
+    [0 => ['pipe', 'r']],
+    $pipes
+);
+fwrite($pipes[0], $output);
+fclose($pipes[0]);
+proc_close($fh);
