@@ -5,37 +5,54 @@ declare(strict_types=1);
 
 namespace Scripts;
 
-$opts = getopt('f:', ['file:']);
+$winid = getenv('winid');
 
-if (!isset($opts['f']) and !isset($opts['file'])) {
-    exit("Usage: cf -f (--file)" . PHP_EOL);
+if (!$winid) {
+	fwrite(STDERR, "winid not set".PHP_EOL);
+	exit(1);
 }
 
-$file = $opts['f'] ?? $opts['file'];
+$winpath ="/mnt/acme/$winid";
 
-if (!is_file($file)) {
-    exit("'$file' is not a valid file." . PHP_EOL);
+if (!is_dir($winpath)) {
+    fwrite(STDERR, "'$winpath' is not a valid file." . PHP_EOL);
+    exit(1);
 }
 
+$wintag = file_get_contents("$winpath/tag");
+
+if (!$wintag) {
+	fwrite(STDERR, "'$wintag' couldn't be read".PHP_EOL);
+	exit(1);
+}
+
+$file = explode(" ", $wintag)[0];
 $info = pathinfo($file);
 
-[$command, $extra_args] = match ($info['extension']) {
+$input = file_get_contents("$winpath/body");
+
+if (!$input) {
+    fwrite(STDERR, "Failed to read input.".PHP_EOL);
+    exit(1);
+}
+
+[$command, $args] = match ($info['extension']) {
     'c3' => [
         ['c3fmt'],
-        ['--in-place'],
+        ['--stdin', '--stdout'],
     ],
     'md' => [
         ['prettier'],
-        ['--write'],
+        [],
     ],
 	'typ' => [
 		['typstyle'],
-		['--inplace'],
+		[],
 	],
     default => throw new \Exception('Unsupported file type')
 };
 
-$cmd = array_merge($command, $extra_args, [$file]);
+$cmd = array_merge($command, $args);
 $descriptors = [
     0 => ['pipe', 'r'], // stdin
     1 => ['pipe', 'w'], // stdout
@@ -45,19 +62,26 @@ $descriptors = [
 $process = proc_open($cmd, $descriptors, $pipes);
 
 if (!is_resource($process)) {
-    fwrite(STDERR, "Failed to start process for: $file" . PHP_EOL);
+    fwrite(STDERR, "Failed to start formatter." . PHP_EOL);
 }
 
-fclose($pipes[0]); // close stdin
+// send input to the formatter via stdin
+fwrite($pipes[0], $input);
+fclose($pipes[0]);
 
-$err = stream_get_contents($pipes[2]);
+// get formatter output from stdout and stderr
+$output = stream_get_contents($pipes[1]);
+$error  = stream_get_contents($pipes[2]);
 
 fclose($pipes[1]);
 fclose($pipes[2]);
 
-$exit_code = proc_close($process);
+$exit = proc_close($process);
 
-if ($exit_code !== 0) {
-    fwrite(STDERR, "Formatter failed: $err" . PHP_EOL);
-    exit($exit_code);
+if ($exit !== 0) {
+    fwrite(STDERR, $error);
+    exit($exit);
 }
+
+// Add formatted content
+echo $output;
