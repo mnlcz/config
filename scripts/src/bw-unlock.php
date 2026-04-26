@@ -4,12 +4,12 @@
 declare(strict_types=1);
 
 $descriptors = [
-    0 => fopen("/dev/tty", "r"), // password prompt reads from terminal
-    1 => ["pipe", "w"], // capture stdout
-    2 => fopen("/dev/tty", "w"), // status messages go to terminal
+    0 => fopen('/dev/tty', 'r'), // password prompt reads from terminal
+    1 => ['pipe', 'w'], // capture stdout
+    2 => fopen('/dev/tty', 'w'), // status messages go to terminal
 ];
 
-$process = proc_open("bw unlock", $descriptors, $pipes);
+$process = proc_open('bw unlock', $descriptors, $pipes);
 
 if (!is_resource($process)) {
     fwrite(STDERR, "Failed to start bw unlock\n");
@@ -21,7 +21,7 @@ fclose($pipes[1]);
 
 $code = proc_close($process);
 
-if ($code !== 0) {
+if (0 !== $code) {
     fwrite(STDERR, "bw unlock failed with code $code\n");
     exit(1);
 }
