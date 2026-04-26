@@ -37,6 +37,10 @@ if (!$input) {
 }
 
 [$command, $args] = match ($info['extension']) {
+    'c', 'h' => [
+        ['clang-format'],
+        [],
+    ],
     'c3' => [
         ['c3fmt'],
         ['--stdin', '--stdout'],
