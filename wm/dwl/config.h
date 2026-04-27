@@ -31,6 +31,10 @@ static const Rule rules[] = {
     /* default/example rule: can be changed but cannot be eliminated; at least
        one rule must exist */
     {"waterfox", NULL, 1 << 0, 0, -1},
+	{"org.gnome.Ptyxis", NULL, 1 << 1, 0, -1},
+	{"acme", NULL, 1 << 2, 0, -1},
+	{"spotify", NULL, 1 << 3, 0, -1},
+	{"org.gnome.Nautilus", NULL, 1 << 4, 0, -1},
 };
 
 /* layout(s) */
