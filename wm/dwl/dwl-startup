@@ -1,3 +1,4 @@
 #!/bin/sh
 sleep 1
-/home/mnlcz/Source/repos/config/wm/dwl/dwlb/status.sh | dwlb
+/home/mnlcz/Source/repos/config/wm/dwl/dwlb/status.sh | dwlb -status-stdin HDMI-A-1 &
+dwlb
