@@ -30,6 +30,7 @@ static const Rule rules[] = {
     {"firefox_EXAMPLE", NULL, 1 << 8, 0, -1}, /* Start on ONLY tag "9" */
     /* default/example rule: can be changed but cannot be eliminated; at least
        one rule must exist */
+    {"waterfox", NULL, 1 << 0, 0, -1},
 };
 
 /* layout(s) */
