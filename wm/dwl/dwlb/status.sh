@@ -17,6 +17,6 @@ get_clock() {
 }
 
 while true; do
-    echo "$(get_network)  $(get_memory)  $(get_clock)"
+    echo "^fg(ee0000)$(get_network)  $(get_memory)  $(get_clock)^fg()"
     sleep 5
 done
