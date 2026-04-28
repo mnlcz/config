@@ -154,6 +154,12 @@ static const char *screenshotcmd[] = {
 static const char *screenshotfullcmd[] = {
     "/bin/sh", "-c",
     "grim ~/Pictures/Screenshots/screenshot-$(date +%Y%m%d-%H%M%S).png", NULL};
+static const char *cliphist[] = {
+    "/bin/sh", "-c",
+    "cliphist list | "
+    "/home/mnlcz/Source/repos/config/wm/dwl/bemenu/bemenu-themed -p "
+    "'clipboard:' | cliphist decode | wl-copy",
+    NULL};
 
 static const Key keys[] = {
     /* Note that Shift changes certain key codes: 2 -> at, etc. */
@@ -202,6 +208,7 @@ static const Key keys[] = {
     {MODKEY | WLR_MODIFIER_SHIFT, XKB_KEY_Q, quit, {0}},
     {0, XKB_KEY_Print, spawn, {.v = screenshotfullcmd}},
     {MODKEY | WLR_MODIFIER_SHIFT, XKB_KEY_S, spawn, {.v = screenshotcmd}},
+    {MODKEY, XKB_KEY_v, spawn, {.v = cliphist}},
 
     /* Ctrl-Alt-Backspace and Ctrl-Alt-Fx used to be handled by X server */
     {WLR_MODIFIER_CTRL | WLR_MODIFIER_ALT, XKB_KEY_Terminate_Server, quit, {0}},
