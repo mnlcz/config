@@ -1,10 +1,11 @@
 dwl: dwl v0.7-dirty
 dwlb: dwlb 0.2
 bemenu: bemenu v0.6.23
+foot: foot version: 1.26.1-9-g6183d1b7 (Apr 28 2026, branch 'master') -pgo +ime +graphemes +toplevel-tag +blur -assertions
 j4-dmenu-desktop: r3.2-14-gd75d640
 mako: 1.11.0
 grim: 1.5.0
 slurp: 1.5.0
 fcft: 3.3.3
 wlroots: 0.18.2
-Generated: Mon Apr 27 11:37:59 PM -03 2026
+Generated: Tue Apr 28 06:11:17 AM -03 2026

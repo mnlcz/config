@@ -9,6 +9,7 @@ meson_version() {
     echo "dwl: $(dwl -v 2>&1)"
     echo "dwlb: $(dwlb -v 2>&1)"
     echo "bemenu: $(bemenu --version)"
+    echo "foot: $(foot -v)"
     echo "j4-dmenu-desktop: $(j4-dmenu-desktop --version)"
     echo "mako: $(meson_version /usr/local/src/mako)"
     echo "grim: $(meson_version /usr/local/src/grim)"
