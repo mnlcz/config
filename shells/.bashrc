@@ -8,6 +8,11 @@ fi
 # Source environment
 [ -f ~/.profile ] && . ~/.profile
 
+# Custom prompt
+PROMPT_COLOR="\[\e[38;2;238;0;0m\]"   # RH red (true color)
+PROMPT_RESET="\[\e[0m\]"
+PS1="${PROMPT_COLOR}\u@\h${PROMPT_RESET}:\[\e[1m\]\w${PROMPT_RESET}\$ "
+
 # Aliases
 [ -f ~/.bashrc.d/aliases.sh ] && . ~/.bashrc.d/aliases.sh
 
