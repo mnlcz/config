@@ -1,8 +1,10 @@
 # Tools
 #	cargo
 #	pnpm
+#	deno
+#	nvm
 #	sdkman
-#	compilers
+#	compilers: typst, c3c
 #	fd
 #	glow
 #	rg
