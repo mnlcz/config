@@ -31,10 +31,11 @@ static const Rule rules[] = {
     /* default/example rule: can be changed but cannot be eliminated; at least
        one rule must exist */
     {"waterfox", NULL, 1 << 0, 0, -1},
-    {"org.gnome.Ptyxis", NULL, 1 << 1, 0, -1},
+    {"foot", NULL, 1 << 1, 0, -1},
     {"acme", NULL, 1 << 2, 0, -1},
     {"spotify", NULL, 1 << 3, 0, -1},
     {"org.gnome.Nautilus", NULL, 1 << 4, 0, -1},
+    {"mpv", NULL, 0, 1, -1},
 };
 
 /* layout(s) */
@@ -138,7 +139,7 @@ static const enum libinput_config_tap_button_map button_map =
 /* commands */
 static const char *debugcmd[] = {"/bin/sh", "-c", "env > /tmp/dwl-env.txt",
                                  NULL};
-static const char *termcmd[] = {"ptyxis", NULL};
+static const char *termcmd[] = {"foot", NULL};
 static const char *appcmd[] = {
     "j4-dmenu-desktop",
     "--dmenu=/home/mnlcz/Source/repos/config/wm/dwl/bemenu/bemenu-themed",
@@ -170,7 +171,7 @@ static const Key keys[] = {
     {MODKEY, XKB_KEY_l, setmfact, {.f = +0.05f}},
     {MODKEY, XKB_KEY_Return, zoom, {0}},
     {MODKEY, XKB_KEY_Tab, view, {0}},
-    {MODKEY | WLR_MODIFIER_SHIFT, XKB_KEY_C, killclient, {0}},
+    {MODKEY, XKB_KEY_q, killclient, {0}},
     {MODKEY, XKB_KEY_t, setlayout, {.v = &layouts[0]}},
     {MODKEY, XKB_KEY_f, setlayout, {.v = &layouts[1]}},
     {MODKEY, XKB_KEY_m, setlayout, {.v = &layouts[2]}},
