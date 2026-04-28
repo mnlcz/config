@@ -1,0 +1,21 @@
+#!/bin/bash
+
+COLORS=(
+    -b
+    --fn "Red Hat Mono:style=Bold:size=13"
+    --tb "#f5f5f5" --tf "#ee0000"
+    --fb "#f5f5f5" --ff "#333333"
+    --cb "#f5f5f5" --cf "#333333"
+    --nb "#f5f5f5" --nf "#333333"
+    --hb "#ee0000" --hf "#f5f5f5"
+    --sb "#ee0000" --sf "#f5f5f5"
+    --ab "#eeeeee" --af "#333333"
+    --fbb "#f5f5f5" --fbf "#333333"
+    --scb "#f5f5f5" --scf "#ee0000"
+    --bdr "#ee0000"
+)
+
+case "$(basename $0)" in
+    bemenu-run-themed) exec bemenu-run "${COLORS[@]}" "$@" ;;
+    *)                 exec bemenu "${COLORS[@]}" "$@" ;;
+esac

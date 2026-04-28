@@ -136,9 +136,15 @@ static const enum libinput_config_tap_button_map button_map =
   }
 
 /* commands */
+static const char *debugcmd[] = {"/bin/sh", "-c", "env > /tmp/dwl-env.txt",
+                                 NULL};
 static const char *termcmd[] = {"ptyxis", NULL};
-static const char *appcmd[] = {"j4-dmenu-desktop", "--dmenu=bemenu", NULL};
-static const char *menucmd[] = {"bemenu-run", NULL};
+static const char *appcmd[] = {
+    "j4-dmenu-desktop",
+    "--dmenu=/home/mnlcz/Source/repos/config/wm/dwl/bemenu/bemenu-themed",
+    NULL};
+static const char *menucmd[] = {
+    "/home/mnlcz/Source/repos/config/wm/dwl/bemenu/bemenu-run-themed", NULL};
 static const char *screenshotcmd[] = {
     "/bin/sh", "-c",
     "grim -g \"$(slurp)\" ~/Pictures/Screenshots/screenshot-$(date "
@@ -152,6 +158,7 @@ static const Key keys[] = {
     /* Note that Shift changes certain key codes: 2 -> at, etc. */
     /* modifier                  key                  function          argument
      */
+    {MODKEY | WLR_MODIFIER_CTRL, XKB_KEY_d, spawn, {.v = debugcmd}},
     {MODKEY, XKB_KEY_p, spawn, {.v = appcmd}},
     {MODKEY | WLR_MODIFIER_SHIFT, XKB_KEY_P, spawn, {.v = menucmd}},
     {MODKEY | WLR_MODIFIER_SHIFT, XKB_KEY_Return, spawn, {.v = termcmd}},
