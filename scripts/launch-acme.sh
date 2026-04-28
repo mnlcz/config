@@ -1,7 +1,6 @@
 #!/bin/bash
-PLAN9=/home/mnlcz/Source/repos/plan9port
+source /home/mnlcz/.profile
 export DISPLAY=${DISPLAY:-:0}
-export PATH=$PLAN9/bin:$PATH
 fusermount -u /mnt/acme 2>/dev/null
 fusermount -u /mnt/font 2>/dev/null
 mkdir -p /mnt/acme /mnt/font
