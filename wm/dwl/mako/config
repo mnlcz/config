@@ -1,0 +1,8 @@
+font=Red Hat Mono 11
+background-color=#f5f5f5
+text-color=#333333
+border-color=#ee0000
+border-size=1
+border-radius=0
+default-timeout=5000
+max-visible=3
