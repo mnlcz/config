@@ -1,5 +1,6 @@
 #!/bin/sh
-sleep 2
 mako &
+swaybg -i /usr/share/backgrounds/rhel10-3D-l.png -m fill &
+sleep 2
 /home/mnlcz/Source/repos/config/wm/dwl/dwlb/status.sh | dwlb -status-stdin HDMI-A-1 &
 dwlb
