@@ -1,0 +1,5 @@
+partial alphanumeric_keys
+xkb_symbols "nodead_circumflex_grave" {
+    key <AC11> { [ braceleft, bracketleft, asciicircum, braceleft ] };
+    key <BKSL> { [ braceright, bracketright, grave, braceright ] };
+};

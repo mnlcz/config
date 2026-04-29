@@ -63,7 +63,7 @@ static const MonitorRule monrules[] = {
 /* keyboard */
 static const struct xkb_rule_names xkb_rules = {
     /* can specify fields: rules, model, layout, variant, options */
-    .options = NULL,
+    .options = "custom:nodead_circumflex_grave",
     .model = "pc105",
     .layout = "latam,ru",
 };
