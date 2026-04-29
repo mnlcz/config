@@ -12,4 +12,4 @@ if ! pgrep -x plumber > /dev/null; then
     $PLAN9/bin/plumber & sleep 0.5
 fi
 cat $PLAN9/plumb/basic | $PLAN9/bin/9p write plumb/rules
-SHELL=$PLAN9/bin/rc $PLAN9/bin/acme -m /mnt/acme -f /mnt/font/RedHatMono-Regular/13a/font "$@" &
+SHELL=$PLAN9/bin/rc $PLAN9/bin/acme -l $CONFIG_DIR/editor/acme.dump -m /mnt/acme -f /mnt/font/RedHatMono-Regular/13a/font "$@" &
