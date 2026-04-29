@@ -1,0 +1,58 @@
+From 7bbe758b2965f781de2f20231171297d9ea346e3 Mon Sep 17 00:00:00 2001
+From: mnlcz <mnlcz@tuta.io>
+Date: Wed, 29 Apr 2026 08:09:08 -0300
+Subject: [PATCH] Add switchlayout function for XKB group switching
+
+---
+ dwl.c | 28 ++++++++++++++++++++++++++++
+ 1 file changed, 28 insertions(+)
+
+diff --git a/dwl.c b/dwl.c
+index d145716..9af7dbf 100644
+--- a/dwl.c
++++ b/dwl.c
+@@ -361,6 +361,7 @@ static Monitor *xytomon(double x, double y);
+ static void xytonode(double x, double y, struct wlr_surface **psurface,
+ 		Client **pc, LayerSurface **pl, double *nx, double *ny);
+ static void zoom(const Arg *arg);
++static void switchlayout(const Arg *arg);
+ static void createforeigntoplevel(Client *c);
+ static void factivatenotify(struct wl_listener *listener, void *data);
+ static void fclosenotify(struct wl_listener *listener, void *data);
+@@ -3097,6 +3098,33 @@ zoom(const Arg *arg)
+ 	arrange(selmon);
+ }
+ 
++void
++switchlayout(const Arg *arg)
++{
++	struct wlr_keyboard *kb = &kb_group->wlr_group->keyboard;
++	struct xkb_state *state = kb->xkb_state;
++	xkb_layout_index_t num_layouts = xkb_keymap_num_layouts(kb->keymap);
++	xkb_layout_index_t idx = arg->ui % num_layouts;
++	const char *name;
++	FILE *f;
++
++	xkb_state_update_mask(state,
++		xkb_state_serialize_mods(state, XKB_STATE_MODS_DEPRESSED),
++		xkb_state_serialize_mods(state, XKB_STATE_MODS_LATCHED),
++		xkb_state_serialize_mods(state, XKB_STATE_MODS_LOCKED),
++		0, 0, idx);
++
++	wlr_seat_keyboard_notify_modifiers(seat,
++		&kb->modifiers);
++
++	name = idx == 0 ? "LATAM" : "RU";
++	f = fopen("/tmp/dwl-layout", "w");
++	if (f) {
++		fprintf(f, "%s", name);
++		fclose(f);
++	}
++}
++
+ void
+ createforeigntoplevel(Client *c)
+ {
+-- 
+2.47.3
+

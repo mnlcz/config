@@ -65,7 +65,7 @@ static const struct xkb_rule_names xkb_rules = {
     /* can specify fields: rules, model, layout, variant, options */
     .options = NULL,
     .model = "pc105",
-    .layout = "latam",
+    .layout = "latam,ru",
 };
 
 static const int repeat_rate = 25;
@@ -209,6 +209,8 @@ static const Key keys[] = {
     {0, XKB_KEY_Print, spawn, {.v = screenshotfullcmd}},
     {MODKEY | WLR_MODIFIER_SHIFT, XKB_KEY_S, spawn, {.v = screenshotcmd}},
     {MODKEY, XKB_KEY_v, spawn, {.v = cliphist}},
+    {0, XKB_KEY_F1, switchlayout, {.ui = 0}},
+    {0, XKB_KEY_F2, switchlayout, {.ui = 1}},
 
     /* Ctrl-Alt-Backspace and Ctrl-Alt-Fx used to be handled by X server */
     {WLR_MODIFIER_CTRL | WLR_MODIFIER_ALT, XKB_KEY_Terminate_Server, quit, {0}},

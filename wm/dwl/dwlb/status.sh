@@ -1,7 +1,11 @@
 #!/bin/sh
 
+get_layout() {
+    cat /tmp/dwl-layout 2>/dev/null || echo "LATAM"
+}
+
 get_network() {
-    if ip route get 1.1.1.1 &>/dev/null 2>&1; then
+    if ip route show default 2>/dev/null | grep -q .; then
         echo "󰈀"
     else
         echo "󰈁"
@@ -17,6 +21,6 @@ get_clock() {
 }
 
 while true; do
-    echo "^fg(ee0000)$(get_network)  $(get_memory)  $(get_clock)^fg()"
-    sleep 5
+    dwlb -status HDMI-A-1 "^fg(ee0000)$(get_network)  $(get_memory)  $(get_layout)  $(get_clock)^fg()"
+    sleep 1
 done
