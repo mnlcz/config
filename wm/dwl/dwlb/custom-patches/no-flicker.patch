@@ -1,0 +1,41 @@
+From 610e101840a76e3973b578ccafa6a25bb598a036 Mon Sep 17 00:00:00 2001
+From: mnlcz <mnlcz@tuta.io>
+Date: Wed, 29 Apr 2026 08:28:47 -0300
+Subject: [PATCH] Only redraw status bar when content changes
+
+---
+ dwlb.c | 15 ++++++++++-----
+ 1 file changed, 10 insertions(+), 5 deletions(-)
+
+diff --git a/dwlb.c b/dwlb.c
+index faab2d9..2d2347f 100644
+--- a/dwlb.c
++++ b/dwlb.c
+@@ -1498,14 +1498,19 @@ read_socket(void)
+ 				if (first) {
+ 					copy_customtext(&first->status, &bar->status);
+ 				} else {
+-					parse_into_customtext(&bar->status, wordend);
+-					first = bar;
++					if (strcmp(bar->status.text, wordend) != 0) {
++						parse_into_customtext(&bar->status, wordend);
++						first = bar;
++					}
+ 				}
+-				bar->redraw = true;
++				if (first)
++					bar->redraw = true;
+ 			}
+ 		} else {
+-			parse_into_customtext(&bar->status, wordend);
+-			bar->redraw = true;
++			if (strcmp(bar->status.text, wordend) != 0) {
++				parse_into_customtext(&bar->status, wordend);
++				bar->redraw = true;
++			}
+ 		}
+ 	} else if (!strcmp(wordbeg, "title")) {
+ 		if (!custom_title || !*wordend)
+-- 
+2.47.3
+
