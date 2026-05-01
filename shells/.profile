@@ -5,7 +5,7 @@ fi
 export PATH
 
 # plan9port
-export PLAN9=/home/mnlcz/Source/repos/plan9port
+export PLAN9=/home/mnlcz/Projects/plan9port
 export PATH=$PATH:$PLAN9/bin
 
 # Source environment modules

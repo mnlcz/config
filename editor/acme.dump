@@ -1,19 +1,9 @@
 /home/mnlcz
 /mnt/font/RedHatMono-Regular/13a/font
 /lib/font/bit/lucm/unicode.9.font
-  0.0000000  67.9874870
+  0.0000000  66.5276330
 w win Newcol Kill Putall Dump Indent ON Exit
 c          0 New Cut Paste Snarf Sort Zerox Delcol win
 c          1 New Cut Paste Snarf Sort Zerox Delcol
-e          0           0           0           0   2.5316456 
-          5          40           2           0           1 /home/mnlcz/-rhel Del Snarf | Look Send 
-/home/mnlcz/
-win
-f          1           1           0           0   2.5316456 
-          1          41          86           1           0 /home/mnlcz/Source/ Del Snarf Get | Look 
-f          1           2           0           0   9.8344693 
-          2          47         214           1           0 /home/mnlcz/Source/repos/ Del Snarf Get | Look 
-f          1           3           0           0  40.5063291 
-          3          54          81           1           0 /home/mnlcz/Source/repos/config/ Del Snarf Get | Look 
-f          1           4           0           0  57.1567673 
-          4          37         263           1           0 /usr/local/src/ Del Snarf Get | Look 
+f          1           3           0           0   2.5316456 
+          3          43         308           1           0 /home/mnlcz/Projects/ Del Snarf Get | Look 

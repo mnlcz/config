@@ -1,4 +1,5 @@
-export SOURCE_DIR="$HOME/Source"
-export CONFIG_DIR="$SOURCE_DIR/repos/config"
-export SCRIPTS="$SOURCE_DIR/scripts" # local system scripts
+export CONFIG_DIR="$HOME/Projects/config"
+export PROJ="$HOME/Projects"
+export SCRIPTS="$HOME/Projects/scripts" # local system scripts
+export CSCRIPTS="$CONFIG_DIR/scripts" # config scripts
 export TEMPLATES="$CONFIG_DIR/templates"

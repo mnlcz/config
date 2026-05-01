@@ -1,5 +1,5 @@
 [Desktop Entry]
 Name=dwl
 Comment=dwm for Wayland
-Exec=dwl -s /home/mnlcz/Source/repos/config/wm/dwl/dwl-startup
+Exec=dwl -s /home/mnlcz/Projects/config/wm/dwl/dwl-startup
 Type=Application

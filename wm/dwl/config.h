@@ -142,10 +142,10 @@ static const char *debugcmd[] = {"/bin/sh", "-c", "env > /tmp/dwl-env.txt",
 static const char *termcmd[] = {"foot", NULL};
 static const char *appcmd[] = {
     "j4-dmenu-desktop",
-    "--dmenu=/home/mnlcz/Source/repos/config/wm/dwl/bemenu/bemenu-themed",
+    "--dmenu=/home/mnlcz/Projects/config/wm/dwl/bemenu/bemenu-themed",
     NULL};
 static const char *menucmd[] = {
-    "/home/mnlcz/Source/repos/config/wm/dwl/bemenu/bemenu-run-themed", NULL};
+    "/home/mnlcz/Projects/config/wm/dwl/bemenu/bemenu-run-themed", NULL};
 static const char *screenshotcmd[] = {
     "/bin/sh", "-c",
     "grim -g \"$(slurp)\" ~/Pictures/Screenshots/screenshot-$(date "
@@ -157,7 +157,7 @@ static const char *screenshotfullcmd[] = {
 static const char *cliphist[] = {
     "/bin/sh", "-c",
     "cliphist list | "
-    "/home/mnlcz/Source/repos/config/wm/dwl/bemenu/bemenu-themed -p "
+    "/home/mnlcz/Projects/config/wm/dwl/bemenu/bemenu-themed -p "
     "'clipboard:' | cliphist decode | wl-copy",
     NULL};
 

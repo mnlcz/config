@@ -1,6 +1,6 @@
 # tmux, run if not in acme
 if [ -z "$winid" ]; then
-    "$CONFIG_DIR/scripts/init-tmux.sh"
+    "$CSCRIPTS/init-tmux.sh"
 fi
 
 # D
@@ -8,7 +8,7 @@ export PATH="$PATH:/usr/local/src/dmd2/linux/bin64"
 export PATH="$PATH:/usr/local/src/DCD/bin"
 
 # Go
-export GOPATH="$SOURCE_DIR/go"
+export GOPATH="$HOME/Projects/go"
 export PATH="$PATH:$GOPATH/bin"
 
 # Node
@@ -69,8 +69,8 @@ mkproject() {
         return 1
     fi
 
-    mkdir -p "$SOURCE_DIR/$name"
-    cd "$SOURCE_DIR/$name"
+    mkdir -p "$HOME/Projects/$name"
+    cd "$HOME/Projects/$name"
     git init
     echo "# $name" > README.md
     echo "Created project: $name"
