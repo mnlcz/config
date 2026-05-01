@@ -101,6 +101,6 @@ echo "clangd installed to $(command -v clangd)"
 # --------------------
 # Python
 # --------------------
-python3 -m pip install --user --upgrade python-lsp-server
+pipx install python-lsp-server
 echo "python-lsp-server installed to $(command -v pylsp)"
 
