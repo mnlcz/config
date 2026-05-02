@@ -1,0 +1,294 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scripts &mdash; Configurations  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=528d1b8b" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="MPV" href="../mpv/index.html" />
+    <link rel="prev" title="Zed" href="../editor/zed.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Configurations
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../editor/index.html">Editor</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Scripts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#design">Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#script-index">Script Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#php-scripts">PHP Scripts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bw-unlock">bw-unlock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cf">cf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gbsavesync">gbsavesync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#updates">updates</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#shell-scripts">Shell Scripts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gnome-save-keybindings-sh">gnome-save-keybindings.sh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gnome-restore-keybindings-sh">gnome-restore-keybindings.sh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#init-tmux-sh">init-tmux.sh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-formatters">install-formatters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-lsps">install-lsps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-systools">install-systools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#launch-acme-sh">launch-acme.sh</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../mpv/index.html">MPV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shells/index.html">Shells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../templates/index.html">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../term/index.html">Terminals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wm/index.html">Window Managers</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Configurations</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Scripts</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/scripts/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="scripts">
+<h1>Scripts<a class="headerlink" href="#scripts" title="Link to this heading"></a></h1>
+<p>This section documents utility scripts used across the configuration.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The scripts are implemented using a combination of:</p>
+<ul class="simple">
+<li><p>Shell scripts (system integration, bootstrapping)</p></li>
+<li><p>PHP scripts (primary scripting language)</p></li>
+</ul>
+<p>The directory is structured as a small Composer project:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">scripts/src/</span></code>: PHP scripts</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scripts/vendor/</span></code>: dependencies (ignored in version control)</p></li>
+<li><p>standalone shell scripts for system tasks</p></li>
+</ul>
+</section>
+<section id="design">
+<h2>Design<a class="headerlink" href="#design" title="Link to this heading"></a></h2>
+<p>The scripting approach follows these principles:</p>
+<ul class="simple">
+<li><p>Prefer PHP for non-trivial logic</p></li>
+<li><p>Use shell scripts for system interaction and orchestration</p></li>
+<li><p>Keep scripts small, focused, and composable</p></li>
+<li><p>Centralize reusable logic via Composer when needed</p></li>
+</ul>
+<p>This allows more complex workflows to be implemented in PHP while still
+integrating cleanly with the system.</p>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
+<p>Most scripts are intended to be executed directly:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./scripts/&lt;script-name&gt;
+</pre></div>
+</div>
+<p>Some scripts are designed to be used indirectly (e.g. via desktop entries
+or other scripts).</p>
+</section>
+<section id="script-index">
+<h2>Script Index<a class="headerlink" href="#script-index" title="Link to this heading"></a></h2>
+</section>
+<section id="php-scripts">
+<h2>PHP Scripts<a class="headerlink" href="#php-scripts" title="Link to this heading"></a></h2>
+<section id="bw-unlock">
+<h3>bw-unlock<a class="headerlink" href="#bw-unlock" title="Link to this heading"></a></h3>
+<p><strong>Path:</strong> <code class="docutils literal notranslate"><span class="pre">scripts/src/bw-unlock.php</span></code></p>
+<p>Interactively unlocks the Bitwarden CLI session and exports the session
+key as an environment variable.</p>
+</section>
+<section id="cf">
+<h3>cf<a class="headerlink" href="#cf" title="Link to this heading"></a></h3>
+<p><strong>Path:</strong> <code class="docutils literal notranslate"><span class="pre">scripts/src/cf.php</span></code></p>
+<p>Formatting helper intended for use within the Acme workflow.</p>
+<ul class="simple">
+<li><p>Detects the current filetype</p></li>
+<li><p>Applies the corresponding formatter</p></li>
+</ul>
+<p>See also:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../editor/acme.html"><span class="doc">Acme</span></a></p></li>
+</ul>
+</section>
+<section id="gbsavesync">
+<h3>gbsavesync<a class="headerlink" href="#gbsavesync" title="Link to this heading"></a></h3>
+<p><strong>Path:</strong> <code class="docutils literal notranslate"><span class="pre">scripts/src/gbsavesync.php</span></code></p>
+<p>Synchronizes emulator save files across different tools.</p>
+<ul class="simple">
+<li><p>Supports VBA-M and RetroArch</p></li>
+<li><p>Uses external conversion tool</p></li>
+</ul>
+</section>
+<section id="updates">
+<h3>updates<a class="headerlink" href="#updates" title="Link to this heading"></a></h3>
+<p><strong>Path:</strong> <code class="docutils literal notranslate"><span class="pre">scripts/src/updates.php</span></code></p>
+<p>Checks for available updates across multiple package managers.</p>
+<p>Examples include:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dnf</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cargo</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="shell-scripts">
+<h2>Shell Scripts<a class="headerlink" href="#shell-scripts" title="Link to this heading"></a></h2>
+<section id="gnome-save-keybindings-sh">
+<h3>gnome-save-keybindings.sh<a class="headerlink" href="#gnome-save-keybindings-sh" title="Link to this heading"></a></h3>
+<p>Saves current GNOME keybindings to:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">wm/mutter</span></code></p></li>
+</ul>
+</section>
+<section id="gnome-restore-keybindings-sh">
+<h3>gnome-restore-keybindings.sh<a class="headerlink" href="#gnome-restore-keybindings-sh" title="Link to this heading"></a></h3>
+<p>Restores GNOME keybindings from:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">wm/mutter</span></code></p></li>
+</ul>
+</section>
+<section id="init-tmux-sh">
+<h3>init-tmux.sh<a class="headerlink" href="#init-tmux-sh" title="Link to this heading"></a></h3>
+<p>Initializes a tmux session with predefined windows and layout.</p>
+<p>See also:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../term/index.html"><span class="doc">Terminals</span></a></p></li>
+</ul>
+</section>
+<section id="install-formatters">
+<h3>install-formatters<a class="headerlink" href="#install-formatters" title="Link to this heading"></a></h3>
+<p>Installs formatting tools used across the configuration.</p>
+<ul class="simple">
+<li><p>Assumes RHEL-like systems</p></li>
+</ul>
+</section>
+<section id="install-lsps">
+<h3>install-lsps<a class="headerlink" href="#install-lsps" title="Link to this heading"></a></h3>
+<p>Installs Language Server Protocol (LSP) servers.</p>
+<ul class="simple">
+<li><p>Assumes RHEL-like systems</p></li>
+<li><p>Handles multiple installation methods (npm/pnpm, binaries, system packages)</p></li>
+</ul>
+<p>See also:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../editor/nvim/lsp.html"><span class="doc">Language Server Protocol</span></a></p></li>
+</ul>
+</section>
+<section id="install-systools">
+<h3>install-systools<a class="headerlink" href="#install-systools" title="Link to this heading"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This script is currently incomplete.</p>
+</div>
+<p>Intended to install general system utilities.</p>
+</section>
+<section id="launch-acme-sh">
+<h3>launch-acme.sh<a class="headerlink" href="#launch-acme-sh" title="Link to this heading"></a></h3>
+<p>Wrapper script used to launch Acme in a graphical environment.</p>
+<ul class="simple">
+<li><p>Loads environment variables</p></li>
+<li><p>Initializes Plan 9 services</p></li>
+<li><p>Restores editor layout</p></li>
+</ul>
+<p>See also:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../editor/acme.html"><span class="doc">Acme</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">vendor/</span></code> directory is excluded from version control.</p></li>
+<li><p>PHP dependencies are managed via Composer.</p></li>
+<li><p>Some scripts assume specific system environments (e.g. RHEL-based distributions).</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../editor/zed.html" class="btn btn-neutral float-left" title="Zed" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../mpv/index.html" class="btn btn-neutral float-right" title="MPV" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, MnLCz.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

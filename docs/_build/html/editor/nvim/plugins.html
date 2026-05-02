@@ -1,0 +1,271 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plugins &mdash; Configurations  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=528d1b8b" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Language Server Protocol" href="lsp.html" />
+    <link rel="prev" title="Core Configuration" href="core.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Configurations
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Editor</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Neovim Configuration</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="core.html">Core Configuration</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Plugins</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#design">Design</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plugin-installation">Plugin Installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#categories">Categories</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lsp.html">Language Server Protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ftplugin.html">Filetype-specific Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="snippets.html">LuaSnip snippets Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../acme.html">Acme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vim.html">Vim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zed.html">Zed</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../scripts/index.html">Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mpv/index.html">MPV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../shells/index.html">Shells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../templates/index.html">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../term/index.html">Terminals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../wm/index.html">Window Managers</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Configurations</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Editor</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Neovim Configuration</a></li>
+      <li class="breadcrumb-item active">Plugins</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/editor/nvim/plugins.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="plugins">
+<h1>Plugins<a class="headerlink" href="#plugins" title="Link to this heading"></a></h1>
+<p>This section documents the plugin system.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>Plugins are managed using Neovim’s native package feature:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">vim.pack</span></code> (built-in, no external plugin manager)</p></li>
+</ul>
+<p>This configuration intentionally avoids third-party managers such as
+<code class="docutils literal notranslate"><span class="pre">lazy.nvim</span></code> in favor of a simpler and more transparent setup.</p>
+<p>All plugin definitions and their configuration are centralized in:</p>
+<p><code class="docutils literal notranslate"><span class="pre">editor/nvim/lua/plugins.lua</span></code></p>
+</section>
+<section id="design">
+<h2>Design<a class="headerlink" href="#design" title="Link to this heading"></a></h2>
+<p>The plugin system follows these principles:</p>
+<ul class="simple">
+<li><p><strong>Single file configuration</strong>: all plugins and their setup live in one place</p></li>
+<li><p><strong>Reduced indirection</strong>: avoids splitting configuration across many files</p></li>
+<li><p><strong>Gradual minimization</strong>: plugins are used pragmatically and may be removed over time</p></li>
+</ul>
+<p>This makes the setup easier to audit and refactor.</p>
+</section>
+<section id="plugin-installation">
+<h2>Plugin Installation<a class="headerlink" href="#plugin-installation" title="Link to this heading"></a></h2>
+<p>Plugins are declared using <code class="docutils literal notranslate"><span class="pre">vim.pack.add</span></code>:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="nv">vim</span><span class="p">.</span><span class="py">pack</span><span class="p">.</span><span class="nf">add</span><span class="p">({</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nv">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://github.com/user/plugin&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>Below is the current plugin list:</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="nv">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://github.com/oskarnurm/koda.nvim&quot;</span><span class="w"> </span><span class="p">},</span><span class="w">                              </span><span class="c1">-- light theme</span>
+<span class="linenos"> 2</span><span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="nv">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://github.com/metalelf0/black-metal-theme-neovim&quot;</span><span class="w"> </span><span class="p">},</span><span class="w">               </span><span class="c1">-- dark theme</span>
+<span class="linenos"> 3</span><span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="nv">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://github.com/windwp/nvim-autopairs&quot;</span><span class="w"> </span><span class="p">},</span><span class="w">                            </span><span class="c1">-- autopairs</span>
+<span class="linenos"> 4</span><span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="nv">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://github.com/stevearc/conform.nvim&quot;</span><span class="w"> </span><span class="p">},</span><span class="w">                            </span><span class="c1">-- formatter</span>
+<span class="linenos"> 5</span><span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="nv">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://github.com/lewis6991/gitsigns.nvim&quot;</span><span class="w"> </span><span class="p">},</span><span class="w">                          </span><span class="c1">-- git integration for buffers</span>
+<span class="linenos"> 6</span><span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="nv">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://github.com/onsails/lspkind.nvim&quot;</span><span class="w"> </span><span class="p">},</span><span class="w">                             </span><span class="c1">-- pictograms</span>
+<span class="linenos"> 7</span><span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="nv">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://github.com/L3MON4D3/LuaSnip&quot;</span><span class="w"> </span><span class="p">},</span><span class="w">                                 </span><span class="c1">-- snippets</span>
+<span class="linenos"> 8</span><span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="nv">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://github.com/nvim-mini/mini.icons&quot;</span><span class="w"> </span><span class="p">},</span><span class="w">                             </span><span class="c1">-- icons</span>
+<span class="linenos"> 9</span><span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="nv">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://github.com/stevearc/oil.nvim&quot;</span><span class="w"> </span><span class="p">},</span><span class="w">                                </span><span class="c1">-- file explorer</span>
+<span class="linenos">10</span><span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="nv">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://github.com/nvim-lua/plenary.nvim&quot;</span><span class="w"> </span><span class="p">},</span><span class="w">                            </span><span class="c1">-- dependency</span>
+<span class="linenos">11</span><span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="nv">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://github.com/MeanderingProgrammer/render-markdown.nvim&quot;</span><span class="w"> </span><span class="p">},</span><span class="w">        </span><span class="c1">-- inline md render</span>
+<span class="linenos">12</span><span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="nv">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://github.com/SCJangra/table-nvim&quot;</span><span class="w"> </span><span class="p">},</span><span class="w">                              </span><span class="c1">-- md table editting</span>
+<span class="linenos">13</span><span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="nv">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://github.com/nvim-telescope/telescope-fzf-native.nvim&quot;</span><span class="w"> </span><span class="p">},</span><span class="w">         </span><span class="c1">-- NOT WORKING</span>
+<span class="linenos">14</span><span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="nv">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://github.com/nvim-telescope/telescope.nvim&quot;</span><span class="w"> </span><span class="p">},</span><span class="w">                    </span><span class="c1">-- important</span>
+<span class="linenos">15</span><span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="nv">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://github.com/folke/todo-comments.nvim&quot;</span><span class="w"> </span><span class="p">},</span><span class="w">                         </span><span class="c1">-- highlight todo comments</span>
+<span class="linenos">16</span><span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="nv">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://github.com/nvim-treesitter/nvim-treesitter&quot;</span><span class="p">,</span><span class="w">            </span><span class="nv">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;main&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="c1">-- important</span>
+<span class="linenos">17</span><span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="nv">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://github.com/nvim-treesitter/nvim-treesitter-textobjects&quot;</span><span class="w"> </span><span class="p">},</span><span class="w">      </span><span class="c1">-- important</span>
+<span class="linenos">18</span><span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="nv">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://github.com/lervag/vimtex&quot;</span><span class="w"> </span><span class="p">},</span><span class="w">                                    </span><span class="c1">-- latex</span>
+<span class="linenos">19</span><span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="nv">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://github.com/ej-shafran/compile-mode.nvim&quot;</span><span class="w"> </span><span class="p">},</span><span class="w">                     </span><span class="c1">-- compile-mode</span>
+<span class="linenos">20</span><span class="w">	</span><span class="c1">-- { src = &quot;https://github.com/folke/which-key.nvim&quot; }, -- Not working for me on nvim unstable</span>
+</pre></div>
+</div>
+</section>
+<section id="categories">
+<h2>Categories<a class="headerlink" href="#categories" title="Link to this heading"></a></h2>
+<p>Plugins can be roughly grouped by their purpose:</p>
+<section id="ui-appearance">
+<h3>UI / Appearance<a class="headerlink" href="#ui-appearance" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">koda.nvim</span></code> (light theme)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">black-metal-theme-neovim</span></code> (dark theme)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mini.icons</span></code> (icons)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lspkind.nvim</span></code> (pictograms)</p></li>
+</ul>
+</section>
+<section id="editing">
+<h3>Editing<a class="headerlink" href="#editing" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nvim-autopairs</span></code> (automatic bracket pairing)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LuaSnip</span></code> (snippets)</p></li>
+</ul>
+</section>
+<section id="navigation-files">
+<h3>Navigation / Files<a class="headerlink" href="#navigation-files" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">oil.nvim</span></code> (file explorer)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">telescope.nvim</span></code> (fuzzy finder)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">telescope-fzf-native.nvim</span></code> (native fzf extension)</p></li>
+</ul>
+</section>
+<section id="language-syntax">
+<h3>Language / Syntax<a class="headerlink" href="#language-syntax" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nvim-treesitter</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nvim-treesitter-textobjects</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vimtex</span></code> (LaTeX support)</p></li>
+</ul>
+</section>
+<section id="development-tools">
+<h3>Development Tools<a class="headerlink" href="#development-tools" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">conform.nvim</span></code> (formatting)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gitsigns.nvim</span></code> (git integration)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">todo-comments.nvim</span></code> (highlight TODOs)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compile-mode.nvim</span></code> (compilation interface)</p></li>
+</ul>
+</section>
+<section id="utilities-dependencies">
+<h3>Utilities / Dependencies<a class="headerlink" href="#utilities-dependencies" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">plenary.nvim</span></code> (utility library)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">render-markdown.nvim</span></code> (inline markdown rendering)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">table-nvim</span></code> (markdown table editing)</p></li>
+</ul>
+</section>
+</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h2>
+<p>After installation, each plugin is configured within the same file.</p>
+<p>Rationale:</p>
+<ul class="simple">
+<li><p>Keeps all plugin-related logic in a single location</p></li>
+<li><p>Reduces context switching</p></li>
+<li><p>Makes dependencies and interactions easier to track</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The configuration section of <code class="docutils literal notranslate"><span class="pre">plugins.lua</span></code> is intentionally not
+fully reproduced here, as it is large and subject to frequent change.</p>
+<p>Refer directly to the source file for implementation details.</p>
+</div>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Some plugins may be temporarily disabled or marked as not working.</p></li>
+<li><p>Native features of Neovim are preferred over plugins when possible.</p></li>
+<li><p>Over time, this setup aims to reduce reliance on external plugins.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="core.html" class="btn btn-neutral float-left" title="Core Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="lsp.html" class="btn btn-neutral float-right" title="Language Server Protocol" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, MnLCz.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

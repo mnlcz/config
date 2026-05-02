@@ -1,0 +1,346 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shells &mdash; Configurations  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=a98b852a" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Templates" href="../templates/index.html" />
+    <link rel="prev" title="MPV" href="../mpv/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Configurations
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../editor/index.html">Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripts/index.html">Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mpv/index.html">MPV</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Shells</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#entry-points">Entry Points</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#profile">.profile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bashrc">.bashrc</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modules-bashrc-d">Modules (.bashrc.d)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dirs-sh">0dirs.sh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aliases-sh">aliases.sh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dev-sh">dev.sh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plan9-sh">plan9.sh</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#readline-configuration">Readline Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#inputrc">inputrc</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#other-environments">Other Environments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#profile-ps1">profile.ps1</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#themes">Themes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#custom-themes">custom-themes/</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../templates/index.html">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../term/index.html">Terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wm/index.html">Window Managers</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Configurations</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Shells</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/shells/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="shells">
+<h1>Shells<a class="headerlink" href="#shells" title="Link to this heading"></a></h1>
+<p>This section documents shell configuration and environment setup.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The shell environment is primarily based on Bash, with modular configuration
+split across multiple files.</p>
+<p>The setup includes:</p>
+<ul class="simple">
+<li><p>POSIX environment initialization (<code class="docutils literal notranslate"><span class="pre">.profile</span></code>)</p></li>
+<li><p>Interactive shell configuration (<code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>)</p></li>
+<li><p>Modular scripts under <code class="docutils literal notranslate"><span class="pre">.bashrc.d/</span></code></p></li>
+<li><p>Additional configuration for other environments (e.g. Windows)</p></li>
+</ul>
+</section>
+<section id="entry-points">
+<h2>Entry Points<a class="headerlink" href="#entry-points" title="Link to this heading"></a></h2>
+<section id="profile">
+<h3>.profile<a class="headerlink" href="#profile" title="Link to this heading"></a></h3>
+<p>The main environment entry point.</p>
+<p>Responsibilities:</p>
+<ul class="simple">
+<li><p>Defines base <code class="docutils literal notranslate"><span class="pre">PATH</span></code></p></li>
+<li><p>Sets up Plan 9 environment</p></li>
+<li><p>Sources selected modules from <code class="docutils literal notranslate"><span class="pre">.bashrc.d/</span></code></p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># User specific environment</span>
+<span class="linenos"> 2</span><span class="k">if</span><span class="w"> </span>!<span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PATH</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span>~<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.local/bin:</span><span class="nv">$HOME</span><span class="s2">/bin:&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.local/bin:</span><span class="nv">$HOME</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+<span class="linenos"> 4</span><span class="k">fi</span>
+<span class="linenos"> 5</span><span class="nb">export</span><span class="w"> </span>PATH
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="c1"># plan9port</span>
+<span class="linenos"> 8</span><span class="nb">export</span><span class="w"> </span><span class="nv">PLAN9</span><span class="o">=</span>/home/mnlcz/Projects/plan9port
+<span class="linenos"> 9</span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$PLAN9</span>/bin
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="c1"># Source environment modules</span>
+<span class="linenos">12</span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-d<span class="w"> </span>~/.bashrc.d<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="linenos">13</span><span class="w">    </span><span class="k">for</span><span class="w"> </span>rc<span class="w"> </span><span class="k">in</span><span class="w"> </span>~/.bashrc.d/0dirs.sh<span class="w"> </span>~/.bashrc.d/dev.sh<span class="w"> </span>~/.bashrc.d/plan9.sh<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="linenos">14</span><span class="w">        </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$rc</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>.<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$rc</span><span class="s2">&quot;</span>
+<span class="linenos">15</span><span class="w">    </span><span class="k">done</span>
+<span class="linenos">16</span><span class="k">fi</span>
+</pre></div>
+</div>
+</section>
+<section id="bashrc">
+<h3>.bashrc<a class="headerlink" href="#bashrc" title="Link to this heading"></a></h3>
+<p>Interactive shell configuration.</p>
+<p>Used to:</p>
+<ul class="simple">
+<li><p>Export general-purpose variables</p></li>
+<li><p>Initialize tools not tied to specific modules</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This file acts as a thin entry point and delegates most logic to
+<code class="docutils literal notranslate"><span class="pre">.bashrc.d/</span></code>.</p>
+</div>
+</section>
+</section>
+<section id="modules-bashrc-d">
+<h2>Modules (.bashrc.d)<a class="headerlink" href="#modules-bashrc-d" title="Link to this heading"></a></h2>
+<p>Configuration is split into focused modules:</p>
+<section id="dirs-sh">
+<h3>0dirs.sh<a class="headerlink" href="#dirs-sh" title="Link to this heading"></a></h3>
+<p>Defines commonly used directories as environment variables.</p>
+<p>Examples:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">$PROJ</span></code>: projects directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$SCRIPTS</span></code>: scripts directory</p></li>
+</ul>
+</section>
+<section id="aliases-sh">
+<h3>aliases.sh<a class="headerlink" href="#aliases-sh" title="Link to this heading"></a></h3>
+<p>Defines shell aliases for:</p>
+<ul class="simple">
+<li><p>System commands</p></li>
+<li><p>Frequently used tools</p></li>
+</ul>
+</section>
+<section id="dev-sh">
+<h3>dev.sh<a class="headerlink" href="#dev-sh" title="Link to this heading"></a></h3>
+<p>Development environment setup.</p>
+<p>Responsibilities:</p>
+<ul class="simple">
+<li><p>Exports variables for tools such as:
+- Composer
+- pnpm
+- Cargo</p></li>
+<li><p>Initializes development workflows</p></li>
+<li><p>Launches tmux via:</p>
+<ul>
+<li><p><a class="reference internal" href="../scripts/index.html"><span class="doc">Scripts</span></a> (<code class="docutils literal notranslate"><span class="pre">init-tmux.sh</span></code>)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="plan9-sh">
+<h3>plan9.sh<a class="headerlink" href="#plan9-sh" title="Link to this heading"></a></h3>
+<p>Initializes the Plan 9 from User Space environment.</p>
+<p>Responsibilities include:</p>
+<ul class="simple">
+<li><p>Setting <code class="docutils literal notranslate"><span class="pre">NAMESPACE</span></code></p></li>
+<li><p>Mounting required filesystems</p></li>
+<li><p>Starting services (e.g. <code class="docutils literal notranslate"><span class="pre">plumber</span></code>, <code class="docutils literal notranslate"><span class="pre">fontsrv</span></code>)</p></li>
+<li><p>Providing the <code class="docutils literal notranslate"><span class="pre">acme()</span></code> helper function</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Requires fusermount (or fusermount3 aliased) with user_allow_other uncommented in /etc/fuse.conf</span>
+acme<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="c1"># clean stale mounts</span>
+<span class="w">    </span>fusermount<span class="w"> </span>-u<span class="w"> </span>/mnt/acme<span class="w"> </span><span class="m">2</span>&gt;/dev/null
+<span class="w">    </span>fusermount<span class="w"> </span>-u<span class="w"> </span>/mnt/font<span class="w"> </span><span class="m">2</span>&gt;/dev/null
+<span class="w">    </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/mnt/acme<span class="w"> </span>/mnt/font
+<span class="w">    </span><span class="c1"># sudo chown $(whoami): /mnt/acme /mnt/font</span>
+
+<span class="w">    </span><span class="c1"># start font server if not running</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span>!<span class="w"> </span>pgrep<span class="w"> </span>-x<span class="w"> </span>fontsrv<span class="w"> </span>&gt;/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span>fontsrv<span class="w"> </span>-m<span class="w"> </span>/mnt/font<span class="w"> </span><span class="p">&amp;</span>
+<span class="w">        </span>sleep<span class="w"> </span><span class="m">0</span>.5
+<span class="w">    </span><span class="k">fi</span>
+
+<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">NAMESPACE</span><span class="o">=</span><span class="si">${</span><span class="nv">NAMESPACE</span><span class="k">:-$(</span><span class="nv">$PLAN9</span>/bin/namespace<span class="k">)</span><span class="si">}</span>
+
+<span class="w">    </span><span class="c1"># start plumber if not running</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span>!<span class="w"> </span>pgrep<span class="w"> </span>-x<span class="w"> </span>plumber<span class="w"> </span>&gt;/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[acme] starting plumber...&quot;</span>
+<span class="w">        </span><span class="nv">$PLAN9</span>/bin/plumber<span class="w"> </span><span class="p">&amp;</span>
+<span class="w">        </span>sleep<span class="w"> </span><span class="m">0</span>.5
+<span class="w">    </span><span class="k">fi</span>
+
+<span class="w">    </span><span class="c1"># load plumbing rules</span>
+<span class="w">    </span>cat<span class="w"> </span><span class="nv">$PLAN9</span>/plumb/basic<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nv">$PLAN9</span>/bin/9p<span class="w"> </span>write<span class="w"> </span>plumb/rules
+
+<span class="w">    </span><span class="c1"># launch acme </span>
+<span class="w">    </span><span class="nv">SHELL</span><span class="o">=</span><span class="nv">$PLAN9</span>/bin/rc<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nv">$PLAN9</span>/bin/acme<span class="w"> </span>-m<span class="w"> </span>/mnt/acme<span class="w"> </span>-f<span class="w"> </span>/mnt/font/RedHatMono-Regular/13a/font<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>See also:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../editor/acme.html"><span class="doc">Acme</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="readline-configuration">
+<h2>Readline Configuration<a class="headerlink" href="#readline-configuration" title="Link to this heading"></a></h2>
+<section id="inputrc">
+<h3>inputrc<a class="headerlink" href="#inputrc" title="Link to this heading"></a></h3>
+<p>Configuration for readline-compatible programs (e.g. Bash).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># should be placed in ~/.inputrc</span>
+<span class="linenos"> 2</span><span class="nb">set</span><span class="w"> </span>editing-mode<span class="w"> </span>vi
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="c1"># reduce escape sequence timeout</span>
+<span class="linenos"> 5</span><span class="nb">set</span><span class="w"> </span>keyseq-timeout<span class="w"> </span><span class="m">50</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="c1"># show mode in prompt</span>
+<span class="linenos"> 8</span><span class="nb">set</span><span class="w"> </span>show-mode-in-prompt<span class="w"> </span>on
+<span class="linenos"> 9</span><span class="nb">set</span><span class="w"> </span>vi-cmd-mode-string<span class="w"> </span><span class="s2">&quot;\1\e[1 q\2&quot;</span><span class="w">   </span><span class="c1"># block cursor</span>
+<span class="linenos">10</span><span class="nb">set</span><span class="w"> </span>vi-ins-mode-string<span class="w"> </span><span class="s2">&quot;\1\e[3 q\2&quot;</span><span class="w">   </span><span class="c1"># underline cursor</span>
+</pre></div>
+</div>
+<p>Key features:</p>
+<ul class="simple">
+<li><p>Vi editing mode</p></li>
+<li><p>Reduced escape timeout</p></li>
+<li><p>Cursor shape changes depending on mode</p></li>
+</ul>
+</section>
+</section>
+<section id="other-environments">
+<h2>Other Environments<a class="headerlink" href="#other-environments" title="Link to this heading"></a></h2>
+<section id="profile-ps1">
+<h3>profile.ps1<a class="headerlink" href="#profile-ps1" title="Link to this heading"></a></h3>
+<p>PowerShell configuration for Windows environments.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is separate from the main Linux-based setup and is not tightly integrated.</p>
+</div>
+</section>
+</section>
+<section id="themes">
+<h2>Themes<a class="headerlink" href="#themes" title="Link to this heading"></a></h2>
+<section id="custom-themes">
+<h3>custom-themes/<a class="headerlink" href="#custom-themes" title="Link to this heading"></a></h3>
+<p>Contains prompt/theme definitions.</p>
+<p>These are used by external prompt tools (e.g. Oh My Posh).</p>
+</section>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Configuration is modular and intentionally minimal.</p></li>
+<li><p>Environment variables and paths are centralized in dedicated modules.</p></li>
+<li><p>Shell setup integrates tightly with:</p>
+<ul>
+<li><p><a class="reference internal" href="../scripts/index.html"><span class="doc">Scripts</span></a></p></li>
+<li><p><a class="reference internal" href="../editor/index.html"><span class="doc">Editor</span></a></p></li>
+<li><p><a class="reference internal" href="../term/index.html"><span class="doc">Terminal</span></a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../mpv/index.html" class="btn btn-neutral float-left" title="MPV" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../templates/index.html" class="btn btn-neutral float-right" title="Templates" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, MnLCz.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

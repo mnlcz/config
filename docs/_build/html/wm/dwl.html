@@ -1,0 +1,642 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dwl &mdash; Configurations  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=a98b852a" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Mutter (GNOME)" href="mutter.html" />
+    <link rel="prev" title="Window Manager" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Configurations
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../editor/index.html">Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripts/index.html">Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mpv/index.html">MPV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shells/index.html">Shells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../templates/index.html">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../term/index.html">Terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Window Manager</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#overview">Overview</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">dwl</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#version">Version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#patches">Patches</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#status-bar-dwlb">Status Bar (dwlb)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#menu-bemenu">Menu (bemenu)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#startup">Startup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scripts">Scripts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#keyboard-xkb">Keyboard (XKB)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notification-daemon">Notification Daemon</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#integration">Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mutter.html">Mutter (GNOME)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Configurations</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Window Manager</a></li>
+      <li class="breadcrumb-item active">dwl</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/wm/dwl.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dwl">
+<h1>dwl<a class="headerlink" href="#dwl" title="Link to this heading"></a></h1>
+<p>This section documents the configuration for dwl and related tools.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>This setup includes:</p>
+<ul class="simple">
+<li><p>Core dwl configuration</p></li>
+<li><p>Custom patches</p></li>
+<li><p>Status bar (dwlb)</p></li>
+<li><p>Menu system (bemenu)</p></li>
+<li><p>Notification daemon (mako)</p></li>
+<li><p>Keyboard customization (XKB)</p></li>
+</ul>
+</section>
+<section id="version">
+<h2>Version<a class="headerlink" href="#version" title="Link to this heading"></a></h2>
+<p>The tools and dependencies used get their exact version stored here:</p>
+<p><code class="docutils literal notranslate"><span class="pre">dwl/VERSIONS</span></code></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>bemenu: bemenu v0.6.23
+<span class="linenos"> 2</span>cliphist: version	0.7.0
+<span class="linenos"> 3</span>dwl: dwl v0.7-dirty
+<span class="linenos"> 4</span>dwlb: dwlb 0.2
+<span class="linenos"> 5</span>fcft: 3.3.3
+<span class="linenos"> 6</span>foot: foot version: 1.26.1-9-g6183d1b7 (Apr 28 2026, branch &#39;master&#39;) -pgo +ime +graphemes +toplevel-tag +blur -assertions
+<span class="linenos"> 7</span>grim: 1.5.0
+<span class="linenos"> 8</span>j4-dmenu-desktop: r3.2-14-gd75d640
+<span class="linenos"> 9</span>mako: 1.11.0
+<span class="linenos">10</span>slurp: 1.5.0
+<span class="linenos">11</span>wlroots: 0.18.2
+<span class="linenos">12</span>xsel: xsel version 1.2.1 by Conrad Parker &lt;conrad@vergenet.net&gt;
+<span class="linenos">13</span>Generated: Tue Apr 28 06:52:19 AM -03 2026
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>That file gets generated by a script and shouldn’t be edited manually.</p>
+</div>
+</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h2>
+<section id="config-h">
+<h3>config.h<a class="headerlink" href="#config-h" title="Link to this heading"></a></h3>
+<p>The main configuration file for dwl.</p>
+<ul>
+<li><p>Managed as a symlink</p></li>
+<li><p>Typically located at:</p>
+<p><code class="docutils literal notranslate"><span class="pre">/usr/local/src/dwl/config.h</span></code></p>
+</li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="cm">/* Taken from https://github.com/djpohly/dwl/issues/466 */</span>
+<span class="linenos">  2</span><span class="cp">#define COLOR(hex)                                                             \</span>
+<span class="linenos">  3</span><span class="cp">  {((hex &gt;&gt; 24) &amp; 0xFF) / 255.0f, ((hex &gt;&gt; 16) &amp; 0xFF) / 255.0f,               \</span>
+<span class="linenos">  4</span><span class="cp">   ((hex &gt;&gt; 8) &amp; 0xFF) / 255.0f, (hex &amp; 0xFF) / 255.0f}</span>
+<span class="linenos">  5</span><span class="cm">/* appearance */</span>
+<span class="linenos">  6</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">sloppyfocus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="cm">/* focus follows mouse */</span>
+<span class="linenos">  7</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">bypass_surface_visibility</span><span class="w"> </span><span class="o">=</span>
+<span class="linenos">  8</span><span class="w">    </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="cm">/* 1 means idle inhibitors will disable idle tracking even if it&#39;s</span>
+<span class="linenos">  9</span><span class="cm">          surface isn&#39;t visible  */</span>
+<span class="linenos"> 10</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">borderpx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="cm">/* border pixel of windows */</span>
+<span class="linenos"> 11</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">rootcolor</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">COLOR</span><span class="p">(</span><span class="mh">0xf5f5f5ff</span><span class="p">);</span><span class="w">   </span><span class="c1">// background/root</span>
+<span class="linenos"> 12</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">bordercolor</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">COLOR</span><span class="p">(</span><span class="mh">0xddddddff</span><span class="p">);</span><span class="w"> </span><span class="c1">// unfocused border</span>
+<span class="linenos"> 13</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">focuscolor</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">COLOR</span><span class="p">(</span><span class="mh">0xee0000ff</span><span class="p">);</span><span class="w">  </span><span class="c1">// focused border (RH red)</span>
+<span class="linenos"> 14</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">urgentcolor</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">COLOR</span><span class="p">(</span><span class="mh">0xff3b30ff</span><span class="p">);</span><span class="w"> </span><span class="c1">// urgent border</span>
+<span class="linenos"> 15</span><span class="cm">/* This conforms to the xdg-protocol. Set the alpha to zero to restore the old</span>
+<span class="linenos"> 16</span><span class="cm"> * behavior */</span>
+<span class="linenos"> 17</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">fullscreen_bg</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mf">0.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">,</span>
+<span class="linenos"> 18</span><span class="w">                                      </span><span class="mf">1.0f</span><span class="p">};</span><span class="w"> </span><span class="cm">/* You can also use glsl colors */</span>
+<span class="linenos"> 19</span>
+<span class="linenos"> 20</span><span class="cm">/* tagging - TAGCOUNT must be no greater than 31 */</span>
+<span class="linenos"> 21</span><span class="cp">#define TAGCOUNT (9)</span>
+<span class="linenos"> 22</span>
+<span class="linenos"> 23</span><span class="cm">/* logging */</span>
+<span class="linenos"> 24</span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">log_level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WLR_ERROR</span><span class="p">;</span>
+<span class="linenos"> 25</span>
+<span class="linenos"> 26</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Rule</span><span class="w"> </span><span class="n">rules</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 27</span><span class="w">    </span><span class="cm">/* app_id          		title   tags mask  isfloating  monitor   x     y */</span>
+<span class="linenos"> 28</span><span class="w">    </span><span class="p">{</span><span class="s">&quot;Gimp_EXAMPLE&quot;</span><span class="p">,</span><span class="w">   		</span><span class="nb">NULL</span><span class="p">,</span><span class="w">    </span><span class="mi">0</span><span class="p">,</span><span class="w">         </span><span class="mi">1</span><span class="p">,</span><span class="w">          </span><span class="mi">-1</span><span class="p">,</span><span class="w">      </span><span class="mi">-1</span><span class="p">,</span><span class="w">  </span><span class="mi">-1</span><span class="p">},</span><span class="w"> </span><span class="cm">/* floating, centered */</span>
+<span class="linenos"> 29</span><span class="w">    </span><span class="p">{</span><span class="s">&quot;firefox_EXAMPLE&quot;</span><span class="p">,</span><span class="w">		</span><span class="nb">NULL</span><span class="p">,</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">    </span><span class="mi">0</span><span class="p">,</span><span class="w">          </span><span class="mi">-1</span><span class="p">,</span><span class="w">       </span><span class="mi">0</span><span class="p">,</span><span class="w">   </span><span class="mi">0</span><span class="p">},</span>
+<span class="linenos"> 30</span><span class="w">    </span><span class="cm">/* default/example rule: can be changed but cannot be eliminated; at least</span>
+<span class="linenos"> 31</span><span class="cm">       one rule must exist */</span>
+<span class="linenos"> 32</span><span class="w">    </span><span class="p">{</span><span class="s">&quot;waterfox&quot;</span><span class="p">,</span><span class="w">       		</span><span class="nb">NULL</span><span class="p">,</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">    </span><span class="mi">0</span><span class="p">,</span><span class="w">          </span><span class="mi">-1</span><span class="p">,</span><span class="w">       </span><span class="mi">0</span><span class="p">,</span><span class="w">   </span><span class="mi">0</span><span class="p">},</span>
+<span class="linenos"> 33</span><span class="w">    </span><span class="p">{</span><span class="s">&quot;foot&quot;</span><span class="p">,</span><span class="w">           		</span><span class="nb">NULL</span><span class="p">,</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">    </span><span class="mi">0</span><span class="p">,</span><span class="w">          </span><span class="mi">-1</span><span class="p">,</span><span class="w">       </span><span class="mi">0</span><span class="p">,</span><span class="w">   </span><span class="mi">0</span><span class="p">},</span>
+<span class="linenos"> 34</span><span class="w">    </span><span class="p">{</span><span class="s">&quot;acme&quot;</span><span class="p">,</span><span class="w">           		</span><span class="nb">NULL</span><span class="p">,</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">    </span><span class="mi">0</span><span class="p">,</span><span class="w">          </span><span class="mi">-1</span><span class="p">,</span><span class="w">       </span><span class="mi">0</span><span class="p">,</span><span class="w">   </span><span class="mi">0</span><span class="p">},</span>
+<span class="linenos"> 35</span><span class="w">    </span><span class="p">{</span><span class="s">&quot;spotify&quot;</span><span class="p">,</span><span class="w">        		</span><span class="nb">NULL</span><span class="p">,</span><span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">    </span><span class="mi">0</span><span class="p">,</span><span class="w">          </span><span class="mi">-1</span><span class="p">,</span><span class="w">       </span><span class="mi">0</span><span class="p">,</span><span class="w">   </span><span class="mi">0</span><span class="p">},</span>
+<span class="linenos"> 36</span><span class="w">    </span><span class="p">{</span><span class="s">&quot;org.gnome.Nautilus&quot;</span><span class="p">,</span><span class="w">  </span><span class="nb">NULL</span><span class="p">,</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">    </span><span class="mi">0</span><span class="p">,</span><span class="w">          </span><span class="mi">-1</span><span class="p">,</span><span class="w">       </span><span class="mi">0</span><span class="p">,</span><span class="w">   </span><span class="mi">0</span><span class="p">},</span>
+<span class="linenos"> 37</span><span class="w">    </span><span class="p">{</span><span class="s">&quot;mpv&quot;</span><span class="p">,</span><span class="w">            		</span><span class="nb">NULL</span><span class="p">,</span><span class="w">    </span><span class="mi">0</span><span class="p">,</span><span class="w">         </span><span class="mi">1</span><span class="p">,</span><span class="w">          </span><span class="mi">-1</span><span class="p">,</span><span class="w">      </span><span class="mi">-1</span><span class="p">,</span><span class="w">  </span><span class="mi">-1</span><span class="p">},</span><span class="w"> </span><span class="cm">/* floating, centered */</span>
+<span class="linenos"> 38</span><span class="p">};</span>
+<span class="linenos"> 39</span>
+<span class="linenos"> 40</span><span class="cm">/* layout(s) */</span>
+<span class="linenos"> 41</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Layout</span><span class="w"> </span><span class="n">layouts</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 42</span><span class="w">    </span><span class="cm">/* symbol     arrange function */</span>
+<span class="linenos"> 43</span><span class="w">    </span><span class="p">{</span><span class="s">&quot;[]=&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">tile</span><span class="p">},</span>
+<span class="linenos"> 44</span><span class="w">    </span><span class="p">{</span><span class="s">&quot;&gt;&lt;&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">},</span><span class="w"> </span><span class="cm">/* no layout function means floating behavior */</span>
+<span class="linenos"> 45</span><span class="w">    </span><span class="p">{</span><span class="s">&quot;[M]&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">monocle</span><span class="p">},</span>
+<span class="linenos"> 46</span><span class="p">};</span>
+<span class="linenos"> 47</span>
+<span class="linenos"> 48</span><span class="cm">/* monitors */</span>
+<span class="linenos"> 49</span><span class="cm">/* (x=-1, y=-1) is reserved as an &quot;autoconfigure&quot; monitor position indicator</span>
+<span class="linenos"> 50</span><span class="cm"> * WARNING: negative values other than (-1, -1) cause problems with Xwayland</span>
+<span class="linenos"> 51</span><span class="cm"> * clients due to https://gitlab.freedesktop.org/xorg/xserver/-/issues/899 */</span>
+<span class="linenos"> 52</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">MonitorRule</span><span class="w"> </span><span class="n">monrules</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 53</span><span class="w">    </span><span class="cm">/* name        mfact  nmaster scale layout       rotate/reflect x    y</span>
+<span class="linenos"> 54</span><span class="cm">     * example of a HiDPI laptop monitor:</span>
+<span class="linenos"> 55</span><span class="cm">     { &quot;eDP-1&quot;,    0.5f,  1,      2,    &amp;layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,</span>
+<span class="linenos"> 56</span><span class="cm">     -1,  -1 }, */</span>
+<span class="linenos"> 57</span><span class="w">    </span><span class="p">{</span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="mf">0.55f</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">layouts</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">WL_OUTPUT_TRANSFORM_NORMAL</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">},</span>
+<span class="linenos"> 58</span><span class="w">    </span><span class="cm">/* default monitor rule: can be changed but cannot be eliminated; at least</span>
+<span class="linenos"> 59</span><span class="cm">       one monitor rule must exist */</span>
+<span class="linenos"> 60</span><span class="p">};</span>
+<span class="linenos"> 61</span>
+<span class="linenos"> 62</span><span class="cm">/* keyboard */</span>
+<span class="linenos"> 63</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">xkb_rule_names</span><span class="w"> </span><span class="n">xkb_rules</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 64</span><span class="w">    </span><span class="cm">/* can specify fields: rules, model, layout, variant, options */</span>
+<span class="linenos"> 65</span><span class="w">    </span><span class="p">.</span><span class="n">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;custom:nodead_circumflex_grave&quot;</span><span class="p">,</span>
+<span class="linenos"> 66</span><span class="w">    </span><span class="p">.</span><span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;pc105&quot;</span><span class="p">,</span>
+<span class="linenos"> 67</span><span class="w">    </span><span class="p">.</span><span class="n">layout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;latam,ru&quot;</span><span class="p">,</span>
+<span class="linenos"> 68</span><span class="p">};</span>
+<span class="linenos"> 69</span>
+<span class="linenos"> 70</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">repeat_rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span><span class="p">;</span>
+<span class="linenos"> 71</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">repeat_delay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">600</span><span class="p">;</span>
+<span class="linenos"> 72</span>
+<span class="linenos"> 73</span><span class="cm">/* Trackpad */</span>
+<span class="linenos"> 74</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">tap_to_click</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="linenos"> 75</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">tap_and_drag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="linenos"> 76</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">drag_lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="linenos"> 77</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">natural_scrolling</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos"> 78</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">disable_while_typing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="linenos"> 79</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">left_handed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos"> 80</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">middle_button_emulation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="linenos"> 81</span><span class="cm">/* You can choose between:</span>
+<span class="linenos"> 82</span><span class="cm">LIBINPUT_CONFIG_SCROLL_NO_SCROLL</span>
+<span class="linenos"> 83</span><span class="cm">LIBINPUT_CONFIG_SCROLL_2FG</span>
+<span class="linenos"> 84</span><span class="cm">LIBINPUT_CONFIG_SCROLL_EDGE</span>
+<span class="linenos"> 85</span><span class="cm">LIBINPUT_CONFIG_SCROLL_ON_BUTTON_DOWN</span>
+<span class="linenos"> 86</span><span class="cm">*/</span>
+<span class="linenos"> 87</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">libinput_config_scroll_method</span><span class="w"> </span><span class="n">scroll_method</span><span class="w"> </span><span class="o">=</span>
+<span class="linenos"> 88</span><span class="w">    </span><span class="n">LIBINPUT_CONFIG_SCROLL_2FG</span><span class="p">;</span>
+<span class="linenos"> 89</span>
+<span class="linenos"> 90</span><span class="cm">/* You can choose between:</span>
+<span class="linenos"> 91</span><span class="cm">LIBINPUT_CONFIG_CLICK_METHOD_NONE</span>
+<span class="linenos"> 92</span><span class="cm">LIBINPUT_CONFIG_CLICK_METHOD_BUTTON_AREAS</span>
+<span class="linenos"> 93</span><span class="cm">LIBINPUT_CONFIG_CLICK_METHOD_CLICKFINGER</span>
+<span class="linenos"> 94</span><span class="cm">*/</span>
+<span class="linenos"> 95</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">libinput_config_click_method</span><span class="w"> </span><span class="n">click_method</span><span class="w"> </span><span class="o">=</span>
+<span class="linenos"> 96</span><span class="w">    </span><span class="n">LIBINPUT_CONFIG_CLICK_METHOD_BUTTON_AREAS</span><span class="p">;</span>
+<span class="linenos"> 97</span>
+<span class="linenos"> 98</span><span class="cm">/* You can choose between:</span>
+<span class="linenos"> 99</span><span class="cm">LIBINPUT_CONFIG_SEND_EVENTS_ENABLED</span>
+<span class="linenos">100</span><span class="cm">LIBINPUT_CONFIG_SEND_EVENTS_DISABLED</span>
+<span class="linenos">101</span><span class="cm">LIBINPUT_CONFIG_SEND_EVENTS_DISABLED_ON_EXTERNAL_MOUSE</span>
+<span class="linenos">102</span><span class="cm">*/</span>
+<span class="linenos">103</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">send_events_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LIBINPUT_CONFIG_SEND_EVENTS_ENABLED</span><span class="p">;</span>
+<span class="linenos">104</span>
+<span class="linenos">105</span><span class="cm">/* You can choose between:</span>
+<span class="linenos">106</span><span class="cm">LIBINPUT_CONFIG_ACCEL_PROFILE_FLAT</span>
+<span class="linenos">107</span><span class="cm">LIBINPUT_CONFIG_ACCEL_PROFILE_ADAPTIVE</span>
+<span class="linenos">108</span><span class="cm">*/</span>
+<span class="linenos">109</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">libinput_config_accel_profile</span><span class="w"> </span><span class="n">accel_profile</span><span class="w"> </span><span class="o">=</span>
+<span class="linenos">110</span><span class="w">    </span><span class="n">LIBINPUT_CONFIG_ACCEL_PROFILE_ADAPTIVE</span><span class="p">;</span>
+<span class="linenos">111</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">accel_speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span>
+<span class="linenos">112</span>
+<span class="linenos">113</span><span class="cm">/* You can choose between:</span>
+<span class="linenos">114</span><span class="cm">LIBINPUT_CONFIG_TAP_MAP_LRM -- 1/2/3 finger tap maps to left/right/middle</span>
+<span class="linenos">115</span><span class="cm">LIBINPUT_CONFIG_TAP_MAP_LMR -- 1/2/3 finger tap maps to left/middle/right</span>
+<span class="linenos">116</span><span class="cm">*/</span>
+<span class="linenos">117</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">libinput_config_tap_button_map</span><span class="w"> </span><span class="n">button_map</span><span class="w"> </span><span class="o">=</span>
+<span class="linenos">118</span><span class="w">    </span><span class="n">LIBINPUT_CONFIG_TAP_MAP_LRM</span><span class="p">;</span>
+<span class="linenos">119</span>
+<span class="linenos">120</span><span class="cm">/* If you want to use the windows key for MODKEY, use WLR_MODIFIER_LOGO */</span>
+<span class="linenos">121</span><span class="cp">#define MODKEY WLR_MODIFIER_LOGO</span>
+<span class="linenos">122</span>
+<span class="linenos">123</span><span class="cp">#define TAGKEYS(KEY, SKEY, TAG)                                                \</span>
+<span class="linenos">124</span><span class="cp">  {MODKEY, KEY, view, {.ui = 1 &lt;&lt; TAG}},                                       \</span>
+<span class="linenos">125</span><span class="cp">      {MODKEY | WLR_MODIFIER_CTRL, KEY, toggleview, {.ui = 1 &lt;&lt; TAG}},         \</span>
+<span class="linenos">126</span><span class="cp">      {MODKEY | WLR_MODIFIER_SHIFT, SKEY, tag, {.ui = 1 &lt;&lt; TAG}}, {            \</span>
+<span class="linenos">127</span><span class="cp">    MODKEY | WLR_MODIFIER_CTRL | WLR_MODIFIER_SHIFT, SKEY, toggletag, {        \</span>
+<span class="linenos">128</span><span class="cp">      .ui = 1 &lt;&lt; TAG                                                           \</span>
+<span class="linenos">129</span><span class="cp">    }                                                                          \</span>
+<span class="linenos">130</span><span class="cp">  }</span>
+<span class="linenos">131</span>
+<span class="linenos">132</span><span class="cm">/* helper for spawning shell commands in the pre dwm-5.0 fashion */</span>
+<span class="linenos">133</span><span class="cp">#define SHCMD(cmd)                                                             \</span>
+<span class="linenos">134</span><span class="cp">  {                                                                            \</span>
+<span class="linenos">135</span><span class="cp">    .v = (const char *[]) { &quot;/bin/sh&quot;, &quot;-c&quot;, cmd, NULL }                       \</span>
+<span class="linenos">136</span><span class="cp">  }</span>
+<span class="linenos">137</span>
+<span class="linenos">138</span><span class="cm">/* commands */</span>
+<span class="linenos">139</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">debugcmd</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;/bin/sh&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;-c&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;env &gt; /tmp/dwl-env.txt&quot;</span><span class="p">,</span>
+<span class="linenos">140</span><span class="w">                                 </span><span class="nb">NULL</span><span class="p">};</span>
+<span class="linenos">141</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">termcmd</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;foot&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">};</span>
+<span class="linenos">142</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">appcmd</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">143</span><span class="w">    </span><span class="s">&quot;j4-dmenu-desktop&quot;</span><span class="p">,</span>
+<span class="linenos">144</span><span class="w">    </span><span class="s">&quot;--dmenu=/home/mnlcz/Projects/config/wm/dwl/bemenu/bemenu-themed&quot;</span><span class="p">,</span>
+<span class="linenos">145</span><span class="w">    </span><span class="nb">NULL</span><span class="p">};</span>
+<span class="linenos">146</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">menucmd</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">147</span><span class="w">    </span><span class="s">&quot;/home/mnlcz/Projects/config/wm/dwl/bemenu/bemenu-run-themed&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">};</span>
+<span class="linenos">148</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">screenshotcmd</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">149</span><span class="w">    </span><span class="s">&quot;/bin/sh&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;-c&quot;</span><span class="p">,</span>
+<span class="linenos">150</span><span class="w">    </span><span class="s">&quot;grim -g </span><span class="se">\&quot;</span><span class="s">$(slurp)</span><span class="se">\&quot;</span><span class="s"> ~/Pictures/Screenshots/screenshot-$(date &quot;</span>
+<span class="linenos">151</span><span class="w">    </span><span class="s">&quot;+%Y%m%d-%H%M%S).png&quot;</span><span class="p">,</span>
+<span class="linenos">152</span><span class="w">    </span><span class="nb">NULL</span><span class="p">};</span>
+<span class="linenos">153</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">screenshotfullcmd</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">154</span><span class="w">    </span><span class="s">&quot;/bin/sh&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;-c&quot;</span><span class="p">,</span>
+<span class="linenos">155</span><span class="w">    </span><span class="s">&quot;grim ~/Pictures/Screenshots/screenshot-$(date +%Y%m%d-%H%M%S).png&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">};</span>
+<span class="linenos">156</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">cliphist</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">157</span><span class="w">    </span><span class="s">&quot;/bin/sh&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;-c&quot;</span><span class="p">,</span>
+<span class="linenos">158</span><span class="w">    </span><span class="s">&quot;cliphist list | &quot;</span>
+<span class="linenos">159</span><span class="w">    </span><span class="s">&quot;/home/mnlcz/Projects/config/wm/dwl/bemenu/bemenu-themed -p &quot;</span>
+<span class="linenos">160</span><span class="w">    </span><span class="s">&quot;&#39;clipboard:&#39; | cliphist decode | wl-copy&quot;</span><span class="p">,</span>
+<span class="linenos">161</span><span class="w">    </span><span class="nb">NULL</span><span class="p">};</span>
+<span class="linenos">162</span>
+<span class="linenos">163</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Key</span><span class="w"> </span><span class="n">keys</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">164</span><span class="w">    </span><span class="cm">/* Note that Shift changes certain key codes: 2 -&gt; at, etc. */</span>
+<span class="linenos">165</span><span class="w">    </span><span class="cm">/* modifier                  key                  function          argument</span>
+<span class="linenos">166</span><span class="cm">     */</span>
+<span class="linenos">167</span><span class="w">    </span><span class="p">{</span><span class="n">MODKEY</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">WLR_MODIFIER_CTRL</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_d</span><span class="p">,</span><span class="w"> </span><span class="n">spawn</span><span class="p">,</span><span class="w"> </span><span class="p">{.</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">debugcmd</span><span class="p">}},</span>
+<span class="linenos">168</span><span class="w">    </span><span class="p">{</span><span class="n">MODKEY</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_p</span><span class="p">,</span><span class="w"> </span><span class="n">spawn</span><span class="p">,</span><span class="w"> </span><span class="p">{.</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">appcmd</span><span class="p">}},</span>
+<span class="linenos">169</span><span class="w">    </span><span class="p">{</span><span class="n">MODKEY</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">WLR_MODIFIER_SHIFT</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_P</span><span class="p">,</span><span class="w"> </span><span class="n">spawn</span><span class="p">,</span><span class="w"> </span><span class="p">{.</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">menucmd</span><span class="p">}},</span>
+<span class="linenos">170</span><span class="w">    </span><span class="p">{</span><span class="n">MODKEY</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">WLR_MODIFIER_SHIFT</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_Return</span><span class="p">,</span><span class="w"> </span><span class="n">spawn</span><span class="p">,</span><span class="w"> </span><span class="p">{.</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">termcmd</span><span class="p">}},</span>
+<span class="linenos">171</span><span class="w">    </span><span class="p">{</span><span class="n">MODKEY</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_j</span><span class="p">,</span><span class="w"> </span><span class="n">focusstack</span><span class="p">,</span><span class="w"> </span><span class="p">{.</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">+</span><span class="mi">1</span><span class="p">}},</span>
+<span class="linenos">172</span><span class="w">    </span><span class="p">{</span><span class="n">MODKEY</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_k</span><span class="p">,</span><span class="w"> </span><span class="n">focusstack</span><span class="p">,</span><span class="w"> </span><span class="p">{.</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">}},</span>
+<span class="linenos">173</span><span class="w">    </span><span class="p">{</span><span class="n">MODKEY</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_i</span><span class="p">,</span><span class="w"> </span><span class="n">incnmaster</span><span class="p">,</span><span class="w"> </span><span class="p">{.</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">+</span><span class="mi">1</span><span class="p">}},</span>
+<span class="linenos">174</span><span class="w">    </span><span class="p">{</span><span class="n">MODKEY</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_d</span><span class="p">,</span><span class="w"> </span><span class="n">incnmaster</span><span class="p">,</span><span class="w"> </span><span class="p">{.</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">}},</span>
+<span class="linenos">175</span><span class="w">    </span><span class="p">{</span><span class="n">MODKEY</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_h</span><span class="p">,</span><span class="w"> </span><span class="n">setmfact</span><span class="p">,</span><span class="w"> </span><span class="p">{.</span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">-0.05f</span><span class="p">}},</span>
+<span class="linenos">176</span><span class="w">    </span><span class="p">{</span><span class="n">MODKEY</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_l</span><span class="p">,</span><span class="w"> </span><span class="n">setmfact</span><span class="p">,</span><span class="w"> </span><span class="p">{.</span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">+</span><span class="mf">0.05f</span><span class="p">}},</span>
+<span class="linenos">177</span><span class="w">    </span><span class="p">{</span><span class="n">MODKEY</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_Return</span><span class="p">,</span><span class="w"> </span><span class="n">zoom</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">}},</span>
+<span class="linenos">178</span><span class="w">    </span><span class="p">{</span><span class="n">MODKEY</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_Tab</span><span class="p">,</span><span class="w"> </span><span class="n">view</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">}},</span>
+<span class="linenos">179</span><span class="w">    </span><span class="p">{</span><span class="n">MODKEY</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_q</span><span class="p">,</span><span class="w"> </span><span class="n">killclient</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">}},</span>
+<span class="linenos">180</span><span class="w">    </span><span class="p">{</span><span class="n">MODKEY</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_t</span><span class="p">,</span><span class="w"> </span><span class="n">setlayout</span><span class="p">,</span><span class="w"> </span><span class="p">{.</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">layouts</span><span class="p">[</span><span class="mi">0</span><span class="p">]}},</span>
+<span class="linenos">181</span><span class="w">    </span><span class="p">{</span><span class="n">MODKEY</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_f</span><span class="p">,</span><span class="w"> </span><span class="n">setlayout</span><span class="p">,</span><span class="w"> </span><span class="p">{.</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">layouts</span><span class="p">[</span><span class="mi">1</span><span class="p">]}},</span>
+<span class="linenos">182</span><span class="w">    </span><span class="p">{</span><span class="n">MODKEY</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_m</span><span class="p">,</span><span class="w"> </span><span class="n">setlayout</span><span class="p">,</span><span class="w"> </span><span class="p">{.</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">layouts</span><span class="p">[</span><span class="mi">2</span><span class="p">]}},</span>
+<span class="linenos">183</span><span class="w">    </span><span class="p">{</span><span class="n">MODKEY</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_space</span><span class="p">,</span><span class="w"> </span><span class="n">setlayout</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">}},</span>
+<span class="linenos">184</span><span class="w">    </span><span class="p">{</span><span class="n">MODKEY</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">WLR_MODIFIER_SHIFT</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_space</span><span class="p">,</span><span class="w"> </span><span class="n">togglefloating</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">}},</span>
+<span class="linenos">185</span><span class="w">    </span><span class="p">{</span><span class="n">MODKEY</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_e</span><span class="p">,</span><span class="w"> </span><span class="n">togglefullscreen</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">}},</span>
+<span class="linenos">186</span><span class="w">    </span><span class="p">{</span><span class="n">MODKEY</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_0</span><span class="p">,</span><span class="w"> </span><span class="n">view</span><span class="p">,</span><span class="w"> </span><span class="p">{.</span><span class="n">ui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">~</span><span class="mi">0</span><span class="p">}},</span>
+<span class="linenos">187</span><span class="w">    </span><span class="p">{</span><span class="n">MODKEY</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">WLR_MODIFIER_SHIFT</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_parenright</span><span class="p">,</span><span class="w"> </span><span class="n">tag</span><span class="p">,</span><span class="w"> </span><span class="p">{.</span><span class="n">ui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">~</span><span class="mi">0</span><span class="p">}},</span>
+<span class="linenos">188</span><span class="w">    </span><span class="p">{</span><span class="n">MODKEY</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_comma</span><span class="p">,</span><span class="w"> </span><span class="n">focusmon</span><span class="p">,</span><span class="w"> </span><span class="p">{.</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WLR_DIRECTION_LEFT</span><span class="p">}},</span>
+<span class="linenos">189</span><span class="w">    </span><span class="p">{</span><span class="n">MODKEY</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_period</span><span class="p">,</span><span class="w"> </span><span class="n">focusmon</span><span class="p">,</span><span class="w"> </span><span class="p">{.</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WLR_DIRECTION_RIGHT</span><span class="p">}},</span>
+<span class="linenos">190</span><span class="w">    </span><span class="p">{</span><span class="n">MODKEY</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">WLR_MODIFIER_SHIFT</span><span class="p">,</span>
+<span class="linenos">191</span><span class="w">     </span><span class="n">XKB_KEY_less</span><span class="p">,</span>
+<span class="linenos">192</span><span class="w">     </span><span class="n">tagmon</span><span class="p">,</span>
+<span class="linenos">193</span><span class="w">     </span><span class="p">{.</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WLR_DIRECTION_LEFT</span><span class="p">}},</span>
+<span class="linenos">194</span><span class="w">    </span><span class="p">{</span><span class="n">MODKEY</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">WLR_MODIFIER_SHIFT</span><span class="p">,</span>
+<span class="linenos">195</span><span class="w">     </span><span class="n">XKB_KEY_greater</span><span class="p">,</span>
+<span class="linenos">196</span><span class="w">     </span><span class="n">tagmon</span><span class="p">,</span>
+<span class="linenos">197</span><span class="w">     </span><span class="p">{.</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WLR_DIRECTION_RIGHT</span><span class="p">}},</span>
+<span class="linenos">198</span><span class="w">    </span><span class="n">TAGKEYS</span><span class="p">(</span><span class="n">XKB_KEY_1</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_exclam</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span>
+<span class="linenos">199</span><span class="w">    </span><span class="n">TAGKEYS</span><span class="p">(</span><span class="n">XKB_KEY_2</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_at</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span>
+<span class="linenos">200</span><span class="w">    </span><span class="n">TAGKEYS</span><span class="p">(</span><span class="n">XKB_KEY_3</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_numbersign</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span>
+<span class="linenos">201</span><span class="w">    </span><span class="n">TAGKEYS</span><span class="p">(</span><span class="n">XKB_KEY_4</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_dollar</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">),</span>
+<span class="linenos">202</span><span class="w">    </span><span class="n">TAGKEYS</span><span class="p">(</span><span class="n">XKB_KEY_5</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_percent</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">),</span>
+<span class="linenos">203</span><span class="w">    </span><span class="n">TAGKEYS</span><span class="p">(</span><span class="n">XKB_KEY_6</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_asciicircum</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">),</span>
+<span class="linenos">204</span><span class="w">    </span><span class="n">TAGKEYS</span><span class="p">(</span><span class="n">XKB_KEY_7</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_ampersand</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">),</span>
+<span class="linenos">205</span><span class="w">    </span><span class="n">TAGKEYS</span><span class="p">(</span><span class="n">XKB_KEY_8</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_asterisk</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">),</span>
+<span class="linenos">206</span><span class="w">    </span><span class="n">TAGKEYS</span><span class="p">(</span><span class="n">XKB_KEY_9</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_parenleft</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">),</span>
+<span class="linenos">207</span><span class="w">    </span><span class="p">{</span><span class="n">MODKEY</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">WLR_MODIFIER_SHIFT</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_Q</span><span class="p">,</span><span class="w"> </span><span class="n">quit</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">}},</span>
+<span class="linenos">208</span><span class="w">    </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_Print</span><span class="p">,</span><span class="w"> </span><span class="n">spawn</span><span class="p">,</span><span class="w"> </span><span class="p">{.</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">screenshotfullcmd</span><span class="p">}},</span>
+<span class="linenos">209</span><span class="w">    </span><span class="p">{</span><span class="n">MODKEY</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">WLR_MODIFIER_SHIFT</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_S</span><span class="p">,</span><span class="w"> </span><span class="n">spawn</span><span class="p">,</span><span class="w"> </span><span class="p">{.</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">screenshotcmd</span><span class="p">}},</span>
+<span class="linenos">210</span><span class="w">    </span><span class="p">{</span><span class="n">MODKEY</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_v</span><span class="p">,</span><span class="w"> </span><span class="n">spawn</span><span class="p">,</span><span class="w"> </span><span class="p">{.</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cliphist</span><span class="p">}},</span>
+<span class="linenos">211</span><span class="w">    </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_F1</span><span class="p">,</span><span class="w"> </span><span class="n">switchlayout</span><span class="p">,</span><span class="w"> </span><span class="p">{.</span><span class="n">ui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">}},</span>
+<span class="linenos">212</span><span class="w">    </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_F2</span><span class="p">,</span><span class="w"> </span><span class="n">switchlayout</span><span class="p">,</span><span class="w"> </span><span class="p">{.</span><span class="n">ui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">}},</span>
+<span class="linenos">213</span>
+<span class="linenos">214</span><span class="w">    </span><span class="cm">/* Ctrl-Alt-Backspace and Ctrl-Alt-Fx used to be handled by X server */</span>
+<span class="linenos">215</span><span class="w">    </span><span class="p">{</span><span class="n">WLR_MODIFIER_CTRL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">WLR_MODIFIER_ALT</span><span class="p">,</span><span class="w"> </span><span class="n">XKB_KEY_Terminate_Server</span><span class="p">,</span><span class="w"> </span><span class="n">quit</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">}},</span>
+<span class="linenos">216</span><span class="cm">/* Ctrl-Alt-Fx is used to switch to another VT, if you don&#39;t know what a VT is</span>
+<span class="linenos">217</span><span class="cm"> * do not remove them.</span>
+<span class="linenos">218</span><span class="cm"> */</span>
+<span class="linenos">219</span><span class="cp">#define CHVT(n)                                                                \</span>
+<span class="linenos">220</span><span class="cp">  {                                                                            \</span>
+<span class="linenos">221</span><span class="cp">    WLR_MODIFIER_CTRL | WLR_MODIFIER_ALT, XKB_KEY_XF86Switch_VT_##n, chvt, {   \</span>
+<span class="linenos">222</span><span class="cp">      .ui = (n)                                                                \</span>
+<span class="linenos">223</span><span class="cp">    }                                                                          \</span>
+<span class="linenos">224</span><span class="cp">  }</span>
+<span class="linenos">225</span><span class="w">    </span><span class="n">CHVT</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+<span class="linenos">226</span><span class="w">    </span><span class="n">CHVT</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+<span class="linenos">227</span><span class="w">    </span><span class="n">CHVT</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+<span class="linenos">228</span><span class="w">    </span><span class="n">CHVT</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>
+<span class="linenos">229</span><span class="w">    </span><span class="n">CHVT</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+<span class="linenos">230</span><span class="w">    </span><span class="n">CHVT</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span>
+<span class="linenos">231</span><span class="w">    </span><span class="n">CHVT</span><span class="p">(</span><span class="mi">7</span><span class="p">),</span>
+<span class="linenos">232</span><span class="w">    </span><span class="n">CHVT</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span>
+<span class="linenos">233</span><span class="w">    </span><span class="n">CHVT</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span>
+<span class="linenos">234</span><span class="w">    </span><span class="n">CHVT</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+<span class="linenos">235</span><span class="w">    </span><span class="n">CHVT</span><span class="p">(</span><span class="mi">11</span><span class="p">),</span>
+<span class="linenos">236</span><span class="w">    </span><span class="n">CHVT</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span>
+<span class="linenos">237</span><span class="p">};</span>
+<span class="linenos">238</span>
+<span class="linenos">239</span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Button</span><span class="w"> </span><span class="n">buttons</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">240</span><span class="w">    </span><span class="p">{</span><span class="n">MODKEY</span><span class="p">,</span><span class="w"> </span><span class="n">BTN_LEFT</span><span class="p">,</span><span class="w"> </span><span class="n">moveresize</span><span class="p">,</span><span class="w"> </span><span class="p">{.</span><span class="n">ui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CurMove</span><span class="p">}},</span>
+<span class="linenos">241</span><span class="w">    </span><span class="p">{</span><span class="n">MODKEY</span><span class="p">,</span><span class="w"> </span><span class="n">BTN_MIDDLE</span><span class="p">,</span><span class="w"> </span><span class="n">togglefloating</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">}},</span>
+<span class="linenos">242</span><span class="w">    </span><span class="p">{</span><span class="n">MODKEY</span><span class="p">,</span><span class="w"> </span><span class="n">BTN_RIGHT</span><span class="p">,</span><span class="w"> </span><span class="n">moveresize</span><span class="p">,</span><span class="w"> </span><span class="p">{.</span><span class="n">ui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CurResize</span><span class="p">}},</span>
+<span class="linenos">243</span><span class="p">};</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Changes require recompiling dwl.</p>
+</div>
+</section>
+<section id="dwl-desktop">
+<h3>dwl.desktop<a class="headerlink" href="#dwl-desktop" title="Link to this heading"></a></h3>
+<p>The desktop entry for dwl.</p>
+<ul>
+<li><p>Typically symlinked to:</p>
+<p><code class="docutils literal notranslate"><span class="pre">/usr/local/share/wayland-sessions/dwl.desktop</span></code></p>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The dwl’s Makefile overwrites the desktop entry on each compilation, there are two ways of solving this:</p>
+<ol class="arabic simple">
+<li><p>Remove the .desktop operations in the Makefile.</p></li>
+<li><p>Symlink the provided .desktop to <code class="docutils literal notranslate"><span class="pre">/usr/local/src/dwl/dwl.desktop</span></code>, so the Makefile uses it instead of the default.</p></li>
+</ol>
+</div>
+</section>
+</section>
+<section id="patches">
+<h2>Patches<a class="headerlink" href="#patches" title="Link to this heading"></a></h2>
+<p>Core patches are tracked in:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dwl/PATCHES</span></code></p></li>
+</ul>
+<p>Custom patches (maintained locally):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">floating-window-pos.patch</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">switchlayout.patch</span></code></p></li>
+</ul>
+<section id="key-features">
+<h3>Key Features<a class="headerlink" href="#key-features" title="Link to this heading"></a></h3>
+<section id="switchlayout-patch">
+<h4>switchlayout.patch<a class="headerlink" href="#switchlayout-patch" title="Link to this heading"></a></h4>
+<ul>
+<li><p>Adds programmatic layout switching</p></li>
+<li><p>Writes current layout to:</p>
+<p><code class="docutils literal notranslate"><span class="pre">/tmp/dwl-layout</span></code></p>
+</li>
+</ul>
+</section>
+<section id="floating-window-pos-patch">
+<h4>floating-window-pos.patch<a class="headerlink" href="#floating-window-pos-patch" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Extends <code class="docutils literal notranslate"><span class="pre">Rule</span></code> with <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code></p></li>
+<li><p>Allows precise floating window placement</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="status-bar-dwlb">
+<h2>Status Bar (dwlb)<a class="headerlink" href="#status-bar-dwlb" title="Link to this heading"></a></h2>
+<p>Configuration located in:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">wm/dwl/dwlb/</span></code></p></li>
+</ul>
+<p>Includes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">config.h</span></code> (symlinked)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">status.sh</span></code> (status generator)</p></li>
+<li><p>Custom patches (e.g. <code class="docutils literal notranslate"><span class="pre">no-flicker.patch</span></code>)</p></li>
+</ul>
+<section id="status-sh">
+<h3>status.sh<a class="headerlink" href="#status-sh" title="Link to this heading"></a></h3>
+<p>Generates the status bar content.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+
+get_layout<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>cat<span class="w"> </span>/tmp/dwl-layout<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;LATAM&quot;</span>
+<span class="o">}</span>
+
+get_network<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span>ip<span class="w"> </span>route<span class="w"> </span>show<span class="w"> </span>default<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-q<span class="w"> </span>.<span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;󰈀&quot;</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;󰈁&quot;</span>
+<span class="w">    </span><span class="k">fi</span>
+<span class="o">}</span>
+
+get_memory<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>free<span class="w"> </span>-h<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;/Mem:/ {print $3&quot;/&quot;$2}&#39;</span>
+<span class="o">}</span>
+
+get_clock<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>date<span class="w"> </span><span class="s1">&#39;+%a %d %b %H:%M&#39;</span>
+<span class="o">}</span>
+
+<span class="k">while</span><span class="w"> </span>true<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span>dwlb<span class="w"> </span>-status<span class="w"> </span>HDMI-A-1<span class="w"> </span><span class="s2">&quot;^fg(ee0000)</span><span class="k">$(</span>get_network<span class="k">)</span><span class="s2">  </span><span class="k">$(</span>get_memory<span class="k">)</span><span class="s2">  </span><span class="k">$(</span>get_layout<span class="k">)</span><span class="s2">  </span><span class="k">$(</span>get_clock<span class="k">)</span><span class="s2">^fg()&quot;</span>
+<span class="w">    </span>sleep<span class="w"> </span><span class="m">1</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="menu-bemenu">
+<h2>Menu (bemenu)<a class="headerlink" href="#menu-bemenu" title="Link to this heading"></a></h2>
+<p>Configuration located in:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">wm/dwl/bemenu/</span></code></p></li>
+</ul>
+<p>Components:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">bemenu-themed</span></code>: defines colors and fonts</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bemenu-run-themed</span></code>: symlink wrapper</p></li>
+</ul>
+<p>Purpose:</p>
+<ul class="simple">
+<li><p>Avoid hardcoding style in <code class="docutils literal notranslate"><span class="pre">config.h</span></code></p></li>
+<li><p>Centralize appearance configuration</p></li>
+</ul>
+</section>
+<section id="startup">
+<h2>Startup<a class="headerlink" href="#startup" title="Link to this heading"></a></h2>
+<p>The entry point for dwl is:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dwl-startup</span></code></p></li>
+</ul>
+<p>Used by:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dwl.desktop</span></code></p></li>
+</ul>
+<p>Responsibilities:</p>
+<ul class="simple">
+<li><p>Initialize environment</p></li>
+<li><p>Launch required services</p></li>
+<li><p>Start dwl session</p></li>
+</ul>
+</section>
+<section id="scripts">
+<h2>Scripts<a class="headerlink" href="#scripts" title="Link to this heading"></a></h2>
+<p>Utility scripts include:</p>
+<section id="log-sh">
+<h3>-log.sh<a class="headerlink" href="#log-sh" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dwl-patches-log.sh</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dwlb-patches-log.sh</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dwl-version-log.sh</span></code></p></li>
+</ul>
+<p>Purpose:</p>
+<ul class="simple">
+<li><p>Populate <code class="docutils literal notranslate"><span class="pre">PATCHES</span></code> and <code class="docutils literal notranslate"><span class="pre">VERSIONS</span></code></p></li>
+<li><p>Track applied patches and tool versions</p></li>
+</ul>
+</section>
+</section>
+<section id="keyboard-xkb">
+<h2>Keyboard (XKB)<a class="headerlink" href="#keyboard-xkb" title="Link to this heading"></a></h2>
+<section id="custom-symbols">
+<h3>Custom symbols<a class="headerlink" href="#custom-symbols" title="Link to this heading"></a></h3>
+<p>Defined in:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">wm/dwl/xkb/custom</span></code></p></li>
+</ul>
+<p>Symlinked to:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/usr/share/X11/xkb/symbols/custom</span></code></p></li>
+</ul>
+</section>
+<section id="id1">
+<h3>Configuration<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<p>Requires adding to:</p>
+<p><code class="docutils literal notranslate"><span class="pre">/usr/share/X11/xkb/rules/evdev</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">custom</span><span class="p">:</span><span class="n">nodead_circumflex_grave</span> <span class="o">=</span> <span class="o">+</span><span class="n">custom</span><span class="p">(</span><span class="n">nodead_circumflex_grave</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="behavior">
+<h3>Behavior<a class="headerlink" href="#behavior" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">AltGr+{</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">^</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AltGr+}</span></code> -&gt; backtick</p></li>
+<li><p>Spanish tilde remains a dead key</p></li>
+</ul>
+</section>
+</section>
+<section id="notification-daemon">
+<h2>Notification Daemon<a class="headerlink" href="#notification-daemon" title="Link to this heading"></a></h2>
+<p>Configured via:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">wm/dwl/mako/config</span></code></p></li>
+</ul>
+<p>Controls:</p>
+<ul class="simple">
+<li><p>Notification appearance</p></li>
+<li><p>Behavior</p></li>
+</ul>
+</section>
+<section id="integration">
+<h2>Integration<a class="headerlink" href="#integration" title="Link to this heading"></a></h2>
+<p>This setup interacts with:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../term/index.html"><span class="doc">Terminal</span></a></p></li>
+<li><p><a class="reference internal" href="../shells/index.html"><span class="doc">Shells</span></a></p></li>
+<li><p><a class="reference internal" href="../scripts/index.html"><span class="doc">Scripts</span></a></p></li>
+<li><p><a class="reference internal" href="../mpv/index.html"><span class="doc">MPV</span></a></p></li>
+</ul>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Configuration files are symlinked into system paths.</p></li>
+<li><p>Patches must be reapplied when updating dwl.</p></li>
+<li><p>Misconfigured symlinks can break builds or runtime behavior.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Window Manager" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mutter.html" class="btn btn-neutral float-right" title="Mutter (GNOME)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, MnLCz.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

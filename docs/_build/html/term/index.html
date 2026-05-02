@@ -1,0 +1,206 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terminal &mdash; Configurations  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=a98b852a" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tools" href="../tools/index.html" />
+    <link rel="prev" title="Templates" href="../templates/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Configurations
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../editor/index.html">Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripts/index.html">Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mpv/index.html">MPV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shells/index.html">Shells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../templates/index.html">Templates</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Terminal</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#foot-ini">foot.ini</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wm/index.html">Window Managers</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Configurations</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Terminal</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/term/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="terminal">
+<h1>Terminal<a class="headerlink" href="#terminal" title="Link to this heading"></a></h1>
+<p>This section documents the terminal configuration.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The setup uses <a class="reference external" href="https://codeberg.org/dnkl/foot">foot</a> as the primary terminal emulator.</p>
+<p>Configuration is defined in:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">term/foot/foot.ini</span></code></p></li>
+</ul>
+<p>This file is intended to be placed in:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">~/.config/foot/foot.ini</span></code></p></li>
+</ul>
+</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h2>
+<section id="foot-ini">
+<h3>foot.ini<a class="headerlink" href="#foot-ini" title="Link to this heading"></a></h3>
+<p>Defines the behavior and appearance of the terminal, including:</p>
+<ul class="simple">
+<li><p>Font configuration</p></li>
+<li><p>Colors and theme</p></li>
+<li><p>Window behavior</p></li>
+<li><p>Scrolling and input settings</p></li>
+</ul>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">[main]</span>
+<span class="linenos"> 2</span><span class="na">font</span><span class="o">=</span><span class="s">Red Hat Mono:style=Regular:size=13</span>
+<span class="linenos"> 3</span><span class="na">dpi-aware</span><span class="o">=</span><span class="s">no</span>
+<span class="linenos"> 4</span><span class="na">pad</span><span class="o">=</span><span class="s">8x8</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="k">[cursor]</span>
+<span class="linenos"> 7</span><span class="na">style</span><span class="o">=</span><span class="s">beam</span>
+<span class="linenos"> 8</span><span class="na">blink</span><span class="o">=</span><span class="s">no</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="k">[mouse]</span>
+<span class="linenos">11</span><span class="na">hide-when-typing</span><span class="o">=</span><span class="s">yes</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="k">[colors-dark]</span>
+<span class="linenos">14</span><span class="na">background</span><span class="o">=</span><span class="s">f5f5f5</span>
+<span class="linenos">15</span><span class="na">foreground</span><span class="o">=</span><span class="s">000000</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="na">regular0</span><span class="o">=</span><span class="s">222222</span>
+<span class="linenos">18</span><span class="na">regular1</span><span class="o">=</span><span class="s">ee0000</span>
+<span class="linenos">19</span><span class="na">regular2</span><span class="o">=</span><span class="s">3a7d44</span>
+<span class="linenos">20</span><span class="na">regular3</span><span class="o">=</span><span class="s">b8860b</span>
+<span class="linenos">21</span><span class="na">regular4</span><span class="o">=</span><span class="s">1a6b8a</span>
+<span class="linenos">22</span><span class="na">regular5</span><span class="o">=</span><span class="s">8b3a8b</span>
+<span class="linenos">23</span><span class="na">regular6</span><span class="o">=</span><span class="s">1a7b7b</span>
+<span class="linenos">24</span><span class="na">regular7</span><span class="o">=</span><span class="s">dddddd</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span><span class="na">bright0</span><span class="o">=</span><span class="s">666666</span>
+<span class="linenos">27</span><span class="na">bright1</span><span class="o">=</span><span class="s">ff3b30</span>
+<span class="linenos">28</span><span class="na">bright2</span><span class="o">=</span><span class="s">4e9e5a</span>
+<span class="linenos">29</span><span class="na">bright3</span><span class="o">=</span><span class="s">d4a017</span>
+<span class="linenos">30</span><span class="na">bright4</span><span class="o">=</span><span class="s">2196b0</span>
+<span class="linenos">31</span><span class="na">bright5</span><span class="o">=</span><span class="s">b050b0</span>
+<span class="linenos">32</span><span class="na">bright6</span><span class="o">=</span><span class="s">20a0a0</span>
+<span class="linenos">33</span><span class="na">bright7</span><span class="o">=</span><span class="s">f5f5f5</span>
+<span class="linenos">34</span>
+<span class="linenos">35</span><span class="k">[key-bindings]</span>
+<span class="linenos">36</span><span class="na">scrollback-up-page</span><span class="o">=</span><span class="s">Control+u</span>
+<span class="linenos">37</span><span class="na">scrollback-down-page</span><span class="o">=</span><span class="s">Control+d</span>
+<span class="linenos">38</span><span class="na">clipboard-copy</span><span class="o">=</span><span class="s">Control+Shift+c</span>
+<span class="linenos">39</span><span class="na">clipboard-paste</span><span class="o">=</span><span class="s">Control+Shift+v</span>
+<span class="linenos">40</span><span class="na">search-start</span><span class="o">=</span><span class="s">Control+Shift+r</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>The configuration is minimal and relies mostly on sensible defaults.</p></li>
+<li><p>Font configuration may depend on system-installed fonts.</p></li>
+<li><p>Behavior may interact with the window manager (e.g. floating, sizing).</p></li>
+</ul>
+<p>See also:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../wm/index.html"><span class="doc">Window Managers</span></a></p></li>
+<li><p><a class="reference internal" href="../shells/index.html"><span class="doc">Shells</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../templates/index.html" class="btn btn-neutral float-left" title="Templates" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../tools/index.html" class="btn btn-neutral float-right" title="Tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, MnLCz.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

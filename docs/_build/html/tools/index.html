@@ -1,0 +1,372 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tools &mdash; Configurations  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=a98b852a" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Window Manager" href="../wm/index.html" />
+    <link rel="prev" title="Terminal" href="../term/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Configurations
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../editor/index.html">Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripts/index.html">Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mpv/index.html">MPV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shells/index.html">Shells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../templates/index.html">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../term/index.html">Terminal</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fastfetch">fastfetch</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#default-configuration">Default Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tmux">tmux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#responsibilities">Responsibilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#integration">Integration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../wm/index.html">Window Manager</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Configurations</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Tools</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/tools/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tools">
+<h1>Tools<a class="headerlink" href="#tools" title="Link to this heading"></a></h1>
+<p>This section documents configuration for supporting tools used across the system.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The tools included here provide:</p>
+<ul class="simple">
+<li><p>System information display</p></li>
+<li><p>Terminal session management</p></li>
+</ul>
+<p>Currently configured tools:</p>
+<ul class="simple">
+<li><p>fastfetch</p></li>
+<li><p>tmux</p></li>
+</ul>
+</section>
+<section id="fastfetch">
+<h2>fastfetch<a class="headerlink" href="#fastfetch" title="Link to this heading"></a></h2>
+<p>Configuration files for fastfetch are located in:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tools/fastfetch/</span></code></p></li>
+</ul>
+<p>These define different output styles depending on context, such as:</p>
+<ul class="simple">
+<li><p>Compact output</p></li>
+<li><p>Detailed reports</p></li>
+<li><p>Styled or themed layouts</p></li>
+</ul>
+<p>Examples include:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">small.jsonc</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">medium.jsonc</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">big-fancy.jsonc</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">report.jsonc</span></code></p></li>
+</ul>
+<section id="default-configuration">
+<h3>Default Configuration<a class="headerlink" href="#default-configuration" title="Link to this heading"></a></h3>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">// Load with --load-config examples/2.jsonc</span>
+<span class="linenos"> 2</span><span class="c1">// Note that you must replace the image path to an existing image to display it.</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="p">{</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json&quot;</span><span class="p">,</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="c1">// &quot;logo&quot;: {</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="c1">//     &quot;type&quot;: &quot;iterm&quot;,</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="c1">//     &quot;source&quot;: &quot;~/Desktop/apple1.png&quot;,</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="c1">//     &quot;width&quot;: 28,</span>
+<span class="linenos">10</span><span class="w">    </span><span class="c1">//     &quot;height&quot;: 12</span>
+<span class="linenos">11</span><span class="w">    </span><span class="c1">// },</span>
+<span class="linenos">12</span><span class="w">    </span><span class="nt">&quot;display&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">13</span><span class="w">        </span><span class="nt">&quot;separator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;  &quot;</span><span class="p">,</span>
+<span class="linenos">14</span><span class="w">        </span><span class="nt">&quot;constants&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="linenos">15</span><span class="w">            </span><span class="s2">&quot;─────────────────&quot;</span><span class="w"> </span><span class="c1">// {$1}, used in Custom module</span>
+<span class="linenos">16</span><span class="w">        </span><span class="p">],</span>
+<span class="linenos">17</span><span class="w">        </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">18</span><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;icon&quot;</span><span class="p">,</span>
+<span class="linenos">19</span><span class="w">            </span><span class="nt">&quot;paddingLeft&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
+<span class="linenos">20</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">21</span><span class="w">    </span><span class="p">},</span>
+<span class="linenos">22</span><span class="w">    </span><span class="nt">&quot;modules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="linenos">23</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">24</span><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;custom&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// HardwareStart</span>
+<span class="linenos">25</span><span class="w">            </span><span class="c1">// {#1} is equivalent to `\u001b[1m`. {#} is equivalent to `\u001b[m`</span>
+<span class="linenos">26</span><span class="w">            </span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;┌{$1} {#1}Hardware Information{#} {$1}┐&quot;</span>
+<span class="linenos">27</span><span class="w">        </span><span class="p">},</span>
+<span class="linenos">28</span><span class="w">        </span><span class="s2">&quot;host&quot;</span><span class="p">,</span>
+<span class="linenos">29</span><span class="w">        </span><span class="s2">&quot;cpu&quot;</span><span class="p">,</span>
+<span class="linenos">30</span><span class="w">        </span><span class="s2">&quot;gpu&quot;</span><span class="p">,</span>
+<span class="linenos">31</span><span class="w">        </span><span class="c1">//&quot;disk&quot;,</span>
+<span class="linenos">32</span><span class="w">        </span><span class="s2">&quot;memory&quot;</span><span class="p">,</span>
+<span class="linenos">33</span><span class="w">        </span><span class="s2">&quot;swap&quot;</span><span class="p">,</span>
+<span class="linenos">34</span><span class="w">        </span><span class="s2">&quot;display&quot;</span><span class="p">,</span>
+<span class="linenos">35</span><span class="w">        </span><span class="s2">&quot;brightness&quot;</span><span class="p">,</span>
+<span class="linenos">36</span><span class="w">        </span><span class="s2">&quot;battery&quot;</span><span class="p">,</span>
+<span class="linenos">37</span><span class="w">        </span><span class="s2">&quot;poweradapter&quot;</span><span class="p">,</span>
+<span class="linenos">38</span><span class="w">        </span><span class="s2">&quot;bluetooth&quot;</span><span class="p">,</span>
+<span class="linenos">39</span><span class="w">        </span><span class="s2">&quot;sound&quot;</span><span class="p">,</span>
+<span class="linenos">40</span><span class="w">        </span><span class="s2">&quot;gamepad&quot;</span><span class="p">,</span>
+<span class="linenos">41</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">42</span><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;custom&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// SoftwareStart</span>
+<span class="linenos">43</span><span class="w">            </span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;├{$1} {#1}Software Information{#} {$1}┤&quot;</span>
+<span class="linenos">44</span><span class="w">        </span><span class="p">},</span>
+<span class="linenos">45</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">46</span><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;title&quot;</span><span class="p">,</span>
+<span class="linenos">47</span><span class="w">            </span><span class="nt">&quot;keyIcon&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="linenos">48</span><span class="w">            </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Title&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Title module has no key by default, so that icon is not displayed</span>
+<span class="linenos">49</span><span class="w">            </span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{user-name}@{host-name}&quot;</span>
+<span class="linenos">50</span><span class="w">        </span><span class="p">},</span>
+<span class="linenos">51</span><span class="w">        </span><span class="s2">&quot;os&quot;</span><span class="p">,</span>
+<span class="linenos">52</span><span class="w">        </span><span class="s2">&quot;kernel&quot;</span><span class="p">,</span>
+<span class="linenos">53</span><span class="w">        </span><span class="s2">&quot;lm&quot;</span><span class="p">,</span>
+<span class="linenos">54</span><span class="w">        </span><span class="s2">&quot;de&quot;</span><span class="p">,</span>
+<span class="linenos">55</span><span class="w">        </span><span class="s2">&quot;wm&quot;</span><span class="p">,</span>
+<span class="linenos">56</span><span class="w">        </span><span class="s2">&quot;shell&quot;</span><span class="p">,</span>
+<span class="linenos">57</span><span class="w">        </span><span class="s2">&quot;terminal&quot;</span><span class="p">,</span>
+<span class="linenos">58</span><span class="w">        </span><span class="s2">&quot;terminalfont&quot;</span><span class="p">,</span>
+<span class="linenos">59</span><span class="w">        </span><span class="c1">//&quot;theme&quot;,</span>
+<span class="linenos">60</span><span class="w">        </span><span class="s2">&quot;icons&quot;</span><span class="p">,</span>
+<span class="linenos">61</span><span class="w">        </span><span class="s2">&quot;wallpaper&quot;</span><span class="p">,</span>
+<span class="linenos">62</span><span class="w">        </span><span class="s2">&quot;packages&quot;</span><span class="p">,</span>
+<span class="linenos">63</span><span class="w">        </span><span class="s2">&quot;uptime&quot;</span><span class="p">,</span>
+<span class="linenos">64</span><span class="w">        </span><span class="s2">&quot;media&quot;</span><span class="p">,</span>
+<span class="linenos">65</span><span class="w">        </span><span class="c1">//{</span>
+<span class="linenos">66</span><span class="w">        </span><span class="c1">//    &quot;type&quot;: &quot;localip&quot;,</span>
+<span class="linenos">67</span><span class="w">        </span><span class="c1">//    &quot;compact&quot;: true</span>
+<span class="linenos">68</span><span class="w">        </span><span class="c1">//},</span>
+<span class="linenos">69</span><span class="w">        </span><span class="c1">//{</span>
+<span class="linenos">70</span><span class="w">        </span><span class="c1">//    &quot;type&quot;: &quot;publicip&quot;,</span>
+<span class="linenos">71</span><span class="w">        </span><span class="c1">//    &quot;timeout&quot;: 1000</span>
+<span class="linenos">72</span><span class="w">        </span><span class="c1">//},</span>
+<span class="linenos">73</span><span class="w">        </span><span class="c1">//{</span>
+<span class="linenos">74</span><span class="w">        </span><span class="c1">//    &quot;type&quot;: &quot;wifi&quot;,</span>
+<span class="linenos">75</span><span class="w">        </span><span class="c1">//    &quot;format&quot;: &quot;{ssid}&quot;</span>
+<span class="linenos">76</span><span class="w">        </span><span class="c1">//},</span>
+<span class="linenos">77</span><span class="w">        </span><span class="s2">&quot;locale&quot;</span><span class="p">,</span>
+<span class="linenos">78</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">79</span><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;custom&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// InformationEnd</span>
+<span class="linenos">80</span><span class="w">            </span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;└{$1}──────────────────────{$1}┘&quot;</span>
+<span class="linenos">81</span><span class="w">        </span><span class="p">},</span>
+<span class="linenos">82</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">83</span><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;colors&quot;</span><span class="p">,</span>
+<span class="linenos">84</span><span class="w">            </span><span class="nt">&quot;paddingLeft&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="linenos">85</span><span class="w">            </span><span class="nt">&quot;symbol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;circle&quot;</span>
+<span class="linenos">86</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">87</span><span class="w">    </span><span class="p">]</span>
+<span class="linenos">88</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The configuration files use JSONC (JSON with comments), which is supported
+by fastfetch.</p>
+</div>
+</section>
+<section id="usage">
+<h3>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h3>
+<p>Different configurations can be selected manually, for example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fastfetch<span class="w"> </span>--config<span class="w"> </span>path/to/config.jsonc
+</pre></div>
+</div>
+</section>
+</section>
+<section id="tmux">
+<h2>tmux<a class="headerlink" href="#tmux" title="Link to this heading"></a></h2>
+<p>The tmux configuration is defined in:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tools/.tmux.conf</span></code></p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># Prefix</span>
+<span class="linenos"> 2</span>unbind<span class="w"> </span>C-b
+<span class="linenos"> 3</span><span class="nb">set</span><span class="w"> </span>-g<span class="w"> </span>prefix<span class="w"> </span>C-Space
+<span class="linenos"> 4</span><span class="nb">bind</span><span class="w"> </span>C-Space<span class="w"> </span>send-prefix
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="c1"># General</span>
+<span class="linenos"> 7</span><span class="nb">set</span><span class="w"> </span>-g<span class="w"> </span>mode-keys<span class="w"> </span>vi
+<span class="linenos"> 8</span><span class="nb">set</span><span class="w"> </span>-g<span class="w"> </span>status-keys<span class="w"> </span>vi
+<span class="linenos"> 9</span><span class="nb">set</span><span class="w"> </span>-g<span class="w"> </span>default-terminal<span class="w"> </span><span class="s2">&quot;foot&quot;</span>
+<span class="linenos">10</span><span class="nb">set</span><span class="w"> </span>-a<span class="w"> </span>terminal-features<span class="w"> </span><span class="s1">&#39;foot:RGB&#39;</span>
+<span class="linenos">11</span><span class="nb">set</span><span class="w"> </span>-g<span class="w"> </span>base-index<span class="w"> </span><span class="m">1</span>
+<span class="linenos">12</span><span class="nb">set</span><span class="w"> </span>-g<span class="w"> </span>pane-base-index<span class="w"> </span><span class="m">1</span>
+<span class="linenos">13</span>set-window-option<span class="w"> </span>-g<span class="w"> </span>pane-base-index<span class="w"> </span><span class="m">1</span>
+<span class="linenos">14</span><span class="nb">set</span><span class="w"> </span>-g<span class="w"> </span>renumber-windows<span class="w"> </span>on
+<span class="linenos">15</span><span class="nb">set</span><span class="w"> </span>-sg<span class="w"> </span>escape-time<span class="w"> </span><span class="m">0</span>
+<span class="linenos">16</span><span class="nb">set</span><span class="w"> </span>-g<span class="w"> </span>focus-events<span class="w"> </span>on
+<span class="linenos">17</span><span class="nb">set</span><span class="w"> </span>-g<span class="w"> </span>set-clipboard<span class="w"> </span>on
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="c1"># General binds</span>
+<span class="linenos">20</span>bind-key<span class="w"> </span>h<span class="w"> </span><span class="k">select</span>-pane<span class="w"> </span>-L
+<span class="linenos">21</span>bind-key<span class="w"> </span>j<span class="w"> </span><span class="k">select</span>-pane<span class="w"> </span>-D
+<span class="linenos">22</span>bind-key<span class="w"> </span>k<span class="w"> </span><span class="k">select</span>-pane<span class="w"> </span>-U
+<span class="linenos">23</span>bind-key<span class="w"> </span>l<span class="w"> </span><span class="k">select</span>-pane<span class="w"> </span>-R
+<span class="linenos">24</span>bind-key<span class="w"> </span>s<span class="w"> </span><span class="nb">source</span><span class="w"> </span><span class="nv">$HOME</span>/.tmux.conf
+<span class="linenos">25</span>bind-key<span class="w"> </span>-T<span class="w"> </span>copy-mode-vi<span class="w"> </span>v<span class="w"> </span>send-keys<span class="w"> </span>-X<span class="w"> </span>begin-selection
+<span class="linenos">26</span>bind-key<span class="w"> </span>-T<span class="w"> </span>copy-mode-vi<span class="w"> </span>r<span class="w"> </span>send-keys<span class="w"> </span>-X<span class="w"> </span>rectangle-toggle
+<span class="linenos">27</span>bind-key<span class="w"> </span>P<span class="w"> </span>display-popup<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;psysh&quot;</span>
+<span class="linenos">28</span>bind-key<span class="w"> </span>T<span class="w"> </span>display-popup<span class="w"> </span>-w<span class="w"> </span><span class="m">80</span>%<span class="w"> </span>-h<span class="w"> </span><span class="m">80</span>%<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;#{pane_current_path}&quot;</span><span class="w"> </span>-E<span class="w"> </span><span class="nv">$SHELL</span>
+<span class="linenos">29</span>bind-key<span class="w"> </span>M<span class="w"> </span>display-popup<span class="w"> </span>-w<span class="w"> </span><span class="m">95</span>%<span class="w"> </span>-h<span class="w"> </span><span class="m">95</span>%<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;bash -i -c &quot;x man&quot;&#39;</span>
+<span class="linenos">30</span>
+<span class="linenos">31</span><span class="c1"># Wayland clipboard</span>
+<span class="linenos">32</span>bind-key<span class="w"> </span>-T<span class="w"> </span>copy-mode-vi<span class="w"> </span>y<span class="w"> </span>send-keys<span class="w"> </span>-X<span class="w"> </span>copy-pipe-and-cancel<span class="w"> </span><span class="s2">&quot;wl-copy&quot;</span>
+<span class="linenos">33</span>bind-key<span class="w"> </span><span class="o">]</span><span class="w"> </span>run<span class="w"> </span><span class="s2">&quot;wl-paste | tmux load-buffer - &amp;&amp; tmux paste-buffer&quot;</span>
+<span class="linenos">34</span><span class="nb">set</span><span class="w"> </span>-g<span class="w"> </span>update-environment<span class="w"> </span><span class="s2">&quot;WAYLAND_DISPLAY DISPLAY XAUTHORITY XDG_RUNTIME_DIR&quot;</span>
+<span class="linenos">35</span>
+<span class="linenos">36</span><span class="c1"># Colors</span>
+<span class="linenos">37</span><span class="nv">BG</span><span class="o">=</span><span class="s2">&quot;#f5f5f5&quot;</span>
+<span class="linenos">38</span><span class="nv">FG</span><span class="o">=</span><span class="s2">&quot;#000000&quot;</span>
+<span class="linenos">39</span><span class="nv">RED</span><span class="o">=</span><span class="s2">&quot;#ee0000&quot;</span>
+<span class="linenos">40</span><span class="nv">GRAY</span><span class="o">=</span><span class="s2">&quot;#aaaaaa&quot;</span>
+<span class="linenos">41</span><span class="nv">DARKGRAY</span><span class="o">=</span><span class="s2">&quot;#666666&quot;</span>
+<span class="linenos">42</span>
+<span class="linenos">43</span><span class="c1"># Status bar</span>
+<span class="linenos">44</span><span class="nb">set</span><span class="w"> </span>-g<span class="w"> </span>status-style<span class="w"> </span><span class="s2">&quot;bg=</span><span class="si">${</span><span class="nv">BG</span><span class="si">}</span><span class="s2">,fg=</span><span class="si">${</span><span class="nv">FG</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="linenos">45</span><span class="nb">set</span><span class="w"> </span>-g<span class="w"> </span>status-left-length<span class="w"> </span><span class="m">40</span>
+<span class="linenos">46</span><span class="nb">set</span><span class="w"> </span>-g<span class="w"> </span>status-right-length<span class="w"> </span><span class="m">60</span>
+<span class="linenos">47</span>
+<span class="linenos">48</span><span class="nb">set</span><span class="w"> </span>-g<span class="w"> </span>status-left<span class="w"> </span><span class="s2">&quot;#[fg=</span><span class="si">${</span><span class="nv">RED</span><span class="si">}</span><span class="s2">,bold]#S #[fg=</span><span class="si">${</span><span class="nv">DARKGRAY</span><span class="si">}</span><span class="s2">]│ &quot;</span>
+<span class="linenos">49</span><span class="nb">set</span><span class="w"> </span>-g<span class="w"> </span>status-right<span class="w"> </span><span class="s2">&quot;#[fg=</span><span class="si">${</span><span class="nv">DARKGRAY</span><span class="si">}</span><span class="s2">]%a %d %b #[fg=</span><span class="si">${</span><span class="nv">RED</span><span class="si">}</span><span class="s2">,bold]%H:%M&quot;</span>
+<span class="linenos">50</span>
+<span class="linenos">51</span><span class="c1"># Windows</span>
+<span class="linenos">52</span><span class="nb">set</span><span class="w"> </span>-g<span class="w"> </span>window-status-format<span class="w"> </span><span class="s2">&quot;#[fg=</span><span class="si">${</span><span class="nv">DARKGRAY</span><span class="si">}</span><span class="s2">] #I:#W &quot;</span>
+<span class="linenos">53</span><span class="nb">set</span><span class="w"> </span>-g<span class="w"> </span>window-status-current-format<span class="w"> </span><span class="s2">&quot;#[fg=</span><span class="si">${</span><span class="nv">RED</span><span class="si">}</span><span class="s2">,bold] #I:#W &quot;</span>
+<span class="linenos">54</span><span class="nb">set</span><span class="w"> </span>-g<span class="w"> </span>window-status-separator<span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="linenos">55</span>
+<span class="linenos">56</span><span class="c1"># Pane borders</span>
+<span class="linenos">57</span><span class="nb">set</span><span class="w"> </span>-g<span class="w"> </span>pane-border-style<span class="w"> </span><span class="s2">&quot;fg=</span><span class="si">${</span><span class="nv">GRAY</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="linenos">58</span><span class="nb">set</span><span class="w"> </span>-g<span class="w"> </span>pane-active-border-style<span class="w"> </span><span class="s2">&quot;fg=</span><span class="si">${</span><span class="nv">RED</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="linenos">59</span>
+<span class="linenos">60</span><span class="c1"># Messages and command prompt</span>
+<span class="linenos">61</span><span class="nb">set</span><span class="w"> </span>-g<span class="w"> </span>message-style<span class="w"> </span><span class="s2">&quot;bg=</span><span class="si">${</span><span class="nv">BG</span><span class="si">}</span><span class="s2">,fg=</span><span class="si">${</span><span class="nv">RED</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="linenos">62</span><span class="nb">set</span><span class="w"> </span>-g<span class="w"> </span>message-command-style<span class="w"> </span><span class="s2">&quot;bg=</span><span class="si">${</span><span class="nv">BG</span><span class="si">}</span><span class="s2">,fg=</span><span class="si">${</span><span class="nv">FG</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="linenos">63</span>
+<span class="linenos">64</span><span class="c1"># Copy mode</span>
+<span class="linenos">65</span><span class="nb">set</span><span class="w"> </span>-g<span class="w"> </span>mode-style<span class="w"> </span><span class="s2">&quot;bg=</span><span class="si">${</span><span class="nv">RED</span><span class="si">}</span><span class="s2">,fg=</span><span class="si">${</span><span class="nv">FG</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="linenos">66</span>
+<span class="linenos">67</span><span class="c1"># Popups</span>
+<span class="linenos">68</span><span class="nb">set</span><span class="w"> </span>-g<span class="w"> </span>popup-border-style<span class="w"> </span><span class="s2">&quot;fg=</span><span class="si">${</span><span class="nv">RED</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="linenos">69</span><span class="nb">set</span><span class="w"> </span>-g<span class="w"> </span>popup-style<span class="w"> </span><span class="s2">&quot;bg=</span><span class="si">${</span><span class="nv">BG</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<section id="responsibilities">
+<h3>Responsibilities<a class="headerlink" href="#responsibilities" title="Link to this heading"></a></h3>
+<p>The configuration defines:</p>
+<ul class="simple">
+<li><p>Key bindings</p></li>
+<li><p>Session behavior</p></li>
+<li><p>Window and pane management</p></li>
+</ul>
+</section>
+<section id="integration">
+<h3>Integration<a class="headerlink" href="#integration" title="Link to this heading"></a></h3>
+<p>tmux is typically initialized via:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../scripts/index.html"><span class="doc">Scripts</span></a> (<code class="docutils literal notranslate"><span class="pre">init-tmux.sh</span></code>)</p></li>
+<li><p><a class="reference internal" href="../shells/index.html"><span class="doc">Shells</span></a> (<code class="docutils literal notranslate"><span class="pre">dev.sh</span></code>)</p></li>
+</ul>
+</section>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>fastfetch configurations are experimental and may change frequently.</p></li>
+<li><p>tmux behavior is tightly integrated with the shell environment.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../term/index.html" class="btn btn-neutral float-left" title="Terminal" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../wm/index.html" class="btn btn-neutral float-right" title="Window Manager" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, MnLCz.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

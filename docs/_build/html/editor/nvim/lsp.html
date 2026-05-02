@@ -1,0 +1,711 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Language Server Protocol &mdash; Configurations  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=528d1b8b" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Filetype-specific Configuration" href="ftplugin.html" />
+    <link rel="prev" title="Plugins" href="plugins.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Configurations
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Editor</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Neovim Configuration</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="core.html">Core Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Language Server Protocol</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#structure">Structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#supported-servers">Supported Servers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ftplugin.html">Filetype-specific Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="snippets.html">LuaSnip snippets Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../acme.html">Acme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vim.html">Vim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zed.html">Zed</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../scripts/index.html">Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mpv/index.html">MPV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../shells/index.html">Shells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../templates/index.html">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../term/index.html">Terminals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../wm/index.html">Window Managers</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Configurations</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Editor</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Neovim Configuration</a></li>
+      <li class="breadcrumb-item active">Language Server Protocol</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/editor/nvim/lsp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="language-server-protocol">
+<h1>Language Server Protocol<a class="headerlink" href="#language-server-protocol" title="Link to this heading"></a></h1>
+<p>This section documents the Language Server Protocol (LSP) configuration.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>LSP support is configured using native Neovim capabilities, with each
+language server defined in its own module under:</p>
+<p><code class="docutils literal notranslate"><span class="pre">editor/nvim/lsp/</span></code></p>
+<p>Language servers are installed manually via a dedicated script:</p>
+<p><code class="docutils literal notranslate"><span class="pre">scripts/install_lsps.sh</span></code></p>
+<p>This script handles:</p>
+<ul class="simple">
+<li><p>Package manager installations (pnpm, system packages)</p></li>
+<li><p>Downloading prebuilt binaries</p></li>
+<li><p>Installing language-specific servers</p></li>
+</ul>
+</section>
+<section id="structure">
+<h2>Structure<a class="headerlink" href="#structure" title="Link to this heading"></a></h2>
+<p>Each file in this directory corresponds to a specific language server.</p>
+</section>
+<section id="supported-servers">
+<h2>Supported Servers<a class="headerlink" href="#supported-servers" title="Link to this heading"></a></h2>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#bash-bashls" id="id21">Bash (bashls)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#installation" id="id22">Installation</a></p></li>
+<li><p><a class="reference internal" href="#configuration" id="id23">Configuration</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#css-html-json-vscode-langservers-extracted" id="id24">CSS / HTML / JSON (vscode-langservers-extracted)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id1" id="id25">Installation</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id26">Configuration</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#typescript-ts-ls" id="id27">TypeScript (ts_ls)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id3" id="id28">Installation</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id29">Configuration</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#lua-lua-ls" id="id30">Lua (lua_ls)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id5" id="id31">Installation</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id32">Configuration</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#php-phpactor" id="id33">PHP (phpactor)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id7" id="id34">Installation</a></p></li>
+<li><p><a class="reference internal" href="#id8" id="id35">Configuration</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#c3-c3lsp" id="id36">C3 (c3lsp)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id9" id="id37">Installation</a></p></li>
+<li><p><a class="reference internal" href="#id10" id="id38">Configuration</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#c-c-clangd" id="id39">C/C++ (clangd)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id11" id="id40">Installation</a></p></li>
+<li><p><a class="reference internal" href="#id12" id="id41">Configuration</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#python-pylsp" id="id42">Python (pylsp)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id13" id="id43">Installation</a></p></li>
+<li><p><a class="reference internal" href="#id14" id="id44">Configuration</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#latex-texlab" id="id45">LaTeX (texlab)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id15" id="id46">Installation</a></p></li>
+<li><p><a class="reference internal" href="#id16" id="id47">Configuration</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#typst-tinymist" id="id48">Typst (tinymist)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id17" id="id49">Installation</a></p></li>
+<li><p><a class="reference internal" href="#id18" id="id50">Configuration</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#markdown-marksman" id="id51">Markdown (marksman)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id19" id="id52">Installation</a></p></li>
+<li><p><a class="reference internal" href="#id20" id="id53">Configuration</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="bash-bashls">
+<span id="lsp-bashls"></span><h3><a class="toc-backref" href="#id21" role="doc-backlink">Bash (bashls)</a><a class="headerlink" href="#bash-bashls" title="Link to this heading"></a></h3>
+<p><strong>Configuration file:</strong> <code class="docutils literal notranslate"><span class="pre">editor/nvim/lsp/bashls.lua</span></code></p>
+<section id="installation">
+<h4><a class="toc-backref" href="#id22" role="doc-backlink">Installation</a><a class="headerlink" href="#installation" title="Link to this heading"></a></h4>
+<p>Installed via <code class="docutils literal notranslate"><span class="pre">pnpm</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pnpm<span class="w"> </span>add<span class="w"> </span>-g<span class="w"> </span>bash-language-server
+</pre></div>
+</div>
+</section>
+<section id="configuration">
+<h4><a class="toc-backref" href="#id23" role="doc-backlink">Configuration</a><a class="headerlink" href="#configuration" title="Link to this heading"></a></h4>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nv">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;bash-language-server&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;start&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nv">filetypes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;bash&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;sh&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nv">root_markers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;.git&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;.bashrc&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nv">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nv">bashIde</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nv">globPattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;*@(.sh|.inc|.bash|.command)&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="css-html-json-vscode-langservers-extracted">
+<span id="lsp-css-html-json"></span><h3><a class="toc-backref" href="#id24" role="doc-backlink">CSS / HTML / JSON (vscode-langservers-extracted)</a><a class="headerlink" href="#css-html-json-vscode-langservers-extracted" title="Link to this heading"></a></h3>
+<p><strong>Configuration files:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cssls.lua</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">html.lua</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">jsonls.lua</span></code></p></li>
+</ul>
+<section id="id1">
+<h4><a class="toc-backref" href="#id25" role="doc-backlink">Installation</a><a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
+<p>Installed via <code class="docutils literal notranslate"><span class="pre">pnpm</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pnpm<span class="w"> </span>add<span class="w"> </span>-g<span class="w"> </span>vscode-langservers-extracted
+</pre></div>
+</div>
+<p>This provides:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">vscode-css-language-server</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vscode-html-language-server</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vscode-json-language-server</span></code></p></li>
+</ul>
+</section>
+<section id="id2">
+<h4><a class="toc-backref" href="#id26" role="doc-backlink">Configuration</a><a class="headerlink" href="#id2" title="Link to this heading"></a></h4>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nv">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;vscode-css-language-server&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;--stdio&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nv">filetypes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;css&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;scss&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;less&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nv">init_options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">provideFormatter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="c1">-- needed to enable formatting capabilities</span>
+<span class="w">  </span><span class="nv">root_markers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;package.json&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;.git&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nv">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nv">css</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">validate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nv">scss</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">validate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nv">less</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">validate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="typescript-ts-ls">
+<span id="lsp-ts"></span><h3><a class="toc-backref" href="#id27" role="doc-backlink">TypeScript (ts_ls)</a><a class="headerlink" href="#typescript-ts-ls" title="Link to this heading"></a></h3>
+<p><strong>Configuration file:</strong> <code class="docutils literal notranslate"><span class="pre">editor/nvim/lsp/ts_ls.lua</span></code></p>
+<section id="id3">
+<h4><a class="toc-backref" href="#id28" role="doc-backlink">Installation</a><a class="headerlink" href="#id3" title="Link to this heading"></a></h4>
+<p>Installed via <code class="docutils literal notranslate"><span class="pre">pnpm</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pnpm<span class="w"> </span>add<span class="w"> </span>-g<span class="w"> </span>typescript<span class="w"> </span>typescript-language-server
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h4><a class="toc-backref" href="#id29" role="doc-backlink">Configuration</a><a class="headerlink" href="#id4" title="Link to this heading"></a></h4>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nv">init_options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">hostInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;neovim&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nv">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;typescript-language-server&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;--stdio&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nv">filetypes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s1">&#39;javascript&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;javascriptreact&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="c1">-- &#39;javascript.jsx&#39;,</span>
+<span class="w">    </span><span class="s1">&#39;typescript&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;typescriptreact&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="c1">-- &#39;typescript.tsx&#39;,</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nv">root_dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">bufnr</span><span class="p">,</span><span class="w"> </span><span class="nv">on_dir</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">-- The project root is where the LSP can be started from</span>
+<span class="w">    </span><span class="c1">-- As stated in the documentation above, this LSP supports monorepos and simple projects.</span>
+<span class="w">    </span><span class="c1">-- We select then from the project root, which is identified by the presence of a package</span>
+<span class="w">    </span><span class="c1">-- manager lock file.</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">root_markers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;package-lock.json&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;yarn.lock&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;pnpm-lock.yaml&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;bun.lockb&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;bun.lock&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;deno.lock&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">-- Give the root markers equal priority by wrapping them in a table</span>
+<span class="w">    </span><span class="nv">root_markers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">fn</span><span class="p">.</span><span class="nf">has</span><span class="p">(</span><span class="s1">&#39;nvim-0.11.3&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">root_markers</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;.git&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="ow">or</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="nf">list_extend</span><span class="p">(</span><span class="nv">root_markers</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;.git&#39;</span><span class="w"> </span><span class="p">})</span>
+<span class="w">    </span><span class="c1">-- We fallback to the current working directory if no project root is found</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">project_root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">fs</span><span class="p">.</span><span class="nf">root</span><span class="p">(</span><span class="nv">bufnr</span><span class="p">,</span><span class="w"> </span><span class="nv">root_markers</span><span class="p">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">fn</span><span class="p">.</span><span class="nf">getcwd</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nf">on_dir</span><span class="p">(</span><span class="nv">project_root</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">end</span><span class="p">,</span>
+<span class="w">  </span><span class="nv">handlers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">-- handle rename request for certain code actions like extracting functions / types</span>
+<span class="w">    </span><span class="p">[</span><span class="s1">&#39;_typescript.rename&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">_</span><span class="p">,</span><span class="w"> </span><span class="nv">result</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
+<span class="w">      </span><span class="kd">local</span><span class="w"> </span><span class="nv">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">assert</span><span class="p">(</span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="nf">get_client_by_id</span><span class="p">(</span><span class="nv">ctx</span><span class="p">.</span><span class="py">client_id</span><span class="p">))</span>
+<span class="w">      </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">util</span><span class="p">.</span><span class="nf">show_document</span><span class="p">({</span>
+<span class="w">        </span><span class="nv">uri</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">result</span><span class="p">.</span><span class="py">textDocument</span><span class="p">.</span><span class="py">uri</span><span class="p">,</span>
+<span class="w">        </span><span class="nv">range</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nv">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">result</span><span class="p">.</span><span class="py">position</span><span class="p">,</span>
+<span class="w">          </span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">result</span><span class="p">.</span><span class="py">position</span><span class="p">,</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">      </span><span class="p">},</span><span class="w"> </span><span class="nv">client</span><span class="p">.</span><span class="py">offset_encoding</span><span class="p">)</span>
+<span class="w">      </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">buf</span><span class="p">.</span><span class="nf">rename</span><span class="p">()</span>
+<span class="w">      </span><span class="kr">return</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">NIL</span>
+<span class="w">    </span><span class="kr">end</span><span class="p">,</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nv">commands</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">[</span><span class="s1">&#39;editor.action.showReferences&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">command</span><span class="p">,</span><span class="w"> </span><span class="nv">ctx</span><span class="p">)</span>
+<span class="w">      </span><span class="kd">local</span><span class="w"> </span><span class="nv">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">assert</span><span class="p">(</span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="nf">get_client_by_id</span><span class="p">(</span><span class="nv">ctx</span><span class="p">.</span><span class="py">client_id</span><span class="p">))</span>
+<span class="w">      </span><span class="kd">local</span><span class="w"> </span><span class="nv">file_uri</span><span class="p">,</span><span class="w"> </span><span class="nv">position</span><span class="p">,</span><span class="w"> </span><span class="nv">references</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">unpack</span><span class="p">(</span><span class="nv">command</span><span class="p">.</span><span class="py">arguments</span><span class="p">)</span>
+
+<span class="w">      </span><span class="kd">local</span><span class="w"> </span><span class="nv">quickfix_items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">util</span><span class="p">.</span><span class="nf">locations_to_items</span><span class="p">(</span><span class="nv">references</span><span class="p">,</span><span class="w"> </span><span class="nv">client</span><span class="p">.</span><span class="py">offset_encoding</span><span class="p">)</span>
+<span class="w">      </span><span class="nv">vim</span><span class="p">.</span><span class="py">fn</span><span class="p">.</span><span class="nf">setqflist</span><span class="p">({},</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nv">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">command</span><span class="p">.</span><span class="py">title</span><span class="p">,</span>
+<span class="w">        </span><span class="nv">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">quickfix_items</span><span class="p">,</span>
+<span class="w">        </span><span class="nv">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nv">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">command</span><span class="p">,</span>
+<span class="w">          </span><span class="nv">bufnr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">ctx</span><span class="p">.</span><span class="py">bufnr</span><span class="p">,</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">      </span><span class="p">})</span>
+
+<span class="w">      </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">util</span><span class="p">.</span><span class="nf">show_document</span><span class="p">({</span>
+<span class="w">        </span><span class="nv">uri</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">file_uri</span><span class="p">,</span>
+<span class="w">        </span><span class="nv">range</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nv">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">position</span><span class="p">,</span>
+<span class="w">          </span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">position</span><span class="p">,</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">      </span><span class="p">},</span><span class="w"> </span><span class="nv">client</span><span class="p">.</span><span class="py">offset_encoding</span><span class="p">)</span>
+
+<span class="w">      </span><span class="nv">vim</span><span class="p">.</span><span class="nf">cmd</span><span class="p">(</span><span class="s1">&#39;botright copen&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="kr">end</span><span class="p">,</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nv">on_attach</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">client</span><span class="p">,</span><span class="w"> </span><span class="nv">bufnr</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">-- ts_ls provides `source.*` code actions that apply to the whole file. These only appear in</span>
+<span class="w">    </span><span class="c1">-- `vim.lsp.buf.code_action()` if specified in `context.only`.</span>
+<span class="w">    </span><span class="nv">vim</span><span class="p">.</span><span class="py">api</span><span class="p">.</span><span class="nf">nvim_buf_create_user_command</span><span class="p">(</span><span class="nv">bufnr</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;LspTypescriptSourceAction&#39;</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+<span class="w">      </span><span class="kd">local</span><span class="w"> </span><span class="nv">source_actions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="nf">tbl_filter</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span><span class="nv">action</span><span class="p">)</span>
+<span class="w">        </span><span class="kr">return</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="nf">startswith</span><span class="p">(</span><span class="nv">action</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;source.&#39;</span><span class="p">)</span>
+<span class="w">      </span><span class="kr">end</span><span class="p">,</span><span class="w"> </span><span class="nv">client</span><span class="p">.</span><span class="py">server_capabilities</span><span class="p">.</span><span class="py">codeActionProvider</span><span class="p">.</span><span class="py">codeActionKinds</span><span class="p">)</span>
+
+<span class="w">      </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">buf</span><span class="p">.</span><span class="nf">code_action</span><span class="p">({</span>
+<span class="w">        </span><span class="nv">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nv">only</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">source_actions</span><span class="p">,</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">      </span><span class="p">})</span>
+<span class="w">    </span><span class="kr">end</span><span class="p">,</span><span class="w"> </span><span class="p">{})</span>
+<span class="w">  </span><span class="kr">end</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="lua-lua-ls">
+<span id="lsp-lua"></span><h3><a class="toc-backref" href="#id30" role="doc-backlink">Lua (lua_ls)</a><a class="headerlink" href="#lua-lua-ls" title="Link to this heading"></a></h3>
+<p><strong>Configuration file:</strong> <code class="docutils literal notranslate"><span class="pre">editor/nvim/lsp/lua_ls.lua</span></code></p>
+<section id="id5">
+<h4><a class="toc-backref" href="#id31" role="doc-backlink">Installation</a><a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
+<p>Downloaded from GitHub releases and installed manually:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-LO<span class="w"> </span>https://github.com/LuaLS/lua-language-server/releases/latest/download/lua-language-server-&lt;version&gt;-linux-x64.tar.gz
+sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/usr/local/src/lua-language-server
+sudo<span class="w"> </span>tar<span class="w"> </span>xzf<span class="w"> </span>lua-language-server-*.tar.gz<span class="w"> </span>-C<span class="w"> </span>/usr/local/src/lua-language-server/
+sudo<span class="w"> </span>ln<span class="w"> </span>-sf<span class="w"> </span>/usr/local/src/lua-language-server/bin/lua-language-server<span class="w"> </span>/usr/local/bin/lua-language-server
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h4><a class="toc-backref" href="#id32" role="doc-backlink">Configuration</a><a class="headerlink" href="#id6" title="Link to this heading"></a></h4>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">	</span><span class="nv">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">		</span><span class="s2">&quot;lua-language-server&quot;</span><span class="p">,</span>
+<span class="w">	</span><span class="p">},</span>
+<span class="w">	</span><span class="nv">filetypes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">		</span><span class="s2">&quot;lua&quot;</span><span class="p">,</span>
+<span class="w">	</span><span class="p">},</span>
+<span class="w">	</span><span class="nv">root_markers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">		</span><span class="s2">&quot;.git&quot;</span><span class="p">,</span>
+<span class="w">		</span><span class="s2">&quot;.luacheckrc&quot;</span><span class="p">,</span>
+<span class="w">		</span><span class="s2">&quot;.luarc.json&quot;</span><span class="p">,</span>
+<span class="w">		</span><span class="s2">&quot;.luarc.jsonc&quot;</span><span class="p">,</span>
+<span class="w">		</span><span class="s2">&quot;.stylua.toml&quot;</span><span class="p">,</span>
+<span class="w">		</span><span class="s2">&quot;selene.toml&quot;</span><span class="p">,</span>
+<span class="w">		</span><span class="s2">&quot;selene.yml&quot;</span><span class="p">,</span>
+<span class="w">		</span><span class="s2">&quot;stylua.toml&quot;</span><span class="p">,</span>
+<span class="w">	</span><span class="p">},</span>
+<span class="w">  </span><span class="nv">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nv">Lua</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nv">runtime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nv">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;LUAJIT&#39;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nv">workspace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nv">checkThirdParty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">        </span><span class="nv">library</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nv">vim</span><span class="p">.</span><span class="py">env</span><span class="p">.</span><span class="py">VIMRUNTIME</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">	</span><span class="nv">single_file_support</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">	</span><span class="nv">log_level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">protocol</span><span class="p">.</span><span class="py">MessageType</span><span class="p">.</span><span class="py">Warning</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="php-phpactor">
+<span id="lsp-php"></span><h3><a class="toc-backref" href="#id33" role="doc-backlink">PHP (phpactor)</a><a class="headerlink" href="#php-phpactor" title="Link to this heading"></a></h3>
+<p><strong>Configuration file:</strong> <code class="docutils literal notranslate"><span class="pre">editor/nvim/lsp/phpactor.lua</span></code></p>
+<section id="id7">
+<h4><a class="toc-backref" href="#id34" role="doc-backlink">Installation</a><a class="headerlink" href="#id7" title="Link to this heading"></a></h4>
+<p>Downloaded as a PHAR and installed system-wide:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-LO<span class="w"> </span>https://github.com/phpactor/phpactor/releases/latest/download/phpactor.phar
+sudo<span class="w"> </span>install<span class="w"> </span>-m<span class="w"> </span><span class="m">755</span><span class="w"> </span>phpactor.phar<span class="w"> </span>/usr/local/bin/phpactor
+</pre></div>
+</div>
+</section>
+<section id="id8">
+<h4><a class="toc-backref" href="#id35" role="doc-backlink">Configuration</a><a class="headerlink" href="#id8" title="Link to this heading"></a></h4>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">	</span><span class="nv">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;phpactor&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;language-server&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">	</span><span class="nv">filetypes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;php&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">	</span><span class="nv">root_markers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;.git&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;composer.json&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;.phpactor.json&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;.phpactor.yml&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">	</span><span class="nv">workspace_required</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">-- check if needed</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="c3-c3lsp">
+<span id="lsp-c3"></span><h3><a class="toc-backref" href="#id36" role="doc-backlink">C3 (c3lsp)</a><a class="headerlink" href="#c3-c3lsp" title="Link to this heading"></a></h3>
+<p><strong>Configuration file:</strong> <code class="docutils literal notranslate"><span class="pre">editor/nvim/lsp/c3_lsp.lua</span></code></p>
+<section id="id9">
+<h4><a class="toc-backref" href="#id37" role="doc-backlink">Installation</a><a class="headerlink" href="#id9" title="Link to this heading"></a></h4>
+<p>Downloaded and extracted from GitHub releases:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-LO<span class="w"> </span>https://github.com/pherrymason/c3-lsp/releases/latest/download/c3lsp-linux-amd64.tar.gz
+tar<span class="w"> </span>xzf<span class="w"> </span>c3lsp-linux-amd64.tar.gz
+sudo<span class="w"> </span>install<span class="w"> </span>-m<span class="w"> </span><span class="m">755</span><span class="w"> </span>server/bin/release/c3lsp<span class="w"> </span>/usr/local/bin/c3lsp
+</pre></div>
+</div>
+</section>
+<section id="id10">
+<h4><a class="toc-backref" href="#id38" role="doc-backlink">Configuration</a><a class="headerlink" href="#id10" title="Link to this heading"></a></h4>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nv">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;c3lsp&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nv">filetypes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;c3&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nv">root_markers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;project.json&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;manifest.json&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;.git&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="c-c-clangd">
+<span id="lsp-clangd"></span><h3><a class="toc-backref" href="#id39" role="doc-backlink">C/C++ (clangd)</a><a class="headerlink" href="#c-c-clangd" title="Link to this heading"></a></h3>
+<p><strong>Configuration file:</strong> <code class="docutils literal notranslate"><span class="pre">editor/nvim/lsp/clangd.lua</span></code></p>
+<section id="id11">
+<h4><a class="toc-backref" href="#id40" role="doc-backlink">Installation</a><a class="headerlink" href="#id11" title="Link to this heading"></a></h4>
+<p>Installed via system package manager:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>clang-tools-extra
+</pre></div>
+</div>
+</section>
+<section id="id12">
+<h4><a class="toc-backref" href="#id41" role="doc-backlink">Configuration</a><a class="headerlink" href="#id12" title="Link to this heading"></a></h4>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">switch_source_header</span><span class="p">(</span><span class="nv">bufnr</span><span class="p">,</span><span class="w"> </span><span class="nv">client</span><span class="p">)</span>
+<span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">method_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;textDocument/switchSourceHeader&quot;</span>
+<span class="w">	</span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">client</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">client</span><span class="p">:</span><span class="nf">supports_method</span><span class="p">(</span><span class="nv">method_name</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">		</span><span class="kr">return</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="nf">notify</span><span class="p">(</span>
+<span class="w">			</span><span class="p">(</span><span class="s2">&quot;method %s is not supported by any servers active on the current buffer&quot;</span><span class="p">):</span><span class="nf">format</span><span class="p">(</span><span class="nv">method_name</span><span class="p">)</span>
+<span class="w">		</span><span class="p">)</span>
+<span class="w">	</span><span class="kr">end</span>
+<span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">params</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">util</span><span class="p">.</span><span class="nf">make_text_document_params</span><span class="p">(</span><span class="nv">bufnr</span><span class="p">)</span>
+<span class="w">	</span><span class="nv">client</span><span class="p">:</span><span class="nf">request</span><span class="p">(</span><span class="nv">method_name</span><span class="p">,</span><span class="w"> </span><span class="nv">params</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">err</span><span class="p">,</span><span class="w"> </span><span class="nv">result</span><span class="p">)</span>
+<span class="w">		</span><span class="kr">if</span><span class="w"> </span><span class="nv">err</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">			</span><span class="nb">error</span><span class="p">(</span><span class="nb">tostring</span><span class="p">(</span><span class="nv">err</span><span class="p">))</span>
+<span class="w">		</span><span class="kr">end</span>
+<span class="w">		</span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">result</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">			</span><span class="nv">vim</span><span class="p">.</span><span class="nf">notify</span><span class="p">(</span><span class="s2">&quot;corresponding file cannot be determined&quot;</span><span class="p">)</span>
+<span class="w">			</span><span class="kr">return</span>
+<span class="w">		</span><span class="kr">end</span>
+<span class="w">		</span><span class="nv">vim</span><span class="p">.</span><span class="py">cmd</span><span class="p">.</span><span class="nf">edit</span><span class="p">(</span><span class="nv">vim</span><span class="p">.</span><span class="nf">uri_to_fname</span><span class="p">(</span><span class="nv">result</span><span class="p">))</span>
+<span class="w">	</span><span class="kr">end</span><span class="p">,</span><span class="w"> </span><span class="nv">bufnr</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">symbol_info</span><span class="p">(</span><span class="nv">bufnr</span><span class="p">,</span><span class="w"> </span><span class="nv">client</span><span class="p">)</span>
+<span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">method_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;textDocument/symbolInfo&quot;</span>
+<span class="w">	</span><span class="c1">---@diagnostic disable-next-line:param-type-mismatch</span>
+<span class="w">	</span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">client</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">client</span><span class="p">:</span><span class="nf">supports_method</span><span class="p">(</span><span class="nv">method_name</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">		</span><span class="kr">return</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="nf">notify</span><span class="p">(</span><span class="s2">&quot;Clangd client not found&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">log</span><span class="p">.</span><span class="py">levels</span><span class="p">.</span><span class="py">ERROR</span><span class="p">)</span>
+<span class="w">	</span><span class="kr">end</span>
+<span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">win</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">api</span><span class="p">.</span><span class="nf">nvim_get_current_win</span><span class="p">()</span>
+<span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">params</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">util</span><span class="p">.</span><span class="nf">make_position_params</span><span class="p">(</span><span class="nv">win</span><span class="p">,</span><span class="w"> </span><span class="nv">client</span><span class="p">.</span><span class="py">offset_encoding</span><span class="p">)</span>
+<span class="w">	</span><span class="c1">---@diagnostic disable-next-line:param-type-mismatch</span>
+<span class="w">	</span><span class="nv">client</span><span class="p">:</span><span class="nf">request</span><span class="p">(</span><span class="nv">method_name</span><span class="p">,</span><span class="w"> </span><span class="nv">params</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">err</span><span class="p">,</span><span class="w"> </span><span class="nv">res</span><span class="p">)</span>
+<span class="w">		</span><span class="kr">if</span><span class="w"> </span><span class="nv">err</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="o">#</span><span class="nv">res</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">			</span><span class="c1">-- Clangd always returns an error, there is no reason to parse it</span>
+<span class="w">			</span><span class="kr">return</span>
+<span class="w">		</span><span class="kr">end</span>
+<span class="w">		</span><span class="kd">local</span><span class="w"> </span><span class="nv">container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;container: %s&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">res</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nv">containerName</span><span class="p">)</span><span class="w"> </span><span class="c1">---@type string</span>
+<span class="w">		</span><span class="kd">local</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;name: %s&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">res</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nv">name</span><span class="p">)</span><span class="w"> </span><span class="c1">---@type string</span>
+<span class="w">		</span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">util</span><span class="p">.</span><span class="nf">open_floating_preview</span><span class="p">({</span><span class="w"> </span><span class="nv">name</span><span class="p">,</span><span class="w"> </span><span class="nv">container</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">			</span><span class="nv">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">			</span><span class="nv">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">math.max</span><span class="p">(</span><span class="nb">string.len</span><span class="p">(</span><span class="nv">name</span><span class="p">),</span><span class="w"> </span><span class="nb">string.len</span><span class="p">(</span><span class="nv">container</span><span class="p">)),</span>
+<span class="w">			</span><span class="nv">focusable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">			</span><span class="nv">focus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">			</span><span class="nv">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Symbol Info&quot;</span><span class="p">,</span>
+<span class="w">		</span><span class="p">})</span>
+<span class="w">	</span><span class="kr">end</span><span class="p">,</span><span class="w"> </span><span class="nv">bufnr</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kr">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">	</span><span class="nv">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;clangd&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">	</span><span class="nv">filetypes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;c&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;cpp&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;objc&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;objcpp&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;cuda&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">	</span><span class="nv">root_markers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">		</span><span class="s2">&quot;.clangd&quot;</span><span class="p">,</span>
+<span class="w">		</span><span class="s2">&quot;.clang-tidy&quot;</span><span class="p">,</span>
+<span class="w">		</span><span class="s2">&quot;.clang-format&quot;</span><span class="p">,</span>
+<span class="w">		</span><span class="s2">&quot;compile_commands.json&quot;</span><span class="p">,</span>
+<span class="w">		</span><span class="s2">&quot;compile_flags.txt&quot;</span><span class="p">,</span>
+<span class="w">		</span><span class="s2">&quot;configure.ac&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">-- AutoTools</span>
+<span class="w">		</span><span class="s2">&quot;.git&quot;</span><span class="p">,</span>
+<span class="w">	</span><span class="p">},</span>
+<span class="w">	</span><span class="nv">get_language_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">_</span><span class="p">,</span><span class="w"> </span><span class="nv">ftype</span><span class="p">)</span>
+<span class="w">		</span><span class="kd">local</span><span class="w"> </span><span class="nv">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">objc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;objective-c&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">objcpp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;objective-cpp&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">cuda</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;cuda-cpp&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">		</span><span class="kr">return</span><span class="w"> </span><span class="nv">t</span><span class="p">[</span><span class="nv">ftype</span><span class="p">]</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">ftype</span>
+<span class="w">	</span><span class="kr">end</span><span class="p">,</span>
+<span class="w">	</span><span class="nv">capabilities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">		</span><span class="nv">textDocument</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">			</span><span class="nv">completion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">				</span><span class="nv">editsNearCursor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">			</span><span class="p">},</span>
+<span class="w">		</span><span class="p">},</span>
+<span class="w">		</span><span class="nv">offsetEncoding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;utf-16&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">	</span><span class="p">},</span>
+<span class="w">	</span><span class="nv">on_init</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">client</span><span class="p">,</span><span class="w"> </span><span class="nv">init_result</span><span class="p">)</span>
+<span class="w">		</span><span class="kr">if</span><span class="w"> </span><span class="nv">init_result</span><span class="p">.</span><span class="py">offsetEncoding</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">			</span><span class="nv">client</span><span class="p">.</span><span class="py">offset_encoding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">init_result</span><span class="p">.</span><span class="py">offsetEncoding</span>
+<span class="w">		</span><span class="kr">end</span>
+<span class="w">	</span><span class="kr">end</span><span class="p">,</span>
+<span class="w">	</span><span class="nv">on_attach</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">client</span><span class="p">,</span><span class="w"> </span><span class="nv">bufnr</span><span class="p">)</span>
+<span class="w">		</span><span class="nv">vim</span><span class="p">.</span><span class="py">api</span><span class="p">.</span><span class="nf">nvim_buf_create_user_command</span><span class="p">(</span><span class="nv">bufnr</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LspClangdSwitchSourceHeader&quot;</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+<span class="w">			</span><span class="nf">switch_source_header</span><span class="p">(</span><span class="nv">bufnr</span><span class="p">,</span><span class="w"> </span><span class="nv">client</span><span class="p">)</span>
+<span class="w">		</span><span class="kr">end</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Switch between source/header&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="w">		</span><span class="nv">vim</span><span class="p">.</span><span class="py">api</span><span class="p">.</span><span class="nf">nvim_buf_create_user_command</span><span class="p">(</span><span class="nv">bufnr</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LspClangdShowSymbolInfo&quot;</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+<span class="w">			</span><span class="nf">symbol_info</span><span class="p">(</span><span class="nv">bufnr</span><span class="p">,</span><span class="w"> </span><span class="nv">client</span><span class="p">)</span>
+<span class="w">		</span><span class="kr">end</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Show symbol info&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="w">	</span><span class="kr">end</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-pylsp">
+<span id="lsp-python"></span><h3><a class="toc-backref" href="#id42" role="doc-backlink">Python (pylsp)</a><a class="headerlink" href="#python-pylsp" title="Link to this heading"></a></h3>
+<p><strong>Configuration file:</strong> <code class="docutils literal notranslate"><span class="pre">editor/nvim/lsp/pylsp.lua</span></code></p>
+<section id="id13">
+<h4><a class="toc-backref" href="#id43" role="doc-backlink">Installation</a><a class="headerlink" href="#id13" title="Link to this heading"></a></h4>
+<p>Installed via <code class="docutils literal notranslate"><span class="pre">pipx</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pipx<span class="w"> </span>install<span class="w"> </span>python-lsp-server
+</pre></div>
+</div>
+</section>
+<section id="id14">
+<h4><a class="toc-backref" href="#id44" role="doc-backlink">Configuration</a><a class="headerlink" href="#id14" title="Link to this heading"></a></h4>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nv">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;pylsp&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nv">filetypes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;python&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nv">root_markers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s1">&#39;pyproject.toml&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;setup.py&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;setup.cfg&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;requirements.txt&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;Pipfile&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;.git&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="latex-texlab">
+<span id="lsp-tex"></span><h3><a class="toc-backref" href="#id45" role="doc-backlink">LaTeX (texlab)</a><a class="headerlink" href="#latex-texlab" title="Link to this heading"></a></h3>
+<p><strong>Configuration file:</strong> <code class="docutils literal notranslate"><span class="pre">editor/nvim/lsp/texlab.lua</span></code></p>
+<section id="id15">
+<h4><a class="toc-backref" href="#id46" role="doc-backlink">Installation</a><a class="headerlink" href="#id15" title="Link to this heading"></a></h4>
+<p>Install via system package manager or distribution-specific method.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This server is not managed by the install script and may vary by system.</p>
+</div>
+</section>
+<section id="id16">
+<h4><a class="toc-backref" href="#id47" role="doc-backlink">Configuration</a><a class="headerlink" href="#id16" title="Link to this heading"></a></h4>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="c1">-- IGNORED IN lsp.lua, USING vimtex PLUGIN INSTEAD</span>
+<span class="kr">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nv">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;texlab&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nv">filetypes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;tex&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;plaintex&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;bib&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nv">root_markers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;.git&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;.latexmkrc&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;latexmkrc&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;.texlabroot&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;texlabroot&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Tectonic.toml&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="typst-tinymist">
+<span id="lsp-tinymist"></span><h3><a class="toc-backref" href="#id48" role="doc-backlink">Typst (tinymist)</a><a class="headerlink" href="#typst-tinymist" title="Link to this heading"></a></h3>
+<p><strong>Configuration file:</strong> <code class="docutils literal notranslate"><span class="pre">editor/nvim/lsp/tinymist.lua</span></code></p>
+<section id="id17">
+<h4><a class="toc-backref" href="#id49" role="doc-backlink">Installation</a><a class="headerlink" href="#id17" title="Link to this heading"></a></h4>
+<p>Downloaded from GitHub releases:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-LO<span class="w"> </span>https://github.com/Myriad-Dreamin/tinymist/releases/latest/download/tinymist-linux-x64
+sudo<span class="w"> </span>install<span class="w"> </span>-m<span class="w"> </span><span class="m">755</span><span class="w"> </span>tinymist-linux-x64<span class="w"> </span>/usr/local/bin/tinymist
+</pre></div>
+</div>
+</section>
+<section id="id18">
+<h4><a class="toc-backref" href="#id50" role="doc-backlink">Configuration</a><a class="headerlink" href="#id18" title="Link to this heading"></a></h4>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nv">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;tinymist&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nv">filetypes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;typst&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nv">root_markers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;.git&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nv">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nv">lint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nv">enable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="markdown-marksman">
+<span id="lsp-marksman"></span><h3><a class="toc-backref" href="#id51" role="doc-backlink">Markdown (marksman)</a><a class="headerlink" href="#markdown-marksman" title="Link to this heading"></a></h3>
+<p><strong>Configuration file:</strong> <code class="docutils literal notranslate"><span class="pre">editor/nvim/lsp/marksman.lua</span></code></p>
+<section id="id19">
+<h4><a class="toc-backref" href="#id52" role="doc-backlink">Installation</a><a class="headerlink" href="#id19" title="Link to this heading"></a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Installation method not defined in the script.</p>
+</div>
+</section>
+<section id="id20">
+<h4><a class="toc-backref" href="#id53" role="doc-backlink">Configuration</a><a class="headerlink" href="#id20" title="Link to this heading"></a></h4>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kr">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nv">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;marksman&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;server&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nv">filetypes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="s1">&#39;markdown&#39;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="c1">-- &#39;markdown.mdx&#39;,</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nv">root_markers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;.marksman.toml&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;.git&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>The script <code class="docutils literal notranslate"><span class="pre">scripts/install_lsps.sh</span></code> is the authoritative source for installation.</p></li>
+<li><p>Some servers are grouped under shared packages (e.g. <code class="docutils literal notranslate"><span class="pre">vscode-langservers-extracted</span></code>).</p></li>
+<li><p>Ensure required tools are installed:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">pnpm</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curl</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tar</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pipx</span></code></p></li>
+</ul>
+</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">pnpm</span></code> global bin directory must be present in <code class="docutils literal notranslate"><span class="pre">PATH</span></code>.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plugins.html" class="btn btn-neutral float-left" title="Plugins" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ftplugin.html" class="btn btn-neutral float-right" title="Filetype-specific Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, MnLCz.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

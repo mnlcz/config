@@ -1,0 +1,485 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Core Configuration &mdash; Configurations  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=528d1b8b" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Plugins" href="plugins.html" />
+    <link rel="prev" title="Neovim Configuration" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Configurations
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Editor</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Neovim Configuration</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Core Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#initialization">Initialization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#options">Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#key-mappings">Key Mappings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autocommands">Autocommands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#statusline">Statusline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lsp.html">Language Server Protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ftplugin.html">Filetype-specific Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="snippets.html">LuaSnip snippets Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../acme.html">Acme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vim.html">Vim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zed.html">Zed</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../scripts/index.html">Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mpv/index.html">MPV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../shells/index.html">Shells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../templates/index.html">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../term/index.html">Terminals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../wm/index.html">Window Managers</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Configurations</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Editor</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Neovim Configuration</a></li>
+      <li class="breadcrumb-item active">Core Configuration</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/editor/nvim/core.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="core-configuration">
+<h1>Core Configuration<a class="headerlink" href="#core-configuration" title="Link to this heading"></a></h1>
+<p>This section documents the core configuration of <strong>Neovim</strong>.</p>
+<p>The setup follows a modular structure, where each concern (options, mappings, etc.)
+is isolated into its own Lua module and loaded from the main entry point.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The configuration is organized as follows:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">init.lua</span></code>: entry point, responsible for bootstrapping the configuration</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lua/options.lua</span></code>: editor options</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lua/mappings.lua</span></code>: key mappings</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lua/autocmds.lua</span></code>: autocommands</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lua/statusline.lua</span></code>: UI/statusline configuration</p></li>
+</ul>
+</section>
+<section id="initialization">
+<h2>Initialization<a class="headerlink" href="#initialization" title="Link to this heading"></a></h2>
+<p>The main entry point loads all core modules and sets up the environment.</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;plugins&quot;</span><span class="p">)</span>
+<span class="nb">require</span><span class="p">(</span><span class="s2">&quot;options&quot;</span><span class="p">)</span>
+<span class="nb">require</span><span class="p">(</span><span class="s2">&quot;lsp&quot;</span><span class="p">)</span>
+<span class="nb">require</span><span class="p">(</span><span class="s2">&quot;mappings&quot;</span><span class="p">)</span>
+<span class="nb">require</span><span class="p">(</span><span class="s2">&quot;statusline&quot;</span><span class="p">)</span>
+<span class="nb">require</span><span class="p">(</span><span class="s2">&quot;autocmds&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="options">
+<h2>Options<a class="headerlink" href="#options" title="Link to this heading"></a></h2>
+<p>This module defines the base editor behavior, including UI, indentation,
+search, and general usability settings.</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span><span class="w"> </span><span class="nv">os_utils</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;custom_tools.get_os&quot;</span><span class="p">)</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">current_os</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">os_utils</span><span class="p">.</span><span class="nf">get_current_os</span><span class="p">()</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">gnome_theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;custom_tools.gnome_theme&quot;</span><span class="p">)</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">background</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">gnome_theme</span><span class="p">.</span><span class="py">background</span>
+
+<span class="c1">---------------------------- Shell ----------------------------</span>
+<span class="kr">if</span><span class="w"> </span><span class="nv">current_os</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;windows&quot;</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">o</span><span class="p">.</span><span class="py">shell</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;pwsh&quot;</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="c1">------------------------ Appearance ---------------------------</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">cmd</span><span class="p">.</span><span class="nf">colorscheme</span><span class="p">(</span><span class="nv">background</span><span class="p">)</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">o</span><span class="p">.</span><span class="py">winborder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;rounded&quot;</span><span class="w"> </span><span class="c1">-- Default border for floating windows</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">o</span><span class="p">.</span><span class="py">guicursor</span><span class="w"> </span><span class="o">=</span>
+<span class="s2">&quot;n-v-c-i-ci-ve-r-cr:hor30,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175&quot;</span>
+
+
+<span class="c1">--------------------------- Lines -----------------------------</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">o</span><span class="p">.</span><span class="py">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">o</span><span class="p">.</span><span class="py">relativenumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">o</span><span class="p">.</span><span class="py">wrap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+
+<span class="c1">--------------------------- Split -----------------------------</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">o</span><span class="p">.</span><span class="py">splitbelow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c1">-- Split vertical default to below</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">o</span><span class="p">.</span><span class="py">splitright</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c1">-- Split horizontal default to right</span>
+
+<span class="c1">------------------------- Indenting ---------------------------</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">o</span><span class="p">.</span><span class="py">expandtab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c1">-- Tabs into spaces</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">o</span><span class="p">.</span><span class="py">tabstop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">o</span><span class="p">.</span><span class="py">shiftwidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="w">   </span><span class="c1">-- Size for &lt;&lt; and &gt;&gt; indentation</span>
+
+<span class="c1">-- Dynamic indentation rules</span>
+<span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">set_indentation</span><span class="p">(</span><span class="nv">filetypes</span><span class="p">,</span><span class="w"> </span><span class="nv">shiftwidth</span><span class="p">,</span><span class="w"> </span><span class="nv">tabstop</span><span class="p">)</span>
+<span class="w">    </span><span class="kr">for</span><span class="w"> </span><span class="nv">_</span><span class="p">,</span><span class="w"> </span><span class="nv">ft</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">ipairs</span><span class="p">(</span><span class="nv">filetypes</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">autocmd_cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;setlocal shiftwidth=%d tabstop=%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">shiftwidth</span><span class="p">,</span><span class="w"> </span><span class="nv">tabstop</span><span class="p">)</span>
+<span class="w">        </span><span class="nv">vim</span><span class="p">.</span><span class="py">api</span><span class="p">.</span><span class="nf">nvim_create_autocmd</span><span class="p">(</span><span class="s2">&quot;FileType&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">ft</span><span class="p">,</span><span class="w"> </span><span class="nv">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">autocmd_cmd</span><span class="w"> </span><span class="p">})</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="c1">-- Rules</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">custom_indent_rules</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;lua&quot;</span><span class="p">,</span><span class="w">        </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;html&quot;</span><span class="p">,</span><span class="w">       </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;javascript&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;css&quot;</span><span class="p">,</span><span class="w">        </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;json&quot;</span><span class="p">,</span><span class="w">       </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">},</span>
+<span class="p">}</span>
+
+<span class="c1">-- Apply indentation settings for specific file types</span>
+<span class="kr">for</span><span class="w"> </span><span class="nv">_</span><span class="p">,</span><span class="w"> </span><span class="nv">settings</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">ipairs</span><span class="p">(</span><span class="nv">custom_indent_rules</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">    </span><span class="nf">set_indentation</span><span class="p">({</span><span class="w"> </span><span class="nv">settings</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nv">settings</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="nv">settings</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="kr">end</span>
+
+<span class="c1">--------------------------- Moves -----------------------------</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">o</span><span class="p">.</span><span class="py">virtualedit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;block&quot;</span><span class="w"> </span><span class="c1">-- Makes empty character cells available in block mode</span>
+
+<span class="c1">-------------------------- Edition ----------------------------</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">o</span><span class="p">.</span><span class="py">clipboard</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;unnamedplus&quot;</span><span class="w"> </span><span class="c1">-- System clipboard</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">o</span><span class="p">.</span><span class="py">inccommand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;split&quot;</span><span class="w">      </span><span class="c1">-- Show command output preview in different buffer</span>
+
+<span class="c1">-- Spell check</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">o</span><span class="p">.</span><span class="py">spell</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">o</span><span class="p">.</span><span class="py">spelllang</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;en_us,es,ru&quot;</span>
+
+<span class="c1">---------------------------- QOL ------------------------------</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">o</span><span class="p">.</span><span class="py">ignorecase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c1">-- Ignore case for command autocomplete ease of use</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">o</span><span class="p">.</span><span class="py">termguicolors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c1">-- Enables more colors for modern terminals</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">o</span><span class="p">.</span><span class="py">laststatus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="c1">-- Global status line (instead of one per window)</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">o</span><span class="p">.</span><span class="py">swapfile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="c1">-- Disable swap file</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">o</span><span class="p">.</span><span class="py">listchars</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;tab: ,multispace:|   ,eol:󰌑&quot;</span><span class="w"> </span><span class="c1">-- Characters to show for tabs, spaces, and end of line</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">o</span><span class="p">.</span><span class="py">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c1">-- Show whitespace characters</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">o</span><span class="p">.</span><span class="py">hlsearch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="c1">-- Disable highlighting of results</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">cmd</span><span class="p">.</span><span class="nf">filetype</span><span class="p">(</span><span class="s2">&quot;plugin indent on&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">-- Enable filetype detection, plugins, and indentation</span>
+</pre></div>
+</div>
+</section>
+<section id="key-mappings">
+<h2>Key Mappings<a class="headerlink" href="#key-mappings" title="Link to this heading"></a></h2>
+<p>Custom key mappings are defined separately to keep the configuration
+declarative and easy to modify.</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span><span class="w"> </span><span class="nv">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="py">set</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">telescope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;telescope.builtin&quot;</span><span class="p">)</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">lsp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">buf</span>
+
+<span class="c1">---------------------------- Main ------------------------------</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">g</span><span class="p">.</span><span class="py">mapleader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot; &quot;</span>
+<span class="nv">vim</span><span class="p">.</span><span class="py">g</span><span class="p">.</span><span class="py">maplocalleader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span>
+
+<span class="c1">---------------------------- Core ------------------------------</span>
+<span class="c1">-- Movement</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;i&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-l&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-o&gt;l&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Move right one time&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;i&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-h&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-o&gt;h&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Move left one time&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- Edition</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;i&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;A-,&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+<span class="w">	</span><span class="kd">local</span><span class="w"> </span><span class="nv">current_pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">api</span><span class="p">.</span><span class="nf">nvim_win_get_cursor</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="w">	</span><span class="nv">vim</span><span class="p">.</span><span class="nf">cmd</span><span class="p">(</span><span class="s2">&quot;normal! A;&quot;</span><span class="p">)</span>
+<span class="w">	</span><span class="nv">vim</span><span class="p">.</span><span class="py">api</span><span class="p">.</span><span class="nf">nvim_win_set_cursor</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nv">current_pos</span><span class="p">)</span>
+<span class="kr">end</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Add semicolon at the end and return to position&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;i&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;A-CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;Esc&gt;A;&lt;Esc&gt;o&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Add semicolon at the end and new line&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;A-,&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;A;&lt;Esc&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Add semicolon at the end&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;i&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;A-a&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-o&gt;$&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Jump to end of line in insert mode&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;i&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;A-i&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-o&gt;_&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Jump to beginning of line in insert mode&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;+&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-a&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Increment&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;-&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-x&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Decrement&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;Esc&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-</span><span class="se">\\</span><span class="s2">&gt;&lt;C-n&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Exit insert mode in terminal mode&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- Buffers</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;x&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;bd&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Close current buffer&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;]b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;bn&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Next buffer&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;[b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;bp&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Previous buffer&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- Tabs</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;tt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;tabnew&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;New empty tab&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;]t&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;tabnext&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Jumps to next tab&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;[t&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;tabprevious&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Jumps to previous tab&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- Spell checker</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;sc&quot;</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+<span class="w">	</span><span class="nv">vim</span><span class="p">.</span><span class="py">o</span><span class="p">.</span><span class="py">spell</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">o</span><span class="p">.</span><span class="py">spell</span>
+<span class="kr">end</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Toggle spellcheck&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- Dev</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;r&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;Cmd&gt;:.lua&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Run Lua code inline&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">---------------------------- LSP ------------------------------</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;lf&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">lsp</span><span class="p">.</span><span class="py">format</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[LSP] Format code&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;la&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">lsp</span><span class="p">.</span><span class="py">code_action</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[LSP] Code action&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;lh&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">lsp</span><span class="p">.</span><span class="py">hover</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[LSP] Hover&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;lt&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">lsp</span><span class="p">.</span><span class="py">type_definition</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[LSP] Jump to type definition&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;ld&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">lsp</span><span class="p">.</span><span class="py">definition</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[LSP] Jump to symbol definition&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;li&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">lsp</span><span class="p">.</span><span class="py">implementation</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[LSP] Jump to implementation&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;ls&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">lsp</span><span class="p">.</span><span class="py">signature_help</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[LSP] Display signature information&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;lr&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">lsp</span><span class="p">.</span><span class="py">references</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[LSP] Display references&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;lS&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">lsp</span><span class="p">.</span><span class="py">document_symbol</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[LSP] Display current document symbols&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;lR&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">lsp</span><span class="p">.</span><span class="py">rename</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[LSP] Rename all references to current symbol&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">---------------------------- Plugins ------------------------------</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;C-n&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;Oil&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Open Oil file manager&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s2">&quot;oil&quot;</span><span class="p">).</span><span class="nv">toggle_float</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Open Oil file manager as a floating window&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- Telescope</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;ff&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">telescope</span><span class="p">.</span><span class="py">find_files</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Telescope find files&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;fo&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">telescope</span><span class="p">.</span><span class="py">oldfiles</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Telescope old files&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;fg&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">telescope</span><span class="p">.</span><span class="py">live_grep</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Telescope live grep&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;fb&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">telescope</span><span class="p">.</span><span class="py">buffers</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Telescope buffers&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;fh&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">telescope</span><span class="p">.</span><span class="py">help_tags</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Telescope help tags&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;km&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">telescope</span><span class="p">.</span><span class="py">keymaps</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Telescope keymaps&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;fm&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">telescope</span><span class="p">.</span><span class="py">man_pages</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Telescope man pages&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;fs&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">telescope</span><span class="p">.</span><span class="py">lsp_document_symbols</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Telescope document symbols&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;fc&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">telescope</span><span class="p">.</span><span class="py">spell_suggest</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Telescope spell suggestions&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- Markdown</span>
+<span class="c1">-- map(&quot;n&quot;, &quot;&lt;leader&gt;mp&quot;, &quot;&lt;cmd&gt;Glow&lt;CR&gt;&quot;, { desc = &quot;Markdown file preview with Glow&quot; })</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;mr&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;:RenderMarkdown toggle&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Toggle markdown rendering&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">-- Compile-mode</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;c&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;Compile&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[Compile-mode] Compile default for current filetype&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="nf">map</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;C&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;cmd&gt;Recompile&lt;CR&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[Compile-mode] Recompile default for current filetype&quot;</span><span class="w"> </span><span class="p">})</span>
+</pre></div>
+</div>
+</section>
+<section id="autocommands">
+<h2>Autocommands<a class="headerlink" href="#autocommands" title="Link to this heading"></a></h2>
+<p>Autocommands are used to define dynamic behavior triggered by events.</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="nv">vim</span><span class="p">.</span><span class="py">api</span><span class="p">.</span><span class="nf">nvim_create_autocmd</span><span class="p">(</span><span class="s2">&quot;LspAttach&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">	</span><span class="nv">callback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">ev</span><span class="p">)</span>
+<span class="w">		</span><span class="kd">local</span><span class="w"> </span><span class="nv">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="nf">get_client_by_id</span><span class="p">(</span><span class="nv">ev</span><span class="p">.</span><span class="py">data</span><span class="p">.</span><span class="py">client_id</span><span class="p">)</span>
+<span class="w">		</span><span class="kr">if</span><span class="w"> </span><span class="nv">client</span><span class="p">:</span><span class="nf">supports_method</span><span class="p">(</span><span class="s2">&quot;textDocument/completion&quot;</span><span class="p">)</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">			</span><span class="nv">vim</span><span class="p">.</span><span class="py">lsp</span><span class="p">.</span><span class="py">completion</span><span class="p">.</span><span class="nf">enable</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nv">client</span><span class="p">.</span><span class="py">id</span><span class="p">,</span><span class="w"> </span><span class="nv">ev</span><span class="p">.</span><span class="py">buf</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">autotrigger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">})</span>
+<span class="w">		</span><span class="kr">end</span>
+<span class="w">	</span><span class="kr">end</span><span class="p">,</span>
+<span class="p">})</span>
+<span class="nv">vim</span><span class="p">.</span><span class="nf">cmd</span><span class="p">(</span><span class="s2">&quot;set completeopt+=noselect&quot;</span><span class="p">)</span>
+
+<span class="nv">vim</span><span class="p">.</span><span class="py">api</span><span class="p">.</span><span class="nf">nvim_create_autocmd</span><span class="p">(</span><span class="s2">&quot;ColorScheme&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">	</span><span class="nv">callback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+<span class="w">		</span><span class="nv">vim</span><span class="p">.</span><span class="py">api</span><span class="p">.</span><span class="nf">nvim_set_hl</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Visual&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">			</span><span class="nv">bg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;#bcbcbc&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Light blue/purple</span>
+<span class="w">			</span><span class="nv">fg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;#000000&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Black text</span>
+<span class="w">		</span><span class="p">})</span>
+<span class="w">	</span><span class="kr">end</span><span class="p">,</span>
+<span class="p">})</span>
+
+<span class="nv">vim</span><span class="p">.</span><span class="py">api</span><span class="p">.</span><span class="nf">nvim_set_hl</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Visual&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">	</span><span class="nv">bg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;#bcbcbc&quot;</span><span class="p">,</span>
+<span class="w">	</span><span class="nv">fg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;#000000&quot;</span><span class="p">,</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</section>
+<section id="statusline">
+<h2>Statusline<a class="headerlink" href="#statusline" title="Link to this heading"></a></h2>
+<p>The statusline configuration customizes how information is displayed
+in the editor UI.</p>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="c1">-- internal state for toggles</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nv">show_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nv">show_branch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">-- config for placeholders + highlighting</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nv">icons</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nv">path_hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nv">branch_hidden</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nv">placeholder_hl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;StatusLineDim&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">-- helper to wrap text in a statusline highlight group</span>
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">hl</span><span class="p">(</span><span class="nv">group</span><span class="p">,</span><span class="w"> </span><span class="nv">text</span><span class="p">)</span>
+<span class="w">      </span><span class="kr">return</span><span class="w"> </span><span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;%%#%s#%s%%*&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">group</span><span class="p">,</span><span class="w"> </span><span class="nv">text</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="c1">-- create and link the highlight group(s)</span>
+<span class="w">  </span><span class="nv">vim</span><span class="p">.</span><span class="py">api</span><span class="p">.</span><span class="nf">nvim_set_hl</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nv">config</span><span class="p">.</span><span class="py">placeholder_hl</span><span class="p">,</span><span class="w"> </span><span class="p">{})</span><span class="w"> </span><span class="c1">-- create if missing</span>
+<span class="w">  </span><span class="nv">vim</span><span class="p">.</span><span class="py">api</span><span class="p">.</span><span class="nf">nvim_set_hl</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nv">config</span><span class="p">.</span><span class="py">placeholder_hl</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">link</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Comment&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">filepath</span><span class="p">()</span>
+<span class="w">      </span><span class="kd">local</span><span class="w"> </span><span class="nv">fpath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">fn</span><span class="p">.</span><span class="nf">fnamemodify</span><span class="p">(</span><span class="nv">vim</span><span class="p">.</span><span class="py">fn</span><span class="p">.</span><span class="py">expand</span><span class="w"> </span><span class="s2">&quot;%&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;:~:.:h&quot;</span><span class="p">)</span>
+
+<span class="w">      </span><span class="kr">if</span><span class="w"> </span><span class="nv">fpath</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">fpath</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;.&quot;</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">          </span><span class="kr">return</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="w">      </span><span class="kr">end</span>
+
+<span class="w">      </span><span class="kr">if</span><span class="w"> </span><span class="nv">state</span><span class="p">.</span><span class="py">show_path</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">          </span><span class="kr">return</span><span class="w"> </span><span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;%%&lt;%s/&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">fpath</span><span class="p">)</span>
+<span class="w">      </span><span class="kr">end</span>
+
+<span class="w">      </span><span class="kr">return</span><span class="w"> </span><span class="nf">hl</span><span class="p">(</span><span class="nv">config</span><span class="p">.</span><span class="py">placeholder_hl</span><span class="p">,</span><span class="w"> </span><span class="nv">config</span><span class="p">.</span><span class="py">icons</span><span class="p">.</span><span class="py">path_hidden</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">git</span><span class="p">()</span>
+<span class="w">      </span><span class="kd">local</span><span class="w"> </span><span class="nv">git_info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">b</span><span class="p">.</span><span class="py">gitsigns_status_dict</span>
+<span class="w">      </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">git_info</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">git_info</span><span class="p">.</span><span class="py">head</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">          </span><span class="kr">return</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="w">      </span><span class="kr">end</span>
+
+<span class="w">      </span><span class="kd">local</span><span class="w"> </span><span class="nv">head</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="nv">git_info</span><span class="p">.</span><span class="py">head</span>
+<span class="w">      </span><span class="kd">local</span><span class="w"> </span><span class="nv">added</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="nv">git_info</span><span class="p">.</span><span class="py">added</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="p">(</span><span class="s2">&quot; +&quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">git_info</span><span class="p">.</span><span class="py">added</span><span class="p">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="w">      </span><span class="kd">local</span><span class="w"> </span><span class="nv">changed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">git_info</span><span class="p">.</span><span class="py">changed</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="p">(</span><span class="s2">&quot; ~&quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">git_info</span><span class="p">.</span><span class="py">changed</span><span class="p">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="w">      </span><span class="kd">local</span><span class="w"> </span><span class="nv">removed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">git_info</span><span class="p">.</span><span class="py">removed</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="p">(</span><span class="s2">&quot; -&quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">git_info</span><span class="p">.</span><span class="py">removed</span><span class="p">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="w">      </span><span class="kr">if</span><span class="w"> </span><span class="nv">git_info</span><span class="p">.</span><span class="py">added</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">added</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">      </span><span class="kr">if</span><span class="w"> </span><span class="nv">git_info</span><span class="p">.</span><span class="py">changed</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">changed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="kr">end</span>
+<span class="w">      </span><span class="kr">if</span><span class="w"> </span><span class="nv">git_info</span><span class="p">.</span><span class="py">removed</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">removed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="kr">end</span>
+
+<span class="w">      </span><span class="kr">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">state</span><span class="p">.</span><span class="py">show_branch</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">          </span><span class="nv">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">hl</span><span class="p">(</span><span class="nv">config</span><span class="p">.</span><span class="py">placeholder_hl</span><span class="p">,</span><span class="w"> </span><span class="nv">config</span><span class="p">.</span><span class="py">icons</span><span class="p">.</span><span class="py">branch_hidden</span><span class="p">)</span>
+<span class="w">      </span><span class="kr">end</span>
+
+<span class="w">      </span><span class="kr">return</span><span class="w"> </span><span class="nb">table.concat</span><span class="p">({</span>
+<span class="w">          </span><span class="s2">&quot;[ &quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nv">head</span><span class="p">,</span>
+<span class="w">          </span><span class="nv">added</span><span class="p">,</span><span class="w"> </span><span class="nv">changed</span><span class="p">,</span><span class="w"> </span><span class="nv">removed</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;]&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="p">})</span>
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">Statusline</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="w">  </span><span class="kr">function</span><span class="w"> </span><span class="nc">Statusline</span><span class="p">.</span><span class="nf">active</span><span class="p">()</span>
+<span class="w">      </span><span class="kr">return</span><span class="w"> </span><span class="nb">table.concat</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">&quot;[&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">filepath</span><span class="p">(),</span><span class="w"> </span><span class="s2">&quot;%t] &quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nf">git</span><span class="p">(),</span>
+<span class="w">          </span><span class="s2">&quot;%=&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;%y [%P %l:%c]&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">function</span><span class="w"> </span><span class="nc">Statusline</span><span class="p">.</span><span class="nf">inactive</span><span class="p">()</span>
+<span class="w">      </span><span class="kr">return</span><span class="w"> </span><span class="s2">&quot; %t&quot;</span>
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">function</span><span class="w"> </span><span class="nc">Statusline</span><span class="p">.</span><span class="nf">toggle_path</span><span class="p">()</span>
+<span class="w">      </span><span class="nv">state</span><span class="p">.</span><span class="py">show_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">state</span><span class="p">.</span><span class="py">show_path</span>
+<span class="w">      </span><span class="nv">vim</span><span class="p">.</span><span class="nf">cmd</span><span class="p">(</span><span class="s2">&quot;redrawstatus&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="kr">function</span><span class="w"> </span><span class="nc">Statusline</span><span class="p">.</span><span class="nf">toggle_branch</span><span class="p">()</span>
+<span class="w">      </span><span class="nv">state</span><span class="p">.</span><span class="py">show_branch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nv">state</span><span class="p">.</span><span class="py">show_branch</span>
+<span class="w">      </span><span class="nv">vim</span><span class="p">.</span><span class="nf">cmd</span><span class="p">(</span><span class="s2">&quot;redrawstatus&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">end</span>
+
+<span class="w">  </span><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;sp&quot;</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span><span class="w"> </span><span class="nv">Statusline</span><span class="p">.</span><span class="nf">toggle_path</span><span class="p">()</span><span class="w"> </span><span class="kr">end</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Toggle statusline path&quot;</span><span class="w"> </span><span class="p">})</span>
+<span class="w">  </span><span class="nv">vim</span><span class="p">.</span><span class="py">keymap</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&lt;leader&gt;sb&quot;</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span><span class="w"> </span><span class="nv">Statusline</span><span class="p">.</span><span class="nf">toggle_branch</span><span class="p">()</span><span class="w"> </span><span class="kr">end</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Toggle statusline git branch&quot;</span><span class="w"> </span><span class="p">})</span>
+
+<span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">vim</span><span class="p">.</span><span class="py">api</span><span class="p">.</span><span class="nf">nvim_create_augroup</span><span class="p">(</span><span class="s2">&quot;Statusline&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">clear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">})</span>
+
+<span class="w">  </span><span class="nv">vim</span><span class="p">.</span><span class="py">api</span><span class="p">.</span><span class="nf">nvim_create_autocmd</span><span class="p">({</span><span class="w"> </span><span class="s2">&quot;WinEnter&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;BufEnter&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nv">group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">group</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Activate statusline on focus&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">callback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+<span class="w">      </span><span class="nv">vim</span><span class="p">.</span><span class="py">opt_local</span><span class="p">.</span><span class="py">statusline</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;%!v:lua.Statusline.active()&quot;</span>
+<span class="w">    </span><span class="kr">end</span><span class="p">,</span>
+<span class="w">  </span><span class="p">})</span>
+
+<span class="w">  </span><span class="nv">vim</span><span class="p">.</span><span class="py">api</span><span class="p">.</span><span class="nf">nvim_create_autocmd</span><span class="p">({</span><span class="w"> </span><span class="s2">&quot;WinLeave&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;BufLeave&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nv">group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">group</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Deactivate statusline when unfocused&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">callback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">()</span>
+<span class="w">      </span><span class="nv">vim</span><span class="p">.</span><span class="py">opt_local</span><span class="p">.</span><span class="py">statusline</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;%!v:lua.Statusline.inactive()&quot;</span>
+<span class="w">    </span><span class="kr">end</span><span class="p">,</span>
+<span class="w">  </span><span class="p">})</span>
+</pre></div>
+</div>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>This structure makes it easier to extend or replace individual parts
+without affecting the rest of the configuration.</p></li>
+<li><p>Plugin-specific behavior is kept outside of this section and documented
+separately.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Neovim Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plugins.html" class="btn btn-neutral float-right" title="Plugins" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, MnLCz.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

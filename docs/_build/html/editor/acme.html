@@ -1,0 +1,275 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acme &mdash; Configurations  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=528d1b8b" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Vim" href="vim.html" />
+    <link rel="prev" title="LuaSnip snippets Configuration" href="nvim/snippets.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Configurations
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Editor</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nvim/index.html">Neovim Configuration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Acme</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#layout">Layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#environment">Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#launch-method">Launch Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#desktop-entry">Desktop Entry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="vim.html">Vim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zed.html">Zed</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../scripts/index.html">Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mpv/index.html">MPV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shells/index.html">Shells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../templates/index.html">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../term/index.html">Terminals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wm/index.html">Window Managers</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Configurations</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Editor</a></li>
+      <li class="breadcrumb-item active">Acme</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/editor/acme.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="acme">
+<h1>Acme<a class="headerlink" href="#acme" title="Link to this heading"></a></h1>
+<p>This section documents the setup for Acme.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The configuration is split across three components:</p>
+<ul class="simple">
+<li><p>Layout definition (<code class="docutils literal notranslate"><span class="pre">acme.dump</span></code>)</p></li>
+<li><p>Environment setup (<code class="docutils literal notranslate"><span class="pre">shells/.bashrc.d/plan9.sh</span></code>)</p></li>
+<li><p>Launch script (<code class="docutils literal notranslate"><span class="pre">scripts/launch-acme.sh</span></code>)</p></li>
+</ul>
+<p>This separation allows the editor state, runtime environment, and launch
+mechanism to evolve independently.</p>
+</section>
+<section id="layout">
+<h2>Layout<a class="headerlink" href="#layout" title="Link to this heading"></a></h2>
+<p>The file <code class="docutils literal notranslate"><span class="pre">editor/acme.dump</span></code> defines the editor layout and session state.</p>
+<p>It is loaded at startup to restore:</p>
+<ul class="simple">
+<li><p>Window arrangement</p></li>
+<li><p>Open files</p></li>
+<li><p>Buffer state</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This file is a snapshot of a running session and is not meant to be
+edited manually.</p>
+</div>
+</section>
+<section id="environment">
+<h2>Environment<a class="headerlink" href="#environment" title="Link to this heading"></a></h2>
+<p>The Plan 9 environment required by Acme is initialized via:</p>
+<p><code class="docutils literal notranslate"><span class="pre">shells/.bashrc.d/plan9.sh</span></code></p>
+<p>This defines a helper function:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">acme()</span></code></p></li>
+</ul>
+<p>Responsibilities include:</p>
+<ul class="simple">
+<li><p>Mounting required 9p filesystems (<code class="docutils literal notranslate"><span class="pre">/mnt/acme</span></code>, <code class="docutils literal notranslate"><span class="pre">/mnt/font</span></code>)</p></li>
+<li><p>Starting required services:
+- <code class="docutils literal notranslate"><span class="pre">fontsrv</span></code>
+- <code class="docutils literal notranslate"><span class="pre">plumber</span></code></p></li>
+<li><p>Setting <code class="docutils literal notranslate"><span class="pre">NAMESPACE</span></code></p></li>
+<li><p>Loading plumbing rules</p></li>
+<li><p>Launching Acme with appropriate flags</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Requires fusermount (or fusermount3 aliased) with user_allow_other uncommented in /etc/fuse.conf</span>
+acme<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="c1"># clean stale mounts</span>
+<span class="w">    </span>fusermount<span class="w"> </span>-u<span class="w"> </span>/mnt/acme<span class="w"> </span><span class="m">2</span>&gt;/dev/null
+<span class="w">    </span>fusermount<span class="w"> </span>-u<span class="w"> </span>/mnt/font<span class="w"> </span><span class="m">2</span>&gt;/dev/null
+<span class="w">    </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/mnt/acme<span class="w"> </span>/mnt/font
+<span class="w">    </span><span class="c1"># sudo chown $(whoami): /mnt/acme /mnt/font</span>
+
+<span class="w">    </span><span class="c1"># start font server if not running</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span>!<span class="w"> </span>pgrep<span class="w"> </span>-x<span class="w"> </span>fontsrv<span class="w"> </span>&gt;/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span>fontsrv<span class="w"> </span>-m<span class="w"> </span>/mnt/font<span class="w"> </span><span class="p">&amp;</span>
+<span class="w">        </span>sleep<span class="w"> </span><span class="m">0</span>.5
+<span class="w">    </span><span class="k">fi</span>
+
+<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">NAMESPACE</span><span class="o">=</span><span class="si">${</span><span class="nv">NAMESPACE</span><span class="k">:-$(</span><span class="nv">$PLAN9</span>/bin/namespace<span class="k">)</span><span class="si">}</span>
+
+<span class="w">    </span><span class="c1"># start plumber if not running</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span>!<span class="w"> </span>pgrep<span class="w"> </span>-x<span class="w"> </span>plumber<span class="w"> </span>&gt;/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[acme] starting plumber...&quot;</span>
+<span class="w">        </span><span class="nv">$PLAN9</span>/bin/plumber<span class="w"> </span><span class="p">&amp;</span>
+<span class="w">        </span>sleep<span class="w"> </span><span class="m">0</span>.5
+<span class="w">    </span><span class="k">fi</span>
+
+<span class="w">    </span><span class="c1"># load plumbing rules</span>
+<span class="w">    </span>cat<span class="w"> </span><span class="nv">$PLAN9</span>/plumb/basic<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nv">$PLAN9</span>/bin/9p<span class="w"> </span>write<span class="w"> </span>plumb/rules
+
+<span class="w">    </span><span class="c1"># launch acme </span>
+<span class="w">    </span><span class="nv">SHELL</span><span class="o">=</span><span class="nv">$PLAN9</span>/bin/rc<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nv">$PLAN9</span>/bin/acme<span class="w"> </span>-m<span class="w"> </span>/mnt/acme<span class="w"> </span>-f<span class="w"> </span>/mnt/font/RedHatMono-Regular/13a/font<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function was my original method for launching Acme directly
+from the terminal.</p>
+</div>
+</section>
+<section id="launch-method">
+<h2>Launch Method<a class="headerlink" href="#launch-method" title="Link to this heading"></a></h2>
+<p>My preferred way to launch Acme is via:</p>
+<p><code class="docutils literal notranslate"><span class="pre">scripts/launch-acme.sh</span></code></p>
+<p>This script is designed to be used from a desktop entry rather than
+invoked manually.</p>
+<p>Responsibilities:</p>
+<ul class="simple">
+<li><p>Ensures environment variables are loaded (via <code class="docutils literal notranslate"><span class="pre">.profile</span></code>)</p></li>
+<li><p>Sets <code class="docutils literal notranslate"><span class="pre">DISPLAY</span></code> if needed</p></li>
+<li><p>Recreates required mount points</p></li>
+<li><p>Starts <code class="docutils literal notranslate"><span class="pre">fontsrv</span></code> and <code class="docutils literal notranslate"><span class="pre">plumber</span></code> if not running</p></li>
+<li><p>Loads plumbing rules</p></li>
+<li><p>Launches Acme with the configured layout</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nb">source</span><span class="w"> </span>/home/mnlcz/.profile
+<span class="nb">export</span><span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="si">${</span><span class="nv">DISPLAY</span><span class="k">:-</span><span class="p">:</span><span class="nv">0</span><span class="si">}</span>
+fusermount<span class="w"> </span>-u<span class="w"> </span>/mnt/acme<span class="w"> </span><span class="m">2</span>&gt;/dev/null
+fusermount<span class="w"> </span>-u<span class="w"> </span>/mnt/font<span class="w"> </span><span class="m">2</span>&gt;/dev/null
+mkdir<span class="w"> </span>-p<span class="w"> </span>/mnt/acme<span class="w"> </span>/mnt/font
+<span class="k">if</span><span class="w"> </span>!<span class="w"> </span>pgrep<span class="w"> </span>-x<span class="w"> </span>fontsrv<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span>fontsrv<span class="w"> </span>-m<span class="w"> </span>/mnt/font<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span>sleep<span class="w"> </span><span class="m">0</span>.5
+<span class="k">fi</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">NAMESPACE</span><span class="o">=</span><span class="si">${</span><span class="nv">NAMESPACE</span><span class="k">:-$(</span><span class="nv">$PLAN9</span>/bin/namespace<span class="k">)</span><span class="si">}</span>
+<span class="k">if</span><span class="w"> </span>!<span class="w"> </span>pgrep<span class="w"> </span>-x<span class="w"> </span>plumber<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nv">$PLAN9</span>/bin/plumber<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span>sleep<span class="w"> </span><span class="m">0</span>.5
+<span class="k">fi</span>
+cat<span class="w"> </span><span class="nv">$PLAN9</span>/plumb/basic<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nv">$PLAN9</span>/bin/9p<span class="w"> </span>write<span class="w"> </span>plumb/rules
+<span class="nv">SHELL</span><span class="o">=</span><span class="nv">$PLAN9</span>/bin/rc<span class="w"> </span><span class="nv">$PLAN9</span>/bin/acme<span class="w"> </span>-l<span class="w"> </span><span class="nv">$CONFIG_DIR</span>/editor/acme.dump<span class="w"> </span>-m<span class="w"> </span>/mnt/acme<span class="w"> </span>-f<span class="w"> </span>/mnt/font/RedHatMono-Regular/13a/font<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">&amp;</span>
+</pre></div>
+</div>
+<p>Key difference from the shell function:</p>
+<ul class="simple">
+<li><p>Uses <code class="docutils literal notranslate"><span class="pre">-l</span> <span class="pre">&lt;dump&gt;</span></code> to restore layout automatically</p></li>
+<li><p>Integrates better with graphical session startup</p></li>
+</ul>
+</section>
+<section id="desktop-entry">
+<h2>Desktop Entry<a class="headerlink" href="#desktop-entry" title="Link to this heading"></a></h2>
+<p>Acme is launched through a desktop entry similar to:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[Desktop Entry]</span>
+<span class="na">Name</span><span class="o">=</span><span class="s">Acme</span>
+<span class="na">Exec</span><span class="o">=</span><span class="s">/path/to/repo/scripts/launch-acme.sh</span>
+<span class="na">Type</span><span class="o">=</span><span class="s">Application</span>
+<span class="na">Categories</span><span class="o">=</span><span class="s">Development</span><span class="c1">;</span>
+</pre></div>
+</div>
+<p>This allows integration with application launchers and window managers.</p>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>This setup assumes a working Plan 9 from User Space environment.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fusermount</span></code> (or equivalent) must be available and properly configured.</p></li>
+<li><p>The mount points <code class="docutils literal notranslate"><span class="pre">/mnt/acme</span></code> and <code class="docutils literal notranslate"><span class="pre">/mnt/font</span></code> are recreated on each launch.</p></li>
+<li><p>The launch script is the authoritative entry point; the shell function is
+kept for reference and fallback usage.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="nvim/snippets.html" class="btn btn-neutral float-left" title="LuaSnip snippets Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vim.html" class="btn btn-neutral float-right" title="Vim" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, MnLCz.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
