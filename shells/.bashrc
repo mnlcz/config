@@ -9,7 +9,7 @@ fi
 [ -f ~/.profile ] && . ~/.profile
 
 # Custom prompt
-PROMPT_COLOR="\[\e[38;2;238;0;0m\]"   # RH red (true color)
+PROMPT_COLOR="\[\e[38;2;0;0;168m\]"   # CGA blue (true color)
 PROMPT_RESET="\[\e[0m\]"
 PS1="${PROMPT_COLOR}\u@\h${PROMPT_RESET}:\[\e[1m\]\w${PROMPT_RESET}\$ "
 
@@ -21,6 +21,9 @@ export MANPAGER='nvim +Man!'
 
 # bat theme
 export BAT_THEME="GitHub"
+
+# ls color for symlinks
+export LS_COLORS="${LS_COLORS/ln=01;36/ln=38;2;0;0;168}"
 
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --bash)"

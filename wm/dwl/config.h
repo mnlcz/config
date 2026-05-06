@@ -4,14 +4,14 @@
    ((hex >> 8) & 0xFF) / 255.0f, (hex & 0xFF) / 255.0f}
 /* appearance */
 static const int sloppyfocus = 1; /* focus follows mouse */
+static const unsigned int borderpx = 4;  // or even 6-8
 static const int bypass_surface_visibility =
     0; /* 1 means idle inhibitors will disable idle tracking even if it's
           surface isn't visible  */
-static const unsigned int borderpx = 1; /* border pixel of windows */
-static const float rootcolor[] = COLOR(0xf5f5f5ff);   // background/root
-static const float bordercolor[] = COLOR(0xddddddff); // unfocused border
-static const float focuscolor[] = COLOR(0xee0000ff);  // focused border (RH red)
-static const float urgentcolor[] = COLOR(0xff3b30ff); // urgent border
+static const float rootcolor[] =   COLOR(0xffffffff); // white root
+static const float bordercolor[] = COLOR(0x0000a8ff); // CGA blue unfocused
+static const float focuscolor[] = COLOR(0x0000a8ff);
+static const float urgentcolor[] = COLOR(0xa80000ff); // CGA red urgent
 /* This conforms to the xdg-protocol. Set the alpha to zero to restore the old
  * behavior */
 static const float fullscreen_bg[] = {0.0f, 0.0f, 0.0f,

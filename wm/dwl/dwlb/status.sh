@@ -21,6 +21,7 @@ get_clock() {
 }
 
 while true; do
-    dwlb -status HDMI-A-1 "^fg(ee0000)$(get_network)  $(get_memory)  $(get_layout)  $(get_clock)^fg()"
+    dwlb -status HDMI-A-1 "^fg(ffffff)$(get_memory)  $(get_layout)  $(get_clock)"
     sleep 1
 done
+
