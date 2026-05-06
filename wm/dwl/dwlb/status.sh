@@ -1,19 +1,16 @@
 #!/bin/sh
 
 get_layout() {
-    cat /tmp/dwl-layout 2>/dev/null || echo "LATAM"
-}
-
-get_network() {
-    if ip route show default 2>/dev/null | grep -q .; then
-        echo "󰈀"
+    LAYOUT="$(cat /tmp/dwl-layout 2>/dev/null)"
+    if [ $? -eq 0 ]; then
+        echo "Layout:$LAYOUT"
     else
-        echo "󰈁"
+        echo "Layout:LATAM"
     fi
 }
 
 get_memory() {
-    free -h | awk '/Mem:/ {print $3"/"$2}'
+    free -h | awk '/Mem:/ {print "Mem:"$3}'
 }
 
 get_clock() {
@@ -21,7 +18,6 @@ get_clock() {
 }
 
 while true; do
-    dwlb -status HDMI-A-1 "^fg(ffffff)$(get_memory)  $(get_layout)  $(get_clock)"
+    dwlb -status HDMI-A-1 "^fg(ffffff)$(get_clock)  $(get_memory)  $(get_layout)"
     sleep 1
 done
-
