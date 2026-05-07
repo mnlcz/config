@@ -1,3 +1,4 @@
+# OLD WAY OF LAUNCHING ACME. CHECK scripts/launch-acme.sh instead
 # Requires fusermount (or fusermount3 aliased) with user_allow_other uncommented in /etc/fuse.conf
 acme() {
     # clean stale mounts
@@ -7,9 +8,10 @@ acme() {
     # sudo chown $(whoami): /mnt/acme /mnt/font
 
     # start font server if not running
-    if ! pgrep -x fontsrv >/dev/null; then
+    if ! pgrep -x fontsrv > /dev/null; then
         fontsrv -m /mnt/font &
-        sleep 0.5
+        # Wait until font mount is ready
+        timeout 5 sh -c 'until ls /mnt/font/* 2>/dev/null | grep -q .; do sleep 0.1; done'
     fi
 
     export NAMESPACE=${NAMESPACE:-$($PLAN9/bin/namespace)}

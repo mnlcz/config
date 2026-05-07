@@ -5,7 +5,9 @@ fusermount -u /mnt/acme 2>/dev/null
 fusermount -u /mnt/font 2>/dev/null
 mkdir -p /mnt/acme /mnt/font
 if ! pgrep -x fontsrv > /dev/null; then
-    fontsrv -m /mnt/font & sleep 0.5
+    fontsrv -m /mnt/font &
+    # Wait until font mount is ready
+    timeout 5 sh -c 'until ls /mnt/font/* 2>/dev/null | grep -q .; do sleep 0.1; done'
 fi
 export NAMESPACE=${NAMESPACE:-$($PLAN9/bin/namespace)}
 if ! pgrep -x plumber > /dev/null; then
