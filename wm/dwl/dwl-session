@@ -2,8 +2,6 @@
 
 export XDG_SESSION_TYPE=wayland
 export XDG_CURRENT_DESKTOP=dwl
-export XCURSOR_THEME=TempleOS_Cursor
+export XCURSOR_THEME=TempleOS_Simple
 export XCURSOR_SIZE=32
-dbus-update-activation-environment --systemd XCURSOR_SIZE=32 XCURSOR_THEME=TempleOS_Cursor
-env >> /tmp/dwl-session-env.log
 exec dwl -s /home/mnlcz/Projects/config/wm/dwl/dwl-startup
