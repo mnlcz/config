@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Don't run during display manager session setup
+if [ -n "$XDG_SESSION_DESKTOP" ] && [ -z "$WAYLAND_DISPLAY" ] && [ -z "$DISPLAY" ]; then
+    exit 0
+fi
+
 OS=$(grep "^NAME=" /etc/os-release)
 
 if [ -n "$TMUX" ]; then
