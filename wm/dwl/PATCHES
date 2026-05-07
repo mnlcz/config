@@ -1,3 +1,4 @@
 floating-window-pos.patch
 foreign-toplevel-management.patch
 switchlayout.patch
+xcursor-env-vars.patch
