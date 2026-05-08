@@ -42,4 +42,8 @@ if ! tmux has-session -t 'code' 2>/dev/null; then
 fi
 
 tmux select-window -t main:1
-tmux attach-session -t main
+
+# Only attach if it's an interactive term
+if [ -t 1 ]; then
+    tmux attach-session -t main
+fi
