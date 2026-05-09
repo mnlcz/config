@@ -3,3 +3,4 @@ export PROJ="$HOME/Projects"
 export SCRIPTS="$HOME/Projects/scripts" # local system scripts
 export CSCRIPTS="$CONFIG_DIR/scripts" # config scripts
 export TEMPLATES="$CONFIG_DIR/templates"
+export TODO="$HOME/Downloads/todo.txt"
