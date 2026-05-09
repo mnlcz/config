@@ -9,6 +9,11 @@ get_layout() {
     fi
 }
 
+get_temp() {
+    temp=$(( $(cat /sys/class/thermal/thermal_zone2/temp) / 1000 ))
+    echo "Tmp:${temp}°C"
+}
+
 get_memory() {
     free -h | awk '/Mem:/ {print "Mem:"$3}'
 }
@@ -46,7 +51,7 @@ get_cpu() {
 get_title() {
     raw="$(cat /tmp/dwl-title 2>/dev/null | tr -d '\n')"
     [ -z "$raw" ] && raw="dwl"
-    max=12
+    max=11
     len=${#raw}
     if [ $len -le $max ]; then
         # center text within fixed width block
@@ -61,13 +66,13 @@ get_title() {
     echo "${padded:$offset:$max}"
 }
 
-CENTER_PAD=4
+CENTER_PAD=1
 offset=0
 toggle=0
 tick=0
 
 while true; do
-    left="^fg(ffffff)$(get_clock)  $(get_memory)  $(get_cpu)  $(get_volume)"
+    left="^fg(ffffff)$(get_clock)  $(get_memory)  $(get_temp)  $(get_cpu)  $(get_volume)"
     pad="$(printf '%*s' $CENTER_PAD '')"
 
     if [ $toggle -eq 0 ]; then
