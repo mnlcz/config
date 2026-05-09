@@ -6,6 +6,7 @@ fi
 
 alias bwu='eval "$($CONFIG_DIR/scripts/src/bw-unlock.php)"'
 alias bye='tmux kill-server && exit'
+alias ff='fastfetch -c $CONFIG_DIR/tools/fastfetch/small.jsonc'
 alias g='git'
 alias ga='git add'
 alias gb='git branch'
