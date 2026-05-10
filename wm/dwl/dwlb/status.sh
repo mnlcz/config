@@ -58,10 +58,10 @@ get_title() {
         left_pad=$(( total_pad / 2 ))
         right_pad=$(( total_pad - left_pad ))
         raw="$(printf "%${left_pad}s%s%${right_pad}s" "" "$raw" "")"
+        len=$max
     fi
-    # fixed cycle length = max + 3 = 15, independent of title length
     padded="${raw}   ${raw}"
-    echo "${padded:$(( offset % (max + 3) )):$max}"
+    echo "${padded:$(( offset % (len + 3) )):$max}"
 }
 
 CENTER_PAD=1
@@ -82,8 +82,7 @@ while true; do
 
     dwlb -status HDMI-A-1 "${left}${pad}${title_block}${pad}$(get_layout)"
 
-    # always advance offset with fixed cycle
-    offset=$(( (offset + 1) % 32767 ))
+    offset=$(( offset + 1 ))
 
     tick=$(( tick + 1 ))
     if [ $tick -ge 2 ]; then
