@@ -2,17 +2,19 @@
 
 COLORS=(
     -b
-    --fn "Red Hat Mono:style=Bold:size=13"
-    --tb "#f5f5f5" --tf "#ee0000"
-    --fb "#f5f5f5" --ff "#333333"
-    --cb "#f5f5f5" --cf "#333333"
-    --nb "#f5f5f5" --nf "#333333"
-    --hb "#ee0000" --hf "#f5f5f5"
-    --sb "#ee0000" --sf "#f5f5f5"
-    --ab "#eeeeee" --af "#333333"
-    --fbb "#f5f5f5" --fbf "#333333"
-    --scb "#f5f5f5" --scf "#ee0000"
-    --bdr "#ee0000"
+    --fn "TempleOS 11"
+	--hp 15
+	--line-height 20
+    --tb "#0000a8" --tf "#ffff57"
+    --fb "#0000a8" --ff "#ffffff"
+    --cb "#0000a8" --cf "#ffffff"
+    --nb "#0000a8" --nf "#ffffff"
+    --hb "#ffff57" --hf "#0000a8"
+    --sb "#ffff57" --sf "#0000a8"
+    --ab "#0000a8" --af "#ffffff"
+    --fbb "#0000a8" --fbf "#ffffff"
+    --scb "#0000a8" --scf "#ffff57"
+    --bdr "#ffff57"
 )
 
 case "$(basename $0)" in
