@@ -22,8 +22,12 @@ export MANPAGER='nvim +Man!'
 # bat theme
 export BAT_THEME="GitHub"
 
-# ls color for symlinks
-export LS_COLORS="${LS_COLORS/ln=01;36/ln=38;2;0;0;168}"
+# ls colors for white background
+export LS_COLORS="${LS_COLORS/di=01;34/di=38;2;0;0;168}"      # directories: CGA blue
+export LS_COLORS="${LS_COLORS/ln=01;36/ln=38;2;0;0;168}"      # symlinks: CGA blue
+export LS_COLORS="${LS_COLORS/ex=01;32/ex=38;2;0;128;0}"      # executables: dark green
+export LS_COLORS="${LS_COLORS/01;36/38;2;0;0;168}"            # audio/cyan items: CGA blue
+export LS_COLORS="${LS_COLORS/01;35/38;2;128;0;128}"          # images/magenta: dark magenta
 
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --bash)"
