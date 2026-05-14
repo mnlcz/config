@@ -40,7 +40,7 @@ get_volume() {
 }
 
 get_media() {
-    if playerctl -p spotify status 2>/dev/null | grep -q "Playing\|Paused"; then
+    if playerctl -p spotify status 2>/dev/null | grep -q "Playing"; then
         artist=$(playerctl -p spotify metadata artist 2>/dev/null)
         title=$(playerctl -p spotify metadata title 2>/dev/null)
         raw="${title} - ${artist}"
