@@ -4,9 +4,9 @@ local function ensure_php_cs_fixer_config()
 	local config_file = root .. "/.php-cs-fixer.dist.php"
 
 	if vim.fn.filereadable(config_file) == 0 then
-		local templates_dir = vim.fn.getenv("CONFIG_DIR")
+		local templates_dir = vim.fn.getenv("CONF")
 		if templates_dir == vim.NIL or templates_dir == "" then
-			vim.notify("CONFIG_DIR environment variable not set", vim.log.levels.WARN)
+			vim.notify("CONF environment variable not set", vim.log.levels.WARN)
 			return
 		end
 

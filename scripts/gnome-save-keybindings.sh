@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DIR="$CONFIG_DIR/wm/mutter"
+DIR="$CONF/wm/mutter"
 
 dconf dump /org/gnome/desktop/wm/keybindings/ > "$DIR/wm-keybindings.conf"
 dconf dump /org/gnome/shell/keybindings/ > "$DIR/shell-keybindings.conf"

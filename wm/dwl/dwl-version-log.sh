@@ -1,5 +1,5 @@
 #!/bin/sh
-VERSIONS_FILE="$CONFIG_DIR/wm/dwl/VERSIONS"
+VERSIONS_FILE="$CONF/wm/dwl/VERSIONS"
 
 meson_version() {
     grep "version:" "$1/meson.build" | head -n1 | grep -o "'[^']*'" | tr -d "'"

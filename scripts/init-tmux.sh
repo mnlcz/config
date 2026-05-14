@@ -18,7 +18,7 @@ fi
 # Create main session if it doesn't exist
 if ! tmux has-session -t 'main' 2>/dev/null; then
     tmux new-session -d -s 'main'
-    tmux send-keys -t main 'cd ~ ; clear ; fastfetch -c $CONFIG_DIR/tools/fastfetch/medium.jsonc ; $CONFIG_DIR/scripts/src/updates.php' Enter
+    tmux send-keys -t main 'cd ~ ; clear ; fastfetch -c $CONF/tools/fastfetch/medium.jsonc ; $CONF/scripts/src/updates.php' Enter
     tmux new-window -t main -n "ssh"
     tmux new-window -t main -n 'podman'
     tmux send-keys -t main:podman 'cd $PROJ ; clear ; podman ps -a' Enter
