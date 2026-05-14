@@ -4,12 +4,19 @@
    ((hex >> 8) & 0xFF) / 255.0f, (hex & 0xFF) / 255.0f}
 /* appearance */
 static const int sloppyfocus = 1; /* focus follows mouse */
-static const unsigned int borderpx = 4;  // or even 6-8
+
+/* borders */
+#define BORDERLINE 3
+#define BORDERGAP  4
+static const unsigned int borderline = BORDERLINE; /* thickness of each individual line */
+static const unsigned int bordergap  = BORDERGAP; /* gap between outer and inner line */
+static const unsigned int borderpx   = 2 * BORDERLINE + BORDERGAP;
+static const float bordercolor[] = COLOR(0x0000a8ff); // CGA blue unfocused
+
 static const int bypass_surface_visibility =
     0; /* 1 means idle inhibitors will disable idle tracking even if it's
           surface isn't visible  */
 static const float rootcolor[] =   COLOR(0xffffffff); // white root
-static const float bordercolor[] = COLOR(0x0000a8ff); // CGA blue unfocused
 static const float focuscolor[] = COLOR(0x0000a8ff);
 static const float urgentcolor[] = COLOR(0xa80000ff); // CGA red urgent
 /* This conforms to the xdg-protocol. Set the alpha to zero to restore the old
