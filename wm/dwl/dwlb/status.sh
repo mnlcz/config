@@ -18,6 +18,15 @@ get_memory() {
     free -h | awk '/Mem:/ {print "Mem:"$3}'
 }
 
+get_network() {
+    state=$(cat /sys/class/net/enp3s0/operstate 2>/dev/null)
+    if [ "$state" = "up" ]; then
+        echo "Net:Up"
+    else
+        echo "Net:Down"
+    fi
+}
+
 get_disk() {
     df /home --output=pcent | awk 'NR==2 {gsub(/%/,""); printf "Dsk:%02d%%", $1}'
 }
@@ -107,7 +116,7 @@ while true; do
     fi
     title_block="${title_block}^bg()^fg(ffffff)"
 
-    dwlb -status HDMI-A-1 "${left}${pad}${title_block}${pad}$(get_layout)  $(get_volume)  $(get_media)"
+    dwlb -status HDMI-A-1 "${left}${pad}${title_block}${pad}$(get_layout)  $(get_volume)  $(get_network)  $(get_media)"
 
     offset=$(( offset + 1 ))
     media_offset=$(( media_offset + 1 ))
