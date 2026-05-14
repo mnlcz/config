@@ -45,7 +45,8 @@ get_media() {
         title=$(playerctl -p spotify metadata title 2>/dev/null)
         raw="${title} - ${artist}"
     else
-        raw="<nothing>"
+        echo "Spt:<nothing>"
+        return
     fi
 
     max=30
