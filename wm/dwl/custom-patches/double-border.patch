@@ -1,4 +1,4 @@
-From 1a2694168fe682d2f1218aebe521766c69a33e12 Mon Sep 17 00:00:00 2001
+From d4db1b87886335252ab27bbd67e033205cd97a71 Mon Sep 17 00:00:00 2001
 From: mnlcz <mnlcz@tuta.io>
 Date: Wed, 13 May 2026 22:33:08 -0300
 Subject: [PATCH] Add double-line window borders
@@ -6,8 +6,8 @@ Subject: [PATCH] Add double-line window borders
 Replace single border rectangles with two border lines separated by a transparent gap, inspired by TempleOS window styling
 ---
  client.h |  2 +-
- dwl.c    | 31 ++++++++++++++++++++++---------
- 2 files changed, 23 insertions(+), 10 deletions(-)
+ dwl.c    | 37 ++++++++++++++++++++++++++++---------
+ 2 files changed, 29 insertions(+), 10 deletions(-)
 
 diff --git a/client.h b/client.h
 index 42f225f..b246baa 100644
@@ -23,7 +23,7 @@ index 42f225f..b246baa 100644
  }
  
 diff --git a/dwl.c b/dwl.c
-index e30e43b..30dc03c 100644
+index e30e43b..3d740c3 100644
 --- a/dwl.c
 +++ b/dwl.c
 @@ -111,7 +111,7 @@ typedef struct {
@@ -44,7 +44,7 @@ index e30e43b..30dc03c 100644
  		c->border[i] = wlr_scene_rect_create(c->scene, 0, 0,
  				c->isurgent ? urgentcolor : bordercolor);
  		c->border[i]->node.data = c;
-@@ -2236,13 +2236,26 @@ resize(Client *c, struct wlr_box geo, int interact)
+@@ -2236,13 +2236,32 @@ resize(Client *c, struct wlr_box geo, int interact)
  	/* Update scene-graph, including borders */
  	wlr_scene_node_set_position(&c->scene->node, c->geom.x, c->geom.y);
  	wlr_scene_node_set_position(&c->scene_surface->node, c->bw, c->bw);
@@ -56,25 +56,31 @@ index e30e43b..30dc03c 100644
 -	wlr_scene_node_set_position(&c->border[2]->node, 0, c->bw);
 -	wlr_scene_node_set_position(&c->border[3]->node, c->geom.width - c->bw, c->bw);
 +
-+	/* outer border: border[0..3] */
-+	wlr_scene_rect_set_size(c->border[0], c->geom.width, borderline);
-+	wlr_scene_rect_set_size(c->border[1], c->geom.width, borderline);
-+	wlr_scene_rect_set_size(c->border[2], borderline, c->geom.height - 2 * borderline);
-+	wlr_scene_rect_set_size(c->border[3], borderline, c->geom.height - 2 * borderline);
-+	wlr_scene_node_set_position(&c->border[1]->node, 0, c->geom.height - borderline);
-+	wlr_scene_node_set_position(&c->border[2]->node, 0, borderline);
-+	wlr_scene_node_set_position(&c->border[3]->node, c->geom.width - borderline, borderline);
++	if (c->bw > 0) {
++		/* outer border: border[0..3] */
++		wlr_scene_rect_set_size(c->border[0], c->geom.width, borderline);
++		wlr_scene_rect_set_size(c->border[1], c->geom.width, borderline);
++		wlr_scene_rect_set_size(c->border[2], borderline, c->geom.height - 2 * borderline);
++		wlr_scene_rect_set_size(c->border[3], borderline, c->geom.height - 2 * borderline);
++		wlr_scene_node_set_position(&c->border[1]->node, 0, c->geom.height - borderline);
++		wlr_scene_node_set_position(&c->border[2]->node, 0, borderline);
++		wlr_scene_node_set_position(&c->border[3]->node, c->geom.width - borderline, borderline);
 +
-+	/* inner border: border[4..7], inset by borderline + gap (1px) */
-+	int inset = borderline + bordergap;
-+	wlr_scene_rect_set_size(c->border[4], c->geom.width - 2 * inset, borderline);
-+	wlr_scene_rect_set_size(c->border[5], c->geom.width - 2 * inset, borderline);
-+	wlr_scene_rect_set_size(c->border[6], borderline, c->geom.height - 2 * (inset + borderline));
-+	wlr_scene_rect_set_size(c->border[7], borderline, c->geom.height - 2 * (inset + borderline));
-+	wlr_scene_node_set_position(&c->border[4]->node, inset, inset);
-+	wlr_scene_node_set_position(&c->border[5]->node, inset, c->geom.height - inset - borderline);
-+	wlr_scene_node_set_position(&c->border[6]->node, inset, inset + borderline);
-+	wlr_scene_node_set_position(&c->border[7]->node, c->geom.width - inset - borderline, inset + borderline);
++		/* inner border: border[4..7], inset by borderline + bordergap */
++		int inset = borderline + bordergap;
++		wlr_scene_rect_set_size(c->border[4], c->geom.width - 2 * inset, borderline);
++		wlr_scene_rect_set_size(c->border[5], c->geom.width - 2 * inset, borderline);
++		wlr_scene_rect_set_size(c->border[6], borderline, c->geom.height - 2 * (inset + borderline));
++		wlr_scene_rect_set_size(c->border[7], borderline, c->geom.height - 2 * (inset + borderline));
++		wlr_scene_node_set_position(&c->border[4]->node, inset, inset);
++		wlr_scene_node_set_position(&c->border[5]->node, inset, c->geom.height - inset - borderline);
++		wlr_scene_node_set_position(&c->border[6]->node, inset, inset + borderline);
++		wlr_scene_node_set_position(&c->border[7]->node, c->geom.width - inset - borderline, inset + borderline);
++	} else {
++		int i;
++		for (i = 0; i < 8; i++)
++			wlr_scene_rect_set_size(c->border[i], 0, 0);
++	}
  
  	/* this is a no-op if size hasn't changed */
  	c->resize = client_set_size(c, c->geom.width - 2 * c->bw,
