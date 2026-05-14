@@ -1,0 +1,37 @@
+From 1920de45a13518bb8bdc381f02dfcc41495f76c8 Mon Sep 17 00:00:00 2001
+From: mnlcz <mnlcz@tuta.io>
+Date: Thu, 14 May 2026 00:36:29 -0300
+Subject: [PATCH] Add font fallback support
+
+---
+ dwlb.c | 14 +++++++++++++-
+ 1 file changed, 13 insertions(+), 1 deletion(-)
+
+diff --git a/dwlb.c b/dwlb.c
+index 84ce2d3..6541d3e 100644
+--- a/dwlb.c
++++ b/dwlb.c
+@@ -1923,7 +1923,19 @@ main(int argc, char **argv)
+ 	unsigned int dpi = 96 * buffer_scale;
+ 	char buf[10];
+ 	snprintf(buf, sizeof buf, "dpi=%u", dpi);
+-	if (!(font = fcft_from_name(1, (const char *[]) {fontstr}, buf)))
++
++	/* split fontstr on ',' to support fallback fonts */
++	char fontstr_copy[512];
++	strncpy(fontstr_copy, fontstr, sizeof fontstr_copy - 1);
++	fontstr_copy[sizeof fontstr_copy - 1] = '\0';
++	const char *fonts[8];
++	unsigned int nfonts = 0;
++	char *tok = strtok(fontstr_copy, ",");
++	while (tok && nfonts < 8) {
++		fonts[nfonts++] = tok;
++		tok = strtok(NULL, ",");
++	}
++	if (!(font = fcft_from_name(nfonts, fonts, buf)))
+ 		DIE("Could not load font");
+ 	textpadding = font->height / 2;
+ 	height = font->height / buffer_scale + vertical_padding * 2;
+-- 
+2.47.3
+

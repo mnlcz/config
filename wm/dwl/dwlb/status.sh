@@ -18,12 +18,38 @@ get_memory() {
     free -h | awk '/Mem:/ {print "Mem:"$3}'
 }
 
+get_disk() {
+    df /home --output=pcent | awk 'NR==2 {gsub(/%/,""); printf "Dsk:%02d%%", $1}'
+}
+
 get_clock() {
     date '+%a %d/%m %H:%M'
 }
 
 get_volume() {
     amixer sget Master | awk -F"[][]" '/Left:/ {print "Vol:"$2}'
+}
+
+get_media() {
+    if playerctl -p spotify status 2>/dev/null | grep -q "Playing\|Paused"; then
+        artist=$(playerctl -p spotify metadata artist 2>/dev/null)
+        title=$(playerctl -p spotify metadata title 2>/dev/null)
+        raw="${title} - ${artist}"
+    else
+        raw="<nothing>"
+    fi
+
+    max=30
+    len=${#raw}
+    if [ $len -lt $max ]; then
+        total_pad=$(( max - len ))
+        left_pad=$(( total_pad / 2 ))
+        right_pad=$(( total_pad - left_pad ))
+        raw="$(printf "%${left_pad}s%s%${right_pad}s" "" "$raw" "")"
+        len=$max
+    fi
+    padded="${raw}   ${raw}"
+    echo "Spt:${padded:$(( media_offset % (len + 3) )):$max}"
 }
 
 get_cpu() {
@@ -66,11 +92,12 @@ get_title() {
 
 CENTER_PAD=1
 offset=0
+media_offset=0
 toggle=0
 tick=0
 
 while true; do
-    left="^fg(ffffff)$(get_clock)  $(get_memory)  $(get_temp)  $(get_cpu)  $(get_volume)"
+    left="^fg(ffffff)$(get_clock)  $(get_memory)  $(get_temp)  $(get_cpu)  $(get_disk)"
     pad="$(printf '%*s' $CENTER_PAD '')"
 
     if [ $toggle -eq 0 ]; then
@@ -80,9 +107,10 @@ while true; do
     fi
     title_block="${title_block}^bg()^fg(ffffff)"
 
-    dwlb -status HDMI-A-1 "${left}${pad}${title_block}${pad}$(get_layout)"
+    dwlb -status HDMI-A-1 "${left}${pad}${title_block}${pad}$(get_layout)  $(get_volume)  $(get_media)"
 
     offset=$(( offset + 1 ))
+    media_offset=$(( media_offset + 1 ))
 
     tick=$(( tick + 1 ))
     if [ $tick -ge 2 ]; then
