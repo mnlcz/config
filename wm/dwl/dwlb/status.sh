@@ -3,7 +3,7 @@
 get_layout() {
     LAYOUT="$(cat /tmp/dwl-layout 2>/dev/null)"
     if [ $? -eq 0 ]; then
-        echo "Layout:$LAYOUT"
+        echo "Lyt:$LAYOUT"
     else
         echo "Lyt:LATAM"
     fi
