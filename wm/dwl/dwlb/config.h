@@ -27,7 +27,7 @@ static uint32_t buffer_scale = 1;
 // font
 static char *fontstr = "TempleOS:size=11,Noto Sans Mono:weight=bold:size=14";
 // tag names
-static char *tags_names[] = {"B", "T", "A", "S", "F", "6", "7", "8", "9"};
+static char *tags_names[] = {"B", "T", "A", "S", "F", "K", "7", "8", "9"};
 
 // set 16-bit colors for bar
 // use either pixman_color_t struct or HEX_COLOR macro for 8-bit colors
