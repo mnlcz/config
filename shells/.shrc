@@ -1,0 +1,11 @@
+# Source aliases
+[ -f "$HOME/.shrc.d/aliases.sh" ] && . "$HOME/.shrc.d/aliases.sh"
+
+# Prompt
+PS1="\u@\h:\w \\$ "
+
+# bat theme
+export BAT_THEME="GitHub"
+
+# fzf
+# eval "$(fzf --bash)"

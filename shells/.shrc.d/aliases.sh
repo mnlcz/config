@@ -1,10 +1,7 @@
-OS=$(cat /etc/os-release | grep "^NAME=")
-
-if [[ "$OS" == *"Vanilla OS"* ]]; then
-	alias bat='batcat'
+OS=$(uname)
+if [ "$OS" = "FreeBSD" ]; then
+    alias v='vise'
 fi
-
-alias bwu='eval "$($CONF/scripts/src/bw-unlock.php)"'
 alias bye='tmux kill-server && exit'
 alias ff='fastfetch -c $CONF/tools/fastfetch/small.jsonc'
 alias g='git'
@@ -17,6 +14,5 @@ alias gl='git log --oneline --graph --decorate'
 alias gp='git push'
 alias gpull='git pull'
 alias gs='git status'
-alias kate='flatpak run org.kde.kate'
+alias ll='ls -laFoh'
 alias py='python3'
-alias v='nvim'
