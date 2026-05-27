@@ -1,0 +1,8 @@
+#!/bin/sh
+cd /usr/ports/x11-wm/dwl
+doas make deinstall
+doas make clean
+doas make install clean \
+    DWL_CONF=/home/mnlcz/Projects/config/wm/dwl/config.h \
+    DWL_PATCHES='/home/mnlcz/Projects/config/wm/dwl/external-patches/foreign-toplevel-management-dwl08.patch:-p1 /home/mnlcz/Projects/config/wm/dwl/custom-patches/double-border.patch:-p1 /home/mnlcz/Projects/config/wm/dwl/custom-patches/floating-window-pos.patch:-p1 /home/mnlcz/Projects/config/wm/dwl/custom-patches/switchlayout.patch:-p1 /home/mnlcz/Projects/config/wm/dwl/custom-patches/title-expose.patch:-p1 /home/mnlcz/Projects/config/wm/dwl/custom-patches/xcursor-env-vars.patch:-p1'
+doas ln -sf /home/mnlcz/Projects/config/wm/dwl/dwl.desktop /usr/local/share/wayland-sessions/dwl.desktop

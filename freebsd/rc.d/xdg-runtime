@@ -1,0 +1,20 @@
+#!/bin/sh
+# PROVIDE: xdg_runtime
+# REQUIRE: DAEMON
+# BEFORE: seatd
+
+. /etc/rc.subr
+
+name="xdg_runtime"
+rcvar="xdg_runtime_enable"
+start_cmd="xdg_runtime_start"
+
+xdg_runtime_start()
+{
+    mkdir -p /var/run/user/1001
+    chown mnlcz:mnlcz /var/run/user/1001
+    chmod 700 /var/run/user/1001
+}
+
+load_rc_config $name
+run_rc_command "$1"

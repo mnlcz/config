@@ -1,0 +1,5 @@
+#!/bin/sh
+cd /usr/ports/x11/dwlb
+doas make reinstall clean \
+    DWLB_CONF=/home/mnlcz/Projects/config/wm/dwl/dwlb/config.h \
+    DWLB_PATCHES='/home/mnlcz/Projects/config/wm/dwl/dwlb/custom-patches/no-flicker.patch:-p1 /home/mnlcz/Projects/config/wm/dwl/dwlb/custom-patches/font-fallback.patch:-p1 /home/mnlcz/Projects/config/wm/dwl/dwlb/custom-patches/tags-on-the-right.patch:-p1'

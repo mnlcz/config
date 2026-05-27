@@ -1,0 +1,5 @@
+#!/bin/sh
+unit=$(cat /dev/sndstat | grep -i "G435" | grep -o "pcm[0-9]*" | grep -o "[0-9]*")
+if [ -n "$unit" ]; then
+    sysctl hw.snd.default_unit=$unit
+fi
