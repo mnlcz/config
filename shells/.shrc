@@ -1,5 +1,7 @@
-# Source aliases
-[ -f "$HOME/.shrc.d/aliases.sh" ] && . "$HOME/.shrc.d/aliases.sh"
+# source
+for rc in "$HOME/.shrc.d/0dirs.sh" "$HOME/.shrc.d/aliases.sh" "$HOME/.shrc.d/dev.sh"; do
+    [ -f "$rc" ] && . "$rc"
+done
 
 # Prompt
 PS1="\u@\h:\w \\$ "
