@@ -1,7 +1,7 @@
 #!/bin/sh
-
+export XDG_RUNTIME_DIR=/var/run/user/$(id -u)
 export XDG_SESSION_TYPE=wayland
 export XDG_CURRENT_DESKTOP=dwl
 export XCURSOR_THEME=TempleOS_Simple
 export XCURSOR_SIZE=32
-exec dwl -s /home/mnlcz/Projects/config/wm/dwl/dwl-startup
+exec dbus-launch --exit-with-session dwl -s /home/mnlcz/Projects/config/wm/dwl/dwl-startup
