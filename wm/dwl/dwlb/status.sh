@@ -10,17 +10,30 @@ get_layout() {
 }
 
 get_temp() {
-    temp=$(( $(cat /sys/class/thermal/thermal_zone2/temp) / 1000 ))
+    temp=$(sysctl -n hw.acpi.thermal.tz0.temperature | tr -d 'C')
     echo "Tmp:${temp}°C"
 }
 
 get_memory() {
-    free -h | awk '/Mem:/ {print "Mem:"$3}'
+    total=$(sysctl -n hw.physmem)
+    inactive=$(sysctl -n vm.stats.vm.v_inactive_count)
+    cache=$(sysctl -n vm.stats.vm.v_cache_count)
+    free=$(sysctl -n vm.stats.vm.v_free_count)
+    pagesize=$(sysctl -n hw.pagesize)
+
+    used=$(( (total - (inactive + cache + free) * pagesize) / 1024 / 1024 ))
+    total_mb=$(( total / 1024 / 1024 ))
+
+    if [ $used -ge 1024 ]; then
+        echo "Mem:$(( used / 1024 ))G"
+    else
+        echo "Mem:${used}M"
+    fi
 }
 
 get_network() {
-    state=$(cat /sys/class/net/enp3s0/operstate 2>/dev/null)
-    if [ "$state" = "up" ]; then
+    state=$(ifconfig re0 | grep -c "status: active")
+    if [ "$state" -gt 0 ]; then
         echo "Net:Up"
     else
         echo "Net:Down"
@@ -28,7 +41,8 @@ get_network() {
 }
 
 get_disk() {
-    df /home --output=pcent | awk 'NR==2 {gsub(/%/,""); printf "Dsk:%02d%%", $1}'
+    pct=$(df /home | awk 'NR==2 {gsub(/%/,""); print $5}')
+    printf "Dsk:%02d%%\n" "$pct"
 }
 
 get_clock() {
@@ -36,7 +50,9 @@ get_clock() {
 }
 
 get_volume() {
-    amixer sget Master | awk -F"[][]" '/Left:/ {print "Vol:"$2}'
+    val=$(mixer -f /dev/mixer7 vol.volume | awk -F= '{print $2}' | cut -d: -f1)
+    pct=$(printf "%.0f" $(echo "$val * 100" | bc))
+    echo "Vol:${pct}%"
 }
 
 get_media() {
@@ -59,28 +75,30 @@ get_media() {
         len=$max
     fi
     padded="${raw}   ${raw}"
-    echo "Spt:${padded:$(( media_offset % (len + 3) )):$max}"
+    start=$(( media_offset % (len + 3) + 1 ))
+    echo "Spt:$(echo "$padded" | awk -v s=$start -v l=$max '{print substr($0, s, l)}')"
 }
 
 get_cpu() {
-    read1=$(awk '/^cpu / {print $2,$3,$4,$5,$6,$7,$8,$9}' /proc/stat)
+    read1=$(sysctl -n kern.cp_time)
     sleep 0.1
-    read2=$(awk '/^cpu / {print $2,$3,$4,$5,$6,$7,$8,$9}' /proc/stat)
+    read2=$(sysctl -n kern.cp_time)
 
     user=$(echo $read1 | cut -d' ' -f1)
     nice=$(echo $read1 | cut -d' ' -f2)
     system=$(echo $read1 | cut -d' ' -f3)
-    idle=$(echo $read1 | cut -d' ' -f4)
+    idle=$(echo $read1 | cut -d' ' -f5)
 
     user2=$(echo $read2 | cut -d' ' -f1)
     nice2=$(echo $read2 | cut -d' ' -f2)
     system2=$(echo $read2 | cut -d' ' -f3)
-    idle2=$(echo $read2 | cut -d' ' -f4)
+    idle2=$(echo $read2 | cut -d' ' -f5)
 
     total=$(( user + nice + system + idle ))
     total2=$(( user2 + nice2 + system2 + idle2 ))
     dtotal=$(( total2 - total ))
-    dused=$(( (user2+nice2+system2) - (user+nice+system) ))
+    dused=$(( (user2 + nice2 + system2) - (user + nice + system) ))
+
     echo "Cpu:$(printf '%03d' $(( dused * 100 / dtotal )))%"
 }
 
@@ -97,7 +115,8 @@ get_title() {
         len=$max
     fi
     padded="${raw}   ${raw}"
-    echo "${padded:$(( offset % (len + 3) )):$max}"
+    start=$(( offset % (len + 3) + 1 ))
+    echo "$padded" | awk -v s=$start -v l=$max '{print substr($0, s, l)}'
 }
 
 CENTER_PAD=1
