@@ -1,0 +1,5 @@
+# Device		Mountpoint	FStype	Options		Dump	Pass#
+/dev/ada3p2		none	swap	sw		0	0
+/dev/ada2p2		/mnt/windows	ntfs	rw,mountprog=/usr/local/bin/ntfs-3g,late	0	0
+/dev/ada0p1		/mnt/hdd1	ntfs	rw,mountprog=/usr/local/bin/ntfs-3g,late	0	0
+/dev/ada1s1		/mnt/hdd2	ntfs	rw,mountprog=/usr/local/bin/ntfs-3g,late	0	0
