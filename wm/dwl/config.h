@@ -40,7 +40,7 @@ static const Rule rules[] = {
     {"foot",           				NULL,    1 << 1,    0,          -1,       0,   0},
     {"acme",           				NULL,    1 << 2,    0,          -1,       0,   0},
     {"spotify",        				NULL,    1 << 3,    0,          -1,       0,   0},
-    {"org.gnome.Nautilus", 		    NULL, 	 1 << 4,    0,          -1,       0,   0},
+    {"thunar",           		    NULL, 	 1 << 4,    0,          -1,       0,   0},
 	{"org.keepassxc.KeePassXC",		NULL,	 1 << 5,	0,			-1,		  0,   0},
     {"mpv",            				NULL,    0,         1,          -1,      -1,  -1}, /* floating, centered */
 };
