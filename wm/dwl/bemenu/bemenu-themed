@@ -1,23 +1,21 @@
-#!/bin/bash
+#!/bin/sh
 
-COLORS=(
-    -b
-    --fn "TempleOS 11"
-	--hp 15
-	--line-height 20
-    --tb "#0000a8" --tf "#ffff57"
-    --fb "#0000a8" --ff "#ffffff"
-    --cb "#0000a8" --cf "#ffffff"
-    --nb "#0000a8" --nf "#ffffff"
-    --hb "#ffff57" --hf "#0000a8"
-    --sb "#ffff57" --sf "#0000a8"
-    --ab "#0000a8" --af "#ffffff"
-    --fbb "#0000a8" --fbf "#ffffff"
-    --scb "#0000a8" --scf "#ffff57"
-    --bdr "#ffff57"
-)
+COLORS="-b \
+    --fn 'TempleOS 11' \
+    --hp 15 \
+    --line-height 20 \
+    --tb '#0000a8' --tf '#ffff57' \
+    --fb '#0000a8' --ff '#ffffff' \
+    --cb '#0000a8' --cf '#ffffff' \
+    --nb '#0000a8' --nf '#ffffff' \
+    --hb '#ffff57' --hf '#0000a8' \
+    --sb '#ffff57' --sf '#0000a8' \
+    --ab '#0000a8' --af '#ffffff' \
+    --fbb '#0000a8' --fbf '#ffffff' \
+    --scb '#0000a8' --scf '#ffff57' \
+    --bdr '#ffff57'"
 
 case "$(basename $0)" in
-    bemenu-run-themed) exec bemenu-run "${COLORS[@]}" "$@" ;;
-    *)                 exec bemenu "${COLORS[@]}" "$@" ;;
+    bemenu-run-themed) eval exec bemenu-run $COLORS "$@" ;;
+    *)                 eval exec bemenu $COLORS "$@" ;;
 esac
