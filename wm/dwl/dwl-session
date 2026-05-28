@@ -4,7 +4,7 @@ export XDG_SESSION_TYPE=wayland
 export XDG_CURRENT_DESKTOP=dwl
 export GTK_THEME=TempleOS
 export GTK_ICON_THEME=TempleOS
-export GTK_FONT_NAME="TempleOS 11"
+export GTK_FONT_NAME="TempleOS Composite 11"
 export XCURSOR_THEME=TempleOS_Cursor
 export XCURSOR_SIZE=32
 exec dbus-launch --exit-with-session dwl -s /home/mnlcz/Projects/config/wm/dwl/dwl-startup

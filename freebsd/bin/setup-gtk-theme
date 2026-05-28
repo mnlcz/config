@@ -6,7 +6,8 @@
 
 gsettings set org.gnome.desktop.interface gtk-theme 'TempleOS'
 gsettings set org.gnome.desktop.interface icon-theme 'TempleOS'
-gsettings set org.gnome.desktop.interface font-name 'TempleOS 10'
+gsettings set org.gnome.desktop.interface font-name 'TempleOS Composite 10'
+gsettings set org.gnome.desktop.interface monospace-font-name 'TempleOS Composite 10'
 gsettings set org.gnome.desktop.interface cursor-theme 'TempleOS_Cursor'
 gsettings set org.gnome.desktop.interface cursor-size 32
 
@@ -14,3 +15,6 @@ echo "GTK theme settings applied."
 gsettings get org.gnome.desktop.interface gtk-theme
 gsettings get org.gnome.desktop.interface icon-theme
 gsettings get org.gnome.desktop.interface font-name
+gsettings get org.gnome.desktop.interface monospace-font-name
+gsettings get org.gnome.desktop.interface cursor-theme
+gsettings get org.gnome.desktop.interface cursor-size

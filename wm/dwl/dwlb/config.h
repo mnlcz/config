@@ -25,7 +25,7 @@ static bool active_color_title = false;
 // scale
 static uint32_t buffer_scale = 1;
 // font
-static char *fontstr = "TempleOS:size=11,GeistMono Nerd Font:size=14";
+static char *fontstr = "TempleOS Composite:size=11,GeistMono Nerd Font:size=14";
 // tag names
 static char *tags_names[] = {"B", "T", "A", "S", "F", "K", "7", "8", "9"};
 
