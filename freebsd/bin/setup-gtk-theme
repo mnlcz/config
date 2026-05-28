@@ -1,0 +1,16 @@
+#!/bin/sh
+# One-time GTK theme setup via gsettings.
+# Run this after a fresh install if Thunar or other GTK apps
+# aren't picking up the icon/font theme despite GTK_THEME being set.
+# Writes to dconf, persists across reboots.
+
+gsettings set org.gnome.desktop.interface gtk-theme 'TempleOS'
+gsettings set org.gnome.desktop.interface icon-theme 'TempleOS'
+gsettings set org.gnome.desktop.interface font-name 'TempleOS 10'
+gsettings set org.gnome.desktop.interface cursor-theme 'TempleOS_Cursor'
+gsettings set org.gnome.desktop.interface cursor-size 32
+
+echo "GTK theme settings applied."
+gsettings get org.gnome.desktop.interface gtk-theme
+gsettings get org.gnome.desktop.interface icon-theme
+gsettings get org.gnome.desktop.interface font-name
