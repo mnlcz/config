@@ -4,7 +4,7 @@ export PATH
 
 # Default tools
 EDITOR=vise; export EDITOR
-PAGER=less; export PAGER
+MANPAGER="less -R --use-color -Dd+r -Du+b"; export MANPAGER
 
 # Interactive shell config
 ENV="$HOME/.shrc"; export ENV
