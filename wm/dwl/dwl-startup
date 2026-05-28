@@ -1,7 +1,5 @@
 #!/bin/sh
-echo "LATAM" > /tmp/dwl-layout
-export XCURSOR_THEME=TempleOS_Simple
-export XCURSOR_SIZE=32
+echo "LAT" > /tmp/dwl-layout
 mako &
 wl-paste --watch cliphist store &
 wl-paste --watch xsel --primary --input &
