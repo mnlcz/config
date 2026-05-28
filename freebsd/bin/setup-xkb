@@ -1,0 +1,53 @@
+#!/bin/sh
+# Register custom XKB option for nodead_circumflex_grave.
+# Run after xkeyboard-config package updates, as those files get overwritten.
+# The actual symbols are in $CONF/wm/dwl/xkb/custom -> /usr/local/share/X11/xkb/symbols/custom
+
+XKB=/usr/local/share/X11/xkb
+
+# Install symbols file
+cp "$CONF/wm/dwl/xkb/custom" "$XKB/symbols/custom"
+
+# Add to evdev rules (symbols section)
+if ! grep -q "nodead_circumflex_grave" "$XKB/rules/evdev"; then
+    python3 -c "
+with open('$XKB/rules/evdev', 'r') as f:
+    lines = f.readlines()
+for i, line in enumerate(lines):
+    if '! option' in line and '= symbols' in line:
+        lines.insert(i+1, '  custom:nodead_circumflex_grave  =       +custom(nodead_circumflex_grave)\n')
+        break
+with open('$XKB/rules/evdev', 'w') as f:
+    f.writelines(lines)
+"
+fi
+
+# Add to evdev.lst
+if ! grep -q "nodead_circumflex_grave" "$XKB/rules/evdev.lst"; then
+    python3 -c "
+with open('$XKB/rules/evdev.lst', 'r') as f:
+    content = f.read()
+content = content.replace(
+    '  custom:types         Use user-defined custom XKB types',
+    '  custom:types         Use user-defined custom XKB types\n  custom:nodead_circumflex_grave No dead circumflex or grave in custom layout'
+)
+with open('$XKB/rules/evdev.lst', 'w') as f:
+    f.write(content)
+"
+fi
+
+# Add to evdev.xml
+if ! grep -q "nodead_circumflex_grave" "$XKB/rules/evdev.xml"; then
+    python3 -c "
+with open('$XKB/rules/evdev.xml', 'r') as f:
+    content = f.read()
+content = content.replace(
+    '      <option>\n        <configItem>\n          <name>custom:types</name>\n          <description>Use user-defined custom XKB types</description>\n        </configItem>\n      </option>',
+    '      <option>\n        <configItem>\n          <name>custom:types</name>\n          <description>Use user-defined custom XKB types</description>\n        </configItem>\n      </option>\n      <option>\n        <configItem>\n          <name>custom:nodead_circumflex_grave</name>\n          <description>No dead circumflex or grave in custom layout</description>\n        </configItem>\n      </option>'
+)
+with open('$XKB/rules/evdev.xml', 'w') as f:
+    f.write(content)
+"
+fi
+
+echo "XKB custom layout registered."
