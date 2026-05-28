@@ -5,7 +5,7 @@ get_layout() {
     if [ $? -eq 0 ]; then
         echo "Lyt:$LAYOUT"
     else
-        echo "Lyt:LATAM"
+        echo "Lyt:LAT"
     fi
 }
 

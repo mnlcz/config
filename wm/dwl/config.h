@@ -75,6 +75,11 @@ static const struct xkb_rule_names xkb_rules = {
     .layout = "latam,ru",
 };
 
+static const char *layout_names[] = {
+    "LAT",
+    "RUS",
+};
+
 static const int repeat_rate = 25;
 static const int repeat_delay = 600;
 
