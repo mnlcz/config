@@ -19,9 +19,6 @@ fi
 if ! tmux has-session -t 'main' 2>/dev/null; then
     tmux new-session -d -s 'main'
     tmux send-keys -t main 'cd ~ ; clear ; fastfetch -c $CONF/tools/fastfetch/medium.jsonc' Enter
-    tmux new-window -t main -n "ssh"
-    tmux new-window -t main -n 'podman'
-    tmux send-keys -t main:podman 'cd $PROJ ; clear' Enter
 fi
 
 # Create code session if it doesn't exist
@@ -39,7 +36,7 @@ if ! tmux has-session -t 'code' 2>/dev/null; then
             tmux new-session -d -s 'code' -n "shell"
             tmux send-keys -t code:shell 'cd $PROJ ; clear ; ls -lah' Enter
             tmux new-window -t code -n 'editor'
-            tmux send-keys -t code:editor 'cd $PROJ ; clear ; vis .' Enter
+            tmux send-keys -t code:editor 'cd $PROJ ; clear' Enter
             tmux new-window -t code -n 'runner'
             tmux send-keys -t code:runner 'cd $PROJ ; clear ; ls -lah' Enter
             ;;
