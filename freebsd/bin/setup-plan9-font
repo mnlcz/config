@@ -1,0 +1,53 @@
+#!/bin/sh
+# Extract TempleOS bitmap font from fontsrv for use in acme/plan9port.
+#
+# Background:
+# - acme (plan9port) cannot use TTF fonts directly
+# - fontsrv serves fonts via 9p namespace, but 9pfuse (needed to mount
+#   the namespace as a directory) times out on FreeBSD due to a fusefs
+#   compatibility issue with plan9port's implementation
+# - workaround: run fontsrv, read the pre-rendered bitmap files via 9p,
+#   and store them as a static plan9 bitmap font directory
+#
+# The font served by fontsrv already applies our fontconfig rules:
+# - TempleOS glyphs for ASCII/Latin
+# - GeistMono Nerd Font fallback for Cyrillic and accented characters
+# (see $CONF/fonts/fonts.conf for the fontconfig rules)
+#
+# Re-run this script if:
+# - fonts.conf fallback rules change
+# - TempleOS font is updated
+# - plan9port is reinstalled and wipes /usr/local/plan9/font/TempleOS/
+
+PLAN9=/usr/local/plan9
+FONT_SRC=font/TempleOSRegular/10a
+FONT_DST=$PLAN9/font/TempleOS/10a
+
+# Start fontsrv if not running
+fontsrv_started=0
+if ! pgrep -x fontsrv > /dev/null; then
+    $PLAN9/bin/fontsrv &
+    fontsrv_started=1
+    sleep 1
+fi
+
+# Create destination directory
+doas mkdir -p $FONT_DST
+doas chown -R $(whoami) $FONT_DST
+
+# Extract font descriptor and bitmap files
+echo "Extracting font descriptor..."
+$PLAN9/bin/9p read $FONT_SRC/font > $FONT_DST/font
+
+echo "Extracting bitmap files..."
+for bit in $($PLAN9/bin/9p ls $FONT_SRC | grep '\.bit$'); do
+    $PLAN9/bin/9p read $FONT_SRC/$bit > $FONT_DST/$bit
+done
+
+echo "Done. Font available at $FONT_DST/font"
+echo "Bitmap files extracted: $(ls $FONT_DST/*.bit | wc -l)"
+
+# Stop fontsrv if we started it
+if [ $fontsrv_started -eq 1 ]; then
+    pkill -x fontsrv
+fi

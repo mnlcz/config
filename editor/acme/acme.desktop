@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Acme
+Comment=Plan 9 text editor
+Exec=/home/mnlcz/Projects/config/editor/acme/launch-acme.sh
+Type=Application
+Categories=TextEditor;Development;
