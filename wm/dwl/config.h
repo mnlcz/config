@@ -1,28 +1,38 @@
 /* Taken from https://github.com/djpohly/dwl/issues/466 */
 #define COLOR(hex)                                                             \
-  {((hex >> 24) & 0xFF) / 255.0f, ((hex >> 16) & 0xFF) / 255.0f,               \
+  {((hex >> 24) & 0xFF) / 255.0f, ((hex >> 16) & 0xFF) / 255.0f,             \
    ((hex >> 8) & 0xFF) / 255.0f, (hex & 0xFF) / 255.0f}
+
 /* appearance */
 static const int sloppyfocus = 1; /* focus follows mouse */
 
-/* borders */
-#define BORDERLINE 3
-#define BORDERGAP  4
-static const unsigned int borderline = BORDERLINE; /* thickness of each individual line */
-static const unsigned int bordergap  = BORDERGAP; /* gap between outer and inner line */
+/* borders
+ * double-border: two lines (outer + inner) separated by a transparent gap.
+ * bw is total border width = 2 * borderline + bordergap.
+ * Rio uses thick, prominent borders — this matches that weight visually.
+ */
+#define BORDERLINE 2
+#define BORDERGAP  3
+static const unsigned int borderline = BORDERLINE;
+static const unsigned int bordergap  = BORDERGAP;
 static const unsigned int borderpx   = 2 * BORDERLINE + BORDERGAP;
-static const float bordercolor[] = COLOR(0x0000a8ff); // CGA blue unfocused
 
-static const int bypass_surface_visibility =
-    0; /* 1 means idle inhibitors will disable idle tracking even if it's
-          surface isn't visible  */
-static const float rootcolor[] =   COLOR(0xffffffff); // white root
-static const float focuscolor[] = COLOR(0x0000a8ff);
-static const float urgentcolor[] = COLOR(0xa80000ff); // CGA red urgent
-/* This conforms to the xdg-protocol. Set the alpha to zero to restore the old
- * behavior */
-static const float fullscreen_bg[] = {0.0f, 0.0f, 0.0f,
-                                      1.0f}; /* You can also use glsl colors */
+/* Rio palette
+ * Unfocused: dark outer / lighter inner (depth effect)
+ * Focused:   near-black outer / dark grey inner
+ * Root:      mid grey, like rio's desktop
+ */
+static const float bordercolor[]  = COLOR(0x999999ff); /* unfocused outer */
+static const float focuscolor[]   = COLOR(0x222222ff); /* focused outer   */
+static const float urgentcolor[]  = COLOR(0x884444ff); /* urgent outer    */
+static const float rootcolor[]    = COLOR(0x777777ff); /* desktop bg      */
+
+/* inner border colors — used in resize() via the double-border patch */
+static const float bordercolor_inner[]  = COLOR(0xbbbbbbff); /* unfocused inner */
+static const float focuscolor_inner[]   = COLOR(0x444444ff); /* focused inner   */
+
+static const int bypass_surface_visibility = 0;
+static const float fullscreen_bg[] = {0.0f, 0.0f, 0.0f, 1.0f};
 
 /* tagging - TAGCOUNT must be no greater than 31 */
 #define TAGCOUNT (9)

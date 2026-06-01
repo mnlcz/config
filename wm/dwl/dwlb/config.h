@@ -4,40 +4,31 @@
    .blue = ((hex >> 8) & 0xff) * 257,                                          \
    .alpha = (hex & 0xff) * 257}
 
-// use ipc functionality
-static bool ipc = false;
-// initially hide all bars
-static bool hidden = false;
-// initially draw all bars at the bottom
-static bool bottom = false;
-// hide vacant tags
-static bool hide_vacant = true;
-// vertical pixel padding above and below text
+static bool ipc              = false;
+static bool hidden           = false;
+static bool bottom           = false;
+static bool hide_vacant      = true;
 static uint32_t vertical_padding = 4;
-// allow in-line color commands in status text
-static bool status_commands = true;
-// center title text
-static bool center_title = false;
-// use title space as status text element
-static bool custom_title = true;
-// title color use active colors
+static bool status_commands  = true;
+static bool center_title     = true;
+static bool custom_title     = true;
 static bool active_color_title = false;
-// scale
 static uint32_t buffer_scale = 1;
-// font
-static char *fontstr = "TempleOS Composite:size=11,GeistMono Nerd Font:size=14";
-// tag names
+
+/* font: Luxi Sans for the plan9port feel, Noto Sans as Cyrillic fallback.
+ * The font-fallback patch splits on ','
+ */
+static char *fontstr = "Luxi Mono:style=Bold:size=11,Noto Sans:size=11";
+
 static char *tags_names[] = {"B", "T", "A", "S", "F", "K", "7", "8", "9"};
 
-// set 16-bit colors for bar
-// use either pixman_color_t struct or HEX_COLOR macro for 8-bit colors
-static pixman_color_t active_fg_color =          HEX_COLOR(0xffff57ff); // yellow accent
-static pixman_color_t active_bg_color =          HEX_COLOR(0x0000a8ff); // CGA blue bg
-static pixman_color_t occupied_fg_color =        HEX_COLOR(0xffffffff); // white text
-static pixman_color_t occupied_bg_color =        HEX_COLOR(0x0000a8ff); // CGA blue bg
-static pixman_color_t inactive_fg_color =        HEX_COLOR(0xffffffff); // white text, muted
-static pixman_color_t inactive_bg_color =        HEX_COLOR(0x0000a8ff); // CGA blue bg
-static pixman_color_t urgent_fg_color =          HEX_COLOR(0xffffffff); // white text
-static pixman_color_t urgent_bg_color =          HEX_COLOR(0xa80000ff); // CGA red bg
-static pixman_color_t middle_bg_color =          HEX_COLOR(0x0000a8ff); // CGA blue
-static pixman_color_t middle_bg_color_selected = HEX_COLOR(0x0000a8ff); // CGA blue, same as rest
+static pixman_color_t active_fg_color =          HEX_COLOR(0xeeeeeeff); /* near-white text on dark */
+static pixman_color_t active_bg_color =          HEX_COLOR(0x333333ff); /* dark grey active tag    */
+static pixman_color_t occupied_fg_color =        HEX_COLOR(0x111111ff); /* black text              */
+static pixman_color_t occupied_bg_color =        HEX_COLOR(0x999999ff); /* mid grey occupied       */
+static pixman_color_t inactive_fg_color =        HEX_COLOR(0x222222ff); /* dark text               */
+static pixman_color_t inactive_bg_color =        HEX_COLOR(0xbbbbbbff); /* light grey inactive     */
+static pixman_color_t urgent_fg_color =          HEX_COLOR(0xeeeeeeff); /* light text on red       */
+static pixman_color_t urgent_bg_color =          HEX_COLOR(0x884444ff); /* muted red               */
+static pixman_color_t middle_bg_color =          HEX_COLOR(0xbbbbbbff); /* title area = inactive   */
+static pixman_color_t middle_bg_color_selected = HEX_COLOR(0xbbbbbbff); /* same — flat surface     */
