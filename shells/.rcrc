@@ -1,0 +1,48 @@
+# PATH
+path=($home/.local/bin $home/bin /usr/local/bin /usr/bin /bin /usr/local/sbin /usr/sbin /sbin /usr/local/plan9/bin)
+
+# Default tools
+echo "loading tools"
+EDITOR=vise
+MANPAGER='less -R --use-color -Dd+r -Du+b'
+BAT_THEME=GitHub
+
+# Dirs
+echo "loading dirs"
+CONF=$home/Projects/config
+PROJ=$home/Projects
+SCRIPTS=$home/Projects/scripts
+CSCRIPTS=$CONF/scripts
+BSDSCRIPTS=$home/Projects/config/freebsd/bin
+TEMPLATES=$CONF/templates
+TODO=$home/Downloads/todo.txt
+DWLCONF=$CONF/wm/dwl
+PLAN9=/usr/local/plan9
+
+# Aliases
+echo "loading aliases"
+fn v        { vise $* }
+fn bye      { tmux kill-server && exit }
+fn ff       { fastfetch -c $CONF/tools/fastfetch/small.jsonc }
+fn g        { git $* }
+fn ga       { git add $* }
+fn gb       { git branch $* }
+fn gc       { git commit $* }
+fn gco      { git checkout $* }
+fn gd       { git diff $* }
+fn gl       { git log --oneline --graph --decorate $* }
+fn gp       { git push $* }
+fn gpull    { git pull $* }
+fn gs       { git status $* }
+fn ll       { ls -laFoh $* }
+fn py       { python3.14 $* }
+
+# tmux: run if not in acme and not already in tmux
+echo "loading tmux"
+if(! ~ $TMUX ?* && ! ~ $winid ?*){
+    $CSCRIPTS/init-tmux.sh
+}
+
+# Prompt
+echo "changing prompt"
+prompt=('% ' ' ')
