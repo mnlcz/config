@@ -17,4 +17,9 @@ if ! pgrep -x plumber > /dev/null; then
 fi
 cat $PLAN9/plumb/basic | $PLAN9/bin/9p write plumb/rules
 
-SHELL=$PLAN9/bin/rc $PLAN9/bin/acme -l $HOME/acme.dump -m /mnt/acme -f /usr/local/plan9/font/TempleOS/10a/font "$@" &
+if ! pgrep -x fontsrv > /dev/null; then
+    fontsrv &
+    sleep 0.5
+fi
+
+SHELL=$PLAN9/bin/rc $PLAN9/bin/acme -m /mnt/acme -l $HOME/acme.dump -f /mnt/font/LuxiMono/11a/font "$@" &
