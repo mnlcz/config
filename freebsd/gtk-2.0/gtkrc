@@ -1,3 +1,5 @@
-gtk-theme-name="TempleOS"
-gtk-icon-theme-name="TempleOS"
-gtk-font-name="TempleOS 11"
+gtk-cursor-theme-name = "nein"
+gtk-cursor-theme-size = 16
+gtk-font-name = "Luxi Sans 11"
+gtk-theme-name = "Adwaita"
+gtk-icon-theme-name = "Adwaita"

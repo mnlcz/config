@@ -4,12 +4,12 @@
 # aren't picking up the icon/font theme despite GTK_THEME being set.
 # Writes to dconf, persists across reboots.
 
-gsettings set org.gnome.desktop.interface gtk-theme 'TempleOS'
-gsettings set org.gnome.desktop.interface icon-theme 'TempleOS'
-gsettings set org.gnome.desktop.interface font-name 'TempleOS Composite 10'
-gsettings set org.gnome.desktop.interface monospace-font-name 'TempleOS Composite 10'
-gsettings set org.gnome.desktop.interface cursor-theme 'TempleOS_Cursor'
-gsettings set org.gnome.desktop.interface cursor-size 32
+gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita'
+gsettings set org.gnome.desktop.interface icon-theme 'Adwaita'
+gsettings set org.gnome.desktop.interface font-name 'Luxi Sans 11'
+gsettings set org.gnome.desktop.interface monospace-font-name 'Luxi Sans 11'
+gsettings set org.gnome.desktop.interface cursor-theme 'nein'
+gsettings set org.gnome.desktop.interface cursor-size 16
 
 echo "GTK theme settings applied."
 gsettings get org.gnome.desktop.interface gtk-theme
