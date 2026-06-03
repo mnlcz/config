@@ -28,3 +28,12 @@ can be enabled/disabled via rc.conf, and integrate with the service management s
 `xdg-runtime` runs before seatd to ensure the XDG runtime directory exists before Wayland needs it. It lives in /usr/local/etc/rc.d/
  rather than /etc/rc.d/ because /etc/rc.d/ is reserved for base system services — anything you or a package adds goes under /usr/local/.
 
+## USB notification
+
+`usb-notify.sh` is the script that triggers the notification daemon `mako`. `usb-notify.conf` is the rule that matches the script with
+the usb event. Both go under `/usr/local/*`, given that they are user-made changes.
+
+```sh
+doas ln -sf $CONF/freebsd/etc/usb-notify.sh /usr/local/bin/usb-notify.sh 
+doas ln -sf $CONF/freebsd/etc/usb-notify.conf /usr/local/etc/devd/usb-notify.conf
+```
