@@ -162,12 +162,8 @@ static const enum libinput_config_tap_button_map button_map =
 static const char *debugcmd[] = {"/bin/sh", "-c", "env > /tmp/dwl-env.txt",
                                  NULL};
 static const char *termcmd[] = {"foot", NULL};
-static const char *appcmd[] = {
-    "j4-dmenu-desktop",
-    "--dmenu=/home/mnlcz/Projects/config/wm/dwl/bemenu/bemenu-themed",
-    NULL};
-static const char *menucmd[] = {
-    "/home/mnlcz/Projects/config/wm/dwl/bemenu/bemenu-run-themed", NULL};
+static const char *appcmd[] = {"tofi-drun", NULL};
+static const char *menucmd[] = {"tofi-run", NULL};
 static const char *screenshotcmd[] = {
     "/bin/sh", "-c",
     "grim -g \"$(slurp)\" ~/Pictures/Screenshots/screenshot-$(date "
@@ -178,9 +174,7 @@ static const char *screenshotfullcmd[] = {
     "grim ~/Pictures/Screenshots/screenshot-$(date +%Y%m%d-%H%M%S).png", NULL};
 static const char *cliphist[] = {
     "/bin/sh", "-c",
-    "cliphist list | "
-    "/home/mnlcz/Projects/config/wm/dwl/bemenu/bemenu-themed -p "
-    "'clipboard:' | cliphist decode | wl-copy",
+    "cliphist list | tofi | cliphist decode | wl-copy",
     NULL};
 
 static const Key keys[] = {

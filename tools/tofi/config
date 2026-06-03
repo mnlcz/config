@@ -1,0 +1,57 @@
+# ~/.config/tofi/config
+
+### Fonts
+font = /usr/local/share/fonts/TTF/luximr.ttf
+font-size = 11
+hint-font = true
+
+### Text theming
+text-color = #111111
+prompt-background = #00000000
+prompt-background-padding = 0
+input-background = #00000000
+input-background-padding = 0
+default-result-background = #00000000
+default-result-background-padding = 0
+selection-color = #333333
+selection-background = #cccccc
+selection-background-padding = 4
+selection-background-corner-radius = 0
+selection-match-color = #000000
+
+### Text cursor
+text-cursor = true
+text-cursor-style = bar
+text-cursor-color = #111111
+
+### Text layout
+prompt-text = "% "
+num-results = 10
+result-spacing = 2
+horizontal = false
+
+### Window theming
+width = 400
+height = 300
+background-color = #ffffff
+outline-width = 0
+border-width = 2
+border-color = #222222
+corner-radius = 0
+padding-top = 8
+padding-bottom = 8
+padding-left = 8
+padding-right = 8
+
+### Window positioning
+anchor = center
+exclusive-zone = -1
+
+### Behaviour
+hide-cursor = true
+history = true
+require-match = true
+auto-accept-single = true
+ascii-input = true
+drun-launch = true
+multi-instance = false
