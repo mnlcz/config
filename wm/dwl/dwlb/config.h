@@ -20,7 +20,7 @@ static uint32_t buffer_scale = 1;
  */
 static char *fontstr = "Luxi Mono:style=Bold:size=11,Noto Sans:size=11";
 
-static char *tags_names[] = {"B", "T", "A", "S", "F", "K", "7", "8", "9"};
+static char *tags_names[] = {"B", "T", "A", "?", "F", "K", "7", "8", "9"};
 
 static pixman_color_t active_fg_color =          HEX_COLOR(0xeeeeeeff); /* near-white text on dark */
 static pixman_color_t active_bg_color =          HEX_COLOR(0x333333ff); /* dark grey active tag    */
