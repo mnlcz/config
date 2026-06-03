@@ -7,4 +7,6 @@ export GTK_ICON_THEME=Adwaita
 export GTK_FONT_NAME="Luxi Sans 11"
 export XCURSOR_THEME=nein
 export XCURSOR_SIZE=16
+
 exec dbus-launch --exit-with-session dwl -s /home/mnlcz/Projects/config/wm/dwl/dwl-startup
+
