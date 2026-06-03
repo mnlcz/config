@@ -3,8 +3,16 @@ echo "LAT" > /tmp/dwl-layout
 mako &
 wl-paste --watch cliphist store &
 wl-paste --watch xsel --primary --input &
-#swaybg -i /home/mnlcz/Pictures/templeos.jpeg -m fill &
 swaybg -c '#777777' &
 sleep 3
+
+# Write session environment for devd scripts (after dbus-launch has run)
+cat > /tmp/dwl-session-env << EOF
+DBUS_SESSION_BUS_ADDRESS=$DBUS_SESSION_BUS_ADDRESS
+WAYLAND_DISPLAY=$WAYLAND_DISPLAY
+XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR
+EOF
+
 /home/mnlcz/Projects/config/wm/dwl/dwlb/status.sh &
 dwlb
+
