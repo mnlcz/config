@@ -2,13 +2,11 @@
 path=($home/.local/bin $home/bin /usr/local/bin /usr/bin /bin /usr/local/sbin /usr/sbin /sbin /usr/local/plan9/bin)
 
 # Default tools
-echo "loading tools"
 EDITOR=vise
 MANPAGER='less -R --use-color -Dd+r -Du+b'
 BAT_THEME=GitHub
 
 # Dirs
-echo "loading dirs"
 CONF=$home/Projects/config
 PROJ=$home/Projects
 SCRIPTS=$home/Projects/scripts
@@ -20,7 +18,6 @@ DWLCONF=$CONF/wm/dwl
 PLAN9=/usr/local/plan9
 
 # Aliases
-echo "loading aliases"
 fn v        { vise $* }
 fn bye      { tmux kill-server && exit }
 fn ff       { fastfetch -c $CONF/tools/fastfetch/small.jsonc }
@@ -34,16 +31,15 @@ fn gl       { git log --oneline --graph --decorate $* }
 fn gp       { git push $* }
 fn gpull    { git pull $* }
 fn gs       { git status $* }
+fn guile    { guile3 $* }
 fn ll       { ls -laFoh $* }
 fn pcf      { php-cs-fixer $* }
 fn py       { python3.14 $* }
 
 # tmux: run if not in acme and not already in tmux
-echo "loading tmux"
 if(! ~ $TMUX ?* && ! ~ $winid ?*){
     $CSCRIPTS/init-tmux.sh
 }
 
 # Prompt
-echo "changing prompt"
 prompt=('% ' ' ')
