@@ -1,0 +1,3 @@
+#!/bin/sh
+export NOTMUX=1
+exec /usr/local/bin/rc -l
