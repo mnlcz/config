@@ -26,7 +26,7 @@ text-cursor-color = #111111
 
 ### Text layout
 prompt-text = "% "
-num-results = 10
+num-results = 14
 result-spacing = 2
 horizontal = false
 
