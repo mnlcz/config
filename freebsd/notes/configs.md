@@ -28,6 +28,11 @@ can be enabled/disabled via rc.conf, and integrate with the service management s
 `xdg-runtime` runs before seatd to ensure the XDG runtime directory exists before Wayland needs it. It lives in /usr/local/etc/rc.d/
  rather than /etc/rc.d/ because /etc/rc.d/ is reserved for base system services — anything you or a package adds goes under /usr/local/.
 
+## `/etc/pf.conf`
+
+Firewall configuration. The one available in the repo is the barebones setup for a desktop. Tools like **Bastille** add their own
+configurations, so the file shouldn't be symlinked, just use it as a base.
+
 ## USB notification
 
 `usb-notify.sh` is the script that triggers the notification daemon `mako`. `usb-notify.conf` is the rule that matches the script with
