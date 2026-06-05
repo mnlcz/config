@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=vis
+Comment=Open file in vis via foot
+Exec=foot --app-id vis-editor --override shell=/home/mnlcz/bin/rc-notmux -e vise %f
+Terminal=false
+Type=Application
+Icon=text-editor
+Categories=TextEditor;
+MimeType=text/plain;text/x-shellscript;text/x-csrc;text/x-chdr;text/x-php;text/markdown;text/css;text/html;application/json;application/xml;
