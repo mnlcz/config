@@ -52,6 +52,7 @@ static const Rule rules[] = {
     {"org.qbittorrent.qBittorrent", NULL,    1 << 3,    0,          -1,       0,   0},
     {"thunar",           		    NULL, 	 1 << 4,    0,          -1,       0,   0},
     {"mpv",            				NULL,    0,         1,          -1,      -1,  -1}, /* floating, centered */
+    {"vis-editor",                  NULL,    0,         1,          -1,      -1,  -1}, /* floating, centered */
 };
 
 /* layout(s) */

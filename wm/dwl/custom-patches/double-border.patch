@@ -58,7 +58,7 @@
  		c->border[i] = wlr_scene_rect_create(c->scene, 0, 0,
  				c->isurgent ? urgentcolor : bordercolor);
  		c->border[i]->node.data = c;
-@@ -2240,14 +2240,32 @@
+@@ -2240,14 +2240,34 @@
  	/* Update scene-graph, including borders */
  	wlr_scene_node_set_position(&c->scene->node, c->geom.x, c->geom.y);
  	wlr_scene_node_set_position(&c->scene_surface->node, c->bw, c->bw);
@@ -70,6 +70,8 @@
 -	wlr_scene_node_set_position(&c->border[2]->node, 0, c->bw);
 -	wlr_scene_node_set_position(&c->border[3]->node, c->geom.width - c->bw, c->bw);
 +	if (c->bw > 0) {
++		int inset;
++
 +		/* outer border: border[0..3] */
 +		wlr_scene_rect_set_size(c->border[0], c->geom.width, borderline);
 +		wlr_scene_rect_set_size(c->border[1], c->geom.width, borderline);
@@ -80,7 +82,7 @@
 +		wlr_scene_node_set_position(&c->border[3]->node, c->geom.width - borderline, borderline);
  
 +		/* inner border: border[4..7], inset by borderline + bordergap */
-+		int inset = borderline + bordergap;
++		inset = borderline + bordergap;
 +		wlr_scene_rect_set_size(c->border[4], c->geom.width - 2 * inset, borderline);
 +		wlr_scene_rect_set_size(c->border[5], c->geom.width - 2 * inset, borderline);
 +		wlr_scene_rect_set_size(c->border[6], borderline, c->geom.height - 2 * (inset + borderline));

@@ -1,35 +1,69 @@
---- a/dwl.c
-+++ b/dwl.c
-@@ -1498,9 +1498,13 @@
- 	client_notify_enter(client_surface(c), wlr_seat_get_keyboard(seat));
+--- a/dwl.c	2026-06-05 20:35:51.242466000 -0300
++++ b/dwl.c	2026-06-05 20:48:21.638900000 -0300
+@@ -364,6 +364,7 @@
+ static void fclosenotify(struct wl_listener *listener, void *data);
+ static void fdestroynotify(struct wl_listener *listener, void *data);
+ static void ffullscreennotify(struct wl_listener *listener, void *data);
++static void writetitlefile(const char *title);
+ 
+ /* variables */
+ static pid_t child_pid = -1;
+@@ -1486,6 +1487,8 @@
+ 	printstatus();
+ 
+ 	if (!c) {
++		writetitlefile(NULL);
++
+ 		/* With no client, all we have left is to clear focus */
+ 		wlr_seat_keyboard_notify_clear_focus(seat);
+ 		return;
+@@ -1499,6 +1502,8 @@
  
  	/* Activate the new client */
--	client_activate_surface(client_surface(c), 1);
--	if (c->foreign_toplevel)
--		wlr_foreign_toplevel_handle_v1_set_activated(c->foreign_toplevel, 1);
-+    client_activate_surface(client_surface(c), 1);
-+    const char *title = client_get_title(c);
-+    FILE *tf = fopen("/tmp/dwl-title", "w");
-+    if (tf) {
-+        fprintf(tf, "%s", title ? title : "");
-+        fclose(tf);
-+    }
+ 	client_activate_surface(client_surface(c), 1);
++	writetitlefile(client_get_title(c));
++
+ 	if (c->foreign_toplevel)
+ 		wlr_foreign_toplevel_handle_v1_set_activated(c->foreign_toplevel, 1);
+ }
+@@ -3002,20 +3007,34 @@
+ 	wlr_cursor_move(cursor, NULL, 0, 0);
+ 
+ 	wlr_output_manager_v1_set_configuration(output_mgr, config);
++}
++
++void
++writetitlefile(const char *title)
++{
++	FILE *tf = fopen("/tmp/dwl-title", "w");
++	if (tf) {
++		fprintf(tf, "%s", title ? title : "");
++		fclose(tf);
++	}
  }
  
  void
-@@ -3017,6 +3021,15 @@
- 	}
- 	if (c == focustop(c->mon))
+ updatetitle(struct wl_listener *listener, void *data)
+ {
+ 	Client *c = wl_container_of(listener, c, set_title);
++
+ 	if (c->foreign_toplevel) {
+-		const char *title;
+-		if (!(title = client_get_title(c)))
+-			title = "broken";
+-		wlr_foreign_toplevel_handle_v1_set_title(c->foreign_toplevel, title);
+-	}
+-	if (c == focustop(c->mon))
++		const char *ft_title;
++		if (!(ft_title = client_get_title(c)))
++			ft_title = "broken";
++		wlr_foreign_toplevel_handle_v1_set_title(c->foreign_toplevel, ft_title);
++	}
++
++	if (c == focustop(c->mon)) {
  		printstatus();
-+    if (c == focustop(c->mon)) {
-+        printstatus();
-+        const char *title = client_get_title(c);
-+        FILE *tf = fopen("/tmp/dwl-title", "w");
-+        if (tf) {
-+            fprintf(tf, "%s", title ? title : "");
-+            fclose(tf);
-+        }
-+    }
++		writetitlefile(client_get_title(c));
++	}
  }
  
  void
