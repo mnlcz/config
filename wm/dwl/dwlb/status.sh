@@ -1,5 +1,9 @@
 #!/bin/sh
 
+LYRICS_SCRIPT="$DWLCONF/dwlb/get-lyrics.sh"
+LYRICS_FILE='/tmp/dwl-lyrics'
+TRACK_FILE='/tmp/dwl-lyrics-track'
+
 get_layout() {
     layout="$(cat /tmp/dwl-layout 2>/dev/null)"
     echo "Lyt:${layout:-LAT}"
@@ -51,16 +55,16 @@ get_volume() {
 }
 
 get_media() {
-    if playerctl -p spotify status 2>/dev/null | grep -q "Playing"; then
-        artist=$(playerctl -p spotify metadata artist 2>/dev/null)
-        title=$(playerctl -p spotify metadata title 2>/dev/null)
+    if playerctl -p ncspot status 2>/dev/null | grep -q 'Playing'; then
+        artist=$(playerctl -p ncspot metadata artist 2>/dev/null)
+        title=$(playerctl -p ncspot metadata title 2>/dev/null)
         raw="${title} - ${artist}"
     else
         echo "Spt:<nothing>"
         return
     fi
 
-    max=30
+    max=25
     raw_len=${#raw}
 
     if [ $raw_len -lt $max ]; then
@@ -76,6 +80,68 @@ get_media() {
     padded="${raw}${sep}${raw}"
     start=$(( media_offset % cycle + 1 ))
     echo "Spt:$(echo "$padded" | awk -v s=$start -v l=$max '{print substr($0, s, l)}')"
+}
+
+get_lyrics() {
+    # Trigger fetch/cache update in background
+    sh "$LYRICS_SCRIPT" &
+
+    # Nothing playing
+    if ! playerctl -p ncspot status 2>/dev/null | grep -q 'Playing'; then
+        echo "Lyr:<nothing>"
+        return
+    fi
+
+    # No lyrics file or empty = no lyrics available
+    if [ ! -s "$LYRICS_FILE" ]; then
+        echo "Lyr:<no lyrics>"
+        return
+    fi
+
+    # Get current playback position in seconds
+    pos=$(playerctl -p ncspot position 2>/dev/null)
+    if [ -z "$pos" ]; then
+        echo "Lyr:..."
+        return
+    fi
+
+    # Find the current lyric line: last line whose timestamp <= pos
+    line=$(awk -v pos="$pos" '
+        BEGIN { current = "..." }
+        {
+            ts = $1 + 0
+            if (ts <= pos) {
+                # Rebuild line without the timestamp field
+                $1 = ""
+                sub(/^ /, "", $0)
+                current = $0
+            }
+        }
+        END { print current }
+    ' "$LYRICS_FILE")
+
+    if [ -z "$line" ]; then
+        echo "Lyr:..."
+        return
+    fi
+
+    max=40
+    raw_len=${#line}
+
+    if [ $raw_len -le $max ]; then
+        total_pad=$(( max - raw_len ))
+        left_pad=$(( total_pad / 2 ))
+        right_pad=$(( total_pad - left_pad ))
+        printf "Lyr:%${left_pad}s%s%${right_pad}s" "" "$line" ""
+        return
+    fi
+
+    # Scroll long lines
+    sep="   "
+    cycle=$(( raw_len + ${#sep} ))
+    padded="${line}${sep}${line}"
+    start=$(( lyrics_offset % cycle + 1 ))
+    echo "Lyr:$(echo "$padded" | awk -v s=$start -v l=$max '{print substr($0, s, l)}')"
 }
 
 get_cpu() {
@@ -124,16 +190,25 @@ get_title() {
 CENTER_PAD=1
 offset=0
 media_offset=0
+lyrics_offset=0
+lyrics_tick=0
 
 while true; do
     title_block="^bg(999999) $(get_title) ^bg()"
     pad="$(printf '%*s' $CENTER_PAD '')"
-    right="$(get_clock)  $(get_memory)  $(get_temp)  $(get_cpu)  $(get_disk)  $(get_layout)  $(get_volume)  $(get_network)  $(get_media)"
+    right="$(get_clock)  $(get_memory)  $(get_temp)  $(get_cpu)  $(get_disk)  $(get_layout)  $(get_volume)  $(get_network)  $(get_media)  $(get_lyrics)"
 
     dwlb -status HDMI-A-1 "^fg(222222)${title_block}${pad}${right}"
 
     offset=$(( offset + 1 ))
     media_offset=$(( media_offset + 1 ))
+
+    # Lyrics scroll at half speed (1 char per 2 ticks = 0.2s)
+    lyrics_tick=$(( lyrics_tick + 1 ))
+    if [ $lyrics_tick -ge 2 ]; then
+        lyrics_offset=$(( lyrics_offset + 1 ))
+        lyrics_tick=0
+    fi
 
     sleep 0.1
 done
