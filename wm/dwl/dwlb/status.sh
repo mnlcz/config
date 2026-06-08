@@ -58,28 +58,12 @@ get_media() {
     if playerctl -p ncspot status 2>/dev/null | grep -q 'Playing'; then
         artist=$(playerctl -p ncspot metadata artist 2>/dev/null)
         title=$(playerctl -p ncspot metadata title 2>/dev/null)
-        raw="${title} - ${artist}"
+        echo "Spt:${title} - ${artist}"
+        return
     else
         echo "Spt:<nothing>"
         return
     fi
-
-    max=25
-    raw_len=${#raw}
-
-    if [ $raw_len -lt $max ]; then
-        total_pad=$(( max - raw_len ))
-        left_pad=$(( total_pad / 2 ))
-        right_pad=$(( total_pad - left_pad ))
-        raw="$(printf "%${left_pad}s%s%${right_pad}s" "" "$raw" "")"
-        raw_len=$max
-    fi
-
-    sep="   "
-    cycle=$(( raw_len + ${#sep} ))
-    padded="${raw}${sep}${raw}"
-    start=$(( media_offset % cycle + 1 ))
-    echo "Spt:$(echo "$padded" | awk -v s=$start -v l=$max '{print substr($0, s, l)}')"
 }
 
 get_lyrics() {
