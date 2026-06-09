@@ -15,7 +15,7 @@ if ! pgrep -x plumber > /dev/null; then
     $PLAN9/bin/plumber &
     sleep 0.5
 fi
-cat $PLAN9/plumb/basic | $PLAN9/bin/9p write plumb/rules
+cat $CONF/editor/acme/plumb-basic | $PLAN9/bin/9p write plumb/rules
 
 if ! pgrep -x fontsrv > /dev/null; then
     fontsrv &
