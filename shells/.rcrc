@@ -21,7 +21,6 @@ PLAN9=/usr/local/plan9
 fn v        { vise $* }
 fn bye      { tmux kill-server && exit }
 fn ff       { fastfetch -c $CONF/tools/fastfetch/small.jsonc }
-fn g        { git $* }
 fn ga       { git add $* }
 fn gb       { git branch $* }
 fn gc       { git commit $* }
