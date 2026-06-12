@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=ad
+Comment=Open file in ad via foot
+Exec=foot --app-id ad-editor -e ad %f
+Terminal=false
+Type=Application
+Icon=text-editor
+Categories=TextEditor;
+MimeType=text/plain;text/x-shellscript;text/x-csrc;text/x-chdr;text/x-php;text/markdown;text/css;text/html;application/json;application/xml;
+StartupNotify=false

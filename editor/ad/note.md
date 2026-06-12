@@ -21,3 +21,7 @@ Last command generates dotfiles. `$CONF` repo has my own `config.toml`. The syml
 ```bash
 ln -sf $CONF/editor/ad/config.toml $HOME/.ad/config.toml
 ```
+
+## Desktop entry
+
+Symlink `ad.desktop` to `$HOME/.local/share/applications/`
