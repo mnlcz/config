@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Foot (no tmux)
-Comment=Wayland terminal emulator without tmux
-Exec=foot --override shell=/home/mnlcz/.local/bin/rc-notmux
-Terminal=false
-Type=Application
-Icon=foot
-Categories=System;TerminalEmulator;
