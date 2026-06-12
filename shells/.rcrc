@@ -35,10 +35,5 @@ fn ll       { ls -laFoh $* }
 fn pcf      { php-cs-fixer $* }
 fn py       { python3.14 $* }
 
-# tmux: run if not in acme and not already in tmux
-if(! ~ $TMUX ?* && ! ~ $winid ?* && ! ~ $NOTMUX 1){
-    $CSCRIPTS/init-tmux.sh
-}
-
 # Prompt
 prompt=('% ' ' ')
