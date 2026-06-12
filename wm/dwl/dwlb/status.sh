@@ -15,13 +15,11 @@ get_temp() {
 }
 
 get_memory() {
-    total=$(sysctl -n hw.physmem)
-    inactive=$(sysctl -n vm.stats.vm.v_inactive_count)
-    cache=$(sysctl -n vm.stats.vm.v_cache_count)
-    free=$(sysctl -n vm.stats.vm.v_free_count)
+    active=$(sysctl -n vm.stats.vm.v_active_count)
+    wired=$(sysctl -n vm.stats.vm.v_wire_count)
     pagesize=$(sysctl -n hw.pagesize)
 
-    used=$(( (total - (inactive + cache + free) * pagesize) / 1024 / 1024 ))
+    used=$(( (active + wired) * pagesize / 1024 / 1024 ))
 
     if [ $used -ge 1024 ]; then
         echo "Mem:$(( used / 1024 ))G"
