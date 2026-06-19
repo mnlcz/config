@@ -1,11 +1,3 @@
-# PATH
-path=($home/.local/bin $home/bin /usr/local/bin /usr/bin /bin /usr/local/sbin /usr/sbin /sbin /usr/local/plan9/bin)
-
-# Default tools
-EDITOR=vise
-MANPAGER='less -R --use-color -Dd+r -Du+b'
-BAT_THEME=GitHub
-
 # Dirs
 CONF=$home/Projects/config
 PROJ=$home/Projects
@@ -16,6 +8,18 @@ TEMPLATES=$CONF/templates
 TODO=$home/Downloads/todo.txt
 DWLCONF=$CONF/wm/dwl
 PLAN9=/usr/local/plan9
+
+# Dev
+GOPATH=$PROJ/go
+GOBIN=$GOPATH/bin
+
+# PATH
+path=($home/.local/bin $home/bin /usr/local/bin /usr/bin /bin /usr/local/sbin /usr/sbin /sbin /usr/local/plan9/bin $home/.cargo/bin $GOBIN)
+
+# Default tools
+EDITOR=vise
+MANPAGER='less -R --use-color -Dd+r -Du+b'
+BAT_THEME=GitHub
 
 # Aliases
 fn v        { vise $* }
