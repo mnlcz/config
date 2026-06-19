@@ -49,10 +49,11 @@ static const Rule rules[] = {
     {"waterfox",       				NULL,    1 << 0,    0,          -1,       0,   0},
     {"foot",           				NULL,    1 << 1,    0,          -1,       0,   0},
     {"acme",           				NULL,    1 << 2,    0,          -1,       0,   0},
-    {"org.qbittorrent.qBittorrent", NULL,    1 << 3,    0,          -1,       0,   0},
-    {"thunar",           		    NULL, 	 1 << 4,    0,          -1,       0,   0},
+    {"org.qbittorrent.qBittorrent",    NULL,    1 << 3,    0,          -1,       0,   0},
+    {"thunar",           		      NULL,    1 << 4,    0,          -1,       0,   0},
+    {"foot-isolated",                  NULL,    1 << 4,    1,          -1,      -1,  -1}, /* floating, centered */
     {"mpv",            				NULL,    0,         1,          -1,      -1,  -1}, /* floating, centered */
-    {"ad-editor",                  NULL,    0,         1,          -1,      -1,  -1}, /* floating, centered */
+    {"ad-editor",                      NULL,    0,         1,          -1,      -1,  -1}, /* floating, centered */
 };
 
 /* layout(s) */
