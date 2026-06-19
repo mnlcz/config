@@ -1,0 +1,27 @@
+#!/usr/local/bin/rc
+
+if(~ $winid ()) {
+    echo 'winid not set' >[2=1]
+    exit 1
+}
+
+tag = `{9p read acme/$winid/tag}
+file = $tag(1)
+ext = `{echo $file | sed 's/.*\.//'}
+
+switch($ext) {
+case scm sld
+    formatter = schemat
+case *
+    echo 'unsupported file type: '$ext >[2=1]
+    exit 1
+}
+
+tmpfile = /tmp/acme-fmt-$pid
+
+9p read acme/$winid/body > $tmpfile
+
+echo -n ',' | 9p write acme/$winid/addr
+$formatter < $tmpfile | 9p write acme/$winid/data
+
+rm $tmpfile

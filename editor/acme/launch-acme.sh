@@ -1,8 +1,8 @@
 #!/bin/sh
 
 export PLAN9=/usr/local/plan9
-export PATH=$PATH:$PLAN9/bin
 . $HOME/.shrc.d/0dirs.sh
+export PATH=$PATH:$PLAN9/bin:$HOME/.cargo/bin:$PROJ/go/bin:$CONF/editor/acme/scripts
 
 export DISPLAY=${DISPLAY:-:0}
 
