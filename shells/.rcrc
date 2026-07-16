@@ -3,27 +3,26 @@ CONF=$home/Projects/config
 PROJ=$home/Projects
 SCRIPTS=$home/Projects/scripts
 CSCRIPTS=$CONF/scripts
-BSDSCRIPTS=$home/Projects/config/freebsd/bin
 TEMPLATES=$CONF/templates
 TODO=$home/Downloads/todo.txt
-DWLCONF=$CONF/wm/dwl
-PLAN9=/usr/local/plan9
 
 # Dev
 GOPATH=$PROJ/go
 GOBIN=$GOPATH/bin
+GUIXHOME=$HOME/.config/guix/home-configuration.scm
+GUIXSYS=/etc/config.scm
+CHANNEL=$PROJ/guix-channel
 
 # PATH
-path=($home/.local/bin $home/bin /usr/local/bin /usr/bin /bin /usr/local/sbin /usr/sbin /sbin /usr/local/plan9/bin $home/.cargo/bin $GOBIN)
+path=($path $GOBIN $home/.cargo/bin $home/.local/bin)
 
 # Default tools
-EDITOR=vise
+EDITOR=vim
 MANPAGER='less -R --use-color -Dd+r -Du+b'
 BAT_THEME=GitHub
 
 # Aliases
-fn v        { vise $* }
-fn bye      { tmux kill-server && exit }
+fn e 	    { DISPLAY='' emacs $* & }
 fn ff       { fastfetch -c $CONF/tools/fastfetch/small.jsonc }
 fn ga       { git add $* }
 fn gb       { git branch $* }
@@ -34,10 +33,9 @@ fn gl       { git log --oneline --graph --decorate $* }
 fn gp       { git push $* }
 fn gpull    { git pull $* }
 fn gs       { git status $* }
-fn guile    { guile3 $* }
 fn ll       { ls -laFoh $* }
+fn msview   { groff -ms -Tutf8 $* | less -R }
 fn pcf      { php-cs-fixer $* }
-fn py       { python3.14 $* }
 
 # Prompt
 prompt=('% ' ' ')
