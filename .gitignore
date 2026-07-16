@@ -1,6 +1,2 @@
-/emacs/history
-/emacs/recentf
-/emacs/places
-/emacs/elpa/
-/emacs/transient/
-/emacs/auto-save-list/
+emacs/*
+!emacs/init.el
