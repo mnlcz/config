@@ -9,14 +9,15 @@
 (use-modules (ice-9 popen)
              (ice-9 rdelim)
              (ice-9 ftw)
-	     (ice-9 textual-ports)
+             (ice-9 textual-ports)
              (ice-9 threads)
              (ice-9 match)
              (ice-9 format)
              (rnrs bytevectors)
              ((rnrs io ports)
               #:select (get-bytevector-all put-bytevector))
-             (srfi srfi-1))
+             (srfi srfi-1)
+             (srfi srfi-11))
 
 ;;; --- Configuration -----------------------------------------------------
 
@@ -24,13 +25,22 @@
   (or (getenv "XDG_RUNTIME_DIR") "/run/user/1000"))
 (define poll-interval
   2)
- ; seconds between new-socket discovery scans
+; seconds between new-socket discovery scans
 (define suppress-window
   1)
- ; seconds to ignore a selection's own echo, post-write
+; seconds to ignore a selection's own echo, post-write
 (define pre-write-guard
   0.2)
- ; seconds of guard suppression while a write is in flight
+; seconds of guard suppression while a write is in flight
+
+;; Off by default. Flip to #t only once you've validated the detection
+;; logic below under real use -- a false positive here actively destroys
+;; content on every other window, unlike every other feature so far.
+(define propagate-clears?
+  #t)
+
+(define empty-clipboard-marker
+  "Nothing is copied")
 
 ;; Priority order: first match wins. Images before text, since a text
 ;; fallback can't reconstruct an image but the common text aliases are
@@ -47,24 +57,30 @@
 
 (define known
   (make-hash-table))
- ; socket -> #t  (window still open)
+; socket -> #t  (window still open)
 (define known-mutex
   (make-mutex))
 (define suppressed-until
   (make-hash-table))
- ; (sock . primary?) -> time, breaks propagation loops
+; (sock . primary?) -> time, breaks propagation loops
 (define watcher-count
   (make-hash-table))
- ; socket -> count of still-active watcher threads
+; socket -> count of still-active watcher threads
 (define watcher-count-mutex
   (make-mutex))
+(define had-content
+  (make-hash-table))
+; (sock . primary?) -> #t once real content seen there
 
 ;;; --- Utilities -----------------------------------------------------------
 
+(define log-mutex
+  (make-mutex))
 (define (log fmt . args)
-  (apply format
-         (current-error-port)
-         (string-append "[clip-bridge] " fmt "\n") args))
+  (with-mutex log-mutex
+              (apply format
+                     (current-error-port)
+                     (string-append "[clip-bridge] " fmt "\n") args)))
 
 (define (safely thunk . default)
   (catch #t thunk
@@ -83,19 +99,35 @@
           (or (scandir runtime-dir)
               '())))
 
+;;; --- Safe subprocess helpers (plain pipes only, no raw fork) --------------
+
+;; Runs `cmd` via a plain input pipe, returns its full text output (stdout,
+;; unless the caller redirected stderr into stdout in `cmd` itself).
+;; Never throws -- returns "" on any failure.
+(define (pipe-text cmd)
+  (safely (lambda ()
+            (let* ((port (open-input-pipe cmd))
+                   (text (get-string-all port)))
+              (close-pipe port) text)) ""))
+
 ;;; --- Type resolution -------------------------------------------------------
 
-(define (list-types sock primary?)
-  (safely (lambda ()
-            (let* ((flag (if primary? "-p " ""))
-                   (port (open-input-pipe (string-append "WAYLAND_DISPLAY="
-                                           sock " wl-paste " flag
-                                           "--list-types 2>/dev/null")))
-                   (text (get-string-all port)))
-              (close-pipe port)
-              (filter (negate string-null?)
-                      (string-split text #\newline))))
-          '()))
+;; Returns two values: (offered-types stderr-text). stderr-text is only
+;; populated (via a second, cheap call) when nothing was offered, since
+;; that's the only case where we need it for confirmed-empty? below.
+(define (list-types+status sock primary?)
+  (let* ((flag (if primary? "-p " ""))
+         (types-text (pipe-text (string-append "WAYLAND_DISPLAY=" sock
+                                               " wl-paste " flag
+                                               "--list-types 2>/dev/null")))
+         (offered (filter (negate string-null?)
+                          (string-split types-text #\newline))))
+    (if (null? offered)
+        (let ((err-text (pipe-text (string-append "WAYLAND_DISPLAY=" sock
+                                    " wl-paste " flag
+                                    "--list-types 2>&1 1>/dev/null"))))
+          (values offered err-text))
+        (values offered ""))))
 
 (define (preferred-type offered)
   (find (lambda (t)
@@ -136,7 +168,30 @@
   ;; real suppression window starts only once the write has completed
   (hash-set! suppressed-until
              (sel-key sock primary?)
-             (+ (current-time) suppress-window)))
+             (+ (current-time) suppress-window))
+  ;; the destination now genuinely holds content too
+  (hash-set! had-content
+             (sel-key sock primary?) #t))
+
+;; Mirrors push!'s suppression pattern, but clears instead of writing.
+(define (clear! sock primary?)
+  (hash-set! suppressed-until
+             (sel-key sock primary?)
+             (+ (current-time) pre-write-guard))
+  (safely (lambda ()
+            (let* ((flag (if primary? "-p " ""))
+                   (port (open-input-pipe (string-append "WAYLAND_DISPLAY="
+                                           sock " wl-copy " flag
+                                           "--clear 2>/dev/null"))))
+              (get-string-all port)
+              (close-pipe port))))
+  (hash-set! suppressed-until
+             (sel-key sock primary?)
+             (+ (current-time) suppress-window))
+  ;; the destination is now empty again, so its "had content" state resets too --
+  ;; a subsequent empty tick on IT shouldn't re-propagate another clear
+  (hash-remove! had-content
+                (sel-key sock primary?)))
 
 (define (suppressed? sock primary?)
   (let ((until (hash-ref suppressed-until
@@ -144,16 +199,55 @@
     (and until
          (< (current-time) until))))
 
+;; Conservative: only treated as a genuine clear if BOTH signals agree --
+;; zero types offered AND wl-paste's own stderr explicitly says so.
+;; Anything else (including outright command failure) is left alone.
+(define (confirmed-empty? offered stderr-text)
+  (and (null? offered)
+       (string-contains stderr-text empty-clipboard-marker)))
+
 (define (propagate! from primary?)
-  (let* ((offered (list-types from primary?))
-         (type (preferred-type offered)))
-    (when type
-      (let ((bv (fetch from primary? type)))
-        (when bv
-          (with-mutex known-mutex
-                      (hash-for-each (lambda (sock _)
-                                       (unless (string=? sock from)
-                                         (push! sock bv primary? type))) known)))))))
+  (let-values (((offered err)
+                (list-types+status from primary?)))
+              (let ((type (preferred-type offered)))
+                (cond
+                  (type (let ((bv (fetch from primary? type)))
+                          (when bv
+                            (hash-set! had-content
+                                       (sel-key from primary?) #t)
+                            (with-mutex known-mutex
+                                        (hash-for-each (lambda (sock _)
+                                                         (unless (string=?
+                                                                  sock from)
+                                                           (push! sock bv
+                                                                  primary?
+                                                                  type)))
+                                                       known)))))
+                  ((confirmed-empty? offered err)
+                   (if (hash-ref had-content
+                                 (sel-key from primary?))
+                       (begin
+                         (log
+                          "confirmed empty selection on ~a (primary? ~a), had prior content -- treating as a clear"
+                          from primary?)
+                         (hash-remove! had-content
+                                       (sel-key from primary?))
+                         (if propagate-clears?
+                             (with-mutex known-mutex
+                                         (hash-for-each (lambda (sock _)
+                                                          (unless (string=?
+                                                                   sock from)
+                                                            (clear! sock
+                                                                    primary?)))
+                                                        known))
+                             (log
+                              "propagate-clears? is #f, not clearing downstream")))
+                       (log
+                        "empty selection on ~a (primary? ~a) but never had content -- ignoring"
+                        from primary?)))
+                  (else (log
+                         "ambiguous/failed read on ~a (primary? ~a), stderr: ~a -- not acting"
+                         from primary? err))))))
 
 ;;; --- Watcher lifecycle -----------------------------------------------------
 
@@ -185,6 +279,10 @@
     (log "~a watcher ended for ~a" label sock)
     (hash-remove! suppressed-until
                   (sel-key sock primary?))
+    ;; drop this socket/selection's history so a future reused socket
+    ;; name doesn't inherit a previous, unrelated window's state
+    (hash-remove! had-content
+                  (sel-key sock primary?))
     (watcher-done! sock)))
 
 (define (watch! sock)
@@ -200,6 +298,8 @@
 
 ;;; --- Main loop -------------------------------------------------------------
 
+(setvbuf (current-error-port)
+         'line)
 (log "starting, watching ~a" runtime-dir)
 (let loop
   ()
