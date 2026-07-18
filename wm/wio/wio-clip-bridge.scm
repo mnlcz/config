@@ -4,7 +4,7 @@
 ;;; wio-clip-bridge --- sync clipboard (regular + primary selection) across
 ;;; wio's per-window cage instances via wlr-data-control-v1.
 ;;; Requires: cage patched with wlr_data_control_manager_v1_create
-;;; Requires: wl-clipboard on PATH
+;;; Requires: wl-clipboard, inotify-tools on PATH
 
 (use-modules (ice-9 popen)
              (ice-9 rdelim)
@@ -23,15 +23,15 @@
 
 (define runtime-dir
   (or (getenv "XDG_RUNTIME_DIR") "/run/user/1000"))
-(define poll-interval
-  2)
-; seconds between new-socket discovery scans
+(define fallback-poll-interval
+  30)
+ ; seconds between safety-net rescans, in case inotify misses/dies
 (define suppress-window
   1)
-; seconds to ignore a selection's own echo, post-write
+ ; seconds to ignore a selection's own echo, post-write
 (define pre-write-guard
   0.2)
-; seconds of guard suppression while a write is in flight
+ ; seconds of guard suppression while a write is in flight
 
 ;; Off by default. Flip to #t only once you've validated the detection
 ;; logic below under real use -- a false positive here actively destroys
@@ -57,20 +57,20 @@
 
 (define known
   (make-hash-table))
-; socket -> #t  (window still open)
+ ; socket -> #t  (window still open)
 (define known-mutex
   (make-mutex))
 (define suppressed-until
   (make-hash-table))
-; (sock . primary?) -> time, breaks propagation loops
+ ; (sock . primary?) -> time, breaks propagation loops
 (define watcher-count
   (make-hash-table))
-; socket -> count of still-active watcher threads
+ ; socket -> count of still-active watcher threads
 (define watcher-count-mutex
   (make-mutex))
 (define had-content
   (make-hash-table))
-; (sock . primary?) -> #t once real content seen there
+ ; (sock . primary?) -> #t once real content seen there
 
 ;;; --- Utilities -----------------------------------------------------------
 
@@ -92,10 +92,17 @@
 (define (sel-key sock primary?)
   (cons sock primary?))
 
+;; icecat/Firefox creates its own internal "wayland-proxy-<pid>" socket
+;; (a connection-reliability buffer, not a real compositor endpoint) --
+;; exclude it so we don't spawn watcher threads against something that
+;; will never accept a clipboard connection.
+(define (wayland-socket? f)
+  (and (string-prefix? "wayland-" f)
+       (not (string-suffix? ".lock" f))
+       (not (string-prefix? "wayland-proxy-" f))))
+
 (define (wayland-sockets)
-  (filter (lambda (f)
-            (and (string-prefix? "wayland-" f)
-                 (not (string-suffix? ".lock" f))))
+  (filter wayland-socket?
           (or (scandir runtime-dir)
               '())))
 
@@ -296,18 +303,61 @@
   (call-with-new-thread (lambda ()
                           (watch-selection! sock #t))))
 
-;;; --- Main loop -------------------------------------------------------------
+(define (register-if-new! sock)
+  (let ((already? (with-mutex known-mutex
+                              (hash-ref known sock))))
+    (unless already?
+      (watch! sock))))
+
+;;; --- Discovery: inotify-driven, with a slow polling safety net -----------
+
+;; Long-lived thread: watches runtime-dir for newly created wayland-* socket
+;; files via inotifywait and registers them the instant they appear, instead
+;; of waiting on a polling cycle.
+(define (watch-new-sockets!)
+  (call-with-new-thread (lambda ()
+                          (safely (lambda ()
+                                    (let ((port (open-input-pipe (string-append
+                                                                  "inotifywait -m -e create --format '%f' '"
+                                                                  runtime-dir
+                                                                  "' 2>/dev/null"))))
+                                      (let loop
+                                        ()
+                                        (let ((line (read-line port)))
+                                          (unless (eof-object? line)
+                                            (when (wayland-socket? line)
+                                              (register-if-new! line))
+                                            (loop)))))) #f)
+                          ;; if we ever get here, inotifywait exited -- not expected under
+                          ;; normal operation. The fallback poll loop below keeps discovery
+                          ;; working, just at reduced responsiveness, until this is noticed.
+                          (log
+                           "inotify watcher exited unexpectedly -- falling back to polling only"))))
+
+;;; --- Main -------------------------------------------------------------
 
 (setvbuf (current-error-port)
          'line)
 (log "starting, watching ~a" runtime-dir)
+
+;; Start the inotify watcher first, so events occurring during the initial
+;; scan below aren't missed in the gap between "list current sockets" and
+;; "start watching for new ones".
+(watch-new-sockets!)
+
+;; Initial scan: covers windows that were already open before the daemon
+;; started -- inotify only reports events from this point forward, it has
+;; no memory of what already existed.
+(for-each register-if-new!
+          (wayland-sockets))
+
+;; Slow fallback rescan: safety net in case inotify misses an event or the
+;; inotifywait process dies. Not the primary discovery path any more, so
+;; the interval can be generous.
 (let loop
   ()
-  (for-each (lambda (s)
-              (unless (with-mutex known-mutex
-                                  (hash-ref known s))
-                (watch! s)))
+  (sleep fallback-poll-interval)
+  (for-each register-if-new!
             (wayland-sockets))
-  (sleep poll-interval)
   (loop))
 
