@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=wio-debug
+Comment=Rio-inspired Wayland compositor
+Exec=/home/mnlcz/Projects/config/wm/wio/wio-dbg.sh
+Type=Application
