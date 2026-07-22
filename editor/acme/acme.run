@@ -1,0 +1,5 @@
+#!/usr/bin/env rc
+
+font='/mnt/font/GoMono/13a/font'
+{$PLAN9/bin/acme -f $font -F $font $*}
+
