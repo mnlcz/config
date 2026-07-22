@@ -22,8 +22,7 @@ MANPAGER='less -R --use-color -Dd+r -Du+b'
 BAT_THEME=GitHub
 
 # Aliases
-fn e 	    { DISPLAY='' emacs $* & }
-fn ff       { fastfetch -c $CONF/tools/fastfetch/small.jsonc }
+# git
 fn ga       { git add $* }
 fn gb       { git branch $* }
 fn gc       { git commit $* }
@@ -33,7 +32,12 @@ fn gl       { git log --oneline --graph --decorate $* }
 fn gp       { git push $* }
 fn gpull    { git pull $* }
 fn gs       { git status $* }
-fn ll       { ls -laFoh $* }
+# guix
+fn gxs      { guix style -f $* }
+fn gxhr	    { guix home reconfigure $GUIXHOME }
+fn gxsr	    { sudo guix system reconfigure $GUIXSYS }
+# misc
+fn ff       { fastfetch -c $CONF/tools/fastfetch/small.jsonc }
 fn msview   { groff -ms -Tutf8 $* | less -R }
 fn pcf      { php-cs-fixer $* }
 
